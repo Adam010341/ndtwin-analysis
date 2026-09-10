@@ -1,0 +1,4062 @@
+[
+ {
+  "f": "doc/2026-01-02_ndt_api.md",
+  "cat": "doc",
+  "add": 2805,
+  "del": 0,
+  "raw_add": 3283,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/2026-08-10_ovs_manual_test_runbook.md",
+  "cat": "doc",
+  "add": 1041,
+  "del": 0,
+  "raw_add": 1481,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-09_tfm-tests.md",
+  "cat": "doc",
+  "add": 1021,
+  "del": 0,
+  "raw_add": 1244,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/proxy_agent/topology_manager.py",
+  "cat": "proxy",
+  "add": 934,
+  "del": 0,
+  "raw_add": 1516,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/2026-07-29_HANDOFF.md",
+  "cat": "doc",
+  "add": 898,
+  "del": 0,
+  "raw_add": 1225,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "setting/StaticNetworkTopologyOVS_10Switches_4Hosts.json",
+  "cat": "kernel",
+  "add": 889,
+  "del": 0,
+  "raw_add": 889,
+  "raw_del": 0,
+  "new": true,
+  "data": true
+ },
+ {
+  "f": "setting/StaticNetworkTopologyP4_10Switches_4Hosts.json",
+  "cat": "kernel",
+  "add": 889,
+  "del": 0,
+  "raw_add": 889,
+  "raw_del": 0,
+  "new": true,
+  "data": true
+ },
+ {
+  "f": "p4_proxy/tests/test_link_watchdog.py",
+  "cat": "test",
+  "add": 821,
+  "del": 0,
+  "raw_add": 1130,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-12_overnight-review/C-live-ovs-runbook.md",
+  "cat": "doc",
+  "add": 783,
+  "del": 0,
+  "raw_add": 1057,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-18_live-full-stack-round/subagent-round2-FINDINGS.md",
+  "cat": "doc",
+  "add": 779,
+  "del": 0,
+  "raw_add": 904,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-09_memory-safety-ci-plan.md",
+  "cat": "doc",
+  "add": 773,
+  "del": 0,
+  "raw_add": 963,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/2026-08-10_p4_manual_test_runbook.md",
+  "cat": "doc",
+  "add": 757,
+  "del": 0,
+  "raw_add": 1041,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/tests/test_p4_client_writes.py",
+  "cat": "test",
+  "add": 730,
+  "del": 0,
+  "raw_add": 1074,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "src/ndt_core/power_management/DeviceConfigurationAndPowerManager.cpp",
+  "cat": "kernel",
+  "add": 570,
+  "del": 160,
+  "raw_add": 951,
+  "raw_del": 196,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "tests/test_AdminDisableConsumers.cpp",
+  "cat": "test",
+  "add": 697,
+  "del": 0,
+  "raw_add": 808,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-09_numeric-differential-runbook.md",
+  "cat": "doc",
+  "add": 679,
+  "del": 0,
+  "raw_add": 948,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "src/ndt_core/collection/FlowLinkUsageCollector.cpp",
+  "cat": "kernel",
+  "add": 442,
+  "del": 168,
+  "raw_add": 913,
+  "raw_del": 214,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-09_spec-derived-tests.md",
+  "cat": "doc",
+  "add": 609,
+  "del": 0,
+  "raw_add": 741,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/contract_test/spec.py",
+  "cat": "test",
+  "add": 597,
+  "del": 0,
+  "raw_add": 814,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "src/ndt_core/http/HttpSession.cpp",
+  "cat": "kernel",
+  "add": 362,
+  "del": 234,
+  "raw_add": 601,
+  "raw_del": 266,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "tests/python/test_p4_power_helper.py",
+  "cat": "test",
+  "add": 593,
+  "del": 0,
+  "raw_add": 763,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-09_integration-runbook.md",
+  "cat": "doc",
+  "add": 577,
+  "del": 0,
+  "raw_add": 842,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/tests/test_readopt.py",
+  "cat": "test",
+  "add": 564,
+  "del": 0,
+  "raw_add": 768,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-13_advanced-testing-research/REPORT.md",
+  "cat": "doc",
+  "add": 550,
+  "del": 0,
+  "raw_add": 684,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "src/ndt_core/collection/TopologyAndFlowMonitor.cpp",
+  "cat": "kernel",
+  "add": 454,
+  "del": 96,
+  "raw_add": 852,
+  "raw_del": 104,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "tests/test_LLMResponseParsing.cpp",
+  "cat": "test",
+  "add": 544,
+  "del": 0,
+  "raw_add": 867,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-12_overnight-review/A-live-runbook.md",
+  "cat": "doc",
+  "add": 542,
+  "del": 0,
+  "raw_add": 718,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/tests/test_sflow_emitter.py",
+  "cat": "test",
+  "add": 538,
+  "del": 0,
+  "raw_add": 755,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/python/test_contract_spec.py",
+  "cat": "test",
+  "add": 525,
+  "del": 0,
+  "raw_add": 826,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/2026-07-29_p4_status_and_test_guide.md",
+  "cat": "doc",
+  "add": 516,
+  "del": 0,
+  "raw_add": 683,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/proxy_agent/p4_client.py",
+  "cat": "proxy",
+  "add": 506,
+  "del": 0,
+  "raw_add": 755,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-12_overnight-review/B3-test-mutation.md",
+  "cat": "doc",
+  "add": 501,
+  "del": 0,
+  "raw_add": 640,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/KNOWN-ISSUES.md",
+  "cat": "doc",
+  "add": 496,
+  "del": 0,
+  "raw_add": 608,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/raw/ping_p4_4host.log",
+  "cat": "doc",
+  "add": 492,
+  "del": 0,
+  "raw_add": 492,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/test_workflow/stack.sh",
+  "cat": "test",
+  "add": 490,
+  "del": 0,
+  "raw_add": 778,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_failover-provenance/raw_p4_128/p4_128_run9.log",
+  "cat": "doc",
+  "add": 480,
+  "del": 0,
+  "raw_add": 480,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_failover-provenance/raw_p4_128/p4_128_run3.log",
+  "cat": "doc",
+  "add": 479,
+  "del": 0,
+  "raw_add": 479,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_failover-provenance/raw_p4_128/p4_128_run6.log",
+  "cat": "doc",
+  "add": 479,
+  "del": 0,
+  "raw_add": 479,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_failover-provenance/raw_p4_128/p4_128_run1.log",
+  "cat": "doc",
+  "add": 472,
+  "del": 0,
+  "raw_add": 472,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_failover-provenance/raw_p4_128/p4_128_run4.log",
+  "cat": "doc",
+  "add": 470,
+  "del": 0,
+  "raw_add": 470,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/twin_audit/criteria.py",
+  "cat": "test",
+  "add": 467,
+  "del": 0,
+  "raw_add": 634,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_failover-provenance/raw_p4_128/p4_128_run2.log",
+  "cat": "doc",
+  "add": 465,
+  "del": 0,
+  "raw_add": 465,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_failover-provenance/raw_p4_128/p4_128_run8.log",
+  "cat": "doc",
+  "add": 464,
+  "del": 0,
+  "raw_add": 464,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_failover-provenance/raw_p4_128/p4_128_run5.log",
+  "cat": "doc",
+  "add": 463,
+  "del": 0,
+  "raw_add": 463,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/2026-07-28_test_coverage_gaps.md",
+  "cat": "doc",
+  "add": 452,
+  "del": 0,
+  "raw_add": 584,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_failover-provenance/raw_p4_128/p4_128_run7.log",
+  "cat": "doc",
+  "add": 448,
+  "del": 0,
+  "raw_add": 448,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_failover-provenance/raw_p4_128/p4_128_run10.log",
+  "cat": "doc",
+  "add": 445,
+  "del": 0,
+  "raw_add": 445,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/2026-07-27_p4_bmv2_support_plan.md",
+  "cat": "doc",
+  "add": 444,
+  "del": 0,
+  "raw_add": 582,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-12_overnight-review/B1-commit-review.md",
+  "cat": "doc",
+  "add": 443,
+  "del": 0,
+  "raw_add": 580,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_p4-sflow-accuracy/plot_figures.py",
+  "cat": "doc",
+  "add": 439,
+  "del": 0,
+  "raw_add": 506,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_TopologyAndFlowMonitor_mininet.cpp",
+  "cat": "test",
+  "add": 428,
+  "del": 0,
+  "raw_add": 636,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/python/test_twin_audit_criteria.py",
+  "cat": "test",
+  "add": 422,
+  "del": 0,
+  "raw_add": 649,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/mininet/p4_testbed_topo.py",
+  "cat": "proxy",
+  "add": 408,
+  "del": 0,
+  "raw_add": 568,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_SwitchKindDispatch.cpp",
+  "cat": "test",
+  "add": 398,
+  "del": 0,
+  "raw_add": 567,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-15_bmv2-source-analysis.md",
+  "cat": "doc",
+  "add": 396,
+  "del": 0,
+  "raw_add": 524,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_OvsPowerStrategy.cpp",
+  "cat": "test",
+  "add": 393,
+  "del": 0,
+  "raw_add": 602,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-30_audit-be3c242/00-workflow-plan.md",
+  "cat": "doc",
+  "add": 392,
+  "del": 0,
+  "raw_add": 474,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_TopologyAndFlowMonitor.cpp",
+  "cat": "test",
+  "add": 387,
+  "del": 0,
+  "raw_add": 592,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_SFlowParsing.cpp",
+  "cat": "test",
+  "add": 379,
+  "del": 0,
+  "raw_add": 555,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-15_integration-log-audit.md",
+  "cat": "doc",
+  "add": 377,
+  "del": 0,
+  "raw_add": 492,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/2026-08-07_testing_tools_overview.md",
+  "cat": "doc",
+  "add": 372,
+  "del": 0,
+  "raw_add": 573,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/2026-01-02_OpenflowFlowEntryExamplesMininet.md",
+  "cat": "doc",
+  "add": 360,
+  "del": 0,
+  "raw_add": 448,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-08_commit-review/power.md",
+  "cat": "doc",
+  "add": 356,
+  "del": 0,
+  "raw_add": 451,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/2026-07-30_full_test_runbook.md",
+  "cat": "doc",
+  "add": 352,
+  "del": 0,
+  "raw_add": 476,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-08_commit-review/tests-tools.md",
+  "cat": "doc",
+  "add": 350,
+  "del": 0,
+  "raw_add": 501,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/twin_audit/twin_audit.py",
+  "cat": "test",
+  "add": 350,
+  "del": 0,
+  "raw_add": 442,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-12_overnight-review/U-upstream-8b61cdc-analysis.md",
+  "cat": "doc",
+  "add": 348,
+  "del": 0,
+  "raw_add": 500,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/2026-01-02_OpenflowFlowEntryOperationExamples.md",
+  "cat": "doc",
+  "add": 347,
+  "del": 0,
+  "raw_add": 354,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/raw/p4_run2.log",
+  "cat": "doc",
+  "add": 347,
+  "del": 0,
+  "raw_add": 347,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/raw/p4_run10.log",
+  "cat": "doc",
+  "add": 341,
+  "del": 0,
+  "raw_add": 341,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/raw/p4_run7.log",
+  "cat": "doc",
+  "add": 337,
+  "del": 0,
+  "raw_add": 337,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/raw/p4_run9.log",
+  "cat": "doc",
+  "add": 336,
+  "del": 0,
+  "raw_add": 336,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/tests/test_switch_state.py",
+  "cat": "test",
+  "add": 336,
+  "del": 0,
+  "raw_add": 513,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-07_mutation-evidence-python.md",
+  "cat": "doc",
+  "add": 333,
+  "del": 0,
+  "raw_add": 355,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/raw/p4_run6.log",
+  "cat": "doc",
+  "add": 331,
+  "del": 0,
+  "raw_add": 331,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/raw/p4_run8.log",
+  "cat": "doc",
+  "add": 329,
+  "del": 0,
+  "raw_add": 329,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/raw/p4_run3.log",
+  "cat": "doc",
+  "add": 328,
+  "del": 0,
+  "raw_add": 328,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-18_live-full-stack-round/live-findings-2026-08-18-ovs.md",
+  "cat": "doc",
+  "add": 328,
+  "del": 0,
+  "raw_add": 449,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_SFlowEmitterRoundtrip.cpp",
+  "cat": "test",
+  "add": 327,
+  "del": 0,
+  "raw_add": 479,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/raw/p4_run5.log",
+  "cat": "doc",
+  "add": 326,
+  "del": 0,
+  "raw_add": 326,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/proxy_agent/sflow_emitter.py",
+  "cat": "proxy",
+  "add": 326,
+  "del": 0,
+  "raw_add": 448,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/reference/p4runtime_mastership_probe.py",
+  "cat": "proxy",
+  "add": 325,
+  "del": 0,
+  "raw_add": 402,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/contract_test/run_contract_test.py",
+  "cat": "test",
+  "add": 325,
+  "del": 0,
+  "raw_add": 430,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/raw/ovs4_run2.log",
+  "cat": "doc",
+  "add": 322,
+  "del": 0,
+  "raw_add": 322,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-07_mutation-evidence-cpp.md",
+  "cat": "doc",
+  "add": 321,
+  "del": 0,
+  "raw_add": 394,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/raw/ovs4_run9.log",
+  "cat": "doc",
+  "add": 321,
+  "del": 0,
+  "raw_add": 321,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/raw/p4_run4.log",
+  "cat": "doc",
+  "add": 320,
+  "del": 0,
+  "raw_add": 320,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/tests/test_clone_session.py",
+  "cat": "test",
+  "add": 320,
+  "del": 0,
+  "raw_add": 483,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/python/test_route_reinstall.py",
+  "cat": "test",
+  "add": 319,
+  "del": 0,
+  "raw_add": 443,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/raw/ovs4_run7.log",
+  "cat": "doc",
+  "add": 318,
+  "del": 0,
+  "raw_add": 318,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/raw/ovs4_run8.log",
+  "cat": "doc",
+  "add": 316,
+  "del": 0,
+  "raw_add": 316,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/raw/ovs4_run6.log",
+  "cat": "doc",
+  "add": 313,
+  "del": 0,
+  "raw_add": 313,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/test_workflow/faults.sh",
+  "cat": "test",
+  "add": 313,
+  "del": 0,
+  "raw_add": 511,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/raw/ovs4_run3.log",
+  "cat": "doc",
+  "add": 310,
+  "del": 0,
+  "raw_add": 310,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/contract_test/compare_baseline.py",
+  "cat": "test",
+  "add": 310,
+  "del": 0,
+  "raw_add": 399,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/raw/ovs128_run3.log",
+  "cat": "doc",
+  "add": 307,
+  "del": 0,
+  "raw_add": 307,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/raw/ovs4_run5.log",
+  "cat": "doc",
+  "add": 307,
+  "del": 0,
+  "raw_add": 307,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/p4_src/ndtwin_switch.p4",
+  "cat": "proxy",
+  "add": 306,
+  "del": 0,
+  "raw_add": 482,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_failover-provenance/raw_ovs128_n10/ovs128_run8.log",
+  "cat": "doc",
+  "add": 304,
+  "del": 0,
+  "raw_add": 304,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/raw/ovs4_run10.log",
+  "cat": "doc",
+  "add": 303,
+  "del": 0,
+  "raw_add": 303,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/raw/ovs4_run4.log",
+  "cat": "doc",
+  "add": 301,
+  "del": 0,
+  "raw_add": 301,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-09_test-independence-analysis.md",
+  "cat": "doc",
+  "add": 300,
+  "del": 0,
+  "raw_add": 450,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_Controller.cpp",
+  "cat": "test",
+  "add": 297,
+  "del": 0,
+  "raw_add": 419,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/raw/ovs128_run2.log",
+  "cat": "doc",
+  "add": 295,
+  "del": 0,
+  "raw_add": 295,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/tests/test_ryu_topology.py",
+  "cat": "test",
+  "add": 293,
+  "del": 0,
+  "raw_add": 386,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_failover-provenance/raw_ovs128_n10/ovs128_run6.log",
+  "cat": "doc",
+  "add": 292,
+  "del": 0,
+  "raw_add": 292,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_failover-provenance/raw_ovs128_n10/ovs128_run10.log",
+  "cat": "doc",
+  "add": 291,
+  "del": 0,
+  "raw_add": 291,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_ApplicationManager.cpp",
+  "cat": "test",
+  "add": 290,
+  "del": 0,
+  "raw_add": 453,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/2026-07-27_testing_workflow.md",
+  "cat": "doc",
+  "add": 289,
+  "del": 0,
+  "raw_add": 395,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-08_commit-review/p4-proxy.md",
+  "cat": "doc",
+  "add": 285,
+  "del": 0,
+  "raw_add": 339,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "src/ndt_core/application_management/ApplicationManager.cpp",
+  "cat": "kernel",
+  "add": 216,
+  "del": 69,
+  "raw_add": 288,
+  "raw_del": 83,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-08_commit-review/utils-core.md",
+  "cat": "doc",
+  "add": 283,
+  "del": 0,
+  "raw_add": 392,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/test_workflow/run_layers.sh",
+  "cat": "test",
+  "add": 282,
+  "del": 0,
+  "raw_add": 397,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_failover-provenance/raw_ovs128_n10/ovs128_run4.log",
+  "cat": "doc",
+  "add": 280,
+  "del": 0,
+  "raw_add": 280,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-18_three-model-questioner-round/questions/deepseek-agent-CONTAMINATED.md",
+  "cat": "doc",
+  "add": 276,
+  "del": 0,
+  "raw_add": 312,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_HttpSessionRouting.cpp",
+  "cat": "test",
+  "add": 276,
+  "del": 0,
+  "raw_add": 458,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_P4PowerStrategy.cpp",
+  "cat": "test",
+  "add": 276,
+  "del": 0,
+  "raw_add": 457,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/2026-08-11_phase7_power_mechanism_design.md",
+  "cat": "doc",
+  "add": 275,
+  "del": 0,
+  "raw_add": 347,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-12_overnight-review/B4-runbook-vs-code.md",
+  "cat": "doc",
+  "add": 275,
+  "del": 0,
+  "raw_add": 396,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/raw/ping_128host.log",
+  "cat": "doc",
+  "add": 275,
+  "del": 0,
+  "raw_add": 275,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_failover-provenance/raw_ovs128_n10/ovs128_run7.log",
+  "cat": "doc",
+  "add": 274,
+  "del": 0,
+  "raw_add": 274,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_KeyedFailureLog.cpp",
+  "cat": "test",
+  "add": 270,
+  "del": 0,
+  "raw_add": 424,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/contract_test/check_logs.py",
+  "cat": "test",
+  "add": 269,
+  "del": 0,
+  "raw_add": 352,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_GoldenFixture.cpp",
+  "cat": "test",
+  "add": 263,
+  "del": 0,
+  "raw_add": 392,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_failover-provenance/raw_ovs128_n10/ovs128_run5.log",
+  "cat": "doc",
+  "add": 262,
+  "del": 0,
+  "raw_add": 262,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_failover-provenance/raw_ovs128_n10/ovs128_run9.log",
+  "cat": "doc",
+  "add": 262,
+  "del": 0,
+  "raw_add": 262,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_IntentTaskOutcomes.cpp",
+  "cat": "test",
+  "add": 261,
+  "del": 0,
+  "raw_add": 390,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_LastHopAttribution.cpp",
+  "cat": "test",
+  "add": 261,
+  "del": 0,
+  "raw_add": 354,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/p4_power_helper.py",
+  "cat": "test",
+  "add": 260,
+  "del": 0,
+  "raw_add": 382,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "CHANGELOG.md",
+  "cat": "doc",
+  "add": 253,
+  "del": 4,
+  "raw_add": 305,
+  "raw_del": 4,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/proxy_agent/api_routes.py",
+  "cat": "proxy",
+  "add": 257,
+  "del": 0,
+  "raw_add": 366,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/proxy_agent/ryu_topology.py",
+  "cat": "proxy",
+  "add": 257,
+  "del": 0,
+  "raw_add": 338,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-12_overnight-review/T-w2-tools.md",
+  "cat": "doc",
+  "add": 256,
+  "del": 0,
+  "raw_add": 336,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/contract_test/l3_component_check.py",
+  "cat": "test",
+  "add": 255,
+  "del": 0,
+  "raw_add": 324,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-15_fresh-acceptance-report.md",
+  "cat": "doc",
+  "add": 247,
+  "del": 0,
+  "raw_add": 352,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "src/main.cpp",
+  "cat": "kernel",
+  "add": 210,
+  "del": 37,
+  "raw_add": 263,
+  "raw_del": 44,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "tests/python/test_twin_audit.py",
+  "cat": "test",
+  "add": 242,
+  "del": 0,
+  "raw_add": 351,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/shell/test_faults.sh",
+  "cat": "test",
+  "add": 240,
+  "del": 0,
+  "raw_add": 317,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "include/utils/Utils.hpp",
+  "cat": "kernel",
+  "add": 211,
+  "del": 28,
+  "raw_add": 396,
+  "raw_del": 32,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "tools/contract_test/README.md",
+  "cat": "test",
+  "add": 239,
+  "del": 0,
+  "raw_add": 376,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-03_scoped/P1-tests.md",
+  "cat": "doc",
+  "add": 236,
+  "del": 0,
+  "raw_add": 290,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/2026-08-14_cross-component-integration-matrix.md",
+  "cat": "doc",
+  "add": 232,
+  "del": 0,
+  "raw_add": 273,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/tests/test_startup.py",
+  "cat": "test",
+  "add": 230,
+  "del": 0,
+  "raw_add": 327,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/tests/test_unsupported_match.py",
+  "cat": "test",
+  "add": 227,
+  "del": 0,
+  "raw_add": 315,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_HistoricalLogging.cpp",
+  "cat": "test",
+  "add": 226,
+  "del": 0,
+  "raw_add": 325,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_ClassifierActionForms.cpp",
+  "cat": "test",
+  "add": 225,
+  "del": 0,
+  "raw_add": 381,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/contract_test/components.py",
+  "cat": "test",
+  "add": 224,
+  "del": 0,
+  "raw_add": 279,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/contract_test/selftest_fixtures.py",
+  "cat": "test",
+  "add": 224,
+  "del": 0,
+  "raw_add": 285,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_FlowTableConcurrency.cpp",
+  "cat": "test",
+  "add": 217,
+  "del": 0,
+  "raw_add": 290,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/2026-07-29_environment_gotchas.md",
+  "cat": "doc",
+  "add": 213,
+  "del": 0,
+  "raw_add": 314,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "src/ndt_core/routing_management/FlowRoutingManager.cpp",
+  "cat": "kernel",
+  "add": 124,
+  "del": 89,
+  "raw_add": 160,
+  "raw_del": 96,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "tools/test_workflow/l1_unit_tests.sh",
+  "cat": "test",
+  "add": 209,
+  "del": 0,
+  "raw_add": 352,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/PROMPT_Fable_CodebaseAudit.md",
+  "cat": "doc",
+  "add": 207,
+  "del": 0,
+  "raw_add": 258,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-03_scoped/P2-concurrency.md",
+  "cat": "doc",
+  "add": 207,
+  "del": 0,
+  "raw_add": 241,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_P4Liveness.cpp",
+  "cat": "test",
+  "add": 203,
+  "del": 0,
+  "raw_add": 323,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-03_scoped/P4-tooling.md",
+  "cat": "doc",
+  "add": 197,
+  "del": 0,
+  "raw_add": 233,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-12_overnight-review/INDEX.md",
+  "cat": "doc",
+  "add": 197,
+  "del": 0,
+  "raw_add": 278,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/tests/test_kernel_notifier.py",
+  "cat": "test",
+  "add": 197,
+  "del": 0,
+  "raw_add": 276,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_AdministrativeDisable.cpp",
+  "cat": "test",
+  "add": 195,
+  "del": 0,
+  "raw_add": 282,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-18_pre-report-claim-verification.md",
+  "cat": "doc",
+  "add": 194,
+  "del": 0,
+  "raw_add": 269,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/python/test_unidirectional_link_loss.py",
+  "cat": "test",
+  "add": 194,
+  "del": 0,
+  "raw_add": 257,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-18_three-model-questioner-round/REPORT.md",
+  "cat": "doc",
+  "add": 193,
+  "del": 0,
+  "raw_add": 270,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-08_commit-review/http-routing.md",
+  "cat": "doc",
+  "add": 191,
+  "del": 0,
+  "raw_add": 246,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_RoutingStrategies.cpp",
+  "cat": "test",
+  "add": 190,
+  "del": 0,
+  "raw_add": 281,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/raw/ping_4host.log",
+  "cat": "doc",
+  "add": 189,
+  "del": 0,
+  "raw_add": 189,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-03_scoped/00-summary.md",
+  "cat": "doc",
+  "add": 188,
+  "del": 0,
+  "raw_add": 225,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-12_overnight-review/W2-live-reverify.md",
+  "cat": "doc",
+  "add": 188,
+  "del": 0,
+  "raw_add": 256,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-18_live-full-stack-round/f5_frequency.log",
+  "cat": "doc",
+  "add": 187,
+  "del": 0,
+  "raw_add": 187,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "src/ndt_core/routing_management/HttpRoutingStrategyBase.cpp",
+  "cat": "kernel",
+  "add": 187,
+  "del": 0,
+  "raw_add": 240,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/test_workflow/README.md",
+  "cat": "test",
+  "add": 187,
+  "del": 0,
+  "raw_add": 260,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/reference/clone_stack_probe.py",
+  "cat": "proxy",
+  "add": 186,
+  "del": 0,
+  "raw_add": 222,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/proxy_agent/main.py",
+  "cat": "proxy",
+  "add": 185,
+  "del": 0,
+  "raw_add": 345,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_FlowDispatcher.cpp",
+  "cat": "test",
+  "add": 184,
+  "del": 0,
+  "raw_add": 308,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/git-hooks/post-commit",
+  "cat": "test",
+  "add": 181,
+  "del": 0,
+  "raw_add": 207,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/tests/test_bmv2_binary_override.py",
+  "cat": "test",
+  "add": 180,
+  "del": 0,
+  "raw_add": 219,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_HttpSessionStatusCodes.cpp",
+  "cat": "test",
+  "add": 177,
+  "del": 0,
+  "raw_add": 301,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-03_scoped/P3-logic.md",
+  "cat": "doc",
+  "add": 173,
+  "del": 0,
+  "raw_add": 199,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-10_tfm-spec-unknown-adjudication.md",
+  "cat": "doc",
+  "add": 170,
+  "del": 0,
+  "raw_add": 237,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "src/ndt_core/intent_translator/IntentTranslator.cpp",
+  "cat": "kernel",
+  "add": 132,
+  "del": 36,
+  "raw_add": 157,
+  "raw_del": 36,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-12_overnight-review/B2-doc-rot.md",
+  "cat": "doc",
+  "add": 167,
+  "del": 0,
+  "raw_add": 241,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_ParamParsing.cpp",
+  "cat": "test",
+  "add": 165,
+  "del": 0,
+  "raw_add": 264,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_LockManager.cpp",
+  "cat": "test",
+  "add": 164,
+  "del": 0,
+  "raw_add": 265,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/AUDIT_A_hallucinations.md",
+  "cat": "doc",
+  "add": 163,
+  "del": 0,
+  "raw_add": 197,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "testbed_topo.py",
+  "cat": "test",
+  "add": 163,
+  "del": 0,
+  "raw_add": 257,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/contract_test/schema.py",
+  "cat": "test",
+  "add": 163,
+  "del": 0,
+  "raw_add": 224,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_FlowBatchPartition.cpp",
+  "cat": "test",
+  "add": 162,
+  "del": 0,
+  "raw_add": 263,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_SimulationRequestValidation.cpp",
+  "cat": "test",
+  "add": 161,
+  "del": 0,
+  "raw_add": 272,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_P4FlowStatsToClassifier.cpp",
+  "cat": "test",
+  "add": 160,
+  "del": 0,
+  "raw_add": 294,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/NDTwin_Architecture_Review.md",
+  "cat": "doc",
+  "add": 158,
+  "del": 0,
+  "raw_add": 192,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-07_findings-cpp-untested-units.md",
+  "cat": "doc",
+  "add": 157,
+  "del": 0,
+  "raw_add": 198,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-16_concurrent-flow-reconciliation.md",
+  "cat": "doc",
+  "add": 156,
+  "del": 0,
+  "raw_add": 195,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/test_workflow/l0_build_check.sh",
+  "cat": "test",
+  "add": 156,
+  "del": 0,
+  "raw_add": 219,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_RelayResponse.cpp",
+  "cat": "test",
+  "add": 153,
+  "del": 0,
+  "raw_add": 251,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/REPORT.md",
+  "cat": "doc",
+  "add": 152,
+  "del": 0,
+  "raw_add": 193,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/tests/test_flow_stats_route.py",
+  "cat": "test",
+  "add": 152,
+  "del": 0,
+  "raw_add": 236,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-07_ryu-wedge-trace.tsv",
+  "cat": "doc",
+  "add": 151,
+  "del": 0,
+  "raw_add": 151,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/2026-08-15_bmv2-performance-report.md",
+  "cat": "doc",
+  "add": 149,
+  "del": 0,
+  "raw_add": 180,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/proxy_agent/kernel_notifier.py",
+  "cat": "proxy",
+  "add": 146,
+  "del": 0,
+  "raw_add": 184,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "include/common_types/SFlowType.hpp",
+  "cat": "kernel",
+  "add": 143,
+  "del": 0,
+  "raw_add": 270,
+  "raw_del": 0,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "tests/test_EventBus.cpp",
+  "cat": "test",
+  "add": 143,
+  "del": 0,
+  "raw_add": 227,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_TopologyUrlAndPathJson.cpp",
+  "cat": "test",
+  "add": 140,
+  "del": 0,
+  "raw_add": 222,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-18_live-full-stack-round/sflow-accuracy-2026-08-18.md",
+  "cat": "doc",
+  "add": 137,
+  "del": 0,
+  "raw_add": 176,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_IpToString.cpp",
+  "cat": "test",
+  "add": 137,
+  "del": 0,
+  "raw_add": 221,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_ApiKeyNotLogged.cpp",
+  "cat": "test",
+  "add": 136,
+  "del": 0,
+  "raw_add": 209,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_SmartPlugFields.cpp",
+  "cat": "test",
+  "add": 136,
+  "del": 0,
+  "raw_add": 195,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-08_external-tools-compat-review.md",
+  "cat": "doc",
+  "add": 135,
+  "del": 0,
+  "raw_add": 199,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/proxy_agent/ryu_flow_stats.py",
+  "cat": "proxy",
+  "add": 135,
+  "del": 0,
+  "raw_add": 190,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/2026-08-17_testing-manual.md",
+  "cat": "doc",
+  "add": 133,
+  "del": 0,
+  "raw_add": 177,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_AllDestinationPaths.cpp",
+  "cat": "test",
+  "add": 133,
+  "del": 0,
+  "raw_add": 218,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-18_live-full-stack-round/live-findings-2026-08-18-p4.md",
+  "cat": "doc",
+  "add": 132,
+  "del": 0,
+  "raw_add": 184,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "src/ndt_core/data_management/HistoricalDataManager.cpp",
+  "cat": "kernel",
+  "add": 85,
+  "del": 47,
+  "raw_add": 116,
+  "raw_del": 59,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "src/ndt_core/power_management/OVSPowerStrategy.cpp",
+  "cat": "kernel",
+  "add": 132,
+  "del": 0,
+  "raw_add": 182,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_ClassifierDropRule.cpp",
+  "cat": "test",
+  "add": 131,
+  "del": 0,
+  "raw_add": 218,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/test_workflow/ndtwin-lab",
+  "cat": "test",
+  "add": 131,
+  "del": 0,
+  "raw_add": 136,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/tests/test_ryu_flow_stats.py",
+  "cat": "test",
+  "add": 130,
+  "del": 0,
+  "raw_add": 192,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/tests/test_lldp_beacon.py",
+  "cat": "test",
+  "add": 127,
+  "del": 0,
+  "raw_add": 185,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_ReverseEdgeLookup.cpp",
+  "cat": "test",
+  "add": 123,
+  "del": 0,
+  "raw_add": 197,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/ADJUDICATION_agy-reviews_0157-0201.md",
+  "cat": "doc",
+  "add": 122,
+  "del": 0,
+  "raw_add": 167,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_FlowStatsTimeout.cpp",
+  "cat": "test",
+  "add": 121,
+  "del": 0,
+  "raw_add": 261,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/mininet/ntg_bmv2_topo.py",
+  "cat": "proxy",
+  "add": 120,
+  "del": 0,
+  "raw_add": 187,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/python/test_route_install_gate.py",
+  "cat": "test",
+  "add": 120,
+  "del": 0,
+  "raw_add": 169,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-08_commit-review/collection.md",
+  "cat": "doc",
+  "add": 117,
+  "del": 0,
+  "raw_add": 163,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_OvsLiveness.cpp",
+  "cat": "test",
+  "add": 114,
+  "del": 0,
+  "raw_add": 198,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_FlowTableCacheOptionalFields.cpp",
+  "cat": "test",
+  "add": 113,
+  "del": 0,
+  "raw_add": 184,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/test_workflow/ovs_4host_topo.py",
+  "cat": "test",
+  "add": 111,
+  "del": 0,
+  "raw_add": 178,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/tests/test_flowentry_endpoints.py",
+  "cat": "test",
+  "add": 110,
+  "del": 0,
+  "raw_add": 158,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/tests/test_topology_properties.py",
+  "cat": "test",
+  "add": 108,
+  "del": 0,
+  "raw_add": 147,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/AUDIT_D_swallowed_errors.md",
+  "cat": "doc",
+  "add": 107,
+  "del": 0,
+  "raw_add": 124,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_EstimatedRates.cpp",
+  "cat": "test",
+  "add": 107,
+  "del": 0,
+  "raw_add": 182,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-08_change-magnitude-review.md",
+  "cat": "doc",
+  "add": 106,
+  "del": 0,
+  "raw_add": 152,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": ".github/workflows/ci.yml",
+  "cat": "test",
+  "add": 105,
+  "del": 0,
+  "raw_add": 204,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/tests/push_rules.py",
+  "cat": "test",
+  "add": 105,
+  "del": 0,
+  "raw_add": 131,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_failover-provenance/REPORT.md",
+  "cat": "doc",
+  "add": 104,
+  "del": 0,
+  "raw_add": 139,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-16_write-path-live-retest.md",
+  "cat": "doc",
+  "add": 102,
+  "del": 0,
+  "raw_add": 123,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "include/utils/KeyedFailureLog.hpp",
+  "cat": "kernel",
+  "add": 101,
+  "del": 0,
+  "raw_add": 231,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/ADJUDICATION_AUDIT_ABCD_2026-08-12.md",
+  "cat": "doc",
+  "add": 100,
+  "del": 0,
+  "raw_add": 139,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/tests/generate_emitted_fixtures.py",
+  "cat": "test",
+  "add": 99,
+  "del": 0,
+  "raw_add": 161,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_failover-provenance/raw/base_run1.log",
+  "cat": "doc",
+  "add": 98,
+  "del": 0,
+  "raw_add": 98,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_failover-provenance/raw/base_run2.log",
+  "cat": "doc",
+  "add": 98,
+  "del": 0,
+  "raw_add": 98,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_failover-provenance/raw/base_run3.log",
+  "cat": "doc",
+  "add": 98,
+  "del": 0,
+  "raw_add": 98,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/PROMPT_KernelTestSuite_Review.md",
+  "cat": "doc",
+  "add": 97,
+  "del": 0,
+  "raw_add": 127,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-09_mutation-evidence-phase6.md",
+  "cat": "doc",
+  "add": 95,
+  "del": 0,
+  "raw_add": 117,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-18_live-full-stack-round/analyse.py",
+  "cat": "doc",
+  "add": 94,
+  "del": 0,
+  "raw_add": 121,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/CMakeLists.txt",
+  "cat": "test",
+  "add": 93,
+  "del": 0,
+  "raw_add": 117,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/shell/test_p4_coverage_gate.sh",
+  "cat": "test",
+  "add": 90,
+  "del": 0,
+  "raw_add": 120,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_PathNodeParsing.cpp",
+  "cat": "test",
+  "add": 89,
+  "del": 0,
+  "raw_add": 166,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/tests/test_p4_client.py",
+  "cat": "test",
+  "add": 87,
+  "del": 0,
+  "raw_add": 117,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-12_overnight-review/D-testing-doc-update.md",
+  "cat": "doc",
+  "add": 86,
+  "del": 0,
+  "raw_add": 116,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/test_workflow/local_ci.sh",
+  "cat": "test",
+  "add": 86,
+  "del": 0,
+  "raw_add": 146,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/2026-08-13_p4runtime-mastership-spec-check.md",
+  "cat": "doc",
+  "add": 84,
+  "del": 0,
+  "raw_add": 110,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/2026-08-15_bmv2-performance-build-public-manual-draft.md",
+  "cat": "doc",
+  "add": 83,
+  "del": 0,
+  "raw_add": 103,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_agy-review-backlog-triage.md",
+  "cat": "doc",
+  "add": 83,
+  "del": 0,
+  "raw_add": 113,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "src/ndt_core/power_management/P4PowerStrategy.cpp",
+  "cat": "kernel",
+  "add": 83,
+  "del": 0,
+  "raw_add": 163,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/README.md",
+  "cat": "doc",
+  "add": 82,
+  "del": 0,
+  "raw_add": 102,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/test_workflow/p4_coverage_gate.sh",
+  "cat": "test",
+  "add": 80,
+  "del": 0,
+  "raw_add": 130,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "include/common_types/GraphTypes.hpp",
+  "cat": "kernel",
+  "add": 77,
+  "del": 1,
+  "raw_add": 195,
+  "raw_del": 1,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "src/ndt_core/application_management/SimulationRequestManager.cpp",
+  "cat": "kernel",
+  "add": 77,
+  "del": 0,
+  "raw_add": 101,
+  "raw_del": 0,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "doc/2026-08-16_delivery-package/bmv2-manual-entry.md",
+  "cat": "doc",
+  "add": 74,
+  "del": 0,
+  "raw_add": 92,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/AUDIT_C_hardcoded.md",
+  "cat": "doc",
+  "add": 74,
+  "del": 0,
+  "raw_add": 89,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "setting/node_positions_p4.json",
+  "cat": "kernel",
+  "add": 74,
+  "del": 0,
+  "raw_add": 74,
+  "raw_del": 0,
+  "new": true,
+  "data": true
+ },
+ {
+  "f": "doc/audit/2026-07-31_handoff-verdicts-1h-1k.md",
+  "cat": "doc",
+  "add": 73,
+  "del": 0,
+  "raw_add": 96,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-10_mutation-evidence-tfm.md",
+  "cat": "doc",
+  "add": 73,
+  "del": 0,
+  "raw_add": 103,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/README.md",
+  "cat": "doc",
+  "add": 71,
+  "del": 0,
+  "raw_add": 94,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-17_structure-decomposition/httpsession_analysis.md",
+  "cat": "doc",
+  "add": 71,
+  "del": 0,
+  "raw_add": 88,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-18_live-full-stack-round/measure_core_bandwidth.sh",
+  "cat": "doc",
+  "add": 71,
+  "del": 0,
+  "raw_add": 125,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_RequestDeadlines.cpp",
+  "cat": "test",
+  "add": 71,
+  "del": 0,
+  "raw_add": 132,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/2026-08-16_src-ip-endianness-review.md",
+  "cat": "doc",
+  "add": 70,
+  "del": 0,
+  "raw_add": 89,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_install-rejected-but-applied.md",
+  "cat": "doc",
+  "add": 70,
+  "del": 0,
+  "raw_add": 90,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/p4_src/SPEC.md",
+  "cat": "proxy",
+  "add": 70,
+  "del": 0,
+  "raw_add": 87,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_SyntheticPower.cpp",
+  "cat": "test",
+  "add": 70,
+  "del": 0,
+  "raw_add": 121,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "include/ndt_core/power_management/DeviceConfigurationAndPowerManager.hpp",
+  "cat": "kernel",
+  "add": 67,
+  "del": 2,
+  "raw_add": 451,
+  "raw_del": 6,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_api-latency-vs-baseline/REPORT.md",
+  "cat": "doc",
+  "add": 66,
+  "del": 0,
+  "raw_add": 83,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/2026-08-16_p4lang-clone-stacking-issue-draft.md",
+  "cat": "doc",
+  "add": 65,
+  "del": 0,
+  "raw_add": 84,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-16_clone-stacking-raw-repro.md",
+  "cat": "doc",
+  "add": 65,
+  "del": 0,
+  "raw_add": 78,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-12_overnight-review/RESEARCH-PROMPT-advanced-testing.md",
+  "cat": "doc",
+  "add": 64,
+  "del": 0,
+  "raw_add": 78,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-16_fault-matrix.md",
+  "cat": "doc",
+  "add": 64,
+  "del": 0,
+  "raw_add": 79,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/shell/test_wait_for_port.sh",
+  "cat": "test",
+  "add": 63,
+  "del": 0,
+  "raw_add": 108,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-16_multi-rate-reconciliation.md",
+  "cat": "doc",
+  "add": 62,
+  "del": 0,
+  "raw_add": 80,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-18_three-model-questioner-round/questions/gemini-3.7-flash.md",
+  "cat": "doc",
+  "add": 62,
+  "del": 0,
+  "raw_add": 78,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/fuzz/fuzz_sflow.cpp",
+  "cat": "test",
+  "add": 61,
+  "del": 0,
+  "raw_add": 122,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-17_structure-decomposition/system_architecture_workflow.md",
+  "cat": "doc",
+  "add": 60,
+  "del": 0,
+  "raw_add": 71,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-15_acceptance-judgments.md",
+  "cat": "doc",
+  "add": 60,
+  "del": 0,
+  "raw_add": 71,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-18_live-full-stack-round/method_check.py",
+  "cat": "doc",
+  "add": 60,
+  "del": 0,
+  "raw_add": 69,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-18_live-full-stack-round/run.py",
+  "cat": "doc",
+  "add": 59,
+  "del": 0,
+  "raw_add": 71,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "include/ndt_core/routing_management/FlowJob.hpp",
+  "cat": "kernel",
+  "add": 58,
+  "del": 0,
+  "raw_add": 123,
+  "raw_del": 0,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "tests/shell/test_local_ci.sh",
+  "cat": "test",
+  "add": 58,
+  "del": 0,
+  "raw_add": 87,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/shell/test_qdisc_snapshot.sh",
+  "cat": "test",
+  "add": 58,
+  "del": 0,
+  "raw_add": 82,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-17_structure-decomposition/ndtwin_system_scenarios.md",
+  "cat": "doc",
+  "add": 57,
+  "del": 0,
+  "raw_add": 80,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-17_structure-decomposition/testbed_topo_architecture.md",
+  "cat": "doc",
+  "add": 56,
+  "del": 0,
+  "raw_add": 69,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-17_structure-decomposition/controller_event_handler_analysis.md",
+  "cat": "doc",
+  "add": 55,
+  "del": 0,
+  "raw_add": 70,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-18_live-full-stack-round/SUMMARY.md",
+  "cat": "doc",
+  "add": 55,
+  "del": 0,
+  "raw_add": 74,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-18_three-model-questioner-round/questions/PROMPT-given-to-all-three.txt",
+  "cat": "doc",
+  "add": 55,
+  "del": 0,
+  "raw_add": 66,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/2026-08-15_ntg-upstream-report-draft.md",
+  "cat": "doc",
+  "add": 54,
+  "del": 0,
+  "raw_add": 75,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-17_p4-vs-ovs-matched-topology/measure_failover.sh",
+  "cat": "doc",
+  "add": 52,
+  "del": 0,
+  "raw_add": 76,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_CommandFailure.cpp",
+  "cat": "test",
+  "add": 52,
+  "del": 0,
+  "raw_add": 97,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/shell/test_start_bg_log_rotation.sh",
+  "cat": "test",
+  "add": 51,
+  "del": 0,
+  "raw_add": 86,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "src/ndt_core/collection/Classifier.cpp",
+  "cat": "kernel",
+  "add": 30,
+  "del": 20,
+  "raw_add": 141,
+  "raw_del": 22,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/components/EventSystem_Detailed_Review.md",
+  "cat": "doc",
+  "add": 49,
+  "del": 0,
+  "raw_add": 58,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-18_live-full-stack-round/measure_f5_frequency.sh",
+  "cat": "doc",
+  "add": 49,
+  "del": 0,
+  "raw_add": 71,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-18_three-model-questioner-round/questions/deepseek-v4-pro.md",
+  "cat": "doc",
+  "add": 49,
+  "del": 0,
+  "raw_add": 61,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/manual/inet_ntoa_buffer_is_thread_local.c",
+  "cat": "test",
+  "add": 49,
+  "del": 0,
+  "raw_add": 81,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/shell/test_up_ovs_wedge_guard.sh",
+  "cat": "test",
+  "add": 48,
+  "del": 0,
+  "raw_add": 77,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-17_structure-decomposition/main_analysis.md",
+  "cat": "doc",
+  "add": 47,
+  "del": 0,
+  "raw_add": 63,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/mininet/SPEC.md",
+  "cat": "proxy",
+  "add": 47,
+  "del": 0,
+  "raw_add": 62,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/mininet/flow_bmv2_low.json",
+  "cat": "proxy",
+  "add": 47,
+  "del": 0,
+  "raw_add": 47,
+  "raw_del": 0,
+  "new": true,
+  "data": true
+ },
+ {
+  "f": "doc/audit/2026-07-30_audit-be3c242/01-routing-management-summary.md",
+  "cat": "doc",
+  "add": 45,
+  "del": 0,
+  "raw_add": 54,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-18_live-full-stack-round/cadence.py",
+  "cat": "doc",
+  "add": 45,
+  "del": 0,
+  "raw_add": 54,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/2026-01-02_OpenflowCapacity.json",
+  "cat": "doc",
+  "add": 44,
+  "del": 0,
+  "raw_add": 44,
+  "raw_del": 0,
+  "new": true,
+  "data": true
+ },
+ {
+  "f": "doc/2026-08-16_delivery-package/ntg-report.md",
+  "cat": "doc",
+  "add": 43,
+  "del": 0,
+  "raw_add": 61,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-17_structure-decomposition/topology_monitor_analysis.md",
+  "cat": "doc",
+  "add": 42,
+  "del": 0,
+  "raw_add": 59,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/AUDIT_B_test_completeness.md",
+  "cat": "doc",
+  "add": 42,
+  "del": 0,
+  "raw_add": 54,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/proxy_agent/SPEC.md",
+  "cat": "proxy",
+  "add": 42,
+  "del": 0,
+  "raw_add": 52,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/test_workflow/components.env",
+  "cat": "test",
+  "add": 42,
+  "del": 0,
+  "raw_add": 96,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-30_audit-be3c242/02-power-management-summary.md",
+  "cat": "doc",
+  "add": 41,
+  "del": 0,
+  "raw_add": 50,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-18_three-model-questioner-round/questions/muse-spark-1.2-contributor.md",
+  "cat": "doc",
+  "add": 41,
+  "del": 0,
+  "raw_add": 51,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-17_structure-decomposition/intelligent_router_analysis.md",
+  "cat": "doc",
+  "add": 40,
+  "del": 0,
+  "raw_add": 56,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-30_audit-be3c242/05-http-app-entry-summary.md",
+  "cat": "doc",
+  "add": 40,
+  "del": 0,
+  "raw_add": 49,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "include/ndt_core/routing_management/HttpRoutingStrategyBase.hpp",
+  "cat": "kernel",
+  "add": 40,
+  "del": 0,
+  "raw_add": 85,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-17_structure-decomposition/flow_link_usage_collector_analysis.md",
+  "cat": "doc",
+  "add": 39,
+  "del": 0,
+  "raw_add": 56,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "src/ndt_core/routing_management/Controller.cpp",
+  "cat": "kernel",
+  "add": 29,
+  "del": 10,
+  "raw_add": 45,
+  "raw_del": 12,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "tools/test_workflow/derive_p4_topology_json.py",
+  "cat": "test",
+  "add": 39,
+  "del": 0,
+  "raw_add": 52,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "include/ndt_core/routing_management/FlowRoutingManager.hpp",
+  "cat": "kernel",
+  "add": 28,
+  "del": 10,
+  "raw_add": 73,
+  "raw_del": 10,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_p4-sflow-accuracy/analyse_q.py",
+  "cat": "doc",
+  "add": 37,
+  "del": 0,
+  "raw_add": 37,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/git-hooks/README.md",
+  "cat": "test",
+  "add": 37,
+  "del": 0,
+  "raw_add": 51,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/reference/README.md",
+  "cat": "proxy",
+  "add": 36,
+  "del": 0,
+  "raw_add": 48,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/reference/test_10_routes.py",
+  "cat": "proxy",
+  "add": 36,
+  "del": 0,
+  "raw_add": 54,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/contract_test/warning_allowlist.txt",
+  "cat": "test",
+  "add": 36,
+  "del": 0,
+  "raw_add": 140,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-17_structure-decomposition/device_power_manager_analysis.md",
+  "cat": "doc",
+  "add": 35,
+  "del": 0,
+  "raw_add": 51,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-17_structure-decomposition/testbed_topo_analysis.md",
+  "cat": "doc",
+  "add": 33,
+  "del": 0,
+  "raw_add": 44,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/components/Collection_Detailed_Review.md",
+  "cat": "doc",
+  "add": 33,
+  "del": 0,
+  "raw_add": 40,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/components/PowerManagement_Detailed_Review.md",
+  "cat": "doc",
+  "add": 33,
+  "del": 0,
+  "raw_add": 42,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/components/TopologyAndFlowMonitor.md",
+  "cat": "doc",
+  "add": 33,
+  "del": 0,
+  "raw_add": 40,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "include/ndt_core/routing_management/OpResult.hpp",
+  "cat": "kernel",
+  "add": 33,
+  "del": 0,
+  "raw_add": 68,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-17_structure-decomposition/other_component.md",
+  "cat": "doc",
+  "add": 32,
+  "del": 0,
+  "raw_add": 48,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/components/EventHandling_Detailed_Review.md",
+  "cat": "doc",
+  "add": 32,
+  "del": 0,
+  "raw_add": 39,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/components/RoutingManagement_Detailed_Review.md",
+  "cat": "doc",
+  "add": 31,
+  "del": 0,
+  "raw_add": 40,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-16_c11-soak-drift.md",
+  "cat": "doc",
+  "add": 31,
+  "del": 0,
+  "raw_add": 43,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-17_structure-decomposition/flow_routing_manager_analysis.md",
+  "cat": "doc",
+  "add": 30,
+  "del": 0,
+  "raw_add": 41,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/components/FlowLinkUsageCollector.md",
+  "cat": "doc",
+  "add": 30,
+  "del": 0,
+  "raw_add": 37,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/components/IntentTranslator_Detailed_Review.md",
+  "cat": "doc",
+  "add": 30,
+  "del": 0,
+  "raw_add": 38,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-08-19_api-latency-vs-baseline/api_latency.py",
+  "cat": "doc",
+  "add": 30,
+  "del": 0,
+  "raw_add": 34,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/components/DataManagement_Detailed_Review.md",
+  "cat": "doc",
+  "add": 29,
+  "del": 0,
+  "raw_add": 35,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/components/DeviceConfigurationAndPowerManager.md",
+  "cat": "doc",
+  "add": 29,
+  "del": 0,
+  "raw_add": 36,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-30_audit-be3c242/06-event-utils-summary.md",
+  "cat": "doc",
+  "add": 28,
+  "del": 0,
+  "raw_add": 38,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "include/ndt_core/collection/FlowLinkUsageCollector.hpp",
+  "cat": "kernel",
+  "add": 23,
+  "del": 5,
+  "raw_add": 185,
+  "raw_del": 11,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "include/ndt_core/routing_management/IRoutingStrategy.hpp",
+  "cat": "kernel",
+  "add": 28,
+  "del": 0,
+  "raw_add": 59,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "include/ndt_core/collection/TopologyAndFlowMonitor.hpp",
+  "cat": "kernel",
+  "add": 22,
+  "del": 5,
+  "raw_add": 156,
+  "raw_del": 21,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "src/ndt_core/routing_management/FlowDispatcher.cpp",
+  "cat": "kernel",
+  "add": 20,
+  "del": 7,
+  "raw_add": 44,
+  "raw_del": 8,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/components/ApplicationManagement_Detailed_Review.md",
+  "cat": "doc",
+  "add": 26,
+  "del": 0,
+  "raw_add": 32,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/components/FlowRoutingManager.md",
+  "cat": "doc",
+  "add": 26,
+  "del": 0,
+  "raw_add": 33,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/components/Http_Detailed_Review.md",
+  "cat": "doc",
+  "add": 26,
+  "del": 0,
+  "raw_add": 33,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/test_workflow/build_bmv2_fast.sh",
+  "cat": "test",
+  "add": 26,
+  "del": 0,
+  "raw_add": 76,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/test_workflow/qdisc_snapshot.sh",
+  "cat": "test",
+  "add": 26,
+  "del": 0,
+  "raw_add": 49,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-17_structure-decomposition/step4_walkthrough.md",
+  "cat": "doc",
+  "add": 25,
+  "del": 0,
+  "raw_add": 39,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/components/ControllerAndOtherEventHandler.md",
+  "cat": "doc",
+  "add": 25,
+  "del": 0,
+  "raw_add": 32,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-30_audit-be3c242/10-ci-workflow-tests-summary.md",
+  "cat": "doc",
+  "add": 23,
+  "del": 0,
+  "raw_add": 29,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": ".claude/agents/fable-judge.md",
+  "cat": "doc",
+  "add": 22,
+  "del": 0,
+  "raw_add": 25,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/2026-08-16_delivery-package/README.md",
+  "cat": "doc",
+  "add": 22,
+  "del": 0,
+  "raw_add": 28,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/components/ApplicationManager.md",
+  "cat": "doc",
+  "add": 22,
+  "del": 0,
+  "raw_add": 29,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "include/ndt_core/data_management/HistoricalDataManager.hpp",
+  "cat": "kernel",
+  "add": 16,
+  "del": 6,
+  "raw_add": 63,
+  "raw_del": 6,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "doc/2026-08-16_delivery-package/docs-errata.md",
+  "cat": "doc",
+  "add": 21,
+  "del": 0,
+  "raw_add": 28,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/components/EventBus.md",
+  "cat": "doc",
+  "add": 21,
+  "del": 0,
+  "raw_add": 28,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-29_codebase-review/components/IntentTranslator.md",
+  "cat": "doc",
+  "add": 21,
+  "del": 0,
+  "raw_add": 28,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "src/ndt_core/routing_management/P4RoutingStrategy.cpp",
+  "cat": "kernel",
+  "add": 20,
+  "del": 0,
+  "raw_add": 29,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "include/ndt_core/power_management/IPowerStrategy.hpp",
+  "cat": "kernel",
+  "add": 19,
+  "del": 0,
+  "raw_add": 54,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-30_audit-be3c242/07-p4-proxy-agent-summary.md",
+  "cat": "doc",
+  "add": 18,
+  "del": 0,
+  "raw_add": 23,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-30_audit-be3c242/08-p4-mininet-topo-summary.md",
+  "cat": "doc",
+  "add": 18,
+  "del": 0,
+  "raw_add": 24,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "include/ndt_core/intent_translator/LLMResponseTypes.hpp",
+  "cat": "kernel",
+  "add": 12,
+  "del": 6,
+  "raw_add": 38,
+  "raw_del": 6,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "include/ndt_core/routing_management/P4RoutingStrategy.hpp",
+  "cat": "kernel",
+  "add": 18,
+  "del": 0,
+  "raw_add": 41,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/contract_test/baseline_diff_allowlist.txt",
+  "cat": "test",
+  "add": 18,
+  "del": 0,
+  "raw_add": 138,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "cmake/sanitizer-flags.cmake",
+  "cat": "kernel",
+  "add": 17,
+  "del": 0,
+  "raw_add": 61,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-17_structure-decomposition/NDTKernel_components_mapping.md",
+  "cat": "doc",
+  "add": 16,
+  "del": 0,
+  "raw_add": 19,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tests/test_LoggerEnvironment.cpp",
+  "cat": "test",
+  "add": 16,
+  "del": 0,
+  "raw_add": 54,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-30_audit-be3c242/03-topology-management-summary.md",
+  "cat": "doc",
+  "add": 15,
+  "del": 0,
+  "raw_add": 22,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-30_audit-be3c242/09-cpp-unit-tests-summary.md",
+  "cat": "doc",
+  "add": 15,
+  "del": 0,
+  "raw_add": 20,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "include/event_system/EventBus.hpp",
+  "cat": "kernel",
+  "add": 10,
+  "del": 5,
+  "raw_add": 29,
+  "raw_del": 6,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "include/ndt_core/application_management/ApplicationManager.hpp",
+  "cat": "kernel",
+  "add": 13,
+  "del": 2,
+  "raw_add": 123,
+  "raw_del": 2,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "include/ndt_core/power_management/OVSPowerStrategy.hpp",
+  "cat": "kernel",
+  "add": 15,
+  "del": 0,
+  "raw_add": 57,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/reference/dump_table.py",
+  "cat": "proxy",
+  "add": 15,
+  "del": 0,
+  "raw_add": 18,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "doc/audit/2026-07-30_audit-be3c242/04-flow-statistics-summary.md",
+  "cat": "doc",
+  "add": 14,
+  "del": 0,
+  "raw_add": 21,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "include/ndt_core/lock_management/LockManager.hpp",
+  "cat": "kernel",
+  "add": 10,
+  "del": 4,
+  "raw_add": 22,
+  "raw_del": 4,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "CMakeLists.txt",
+  "cat": "kernel",
+  "add": 13,
+  "del": 0,
+  "raw_add": 27,
+  "raw_del": 0,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "doc/debug-log/README.md",
+  "cat": "doc",
+  "add": 13,
+  "del": 0,
+  "raw_add": 19,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "include/ndt_core/power_management/P4PowerStrategy.hpp",
+  "cat": "kernel",
+  "add": 13,
+  "del": 0,
+  "raw_add": 24,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/reference/test_modify_error.py",
+  "cat": "proxy",
+  "add": 13,
+  "del": 0,
+  "raw_add": 21,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "include/ndt_core/routing_management/OpenFlowRoutingStrategy.hpp",
+  "cat": "kernel",
+  "add": 12,
+  "del": 0,
+  "raw_add": 24,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/mininet/bmv2_binary_override",
+  "cat": "proxy",
+  "add": 11,
+  "del": 0,
+  "raw_add": 12,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "src/ndt_core/intent_translator/LLMAgent.cpp",
+  "cat": "kernel",
+  "add": 7,
+  "del": 3,
+  "raw_add": 25,
+  "raw_del": 3,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/requirements.txt",
+  "cat": "proxy",
+  "add": 9,
+  "del": 0,
+  "raw_add": 45,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "setting/AppConfig.hpp.example",
+  "cat": "kernel",
+  "add": 9,
+  "del": 0,
+  "raw_add": 9,
+  "raw_del": 0,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/reference/check_env.py",
+  "cat": "proxy",
+  "add": 8,
+  "del": 0,
+  "raw_add": 8,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "include/ndt_core/http/HttpSession.hpp",
+  "cat": "kernel",
+  "add": 7,
+  "del": 0,
+  "raw_add": 63,
+  "raw_del": 1,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "include/ndt_core/intent_translator/IntentTranslator.hpp",
+  "cat": "kernel",
+  "add": 7,
+  "del": 0,
+  "raw_add": 50,
+  "raw_del": 0,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "include/ndt_core/application_management/SimulationRequestManager.hpp",
+  "cat": "kernel",
+  "add": 4,
+  "del": 0,
+  "raw_add": 40,
+  "raw_del": 5,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/reference/test_modify.py",
+  "cat": "proxy",
+  "add": 4,
+  "del": 0,
+  "raw_add": 4,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "src/ndt_core/routing_management/CMakeLists.txt",
+  "cat": "kernel",
+  "add": 3,
+  "del": 1,
+  "raw_add": 6,
+  "raw_del": 1,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "README.md",
+  "cat": "doc",
+  "add": 2,
+  "del": 1,
+  "raw_add": 2,
+  "raw_del": 2,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "include/ndt_core/routing_management/FlowDispatcher.hpp",
+  "cat": "kernel",
+  "add": 1,
+  "del": 2,
+  "raw_add": 14,
+  "raw_del": 7,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "tools/test_workflow/faults.txt",
+  "cat": "test",
+  "add": 3,
+  "del": 0,
+  "raw_add": 63,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "tools/test_workflow/p4_coverage_baseline.txt",
+  "cat": "test",
+  "add": 3,
+  "del": 0,
+  "raw_add": 25,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "p4_proxy/mininet/s1_commands.txt",
+  "cat": "proxy",
+  "add": 2,
+  "del": 0,
+  "raw_add": 2,
+  "raw_del": 0,
+  "new": true,
+  "data": false
+ },
+ {
+  "f": "src/ndt_core/power_management/CMakeLists.txt",
+  "cat": "kernel",
+  "add": 2,
+  "del": 0,
+  "raw_add": 2,
+  "raw_del": 0,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "include/ndt_core/collection/Classifier.hpp",
+  "cat": "kernel",
+  "add": 1,
+  "del": 0,
+  "raw_add": 14,
+  "raw_del": 0,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "include/ndt_core/event_handling/ControllerAndOtherEventHandler.hpp",
+  "cat": "kernel",
+  "add": 1,
+  "del": 0,
+  "raw_add": 6,
+  "raw_del": 0,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "src/ndt_core/event_handling/ControllerAndOtherEventHandler.cpp",
+  "cat": "kernel",
+  "add": 1,
+  "del": 0,
+  "raw_add": 8,
+  "raw_del": 0,
+  "new": false,
+  "data": false
+ },
+ {
+  "f": "src/utils/Logger.cpp",
+  "cat": "kernel",
+  "add": 1,
+  "del": 0,
+  "raw_add": 5,
+  "raw_del": 0,
+  "new": false,
+  "data": false
+ }
+]

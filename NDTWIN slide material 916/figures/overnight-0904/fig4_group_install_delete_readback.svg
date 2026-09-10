@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="765.3888pt" height="387.2232pt" viewBox="0 0 765.3888 387.2232" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-05T15:58:39.406196</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 387.2232 
+L 765.3888 387.2232 
+L 765.3888 0 
+L 0 0 
+z
+" style="fill: #fcfcfb"/>
+  </g>
+  <g id="axes_1">
+   <g id="table_1">
+    <g id="patch_2">
+     <path d="M 7.2 86.904626 
+L 165.914128 86.904626 
+L 165.914128 54.1368 
+L 7.2 54.1368 
+z
+" style="fill: #eeede8; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_1">
+     <text style="font-weight: 700; font-size: 9.2px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; text-anchor: middle; fill: #0b0b0b" x="86.557064" y="72.931401" transform="rotate(-0 86.557064 72.931401)">group_id</text>
+    </g>
+    <g id="patch_3">
+     <path d="M 165.914128 86.904626 
+L 371.081171 86.904626 
+L 371.081171 54.1368 
+L 165.914128 54.1368 
+z
+" style="fill: #eeede8; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_2">
+     <text style="font-weight: 700; font-size: 9.2px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; text-anchor: middle; fill: #0b0b0b" x="268.497649" y="72.931401" transform="rotate(-0 268.497649 72.931401)">install_group_entry</text>
+    </g>
+    <g id="patch_4">
+     <path d="M 371.081171 86.904626 
+L 553.021757 86.904626 
+L 553.021757 54.1368 
+L 371.081171 54.1368 
+z
+" style="fill: #eeede8; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_3">
+     <text style="font-weight: 700; font-size: 9.2px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; text-anchor: middle; fill: #0b0b0b" x="462.051464" y="73.023401" transform="rotate(-0 462.051464 73.023401)">groupdesc (switch truth)</text>
+    </g>
+    <g id="patch_5">
+     <path d="M 553.021757 86.904626 
+L 758.1888 86.904626 
+L 758.1888 54.1368 
+L 553.021757 54.1368 
+z
+" style="fill: #eeede8; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_4">
+     <text style="font-weight: 700; font-size: 9.2px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; text-anchor: middle; fill: #0b0b0b" x="655.605278" y="72.931401" transform="rotate(-0 655.605278 72.931401)">delete_group_entry (same id)</text>
+    </g>
+    <g id="patch_6">
+     <path d="M 7.2 119.672452 
+L 165.914128 119.672452 
+L 165.914128 86.904626 
+L 7.2 86.904626 
+z
+" style="fill: #ffffff; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_5">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(56.017064 100.429089)">4294967295</text>
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(34.487564 111.178989)">(OFPG_ALL, reserved)</text>
+    </g>
+    <g id="patch_7">
+     <path d="M 165.914128 119.672452 
+L 371.081171 119.672452 
+L 371.081171 86.904626 
+L 165.914128 86.904626 
+z
+" style="fill: #fbe4e3; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_6">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(227.657149 100.562589)">200 {"outcome":</text>
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(240.660649 111.312489)">"installed"}</text>
+    </g>
+    <g id="patch_8">
+     <path d="M 371.081171 119.672452 
+L 553.021757 119.672452 
+L 553.021757 86.904626 
+L 371.081171 86.904626 
+z
+" style="fill: #fbe4e3; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_7">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; text-anchor: middle; fill: #0b0b0b" x="462.051464" y="105.937539" transform="rotate(-0 462.051464 105.937539)">absent</text>
+    </g>
+    <g id="patch_9">
+     <path d="M 553.021757 119.672452 
+L 758.1888 119.672452 
+L 758.1888 86.904626 
+L 553.021757 86.904626 
+z
+" style="fill: #e2f4e2; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_8">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(614.764778 100.429089)">404 {"outcome":</text>
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(612.193778 111.178989)">"no_such_group"}</text>
+    </g>
+    <g id="patch_10">
+     <path d="M 7.2 152.440278 
+L 165.914128 152.440278 
+L 165.914128 119.672452 
+L 7.2 119.672452 
+z
+" style="fill: #ffffff; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_9">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(56.017064 133.330415)">4294967293</text>
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(61.723814 144.080315)">(reserved)</text>
+    </g>
+    <g id="patch_11">
+     <path d="M 165.914128 152.440278 
+L 371.081171 152.440278 
+L 371.081171 119.672452 
+L 165.914128 119.672452 
+z
+" style="fill: #fbe4e3; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_10">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(227.657149 133.330415)">200 {"outcome":</text>
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(240.660649 144.080315)">"installed"}</text>
+    </g>
+    <g id="patch_12">
+     <path d="M 371.081171 152.440278 
+L 553.021757 152.440278 
+L 553.021757 119.672452 
+L 371.081171 119.672452 
+z
+" style="fill: #fbe4e3; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_11">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; text-anchor: middle; fill: #0b0b0b" x="462.051464" y="138.705365" transform="rotate(-0 462.051464 138.705365)">absent</text>
+    </g>
+    <g id="patch_13">
+     <path d="M 553.021757 152.440278 
+L 758.1888 152.440278 
+L 758.1888 119.672452 
+L 553.021757 119.672452 
+z
+" style="fill: #e2f4e2; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_12">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(614.764778 133.196915)">404 {"outcome":</text>
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(612.193778 143.946815)">"no_such_group"}</text>
+    </g>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; text-anchor: start; fill: #52514e" x="7.2" y="47.1368" transform="rotate(-0 7.2 47.1368)">BEFORE — kernel cca5e3e4, 2026-09-04</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="table_2">
+    <g id="patch_14">
+     <path d="M 7.2 224.529496 
+L 165.914128 224.529496 
+L 165.914128 191.76167 
+L 7.2 191.76167 
+z
+" style="fill: #eeede8; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_14">
+     <text style="font-weight: 700; font-size: 9.2px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; text-anchor: middle; fill: #0b0b0b" x="86.557064" y="210.55627" transform="rotate(-0 86.557064 210.55627)">group_id</text>
+    </g>
+    <g id="patch_15">
+     <path d="M 165.914128 224.529496 
+L 371.081171 224.529496 
+L 371.081171 191.76167 
+L 165.914128 191.76167 
+z
+" style="fill: #eeede8; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_15">
+     <text style="font-weight: 700; font-size: 9.2px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; text-anchor: middle; fill: #0b0b0b" x="268.497649" y="210.55627" transform="rotate(-0 268.497649 210.55627)">install_group_entry</text>
+    </g>
+    <g id="patch_16">
+     <path d="M 371.081171 224.529496 
+L 553.021757 224.529496 
+L 553.021757 191.76167 
+L 371.081171 191.76167 
+z
+" style="fill: #eeede8; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_16">
+     <text style="font-weight: 700; font-size: 9.2px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; text-anchor: middle; fill: #0b0b0b" x="462.051464" y="210.64827" transform="rotate(-0 462.051464 210.64827)">groupdesc (switch truth)</text>
+    </g>
+    <g id="patch_17">
+     <path d="M 553.021757 224.529496 
+L 758.1888 224.529496 
+L 758.1888 191.76167 
+L 553.021757 191.76167 
+z
+" style="fill: #eeede8; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_17">
+     <text style="font-weight: 700; font-size: 9.2px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; text-anchor: middle; fill: #0b0b0b" x="655.605278" y="210.55627" transform="rotate(-0 655.605278 210.55627)">delete_group_entry (same id)</text>
+    </g>
+    <g id="patch_18">
+     <path d="M 7.2 257.297322 
+L 165.914128 257.297322 
+L 165.914128 224.529496 
+L 7.2 224.529496 
+z
+" style="fill: #ffffff; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_18">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(56.017064 238.053959)">4294967295</text>
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(34.487564 248.803859)">(OFPG_ALL, reserved)</text>
+    </g>
+    <g id="patch_19">
+     <path d="M 165.914128 257.297322 
+L 371.081171 257.297322 
+L 371.081171 224.529496 
+L 165.914128 224.529496 
+z
+" style="fill: #e2f4e2; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_19">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(203.820649 238.187459)">502 {"outcome":"absent"}</text>
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(201.369649 248.937359)">“the switch did NOT take it”</text>
+    </g>
+    <g id="patch_20">
+     <path d="M 371.081171 257.297322 
+L 553.021757 257.297322 
+L 553.021757 224.529496 
+L 371.081171 224.529496 
+z
+" style="fill: #e2f4e2; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_20">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; text-anchor: middle; fill: #0b0b0b" x="462.051464" y="243.562409" transform="rotate(-0 462.051464 243.562409)">absent</text>
+    </g>
+    <g id="patch_21">
+     <path d="M 553.021757 257.297322 
+L 758.1888 257.297322 
+L 758.1888 224.529496 
+L 553.021757 224.529496 
+z
+" style="fill: #e2f4e2; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_21">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(614.764778 238.053959)">404 {"outcome":</text>
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(612.193778 248.803859)">"no_such_group"}</text>
+    </g>
+    <g id="patch_22">
+     <path d="M 7.2 290.065148 
+L 165.914128 290.065148 
+L 165.914128 257.297322 
+L 7.2 257.297322 
+z
+" style="fill: #ffffff; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_22">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(56.017064 270.955285)">4294967293</text>
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(61.723814 281.705185)">(reserved)</text>
+    </g>
+    <g id="patch_23">
+     <path d="M 165.914128 290.065148 
+L 371.081171 290.065148 
+L 371.081171 257.297322 
+L 165.914128 257.297322 
+z
+" style="fill: #e2f4e2; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_23">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(203.820649 270.955285)">502 {"outcome":"absent"}</text>
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(201.369649 281.705185)">“the switch did NOT take it”</text>
+    </g>
+    <g id="patch_24">
+     <path d="M 371.081171 290.065148 
+L 553.021757 290.065148 
+L 553.021757 257.297322 
+L 371.081171 257.297322 
+z
+" style="fill: #e2f4e2; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_24">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; text-anchor: middle; fill: #0b0b0b" x="462.051464" y="276.330235" transform="rotate(-0 462.051464 276.330235)">absent</text>
+    </g>
+    <g id="patch_25">
+     <path d="M 553.021757 290.065148 
+L 758.1888 290.065148 
+L 758.1888 257.297322 
+L 553.021757 257.297322 
+z
+" style="fill: #e2f4e2; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_25">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(614.764778 270.821785)">404 {"outcome":</text>
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(612.193778 281.571685)">"no_such_group"}</text>
+    </g>
+    <g id="patch_26">
+     <path d="M 7.2 322.832974 
+L 165.914128 322.832974 
+L 165.914128 290.065148 
+L 7.2 290.065148 
+z
+" style="fill: #ffffff; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_26">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(77.395064 303.723111)">813</text>
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(32.971064 314.473011)">(control, OVS accepts)</text>
+    </g>
+    <g id="patch_27">
+     <path d="M 165.914128 322.832974 
+L 371.081171 322.832974 
+L 371.081171 290.065148 
+L 165.914128 290.065148 
+z
+" style="fill: #e2f4e2; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_27">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(227.657149 303.723111)">200 {"outcome":</text>
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(240.660649 314.473011)">"installed"}</text>
+    </g>
+    <g id="patch_28">
+     <path d="M 371.081171 322.832974 
+L 553.021757 322.832974 
+L 553.021757 290.065148 
+L 371.081171 290.065148 
+z
+" style="fill: #e2f4e2; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_28">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(443.807714 303.723111)">present</text>
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(427.985714 314.473011)">(type SELECT)</text>
+    </g>
+    <g id="patch_29">
+     <path d="M 553.021757 322.832974 
+L 758.1888 322.832974 
+L 758.1888 290.065148 
+L 553.021757 290.065148 
+z
+" style="fill: #e2f4e2; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_29">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(614.764778 303.723111)">200 {"outcome":</text>
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(629.965028 314.473011)">"deleted"}</text>
+    </g>
+    <g id="patch_30">
+     <path d="M 7.2 355.6008 
+L 165.914128 355.6008 
+L 165.914128 322.832974 
+L 7.2 322.832974 
+z
+" style="fill: #ffffff; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_30">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(77.395064 336.490937)">899</text>
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(27.469064 347.240837)">(control, never installed)</text>
+    </g>
+    <g id="patch_31">
+     <path d="M 165.914128 355.6008 
+L 371.081171 355.6008 
+L 371.081171 322.832974 
+L 165.914128 322.832974 
+z
+" style="fill: #e2f4e2; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_31">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(227.522149 336.357437)">— not attempted</text>
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; fill: #0b0b0b" transform="translate(198.888649 347.107337)">(modify: 404 no_such_group)</text>
+    </g>
+    <g id="patch_32">
+     <path d="M 371.081171 355.6008 
+L 553.021757 355.6008 
+L 553.021757 322.832974 
+L 371.081171 322.832974 
+z
+" style="fill: #e2f4e2; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_32">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; text-anchor: middle; fill: #0b0b0b" x="462.051464" y="341.865887" transform="rotate(-0 462.051464 341.865887)">absent</text>
+    </g>
+    <g id="patch_33">
+     <path d="M 553.021757 355.6008 
+L 758.1888 355.6008 
+L 758.1888 322.832974 
+L 553.021757 322.832974 
+z
+" style="fill: #ffffff; stroke: #e1e0d9; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_33">
+     <text style="font-size: 9.6px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; text-anchor: middle; fill: #0b0b0b" x="655.605278" y="341.865887" transform="rotate(-0 655.605278 341.865887)">— not attempted</text>
+    </g>
+   </g>
+   <g id="text_34">
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; text-anchor: start; fill: #52514e" x="7.2" y="184.76167" transform="rotate(-0 7.2 184.76167)">AFTER — kernel 4c9e0be1, 2026-09-05</text>
+   </g>
+  </g>
+  <g id="text_35">
+   <text style="font-size: 13px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; text-anchor: start; fill: #0b0b0b" x="7.2" y="17.077969" transform="rotate(-0 7.2 17.077969)">install vs. delete readback, before and after the W1 fix</text>
+  </g>
+  <g id="text_36">
+   <text style="font-size: 10.5px; font-family: 'DejaVu Sans', 'Arial', 'Helvetica', sans-serif; text-anchor: start; fill: #0b0b0b" x="7.2" y="377.839528" transform="rotate(-0 7.2 377.839528)">install now says “installed” only once the switch has taken it</text>
+  </g>
+ </g>
+</svg>

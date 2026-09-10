@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="403.2pt" height="410.4pt" viewBox="0 0 403.2 410.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-08T17:54:49.180680</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 410.4 
+L 403.2 410.4 
+L 403.2 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="line2d_1">
+    <path d="M 75.6 76.32 
+L 75.6 363.6 
+" clip-path="url(#pb648e5eff8)" style="fill: none; stroke-dasharray: 2.2,2.2; stroke-dashoffset: 0; stroke: #d0d0d0"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 208.8 76.32 
+L 208.8 363.6 
+" clip-path="url(#pb648e5eff8)" style="fill: none; stroke-dasharray: 2.2,2.2; stroke-dashoffset: 0; stroke: #d0d0d0"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 342 76.32 
+L 342 363.6 
+" clip-path="url(#pb648e5eff8)" style="fill: none; stroke-dasharray: 2.2,2.2; stroke-dashoffset: 0; stroke: #d0d0d0"/>
+   </g>
+   <g id="patch_2">
+    <path d="M 18 28.8 
+L 133.2 28.8 
+L 133.2 76.32 
+L 18 76.32 
+z
+" clip-path="url(#pb648e5eff8)" style="fill: #ffffff; stroke: #1a1a1a; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 165.6 28.8 
+L 252 28.8 
+L 252 76.32 
+L 165.6 76.32 
+z
+" clip-path="url(#pb648e5eff8)" style="fill: #ffffff; stroke: #1a1a1a; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 284.4 28.8 
+L 399.6 28.8 
+L 399.6 76.32 
+L 284.4 76.32 
+z
+" clip-path="url(#pb648e5eff8)" style="fill: #ffffff; stroke: #1a1a1a; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 75.6 116.64 
+Q 142.2 116.64 207.898612 116.64 
+" style="fill: none; stroke: #1a1a1a; stroke-linejoin: miter; stroke-linecap: round"/>
+    <path d="M 205.738612 115.2 
+L 207.898612 116.64 
+L 205.738612 118.08 
+z
+" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-linejoin: miter; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 342 174.24 
+Q 275.4 174.24 209.701388 174.24 
+" style="fill: none; stroke-dasharray: 2.6,1.8; stroke-dashoffset: 0; stroke: #1a1a1a; stroke-linejoin: miter; stroke-linecap: round"/>
+    <path d="M 211.861388 175.68 
+L 209.701388 174.24 
+L 211.861388 172.8 
+z
+" style="fill: #1a1a1a; stroke-dasharray: 2.6,1.8; stroke-dashoffset: 0; stroke: #1a1a1a; stroke-linejoin: miter; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 342 231.84 
+Q 275.4 231.84 209.701388 231.84 
+" style="fill: none; stroke: #1a1a1a; stroke-linejoin: miter; stroke-linecap: round"/>
+    <path d="M 211.861388 233.28 
+L 209.701388 231.84 
+L 211.861388 230.4 
+z
+" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-linejoin: miter; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 208.8 325.44 
+Q 275.4 325.44 341.008473 325.44 
+" style="fill: none; stroke: #9c3b2e; stroke-width: 1.1; stroke-linejoin: miter; stroke-linecap: round"/>
+    <path d="M 338.848473 324 
+L 341.008473 325.44 
+L 338.848473 326.88 
+z
+" style="fill: #9c3b2e; stroke: #9c3b2e; stroke-width: 1.1; stroke-linejoin: miter; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 151.2 257.76 
+L 266.4 257.76 
+L 266.4 290.88 
+L 151.2 290.88 
+z
+" clip-path="url(#pb648e5eff8)" style="fill: #fbf2f0; stroke: #9c3b2e; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="75.6" y="48.538496" transform="rotate(-0 75.6 48.538496)">proxy client</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 7.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #4f4f4f" x="75.6" y="64.579453" transform="rotate(-0 75.6 64.579453)">election (0,1)</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #1a1a1a" x="208.8" y="55.138516" transform="rotate(-0 208.8 55.138516)">bmv2</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="342" y="48.538496" transform="rotate(-0 342 48.538496)">mycontroller</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 7.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #4f4f4f" x="342" y="64.579453" transform="rotate(-0 342 64.579453)">election (0,1)</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 7.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #1a1a1a" x="142.2" y="108.493887" transform="rotate(-0 142.2 108.493887)">StreamChannel</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 7.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f4f4f" x="142.2" y="130.100918" transform="rotate(-0 142.2 130.100918)">primary</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 7.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #1a1a1a" x="275.4" y="166.093887" transform="rotate(-0 275.4 166.093887)">StreamChannel</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 7.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f4f4f" x="275.4" y="187.700918" transform="rotate(-0 275.4 187.700918)">killed: duplicate</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 7.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #1a1a1a" x="275.4" y="223.737539" transform="rotate(-0 275.4 223.737539)">SetForwardingPipelineConfig</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 7.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f4f4f" x="275.4" y="245.300918" transform="rotate(-0 275.4 245.300918)">accepted</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #9c3b2e" x="208.8" y="276.907891" transform="rotate(-0 208.8 276.907891)">tables wiped</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #9c3b2e" x="275.4" y="317.88957" transform="rotate(-0 275.4 317.88957)">OK</text>
+   </g>
+   <g id="patch_10">
+    <path d="M 20.88 371.52 
+L 130.32 371.52 
+Q 133.2 371.52 133.2 374.4 
+L 133.2 390.24 
+Q 133.2 393.12 130.32 393.12 
+L 20.88 393.12 
+Q 18 393.12 18 390.24 
+L 18 374.4 
+Q 18 371.52 20.88 371.52 
+z
+" clip-path="url(#pb648e5eff8)" style="fill: #eef3f6; stroke: #065a82; stroke-width: 0.9; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #065a82" x="75.6" y="384.879707" transform="rotate(-0 75.6 384.879707)">MEASURED 08-13</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pb648e5eff8">
+   <rect x="0" y="0" width="403.2" height="410.4"/>
+  </clipPath>
+ </defs>
+</svg>
