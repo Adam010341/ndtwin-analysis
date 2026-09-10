@@ -1,0 +1,8 @@
+# submission package: never in version control (Adam 2026-09-01 ruling)
+paper/
+# python venv used for matplotlib figures (rebuildable; see 820/.plotvenv notes)
+.plotvenv/
+__pycache__/
+*.pyc
+# venue survey belongs to the submission line, not the slides
+VENUES-*.md
