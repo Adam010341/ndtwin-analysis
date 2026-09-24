@@ -1,9 +1,25 @@
 """Render the slide figures from the archived measurement data.
 
-Every figure here is produced from data committed under doc/audit/, so a figure on a slide
-can be traced to the run that produced it. Nothing is typed in by hand except the failover
-numbers, which are re-derived from the raw ping logs by outage_from_pings() rather than
-copied from the report.
+Every figure here except page37_throughput-ab.png is produced from data committed under
+doc/audit/, so a figure on a slide can be traced to the run that produced it. The failover
+outages are re-derived from the raw ping logs by outage_from_pings() rather than copied from
+the report.
+
+TYPED IN BY HAND -- the exceptions, named here so nobody has to discover them:
+  * fig_throughput (page37_throughput-ab.png) draws five values transcribed from the A/B
+    saturation table in doc/2026-08-15_bmv2-performance-report.md, because the raw iperf3
+    output of that run was never committed anywhere and there is nothing to recompute from:
+      stock build  40 Mbps   (report: ~40-42 Mbps UDP delivered)   3.6k pps  (report: ~3,619)
+      fast build   495 Mbps  (the MIDPOINT of the report's ~460-530) 50.8k pps (report: ~50,786)
+      OVS          980 Mbps  (report: the 08-15 OVS control)
+    The report does not say whether "64 B" was frame or payload size; see
+    doc/audit/2026-08-28_packet-size-sweep/PREREG.md.
+  * fig_failover's inset "P4 is 2.0 s faster (13%) / Welch t=2.89, p=0.0098 / 95% CI
+    0.55-3.50 s" is a typed string from doc/audit/2026-08-17_p4-vs-ovs-matched-topology/REPORT.md.
+    It agrees with the cells failover_cells() returns (2.03 s, 12.9%, t=2.891), but it is not
+    computed from them.
+  * fig_decomposition's "Measured 180.75 s x 3" is a typed string from
+    doc/audit/2026-08-19_failover-provenance/REPORT.md.
 
 Style follows the deck's E2 palette. Calibri is not installed on this machine, so the
 sans-serif fallback is used -- the deck generator re-renders text anyway; these are charts,
@@ -330,6 +346,7 @@ def fig_decomposition(fname):
 def fig_throughput(fname):
     fig, (a1, a2) = plt.subplots(1, 2, figsize=(9.2, 3.8))
     names = ["bmv2 stock\n(-O0 + logging)", "bmv2 fast\n(-O3, no logging)", "OVS"]
+    # Transcribed, not recomputed: see "TYPED IN BY HAND" in the module docstring.
     bps = [40, 495, 980]
     pps = [3.6, 50.8, float("nan")]
     cols = [WARNC, ACCENT, MUTED]

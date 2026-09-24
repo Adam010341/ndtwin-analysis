@@ -72,12 +72,29 @@ Two halves, and the seam between them is the point of the repository.
 | **`NDTwin … slide material <MMDD>/`** | The reports. Four progress reports (820, 827, 903, 916): the slide template that is each one's single source of truth, the decks, the figures, and the deck generators. |
 
 The organising rule is that **a number on a slide has to trace back to the run that produced
-it.** So the plotting scripts do not transcribe values out of reports — they re-open the
-archived measurement data and recompute what they draw. Several of them import their loaders
-and palettes from a sibling round's script rather than restating them, so two figures standing
-next to each other on a slide cannot drift apart. Where a parse is used instead of a
-recomputation, the parse asserts its own yield, because a regex that silently matches nothing
-renders a confident empty figure.
+it.** Most round figure scripts get there by re-opening the archived measurement data, or by
+parsing the committed `*.out` records and reports, and recomputing what they draw. Several
+import their loaders and palettes from a sibling round's script rather than restating them, so
+two figures standing next to each other on a slide cannot drift apart. Most parses assert their
+own yield, because a regex that silently matches nothing renders a confident empty figure
+(`plot_deck_827.py`'s do not).
+
+The rule is not kept everywhere, and a script's header does not always say so (audited
+2026-09-24):
+
+- **`2026-08-19_p4-sflow-accuracy/plot_figures.py`** draws `page37_throughput-ab.png` from five
+  typed-in values (40 / 495 / 980 Mbps, 3.6k / 50.8k pps). They come from the A/B table in the
+  kernel repository's `doc/2026-08-15_bmv2-performance-report.md` (495 is the midpoint of its
+  ~460–530 Mbps). That run's raw iperf3 output was never committed, so there is nothing to
+  recompute them from. The script's docstring lists these and its other typed values.
+- **Typed numbers in figure text, and a few drawn values,** appear in 9 of the 13 figure scripts
+  in the table below, including several whose headers say no number is typed by hand: for
+  example the three loss points in `plot_deck_827.py`'s merge-gate panel (22.01 / 17.64 /
+  29.49%) and "44.9 → 11.5 s" in `plot_after_fix.py`. Only `plot_ladder_rates.py`,
+  `plot_q_by_flowcount.py`, `plot_compare.py` and `plot_ab.py` have no unchecked typed values.
+- **`analysis/study-figs/` transcribes by design.** `make_figs.py` and `make_survey_figs.py`
+  type their values in from the performance study's census table and from the rounds'
+  `FINDINGS.md`, naming the source of each number in a comment.
 
 Three consequences worth knowing before reading anything here:
 
@@ -198,6 +215,10 @@ The files that differ, each deliberately:
   the regenerated file is byte-identical to the current
   `NDTwin slide material 903/figures/fig7_aggregate_two_planes.png`. The other seven PNGs here
   already matched their scripts' output byte for byte.
+- **`analysis/rounds/2026-08-19_p4-sflow-accuracy/plot_figures.py`**: the module docstring said
+  nothing was typed in by hand except the failover numbers. It now lists what is typed in and
+  where each value comes from, and one comment marks the typed values in `fig_throughput`. No
+  code changed; `page37_throughput-ab.png` still renders byte-identical to the committed one.
 
 One claim inside the archive has aged: `analysis/rounds/2026-08-28_QM-mirrored-block/FINDINGS.md`
 labels `Adam010341/NDTwin-Kernel-P4` as private. That was true on 2026-08-28 and is not true now
