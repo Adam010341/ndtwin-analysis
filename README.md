@@ -5,6 +5,54 @@ digital-twin kernel with a P4/bmv2 data plane. The kernel itself lives in
 [NDTwin-Kernel-P4](https://github.com/Adam010341/NDTwin-Kernel-P4); this repository holds the
 things built *around* it to find out what it actually does, and to say so on a slide.
 
+## Selected figures
+
+Five figures from the work below. Each image links to the folder that produced it, and every
+number in a caption is taken from that round's report or analysis output.
+
+[![Twin estimate / ground truth vs window length at 200 Mbit/s, OVS and P4/bmv2, inside a sampling-theory envelope](NDTwin%20Slide%20material%20820/figures/page39_sflow-accuracy-200M.png)](analysis/rounds/2026-08-19_p4-sflow-accuracy/)
+
+**The twin's rate estimate is centred on ground truth, and its scatter is sampling noise.** At
+200 Mbit/s, on both the native-sFlow OVS plane and the P4/bmv2 plane (where sFlow is synthesised),
+the spread narrows with window length along the sampling-theory floor 196·√(1/c), c = samples per
+window: accuracy is a function of the window, not one number. —
+[`2026-08-19_p4-sflow-accuracy`](analysis/rounds/2026-08-19_p4-sflow-accuracy/)
+
+[![Link-failure outage on 128-host OVS: 51.8 s before the fix, 16.4 s after, BMv2/P4 reference at 16.6 s](NDTwin%20slide%20material%20827/figures/page_ovs-before-after.png)](analysis/rounds/2026-08-21_ovs-failover-after-fix/)
+
+**Failover on 128-host OVS: 51.8 s → 16.4 s.** After lowering Ryu's LLDP guard from 0.05 to
+0.01, the outage from one link failure fell from 51.8 s (n=10) to 16.4 s (n=3), 3.1× shorter and
+on par with BMv2/P4's 16.6 s. The term that moved was failure detection, 44.9 s → 11.5 s
+([`ryu-topology-scaling`](analysis/rounds/2026-08-21_ryu-topology-scaling/DETECTION.md)); the
+4-host case barely changed (15.7 → 15.0 s), as the mechanism predicted. —
+[`2026-08-21_ovs-failover-after-fix`](analysis/rounds/2026-08-21_ovs-failover-after-fix/)
+
+[![Delivered traffic collapses at sampling rates 1/4 and 1/1 while the twin/ground-truth ratio stays near 1.0](NDTwin%20slide%20material%20903/figures/page_ceiling-not-read-out.png)](analysis/rounds/2026-08-31_sampling-ceiling-after-merge/)
+
+**The traffic collapsed; the fidelity criterion read 1.01.** Sampling every packet instead of 1 in
+1024 on the 128-host bmv2 fabric cut delivered traffic by 87–89% (206 → 23–26 Mbit/s), yet the
+twin ÷ ground-truth ratio read 1.009–1.014 and the `SATURATED` threshold fired in 0 of 72 cells:
+ground truth collapsed together with the twin. The round's headline finding is that its own
+criterion measured the wrong quantity (`FINDINGS.md` F-26). —
+[`2026-08-31_sampling-ceiling-after-merge`](analysis/rounds/2026-08-31_sampling-ceiling-after-merge/)
+
+[![Kernel CPU for two builds one constant apart: 48.2% vs 3.2% of a core at 1/1024 sampling, +45.0 points](analysis/rounds/2026-09-02_recompute-paired-ab/page_paired-ab.png)](analysis/rounds/2026-09-02_recompute-paired-ab/)
+
+**One constant, 45 points of a CPU core.** Two kernel builds that differ only in
+`kFlowPathRecomputeInterval` (1 s vs 1 ms): with sFlow sampling at 1/1024 the 1 kHz build uses
+48.2% of a core against 3.2%, a paired difference of +45.0 points (n=3, Debug build); with sampling
+off the gap is +0.7. The cost is paid per flow per pass, so it only appears once samples fill the
+flow table. — [`2026-09-02_recompute-paired-ab`](analysis/rounds/2026-09-02_recompute-paired-ab/)
+
+<a href="NDTWIN%20slide%20material%20916/figures/overnight-0904/"><img src="NDTWIN%20slide%20material%20916/figures/overnight-0904/fig3_dispatch_counters_vs_switch_truth.png" width="600" alt="API succeeded counter vs switch rows: 20 vs 1 for repeated installs, 15 vs 0 for deletes of a missing entry, 1 vs 1 for a real delete"></a>
+
+**"succeeded" counts POSTs, not switch changes.** Twenty identical `install_flow_entry` calls raised
+the API's `succeeded` counter by 20 while the switch gained one row; fifteen deletes of an entry
+that never existed added 15 more and changed nothing. A real delete (the control) moves both by 1.
+Found in the 2026-09-04 overnight audit and reproduced on 09-05; as of 09-08 the fix is on an
+unmerged branch ([`FIXED-SINCE-903.md`](NDTWIN%20slide%20material%20916/FIXED-SINCE-903.md)). —
+[`916/figures/overnight-0904`](NDTWIN%20slide%20material%20916/figures/overnight-0904/fig3_dispatch_counters_vs_switch_truth.md)
+
 ## About
 
 Two halves, and the seam between them is the point of the repository.
