@@ -182,9 +182,18 @@ Everything under `analysis/` was taken verbatim from `NDTwin-Kernel-P4` at commi
 **`d6cb0220`**, read out of the commit rather than off a working tree, and checked file by file
 against that commit's blobs by sha256.
 
-Exactly one file differs, deliberately: **`analysis/study-figs/make_figs.py` line 2**, a comment
-that named a submission venue, is replaced with a neutral description of the script. The
-original line is still in the kernel repository's history.
+The files that differ, each deliberately:
+
+- **`analysis/study-figs/make_figs.py` line 2**, a comment that named a submission venue, is
+  replaced with a neutral description of the script. The original line is still in the kernel
+  repository's history.
+- **`analysis/study-figs/fig7_aggregate_two_planes.png`** is the output of the committed
+  `make_survey_figs.py` (matplotlib 3.11.1), not the PNG at `d6cb0220`. That commit's PNG
+  predates the script's "same UDP ladder" x-axis label (added 2026-09-01) and was identical to
+  `NDTwin slide material 903/figures/_superseded/fig7_aggregate_two_planes_pre-udp-qualifier-0901.png`;
+  the regenerated file is byte-identical to the current
+  `NDTwin slide material 903/figures/fig7_aggregate_two_planes.png`. The other seven PNGs here
+  already matched their scripts' output byte for byte.
 
 One claim inside the archive has aged: `analysis/rounds/2026-08-28_QM-mirrored-block/FINDINGS.md`
 labels `Adam010341/NDTwin-Kernel-P4` as private. That was true on 2026-08-28 and is not true now
