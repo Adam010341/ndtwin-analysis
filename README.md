@@ -13,7 +13,8 @@ things built *around* it to find out what it actually does, and to say so on a s
 ## Selected figures
 
 Five figures from the work below. Each image links to the folder that produced it, and every
-number in a caption is taken from that round's report or analysis output.
+number in a caption is taken from the linked report or analysis output (caption 5's merge dates
+come from the kernel repository's history on GitHub).
 
 [![Twin estimate / ground truth vs window length at 200 Mbit/s, OVS and P4/bmv2, inside a sampling-theory envelope](NDTwin%20Slide%20material%20820/figures/page39_sflow-accuracy-200M.png)](analysis/rounds/2026-08-19_p4-sflow-accuracy/)
 
@@ -68,8 +69,8 @@ Two halves, and the seam between them is the point of the repository.
 
 | | |
 |---|---|
-| **`analysis/`** | The tools. Measurement drivers that ran the experiments, parsers and analysers that reduced the output, and the matplotlib scripts that rendered every figure in the decks. 10 measurement rounds, plus the literature-survey figure family and three kernel-side instruments. |
-| **`NDTwin … slide material <MMDD>/`** | The reports. Four progress reports (820, 827, 903, 916): the slide template that is each one's single source of truth, the decks, the figures, and the deck generators. |
+| **`analysis/`** | The tools. Measurement drivers that ran the experiments, parsers and analysers that reduced the output, and the matplotlib scripts behind the data figures in the 820, 827 and 903 decks. 10 measurement rounds, plus the bmv2 performance-study figures (`fig1`–`fig8`) and three kernel-side instruments. The 916 figures' scripts are not here; they sit beside their figures in `916/figures/*/make_*.py`, and the architecture and flow diagrams are not matplotlib output (they come from the JS-built diagram decks in the 820 and 827 folders). |
+| **The four slide-material folders** | The reports, one per progress report: [`NDTwin Slide material 820/`](NDTwin%20Slide%20material%20820/), [`NDTwin slide material 827/`](NDTwin%20slide%20material%20827/), [`NDTwin slide material 903/`](NDTwin%20slide%20material%20903/), [`NDTWIN slide material 916/`](NDTWIN%20slide%20material%20916/). Each holds the slide template that is that report's single source of truth, the figures, and the deck generators; 820, 827 and 903 also hold their decks. The 916 folder is the material as imported on 2026-09-10, before its deck was built, so the only deck in it is the voided 31-page 909 deck in `_superseded/`. |
 
 The organising rule is that **a number on a slide has to trace back to the run that produced
 it.** Most round figure scripts get there by re-opening the archived measurement data, or by
@@ -105,17 +106,21 @@ Three consequences worth knowing before reading anything here:
   would visually assert a comparability the data does not have.
 - **Figures go stale silently.** A figure stamped "no arm has run yet" was true when rendered
   and false an hour later, and the PNG keeps rendering fine either way. That is why
-  `plot_deck_903_round2.py` exists beside `plot_deck_903.py` instead of editing it.
-- **Not every figure is a measurement.** The `fig4`–`fig8` family encodes a hand-coded census of
-  34 published papers that measure bmv2; those are citations, not runs, and each row names its
-  source. The measurement figures and the survey figures are never mixed on one axis.
+  `plot_deck_903_round2.py` (in the 2026-08-28 round) replaces two panels of `plot_deck_903.py`
+  (2026-08-27) instead of editing it.
+- **Not every figure is a measurement.** `fig4`, `fig5`, `fig5b` and `fig6` encode a hand-coded
+  census of published bmv2 measurements (12 papers in `fig5` and `fig6`, all 34 coded papers in
+  `fig5b`), and `fig8` is a diagram of documented facts; those are citations, not runs, and
+  each row names its source. `fig1`–`fig3` and `fig7` are this project's own measurements. The
+  two meet on one axis once, and it is labelled: `fig4` places this work's build A/B
+  (45 vs 360 Mbit/s) against five published numbers.
 
 ## `analysis/rounds/` — the ten measurement rounds
 
-Each directory holds that round's drivers (`*.sh`), analysers (`*.py`), figure script
-(`plot_*.py`), the reduced aggregate outputs where the round produced them (`*.out`), and the
-report and pre-registration documents
-that state what the round was entitled to conclude.
+Each directory holds what that round has of: drivers (`*.sh`), analysers (`*.py`), figure
+scripts (`plot_*.py`), reduced aggregate outputs (`*.out`), a rendered figure (`*.png`, three
+rounds), and the report, method and pre-registration documents that state what the round was
+entitled to conclude.
 
 | Round | The question | Figure script |
 |---|---|---|
@@ -163,19 +168,24 @@ paper with its citation.
 
 ## Running the figure scripts
 
-Most take an output directory: `python plot_figures.py <output-dir>`.
+Most take an output directory: `python plot_figures.py <output-dir>`. `make_figs.py`,
+`make_survey_figs.py` and `plot_ab.py` write next to themselves instead (`make_figs.py` into a
+`figs/` subdirectory).
 
-**The interpreter is part of the specification.** `make_figs.py`, `make_survey_figs.py` and
-`plot_deck_903_round2.py` assert **matplotlib 3.11.x** and exit otherwise. This is not
-fastidiousness: a layout defect that these scripts were fixed to avoid does not reproduce at all
-on matplotlib 3.10 (it renders as 0 px instead of 11 px), so a "successful" run on the wrong
-version proves nothing about the figure you are looking at. `plot_deck_903_round2.py` has an
-escape hatch, `DECK_ALLOW_MPL_MISMATCH=1`, whose own error message tells you not to compare the
-output against the archived figures afterwards.
+**The interpreter is part of the specification.** `make_figs.py` and `make_survey_figs.py`
+assert **matplotlib 3.11.x**, and `plot_deck_903_round2.py` exactly **3.11.1**; each exits
+otherwise. This is not fastidiousness: `plot_deck_903_round2.py` records that the clipping
+defect its crop fix removed does not reproduce on matplotlib 3.10.8 (the pre-fix figure that
+3.11.1 renders with a 0 px bottom margin comes out clean, at 11 px, on 3.10.8), so a
+"successful" run on the wrong version proves nothing about the figure you are looking at.
+`plot_deck_903_round2.py` has an escape hatch, `DECK_ALLOW_MPL_MISMATCH=1`, whose own error
+message tells you not to compare the output against margins measured on 3.11.1.
 
-The interpreter used for every archived figure is a dedicated venv (Python 3.13.13 +
-matplotlib 3.11.1) that is **not in this repository** — `.plotvenv/` is ignored, since it is
-rebuildable:
+The pinned interpreter is a dedicated venv (Python 3.13.13 + matplotlib 3.11.1) that is **not
+in this repository** — `.plotvenv/` is ignored, since it is rebuildable. It did not render every
+committed figure: of the 111 PNGs here, 66 carry its matplotlib 3.11.1 tag, 30 were rendered on
+3.10.8, 3.10.9 or 3.7.5 (each PNG's `Software` tag says which), and 15 are diagrams or hi-res
+copies with no tag. The venv:
 
 ```bash
 python3 -m venv .plotvenv && .plotvenv/bin/pip install 'matplotlib==3.11.1'
@@ -183,19 +193,23 @@ python3 -m venv .plotvenv && .plotvenv/bin/pip install 'matplotlib==3.11.1'
 
 ## What is deliberately not here
 
-- **The raw measurement data.** Around 1.1 GB of `raw/` across these ten rounds, which stays in
+- **The raw measurement data.** About 1.05 GB of `raw/` across these ten rounds, which stays in
   the kernel repository under `doc/audit/<round>/raw/` and its `audit-raw` ref. **47 of the 92
-  scripts here name a path under `raw/`** — writing it during a run, or reading it back
-  afterwards — so a clone of this repository alone will not take a round end-to-end; you need
-  the matching round directory in the kernel repo. The `*.out` files that
-  *are* here are the reduced aggregate outputs, so the numbers are legible without the archive.
+  scripts under `analysis/` name a path under `raw/`** — writing it during a run, or reading it
+  back afterwards — so a clone of this repository alone will not take a round end-to-end; you
+  need the matching round directory in the kernel repo. The `*.out` files that *are* here are
+  the reduced aggregate outputs, so the numbers are legible without the archive.
 - **Run logs** (`*.log`) — the transcripts of the runs themselves, which belong with the raw
   data rather than with the tools.
-- **Session-internal notes** — handoffs, drafts, running notes, and cross-review memos. The
-  pre-registrations, reports and findings are here; the scaffolding around them is not.
+- **Session-internal notes from the kernel's audit directories** — handoffs, drafts, running
+  notes, and cross-review memos. The pre-registrations, reports and findings are under
+  `analysis/`; the scaffolding around them is not. (The slide folders keep their own drafts and
+  review notes.)
 - **`ladder_ext.out`** — untracked in the kernel repo by commit `e6eec347`, "while it is still
   being written". An unfinished file is not a result.
-- **`paper/` and `VENUES-*.md`** — the submission line, ignored here as in the kernel repo.
+- **`paper/` and `VENUES-*.md`** — the submission line, ignored here. The kernel repo has no
+  rule for them: its submission directories were moved out of that repository on 2026-09-01
+  (see `analysis/study-figs/README-generators.md`).
 
 ## Provenance
 
