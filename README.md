@@ -54,8 +54,12 @@ flow table. — [`2026-09-02_recompute-paired-ab`](analysis/rounds/2026-09-02_re
 **"succeeded" counts POSTs, not switch changes.** Twenty identical `install_flow_entry` calls raised
 the API's `succeeded` counter by 20 while the switch gained one row; fifteen deletes of an entry
 that never existed added 15 more and changed nothing. A real delete (the control) moves both by 1.
-Found in the 2026-09-04 overnight audit and reproduced on 09-05; as of 09-08 the fix is on an
-unmerged branch ([`FIXED-SINCE-903.md`](NDTWIN%20slide%20material%20916/FIXED-SINCE-903.md)). —
+Found in the 2026-09-04 overnight audit and reproduced on 09-05. The fix (`succeeded` renamed
+`dispatched_ok`, plus switch-side counters for what the switch accepted) was still on an
+unmerged branch on 09-08 ([`FIXED-SINCE-903.md`](NDTWIN%20slide%20material%20916/FIXED-SINCE-903.md)
+§3); it was merged into the kernel's trunk on 2026-09-10
+([`31ae5d13`](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/31ae5d13)) and reached `main`
+through [PR #5](https://github.com/Adam010341/NDTwin-Kernel-P4/pull/5) on 2026-09-12. —
 [`916/figures/overnight-0904`](NDTWIN%20slide%20material%20916/figures/overnight-0904/fig3_dispatch_counters_vs_switch_truth.md)
 
 ## About
