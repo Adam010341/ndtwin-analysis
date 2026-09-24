@@ -1,5 +1,10 @@
 # ndtwin-analysis
 
+![Analysis](https://img.shields.io/badge/analysis-Python%20%2B%20matplotlib-3776AB?logo=python&logoColor=white)
+![Drivers](https://img.shields.io/badge/drivers-Bash-4EAA25?logo=gnubash&logoColor=white)
+![Data plane](https://img.shields.io/badge/data%20plane-P4%2Fbmv2%20%C2%B7%20Open%20vSwitch-555)
+![Subject](https://img.shields.io/badge/subject-NDTwin%20kernel-283272)
+
 Measurement tooling, figure generators, and progress-report material for **NDTwin** — a network
 digital-twin kernel with a P4/bmv2 data plane. The kernel itself lives in
 [NDTwin-Kernel-P4](https://github.com/Adam010341/NDTwin-Kernel-P4); this repository holds the
