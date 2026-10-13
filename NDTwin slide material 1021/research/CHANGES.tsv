@@ -1,0 +1,16 @@
+persona	row	column	verdict_raw	verdict	flags	rule	reason
+app	A1	Mininet + Ryu (assemble it yourself)	builtin	builtin		R1-unclear	scope: hosts appear only after they send traffic; all three parts otherwise served
+app	A1	NDTwin	builtin	builtin	◌	R3	unrun: unrun in repo
+app	A2	NDTwin	builtin	builtin	◌	R3	unrun: unrun in repo
+app	A3	NDTwin	builtin	builtin	⚠◌	R3	defect: A-4f, KNOWN-ISSUES, open, silently | unrun: unrun in repo
+app	A4	NDTwin	builtin	builtin	⚠◌	R3	defect: A-4c, C-6, C-7 | unrun: unrun in repo
+app	A7	NDTwin	builtin	builtin	⚠	R3	defect: A-9
+app	A8	NDTwin	builtin	builtin	◌	R1-unclear;R3	physical-switch part coded but no run log; api.md says testbed out of service and branch 'has not been exercised' | unrun: has not been exercised, no hardware run log, no run log
+ops	O1	Forward Networks (commercial, public docs only)	builtin	diy		R1	conjunctive row (topology AND flows AND load); note/scope says missing: flow and load telemetry
+ops	O1	IP Fabric (commercial, public docs only)	builtin	diy		R1	conjunctive row (topology AND flows AND load); note/scope says missing: flow and load telemetry
+ops	O1	NDTwin	builtin	builtin	◌	R3	unrun: no hardware run log
+ops	O3	NDTwin	builtin	diy		R1	conjunctive row (link removal AND switch removal); note/scope says missing: link removal
+ops	O5	NDTwin	builtin	builtin	⚠	R3	defect: B-9, open, silently
+ops	O6	NDTwin	builtin	builtin	⚠◌	R3	defect: A-9, B-9 | unrun: unrun in repo
+ops	O7	NDTwin	builtin	builtin	⚠◌	R3	defect: A-4g, replies success even when nothing is installed | unrun: no run log
+ops	O8	NDTwin	builtin	builtin	⚠	R3	defect: B-3

@@ -1,0 +1,103 @@
+{
+  "name": "main",
+  "commit": {
+    "sha": "f9be5842ed48c42ec3bba048179b39b0a254417e",
+    "node_id": "C_kwDOTfuMiNoAKGY5YmU1ODQyZWQ0OGM0MmVjM2JiYTA0ODE3OWIzOWIwYTI1NDQxN2U",
+    "commit": {
+      "author": {
+        "name": "Adam Fan",
+        "email": "adam010341@gmail.com",
+        "date": "2026-09-27T16:13:09Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-09-27T16:13:09Z"
+      },
+      "message": "test_ndt_serve: the claim-note case no longer depends on TMPDIR's length (#8)\n\nWith a TMPDIR of about 55 characters or more, the note this case builds went past the 200-character limit and the server answered 400 before the case tested anything.",
+      "tree": {
+        "sha": "e7e61a331eb926f72fb9c2d983b9c45293ad48e2",
+        "url": "https://api.github.com/repos/Adam010341/NDTwin-Kernel-P4/git/trees/e7e61a331eb926f72fb9c2d983b9c45293ad48e2"
+      },
+      "url": "https://api.github.com/repos/Adam010341/NDTwin-Kernel-P4/git/commits/f9be5842ed48c42ec3bba048179b39b0a254417e",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJquUCVCRC1aQ7uu5UhlAAA+b0QAF9LQZ5herr1RMnaJVHW6pz7\n8Emq1wuO6QpaIrzrYm1A2zgsux62z5uMBBfp3FcpgNvxX4TboQKnfVui8iH3o77P\nZHkeRLBAAmnm8yyNTzb94wvgvdmt1VzZJMnBR5VRUw11B62PA0YIn27hvInbBKx3\nvtZuo7ni6bNB6LKamZbKi8USJ7i/r+DUxw8jtHIgf555uwl2EhFVTeNpgko3oLuc\nlA+gdGx0bvFIaxM+ntTniitOtM8fMrZ434rSDPWVhX9ddT94ssURfXyGmu1uJS20\nMdqhoybcKurkSTODuoE+ti1X0bwkrfvIpKn+ippf9NBSUGdv4HFhjgGSrsZHf6bi\nUuNyjn1MlT+jGGvXqrGRl8zF9yYhFH0F32eBhATNZ15xechxQif/Gd+UUb7wxqiz\nJgA9ipcGTNsk8fZthFTkHKCCibU+hVU+EVOTUp00acDY1VZrau6ZDVDu5zJEmmDz\nYA8gsh3x8JhhjAc+DsrQJYXaSU/51AFOLCrU4XrpZT+LSajA7KVbUCHnkHqAE/aV\ngAnUU5zuSKhxgz+YWocnIUrtBEs4qyspbtcRT3wRiNtlxIsGVa2a/4x9R2iezO1l\nCk0Z0XMSUf2Ons00W61Z79BpJs2C8NyUPuDR3TIY1f735h7qeqeqBnhxrWxnLwKY\nNCwaQ4jwuRxs1pAw/iMF\n=kPun\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree e7e61a331eb926f72fb9c2d983b9c45293ad48e2\nparent f347a5888146a844a4511163a15a23c234cdb82b\nauthor Adam Fan <adam010341@gmail.com> 1790525589 +0800\ncommitter GitHub <noreply@github.com> 1790525589 +0800\n\ntest_ndt_serve: the claim-note case no longer depends on TMPDIR's length (#8)\n\nWith a TMPDIR of about 55 characters or more, the note this case builds went past the 200-character limit and the server answered 400 before the case tested anything.",
+        "verified_at": "2026-09-27T16:13:10Z"
+      }
+    },
+    "url": "https://api.github.com/repos/Adam010341/NDTwin-Kernel-P4/commits/f9be5842ed48c42ec3bba048179b39b0a254417e",
+    "html_url": "https://github.com/Adam010341/NDTwin-Kernel-P4/commit/f9be5842ed48c42ec3bba048179b39b0a254417e",
+    "comments_url": "https://api.github.com/repos/Adam010341/NDTwin-Kernel-P4/commits/f9be5842ed48c42ec3bba048179b39b0a254417e/comments",
+    "author": {
+      "login": "Adam010341",
+      "id": 180733882,
+      "node_id": "U_kgDOCsXHug",
+      "avatar_url": "https://avatars.githubusercontent.com/u/180733882?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Adam010341",
+      "html_url": "https://github.com/Adam010341",
+      "followers_url": "https://api.github.com/users/Adam010341/followers",
+      "following_url": "https://api.github.com/users/Adam010341/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Adam010341/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Adam010341/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Adam010341/subscriptions",
+      "organizations_url": "https://api.github.com/users/Adam010341/orgs",
+      "repos_url": "https://api.github.com/users/Adam010341/repos",
+      "events_url": "https://api.github.com/users/Adam010341/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Adam010341/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "f347a5888146a844a4511163a15a23c234cdb82b",
+        "url": "https://api.github.com/repos/Adam010341/NDTwin-Kernel-P4/commits/f347a5888146a844a4511163a15a23c234cdb82b",
+        "html_url": "https://github.com/Adam010341/NDTwin-Kernel-P4/commit/f347a5888146a844a4511163a15a23c234cdb82b"
+      }
+    ]
+  },
+  "_links": {
+    "self": "https://api.github.com/repos/Adam010341/NDTwin-Kernel-P4/branches/main",
+    "html": "https://github.com/Adam010341/NDTwin-Kernel-P4/tree/main"
+  },
+  "protected": false,
+  "protection": {
+    "enabled": false,
+    "required_status_checks": {
+      "enforcement_level": "off",
+      "contexts": [
+
+      ],
+      "checks": [
+
+      ]
+    }
+  },
+  "protection_url": "https://api.github.com/repos/Adam010341/NDTwin-Kernel-P4/branches/main/protection"
+}

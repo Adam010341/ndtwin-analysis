@@ -1,0 +1,132 @@
+PAGE 2 FIGURE SPEC -- "What NDTwin is"   (form: figure; evidence class: READ; trunk 2ece656c)
+[Co-developed with claude code -- Adam]
+
+Title on canvas (= slide title, P02 in the template §1): What NDTwin is, as built today
+
+------------------------------------------------------------------------------------------------
+0. REUSE DECISION
+------------------------------------------------------------------------------------------------
+Existing figures:
+  - NDTwin slide material 827/figures/page_architecture.png (and NDTwin_Arch_merged.pptx/.pdf,
+    generator/build_arch_merged.js): three data planes side by side, kernel with 9 modules, tools
+    column on the right.
+  - The same picture is in trunk as doc/images/2026-09-24_ndtwin-architecture.png@2ece656c
+    (1400x784; same boxes, different render).
+  - NDTwin slide material 930/figures/architecture/fig_p1_proxy_modules, fig_p2a/b: P4-proxy
+    internals only; not a system view.
+
+Verdict: REUSE THE 827 LAYOUT (the professor has seen it; build_arch_merged.js regenerates it),
+but do NOT reuse the image as is. Four changes, each because the old picture says something the
+code at 2ece656c does not back:
+  1. "Local LLM (fine-tuning)" -> REMOVE. No local-model code in src/ or include/@2ece656c
+     (no ollama, llama, local-LLM or fine-tuning code). The only LLM call is
+     src/ndt_core/intent_translator/LLMAgent.cpp:138 (https://api.openai.com).
+  2. "Apps (using AI/ML model inference ...)" -> REMOVE (no such app among the shipped apps). "Apps (using simulation ...)" -> keep, relabel
+     "Energy-saving simulator" is the only shipped one (see A4 below) -- or merge into the
+     Energy-saving App box.
+  3. Physical network cloud -> keep, but draw DASHED with a hollow marker "no run on record":
+     no hardware run log in the kernel tree at 2ece656c; doc/2026-01-02_ndt_api.md:1598-1599 says
+     the physical power-state branch "has not been exercised" (that sentence covers only that branch).
+  4. Lab lifecycle tool and root helper -> NEW small box at the bottom right ("ndt / ndtwin-lab"),
+     because every P4 own-program path goes through it (problems.tsv rank 1).
+"Data cache manager" -> rename "Historical data manager" (the module is
+src/ndt_core/data_management/HistoricalDataManager.cpp; include/.../HistoricalDataManager.hpp:17).
+
+------------------------------------------------------------------------------------------------
+1. LAYERS AND ELEMENTS (top to bottom), each with its evidence
+------------------------------------------------------------------------------------------------
+Colours (827 E2 palette): kernel = blue fill; everything outside the kernel = grey fill;
+coded, no run on record = dashed outline, white fill; arrows black, protocol label on the arrow.
+No tint by where the code lives (excluded by template §0 rule 7).
+
+A. APPS  (grey)
+  A1 Traffic-engineering App   Traffic-Engineering-App@f108c7c:Traffic-engineering-App.py:32
+                               (ndt_url = http://localhost:8000/ndt/)
+  A2 Energy-saving App         Energy-Saving-App@9facb78:src/app/http.cpp:127,158
+                               (set_switches_power_state, install_flow_entry)
+  A3 "..."  your app           any HTTP client; doc/2026-01-02_ndt_api.md (REST reference)
+  A4 Energy-saving simulator   Energy-Saving-App@9facb78:src/sim/energy_saving_simulator.cpp:467,621
+                               (the only shipped simulator; flow-level, max-min:
+                               src/sim/max_min_fairness.cpp:12)
+  Arrow A* <-> Kernel: "REST :8000"
+
+B. KERNEL  (blue; one process)
+  B0 REST server :8000         src/ndt_core/event_handling/ControllerAndOtherEventHandler.cpp:100
+                               (tcp::v4(), port); routes src/ndt_core/http/HttpSession.cpp:326-345
+                               (about 45 routes, no auth, no push)
+  B1 Topology and flow monitor src/ndt_core/collection/TopologyAndFlowMonitor.cpp:2373
+                               (polls the controller's topology; undeclared switches ignored)
+  B2 Flow info and link usage  src/ndt_core/collection/FlowLinkUsageCollector.cpp;
+     collector (sFlow)         include/ndt_core/collection/FlowLinkUsageCollector.hpp:33 (UDP 6343)
+  B3 Flow routing manager      src/ndt_core/routing_management/FlowRoutingManager.cpp:82-86
+                               (per-dpid strategy: P4 vs OVS/hardware); FlowDispatcher.cpp
+                               (queued writes); P4RoutingStrategy.cpp:27-33 (group/meter refused)
+  B4 Device config and power   src/ndt_core/power_management/DeviceConfigurationAndPowerManager.cpp,
+     manager                   OVSPowerStrategy.cpp, P4PowerStrategy.cpp
+  B5 App registration and      src/ndt_core/application_management/ApplicationManager.cpp;
+     simulation requests       SimulationRequestManager.cpp:17 (SIM_SERVER_URL);
+                               HttpSession.cpp:450,467 (received_a_simulation_case, app_register)
+  B6 Intent translator         src/ndt_core/intent_translator/IntentTranslator.cpp, LLMAgent.cpp:138
+                               (off by default: src/main.cpp --no-ai)
+  B7 Historical data manager   src/ndt_core/data_management/HistoricalDataManager.cpp
+  B8 Fault injection (netem)   HttpSession.cpp:20,282 (inject_link_failure: tc netem on Mininet)
+  Inside-kernel detail can be dropped if the slide gets crowded: keep B0, B1, B2, B3, B4, B5.
+
+C. CONTROL-PLANE ADAPTERS
+  C1 Ryu + NDTwin Ryu app      intelligent_router.py:617-618@2ece656c (IntelligentRyu, OpenFlow 1.3);
+                               REST :8080 setting/AppConfig.hpp.example:8
+     Arrows: Kernel <-> C1 "REST :8080"; C1 -> OVS and -> hardware "OpenFlow 1.3"
+  C2 P4 proxy agent            p4_proxy/proxy_agent/main.py:2466 (PORT = 8081);
+                               setting/AppConfig.hpp.example:10; p4_client.py:5,8 (grpc, P4Runtime)
+     Arrows: Kernel <-> C2 "REST :8081 (Ryu-shaped)"; C2 -> bmv2 "P4Runtime"
+  C3 Link heartbeat helper     p4_proxy/proxy_agent/link_heartbeat.py:52-54;
+     (runs as root)            tools/test_workflow/ndtwin-lab:588 ('heartbeat start')
+     Only for a P4 program other than ndtwin_switch.p4. Small box beside C2; optional.
+
+D. DATA PLANES (exactly one per run: mixing is refused,
+   src/ndt_core/collection/TopologyAndFlowMonitor.cpp:3427 validateDataPlaneHomogeneity)
+  D1 Emulated: Mininet + OVS   testbed_topo.py@2ece656c (root) / Network-Traffic-Generator@6e3f388
+                               testbed_topo.py:39-48 (fixed 10-switch fabric);
+                               tools/test_workflow/ovs_4host_topo.py (4-host cell)
+     Telemetry arrow up to B2: "sFlow 1/256" (switch sFlow; README.md:31-34)
+  D2 Physical switches         include/common_types/GraphTypes.hpp:140-144 (HPE5520,
+     DASHED, "no run on record"       BrocadeICX6610, BrocadeICX7250); src/main.cpp:59,72 (--mode testbed);
+                               no hardware run log in the kernel tree (api.md:1598 covers only
+                               the power-state branch)
+     Telemetry arrow: "sFlow" (dashed)
+  D3 Emulated: Mininet + bmv2  p4_proxy/mininet/p4_testbed_topo.py:1 (builder reads the topology
+                               model); p4_proxy/p4_src/ndtwin_switch.p4 (default program) or your
+                               own program via tools/p4_exercise/convert.py:1 + ndt up p4 --app
+     Telemetry arrow: "sFlow, synthesised by the proxy", drawn FROM the P4 proxy box (C2) to B2, not
+     from the bmv2 plane (p4_proxy/proxy_agent/sflow_emitter.py:1;
+     own programs: p4_proxy/mininet/psample_sflow_emitter.py:6, tc sampling)
+
+E. TOOLS (grey; right-hand column as in 827)
+  E1 Simulation platform mgr   Simulation-Platform-Manager@b7efd93:app.cpp:286 (NFS mount per case);
+                               kernel side SIM_SERVER_URL localhost:9000 (AppConfig.hpp.example:6)
+  E2 Web GUI                   Web-GUI@f63a55c:src/api/index.ts:36 (get_graph_data)
+  E3 Network state recorder    Network-State-Recorder@850f61d:network_state_recorder.py:21,23
+  E4 Network traffic visualizer Network-Traffic-Visualizer@9b56b30:Network_Traffic_Visualizer.sh:4
+                               (NDT_API_URL localhost:8000)
+  E5 Network traffic generator Network-Traffic-Generator@6e3f388:README.md:101 (ndtwin_kernel URL);
+                               double-headed arrow to D1 Mininet + OVS only (its testbed_topo.py
+                               builds the OVS fabric; it does not build the bmv2 plane)
+  E6 On-line LLM (OpenAI)      LLMAgent.cpp:138 -- external service, outline only
+  E7 ndt / ndtwin-lab          tools/test_workflow/ndt, tools/test_workflow/ndtwin-lab
+                               (lab lifecycle and root helper) -- NEW, small
+
+------------------------------------------------------------------------------------------------
+2. WHAT GOES ON THE CANVAS (words kept few)
+------------------------------------------------------------------------------------------------
+Box names, protocol labels on arrows (REST :8000, REST :8080, REST :8081, OpenFlow 1.3, P4Runtime,
+sFlow), one "no run on record" tag on D2, "one data plane per run" under D.
+No file paths, no shas, no counts on the canvas. Everything above goes to the figure's .md and
+the speaker notes.
+
+------------------------------------------------------------------------------------------------
+3. OPEN POINTS FOR THE ORCHESTRATOR
+------------------------------------------------------------------------------------------------
+- Whether to keep the kernel's inner modules at all (the professor has seen them twice); a
+  simpler version keeps the kernel as one box with B0-B3 named.
+- Whether E6 (OpenAI) belongs on a slide about "what NDTwin is" when the translator is off by
+  default and has no run with AI on on record (problems.tsv rank 17; rank 16 before the 2026-10-08 renumbering).

@@ -1,0 +1,98 @@
+# redcheck 2026-10-12T06:22:43Z; template NDTwin-slide-template-1014.md sha256 8c6c25f9c4222308
+ok    control P04 unbroken: rc=0
+ok    P04 drop_a_row: rc=1; wanted reason 'has 15 data rows'; got: make_p04_map: landscape.tsv has 15 data rows, the page needs 16
+ok    P04 renamed_column: rc=1; wanted reason 'columns are'; got: make_p04_map: landscape.tsv columns are ['tool', 'x_category', 'y_category', 'label', 'rationale', 'source', 'unsure'], want ['tool', 'x_category', 'y_category', 'short_l
+ok    P04 bad_y: rc=1; wanted reason 'is not one of'; got: make_p04_map: Mininet + Ryu (assemble it yourself): y_category 'design time' is not one of ['none', 'imports snapshots', 'stays synced live']
+ok    P04 bad_x: rc=1; wanted reason 'x_category'; got: make_p04_map: Batfish: x_category 'config-model' is not one of ['config model', 'ML model', 'flow-level model', 'packet-level emulation', 'real devices']
+ok    P04 tool_not_in_matrix: rc=1; wanted reason 'not a matrix_final.json maturity column'; got: make_p04_map: tool 'Containerlab2' is not a matrix_final.json maturity column
+ok    P04 tool_twice: rc=1; wanted reason 'listed twice'; got: make_p04_map: tool listed twice: GNS3
+ok    P04 star_removed: rc=1; wanted reason 'lacks the * mark'; got: make_p04_map: Forward Networks (commercial, public docs only): commercial=True but label 'Forward' lacks the * mark
+ok    P04 dagger_added: rc=1; wanted reason 'has the dagger mark'; got: make_p04_map: Batfish: academic=False but label 'Batfish†' has the dagger mark
+ok    P04 label_too_long: rc=1; wanted reason 'longer than 18'; got: make_p04_map: p4lang/tutorials VM: short label 'P4 tutorials VM on a laptop' is empty or longer than 18 characters
+ok    P04 cell_count_differs_from_template: rc=1; wanted reason 'the template says the emulation x none cell holds 10, the tsv has 9'; got: make_p04_map: the template says the emulation x none cell holds 10, the tsv has 9
+ok    P04 one_point_rule_missing: rc=1; wanted reason 'one-point-per-tool rule'; got: make_p04_map: the tsv header no longer states the one-point-per-tool rule (no second marker for any tool)
+ok    P04 no_rule_header: rc=1; wanted reason 'no `#` placement-rule header'; got: make_p04_map: landscape.tsv has no `#` placement-rule header
+ok    P04 unsure_count_differs: rc=1; wanted reason 'rows are unsure'; got: make_p04_map: the header says 8 rows are unsure, the tsv has 9 `yes` rows
+ok    P04 ndtwin_moved_out_of_cell: rc=1; wanted reason 'NDTwin is not in the packet-level emulation x none cell'; got: make_p04_map: NDTwin is not in the packet-level emulation x none cell
+ok    control P22 unbroken: rc=0
+ok    P22 rank_duplicated_in_tsv: rc=1; wanted reason 'duplicated'; got: make_p22_roadmap: problems.tsv rank(s) duplicated: [17]
+ok    P22 rank_missing_in_tsv: rc=1; wanted reason 'missing: [19]'; got: make_p22_roadmap: problems.tsv rank(s) missing: [19]
+ok    P22 rank_count_not_stated: rc=1; wanted reason 'states no rank count'; got: make_p22_roadmap: roadmap.txt states no rank count (want a line saying 'any rank 1-N is missing')
+ok    P22 rank_count_differs: rc=1; wanted reason 'roadmap.txt states 18'; got: make_p22_roadmap: problems.tsv has 19 rows, roadmap.txt states 18
+ok    P22 rank_not_drawn: rc=1; wanted reason 'rank 11 is in problems.tsv but not drawn'; got: make_p22_roadmap: rank 11 is in problems.tsv but not drawn on the roadmap (roadmap.txt)
+ok    P22 rank_drawn_twice: rc=1; wanted reason 'draws rank 2 twice'; got: make_p22_roadmap: roadmap.txt draws rank 2 twice
+ok    P22 fixable_no_in_fix_lane: rc=1; wanted reason 'rank 13 is fixable=no but is drawn in a fix lane'; got: make_p22_roadmap: rank 13 is fixable=no but is drawn in a fix lane (NEXT)
+ok    P22 fixable_yes_in_disclose: rc=1; wanted reason 'rank 18 is fixable=yes but is drawn in DISCLOSE'; got: make_p22_roadmap: rank 18 is fixable=yes but is drawn in DISCLOSE
+ok    P22 no_persona: rc=1; wanted reason 'names no persona'; got: make_p22_roadmap: rank 3: `hurts` 'somebody' names no persona
+ok    P22 column_rule_violated: rc=1; wanted reason 'rank 15 is drawn in NOW but the column rule'; got: make_p22_roadmap: rank 15 is drawn in NOW but the column rule on its cost ('about 1 week + client token updates (INFERRED)') gives NEXT
+ok    P22 new_rank12_cost_a_week: rc=1; wanted reason 'rank 12 is drawn in NOW but the column rule'; got: make_p22_roadmap: rank 12 is drawn in NOW but the column rule on its cost ('about 1 week (option A, INFERRED)') gives NEXT
+ok    P22 arrow_to_undrawn: rc=1; wanted reason 'names a rank that is not drawn'; got: make_p22_roadmap: arrow 2->99 names a rank that is not drawn
+ok    P22 arrows_too_close: rc=1; wanted reason 'cannot keep 1000 pt from the other arrows'; got: make_p22_roadmap: arrow #1 -> #11 cannot keep 1000 pt from the other arrows along one line (every box-free route runs within 1000 pt of an earlier arrow)
+ok    P22 collinear_rule_unsatisfiable: rc=1; wanted reason 'within 100000 pt end to end'; got: make_p22_roadmap: arrow #3 -> #9 runs on the same line as an earlier arrow within 100000 pt end to end (every box-free route that keeps 20 pt from the other arrows does s
+ok    P22 box_outside_column: rc=1; wanted reason 'sticks out of its NEXT column'; got: make_p22_roadmap: box #8 sticks out of its NEXT column (box x 6.94-8.09 in, column x 5.59-7.59 in)
+ok    P22 arrow_legend_missing: rc=1; wanted reason 'ARROW LEGEND'; got: make_p22_roadmap: roadmap.txt has no `ARROW LEGEND (on canvas): <label>` line
+ok    P22 title_differs: rc=1; wanted reason 'canvas title is'; got: make_p22_roadmap: roadmap.txt canvas title is 'What we fix first', the figure draws 'What we fix first, and what we disclose'
+ok    P22 no_arrows_read_as_one_line: wanted every same-line pair >= 72 pt end to end; got closest 237.6 pt
+ok    control P18 unbroken: rc=0
+ok    control P18 unbroken_from_cells_file: rc=0
+ok    P18 cell_dropped_from_spec: rc=1; wanted reason 'differ from CELLS in the code'; got: make_p18_health: the spec's cells differ from CELLS in the code: spec 56 cells / 22 dimensions, code 57 cells / 22 dimensions
+ok    P18 code_gained_a_cell: rc=1; wanted reason 'differ from CELLS in the code'; got: make_p18_health: the spec's cells differ from CELLS in the code: spec 57 cells / 22 dimensions, code 58 cells / 22 dimensions
+ok    P18 title_not_offline: rc=1; wanted reason 'does not say offline'; got: make_p18_health: title 'P4 health check: 57 cells' does not say offline
+ok    P18 title_count_wrong: rc=1; wanted reason 'title says 58 cells'; got: make_p18_health: title says 58 cells, the figure draws 57
+ok    P18 live_lab_words_missing: rc=1; wanted reason 'not yet run against a live lab'; got: make_p18_health: right panel title 'Offline results' does not say 'not yet run against a live lab'
+ok    P18 prediction_row: rc=1; wanted reason 'names a prediction'; got: make_p18_health: row ['off', 'T8 journaled (expected)'] names a prediction; predictions never go on this figure
+ok    P18 unknown_row_kind: rc=1; wanted reason 'is not `dim` or `off`'; got: make_p18_health: row kind 'pred' is not `dim` or `off`
+ok    P18 writer_result_not_a_count: rc=1; wanted reason "is not '<n> disagree'"; got: make_p18_health: offline row 'writer vs bmv2, 52 cases' result 'all fine' is not '<n> disagree'
+ok    P18 offline_row_not_a_cell: rc=1; wanted reason 'neither S0, the writer comparison nor a cell'; got: make_p18_health: offline row 'X7 priority order' is neither S0, the writer comparison nor a cell of the left panel
+ok    P18 offline_result_not_a_run_result: rc=1; wanted reason 'is not a run result'; got: make_p18_health: offline row 'T6 optional entry' result 'likely green' is not a run result (COMPLETE, GREEN, RED, PROBE-BROKEN, INCOMPLETE, NOT RUN)
+ok    P18 offline_target_is_the_lab: rc=1; wanted reason 'is not throwaway stock / fast bmv2'; got: make_p18_health: offline row 'T5 range entry' target 'live lab' is not throwaway stock / fast bmv2
+ok    P18 footer_on_canvas: rc=1; wanted reason 'provenance text on the canvas'; got: fig_p18_health: provenance text on the canvas (it belongs in the notes, not on the figure): 'Offline results; not yet run against a live lab (commit e17d39e5)' looks like
+ok    figstyle footer_refused_0 'source: results.tsv': rc=1; wanted reason 'provenance text on the canvas'; got: footer: provenance text on the canvas (it belongs in the notes, not on the figure): 'source: results.tsv' looks like a file or generator name
+ok    figstyle footer_refused_1 'trunk 3a47bdb7': rc=1; wanted reason 'provenance text on the canvas'; got: footer: provenance text on the canvas (it belongs in the notes, not on the figure): 'trunk 3a47bdb7' looks like a commit sha or hash
+ok    figstyle footer_refused_2 '2026-10-08': rc=1; wanted reason 'provenance text on the canvas'; got: footer: provenance text on the canvas (it belongs in the notes, not on the figure): '2026-10-08' looks like a date
+ok    figstyle footer_refused_3 'make_p13_relief.py': rc=1; wanted reason 'provenance text on the canvas'; got: footer: provenance text on the canvas (it belongs in the notes, not on the figure): 'make_p13_relief.py' looks like a file or generator name
+ok    figstyle footer_refused_4 'intelligent_router.py:617': rc=1; wanted reason 'provenance text on the canvas'; got: footer: provenance text on the canvas (it belongs in the notes, not on the figure): 'intelligent_router.py:617' looks like a file or generator name
+ok    control P02 unbroken: rc=0
+ok    P02 element_B3_missing: rc=1; wanted reason 'no entry for element B3'; got: make_p02_architecture: architecture.txt has no entry for element B3 ('Flow routing manager')
+ok    P02 title_differs: rc=1; wanted reason 'canvas title is'; got: make_p02_architecture: architecture.txt canvas title is 'What NDTwin is: one API over three data planes', the figure draws 'What NDTwin is, as built today'
+ok    P02 repo_tint_asked_again: rc=1; wanted reason 'asks for a repo tint'; got: make_p02_architecture: architecture.txt asks for a repo tint or legend again ('tint every box by the repo'); template section 0 rule 7 excludes it
+ok    P02 generator_arrow_not_to_D1: rc=1; wanted reason 'double-headed arrow to D1'; got: make_p02_architecture: architecture.txt no longer says 'double-headed arrow to D1' (the traffic generator's arrow goes to Mininet + OVS only); the figure draws it that wa
+ok    P02 proxy_sflow_not_from_proxy: rc=1; wanted reason 'drawn FROM the P4 proxy box'; got: make_p02_architecture: architecture.txt no longer says 'drawn FROM the P4 proxy box' (the proxy's sFlow arrow starts at the P4 proxy box); the figure draws it that way
+ok    P02 element_E7_missing: rc=1; wanted reason 'no entry for element E7'; got: make_p02_architecture: architecture.txt has no entry for element E7 ('ndt / ndtwin-lab')
+ok    control P13 unbroken: rc=0
+ok    P13 app_strip_short: rc=1; wanted reason "strip 'NDTwin app, bmv2' has 4 trials, the plan is 5"; got: make_p13_relief: strip 'NDTwin app, bmv2' has 4 trials, the plan is 5 (PREREG section 7)
+ok    P13 diy_app_strip_short: rc=1; wanted reason "strip 'DIY app, OVS' has 4 trials, the plan is 5"; got: make_p13_relief: strip 'DIY app, OVS' has 4 trials, the plan is 5 (PREREG section 7)
+ok    P13 control_strip_short: rc=1; wanted reason "strip 'NDTwin, bmv2' has 4 trials, the plan is 5"; got: make_p13_relief: strip 'NDTwin, bmv2' has 4 trials, the plan is 5 (run_controls.sh)
+ok    P13 invalid_app_row: rc=1; wanted reason 'is INVALID_RECEIVER (an INVALID_* row is not a result'; got: make_p13_relief: results.tsv row ndtwin-app/ovs/app-3 is INVALID_RECEIVER (an INVALID_* row is not a result; PREREG section 7 reruns it)
+ok    P13 invalid_control_row: rc=1; wanted reason 'is INVALID_NO_OUTAGE (an INVALID_* row is not a result)'; got: make_p13_relief: controls.tsv row ndtwin/bmv2/2 is INVALID_NO_OUTAGE (an INVALID_* row is not a result)
+ok    P13 pass_without_time: rc=1; wanted reason 'is PASS without a numeric time_to_relief_s'; got: make_p13_relief: results.tsv row diy-app/ovs/app-1 is PASS without a numeric time_to_relief_s
+ok    P13 scripted_control_mismatch: rc=1; wanted reason 'pre-registered PASS'; got: make_p13_relief: results.tsv control row ndtwin-ctl/ovs/good-1 is RED_LATE, pre-registered PASS
+ok    P13 diy_static_recovered: rc=1; wanted reason 'designed red control diy-static/ovs/1 is RECOVERED, must be NOT_RECOVERED'; got: make_p13_relief: designed red control diy-static/ovs/1 is RECOVERED, must be NOT_RECOVERED
+ok    P13 diy_static_short: rc=1; wanted reason 'designed red control diy-static has 2 trials, the plan is 3'; got: make_p13_relief: designed red control diy-static has 2 trials, the plan is 3 (run_controls.sh)
+ok    P13 negative_control_recovered: rc=1; wanted reason 'must be NOT_RECOVERED'; got: make_p13_relief: designed red control ndtwin/ovs/red-bothpaths is RECOVERED, must be NOT_RECOVERED
+ok    control P10 unbroken: rc=0
+ok    P10 link_dropped: rc=1; wanted reason '15 switch-switch links'; got: make_p10_setup: topology.tsv holds 10 switches, 15 switch-switch links, 4 hosts; the page draws 10 switches, 16 switch-switch links, 4 hosts
+ok    P10 host_moved: rc=1; wanted reason 'the page draws hN on sN port 3'; got: make_p10_setup: host h3 is on s3 port 4; the page draws hN on sN port 3
+ok    P10 path_hop_not_a_link: rc=1; wanted reason 'is not a topology link on that port'; got: make_p10_setup: before path hop s9:3 -> s8 is not a topology link on that port
+ok    P10 no_move_for_pair: rc=1; wanted reason 'no move line for h1 -> h3'; got: make_p10_setup: no move line for h1 -> h3 in /tmp/redcheck1014_jwlxq15y/p10_no_move_for_pair/ctl7.log
+ok    P10 before_equals_after: rc=1; wanted reason 'before and after are the same path'; got: make_p10_setup: before and after are the same path
+ok    P10 diy_path_missing: rc=1; wanted reason 'no base path for h1 -> h3 in the DIY log'; got: make_p10_setup: no base path for h1 -> h3 in the DIY log /tmp/redcheck1014_jwlxq15y/p10_diy_path_missing/ryu.log
+ok    control build unbroken: rc=0
+ok    build page_row_dropped: rc=1; wanted reason 'lists 21 pages'; got: Error: template section 1 lists 21 pages, want 22
+ok    build chars_wrong: rc=1; wanted reason 'chars column says 44'; got: Error: P09 chars column says 44, title is 45
+ok    build title_over_45: rc=1; wanted reason 'longer than 45 chars'; got: if (p.title.length > 45) throw new Error(p.id + " title longer than 45 chars");
+ok    build figure_without_stem: rc=1; wanted reason 'figure page without a figure stem'; got: if (p.form === "figure" && !p.fig) throw new Error(p.id + " is a figure page without a figure stem");
+ok    build form_counts: rc=1; wanted reason 'form counts'; got: throw new Error("form counts are title/figure/table " + [count("title"), count("figure"), count("table")] + ", want 1/6/15");
+ok    build figure_file_missing: rc=1; wanted reason 'missing figure file'; got: if (!fs.existsSync(F + f)) throw new Error(pg.id + ": missing figure file " + f);
+ok    build notes_block_missing: rc=1; wanted reason 'no block for P07'; got: Error: template section 2 has no block for P07
+ok    build table_row_extra_cell: rc=1; wanted reason 'table row'; got: cells.forEach((r, i) => { if (i !== 1 && r.length !== n) throw new Error(id + " table row " + i + " has " + r.length + " cells, header has " + n); });
+ok    build sec2_table_missing: rc=1; wanted reason 'no section-2 table'; got: if (first.length < 3 || !/^\|[\s|:\-]+\|$/.test(first[1].trim())) throw new Error(id + " has no section-2 table");
+ok    build matrix_cell_flag_dropped: rc=1; wanted reason 'differs from matrix_final.json'; got: Error: P05: cell A1 x NDTwin is ● in the template but ●◌ (differs from matrix_final.json)
+ok    build matrix_cell_glyph_changed: rc=1; wanted reason 'differs from matrix_final.json'; got: Error: P07: cell O5 x IP Fabric* is ◐ in the template but ● (differs from matrix_final.json)
+ok    build matrix_columns_swapped: rc=1; wanted reason 'differs from matrix_final.json'; got: Error: P06: cell P2 x ONOS+Stratum is ● in the template but ◐ (differs from matrix_final.json)
+ok    build p15_flag_changed: rc=1; wanted reason 'differs from matrix_final.json'; got: const fail = (r, m) => { throw new Error(id + " row '" + r[0] + "': " + m + " (differs from matrix_final.json)"); };
+ok    build p15_count_word_changed: rc=1; wanted reason 'flag counts'; got: Error: P15 row 'one API: topology, flows, link load, rule writes': flag counts are ⚠ 3, ◌ 4 (differs from matrix_final.json)
+ok    build p15_question_count_changed: rc=1; wanted reason 'the number of ? on'; got: Error: P15 row 'power-state and energy experiments': the number of ? on O6 is 3, not 2 (differs from matrix_final.json)
+ok    build p15_alternative_glyph_changed: rc=1; wanted reason 'differs from matrix_final.json'; got: const fail = (r, m) => { throw new Error(id + " row '" + r[0] + "': " + m + " (differs from matrix_final.json)"); };
+ok    build p16_ndtwin_cell_changed: rc=1; wanted reason 'differs from matrix_final.json'; got: const fail = (r, m) => { throw new Error(id + " row '" + r[0] + "': " + m + " (differs from matrix_final.json)"); };
+# 0 FAIL (a FAIL here means a generator did not stop with its own named reason, or a control did not run)

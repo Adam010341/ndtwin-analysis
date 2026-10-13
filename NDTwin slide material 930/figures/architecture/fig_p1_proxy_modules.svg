@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="959.976pt" height="518.4pt" viewBox="0 0 959.976 518.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-29T21:58:50.672823</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 518.4 
+L 959.976 518.4 
+L 959.976 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 43.2 51.84 
+L 914.4 51.84 
+L 914.4 91.44 
+L 43.2 91.44 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #ffffff; stroke: #1a1a1a; stroke-width: 1.25; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 280.8 92.669837 
+Q 280.8 108.72 280.8 124.770163 
+" clip-path="url(#p7f5c1a2e78)" style="fill: none; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 278.6 97.069837 
+L 280.8 92.669837 
+L 283 97.069837 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 283 120.370163 
+L 280.8 124.770163 
+L 278.6 120.370163 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 617.4 140.4 
+Q 617.4 115.92 617.4 92.669837 
+" clip-path="url(#p7f5c1a2e78)" style="fill: none; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 615.2 97.069837 
+L 617.4 92.669837 
+L 619.6 97.069837 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 43.2 126 
+L 867.6 126 
+L 867.6 378 
+L 43.2 378 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #ffffff; stroke: #065a82; stroke-width: 1.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 54 118.08 
+L 212.4 118.08 
+L 212.4 133.92 
+L 54 133.92 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #ffffff"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 57.6 140.4 
+L 172.8 140.4 
+L 172.8 280.8 
+L 57.6 280.8 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #ffffff; stroke: #1a1a1a; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 57.6 291.6 
+L 172.8 291.6 
+L 172.8 363.6 
+L 57.6 363.6 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #eef3f6; stroke: #065a82; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 187.2 140.4 
+L 374.4 140.4 
+L 374.4 201.6 
+L 187.2 201.6 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #ffffff; stroke: #1a1a1a; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 396 140.4 
+L 536.4 140.4 
+L 536.4 169.2 
+L 396 169.2 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #ffffff; stroke: #1a1a1a; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 396 172.8 
+L 536.4 172.8 
+L 536.4 201.6 
+L 396 201.6 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #ffffff; stroke: #1a1a1a; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 374.4 154.8 
+Q 385.2 154.8 394.770163 154.8 
+" clip-path="url(#p7f5c1a2e78)" style="fill: none; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 390.370163 152.6 
+L 394.770163 154.8 
+L 390.370163 157 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 374.4 187.2 
+Q 385.2 187.2 394.770163 187.2 
+" clip-path="url(#p7f5c1a2e78)" style="fill: none; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 390.370163 185 
+L 394.770163 187.2 
+L 390.370163 189.4 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 698.4 140.4 
+L 849.6 140.4 
+L 849.6 201.6 
+L 698.4 201.6 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #f7f8f9; stroke: #d0d0d0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 558 140.4 
+L 676.8 140.4 
+L 676.8 201.6 
+L 558 201.6 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #ffffff; stroke: #1a1a1a; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 187.2 219.6 
+L 619.2 219.6 
+L 619.2 280.8 
+L 187.2 280.8 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #ffffff; stroke: #1a1a1a; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_17">
+    <path d="M 637.2 219.6 
+L 849.6 219.6 
+L 849.6 280.8 
+L 637.2 280.8 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #eef3f6; stroke: #065a82; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_18">
+    <path d="M 280.8 202.829837 
+Q 280.8 210.6 280.8 218.370163 
+" clip-path="url(#p7f5c1a2e78)" style="fill: none; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 278.6 207.229837 
+L 280.8 202.829837 
+L 283 207.229837 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 283 213.970163 
+L 280.8 218.370163 
+L 278.6 213.970163 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="patch_19">
+    <path d="M 637.2 250.2 
+Q 628.2 250.2 620.429837 250.2 
+" clip-path="url(#p7f5c1a2e78)" style="fill: none; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 624.829837 252.4 
+L 620.429837 250.2 
+L 624.829837 248 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="patch_20">
+    <path d="M 597.6 219.6 
+Q 597.6 210.6 597.6 202.829837 
+" clip-path="url(#p7f5c1a2e78)" style="fill: none; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 595.4 207.229837 
+L 597.6 202.829837 
+L 599.8 207.229837 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="patch_21">
+    <path d="M 187.2 298.8 
+L 352.8 298.8 
+L 352.8 363.6 
+L 187.2 363.6 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #eef3f6; stroke: #065a82; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_22">
+    <path d="M 367.2 298.8 
+L 619.2 298.8 
+L 619.2 363.6 
+L 367.2 363.6 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #ffffff; stroke: #1a1a1a; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_23">
+    <path d="M 637.2 298.8 
+L 849.6 298.8 
+L 849.6 363.6 
+L 637.2 363.6 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #ffffff; stroke: #1a1a1a; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_24">
+    <path d="M 270 280.8 
+Q 270 289.8 270 297.570163 
+" clip-path="url(#p7f5c1a2e78)" style="fill: none; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 272.2 293.170163 
+L 270 297.570163 
+L 267.8 293.170163 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="patch_25">
+    <path d="M 352.8 331.2 
+Q 360 331.2 365.970163 331.2 
+" clip-path="url(#p7f5c1a2e78)" style="fill: none; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 361.570163 329 
+L 365.970163 331.2 
+L 361.570163 333.4 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="patch_26">
+    <path d="M 493.2 280.8 
+Q 493.2 289.8 493.2 297.570163 
+" clip-path="url(#p7f5c1a2e78)" style="fill: none; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 495.4 293.170163 
+L 493.2 297.570163 
+L 491 293.170163 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="patch_27">
+    <path d="M 619.2 331.2 
+Q 628.2 331.2 635.970163 331.2 
+" clip-path="url(#p7f5c1a2e78)" style="fill: none; stroke: #065a82; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 631.570163 329 
+L 635.970163 331.2 
+L 631.570163 333.4 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #065a82; stroke: #065a82; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="patch_28">
+    <path d="M 849.6 331.2 
+Q 867.6 331.2 884.034752 331.2 
+" clip-path="url(#p7f5c1a2e78)" style="fill: none; stroke: #065a82; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 879.634752 329 
+L 884.034752 331.2 
+L 879.634752 333.4 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #065a82; stroke: #065a82; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_29">
+    <path d="M 885.6 331.2 
+Q 885.6 211.32 885.6 93.005248 
+" clip-path="url(#p7f5c1a2e78)" style="fill: none; stroke: #065a82; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 883.4 97.405248 
+L 885.6 93.005248 
+L 887.8 97.405248 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #065a82; stroke: #065a82; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_30">
+    <path d="M 493.2 364.829837 
+Q 493.2 383.4 493.2 401.970163 
+" clip-path="url(#p7f5c1a2e78)" style="fill: none; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 491 369.229837 
+L 493.2 364.829837 
+L 495.4 369.229837 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 495.4 397.570163 
+L 493.2 401.970163 
+L 491 397.570163 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="patch_31">
+    <path d="M 187.2 403.2 
+L 619.2 403.2 
+L 619.2 471.6 
+L 187.2 471.6 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #f7f8f9; stroke: #1a1a1a; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_32">
+    <path d="M 43.2 403.2 
+L 172.8 403.2 
+L 172.8 471.6 
+L 43.2 471.6 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #ffffff; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #6e6e6e; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_33">
+    <path d="M 108 403.2 
+Q 108 383.4 108 364.829837 
+" clip-path="url(#p7f5c1a2e78)" style="fill: none; stroke-dasharray: 4.07,1.76; stroke-dashoffset: 0; stroke: #6e6e6e; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 105.8 369.229837 
+L 108 364.829837 
+L 110.2 369.229837 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #6e6e6e; stroke-dasharray: 4.07,1.76; stroke-dashoffset: 0; stroke: #6e6e6e; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="patch_34">
+    <path d="M 637.2 403.2 
+L 914.4 403.2 
+L 914.4 482.4 
+L 637.2 482.4 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #eef3f6; stroke-dasharray: 5.92,2.56; stroke-dashoffset: 0; stroke: #065a82; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_35">
+    <path d="M 741.6 403.2 
+Q 741.6 383.4 741.6 364.829837 
+" clip-path="url(#p7f5c1a2e78)" style="fill: none; stroke-dasharray: 1.1,1.815; stroke-dashoffset: 0; stroke: #065a82; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 739.4 369.229837 
+L 741.6 364.829837 
+L 743.8 369.229837 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #065a82; stroke-dasharray: 1.1,1.815; stroke-dashoffset: 0; stroke: #065a82; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="patch_36">
+    <path d="M 860.4 250.2 
+Q 855 250.2 850.829837 250.2 
+" clip-path="url(#p7f5c1a2e78)" style="fill: none; stroke: #065a82; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 855.229837 252.4 
+L 850.829837 250.2 
+L 855.229837 248 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #065a82; stroke: #065a82; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="patch_37">
+    <path d="M 903.6 403.2 
+Q 903.6 247.32 903.6 93.005248 
+" clip-path="url(#p7f5c1a2e78)" style="fill: none; stroke-dasharray: 5.18,2.24; stroke-dashoffset: 0; stroke: #065a82; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 901.4 97.405248 
+L 903.6 93.005248 
+L 905.8 97.405248 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #065a82; stroke-dasharray: 5.18,2.24; stroke-dashoffset: 0; stroke: #065a82; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_38">
+    <path d="M 44.64 498.96 
+L 64.8 498.96 
+L 64.8 510.48 
+L 44.64 510.48 
+z
+" clip-path="url(#p7f5c1a2e78)" style="fill: #eef3f6; stroke: #065a82; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 860.4 403.2 
+L 860.4 250.2 
+" clip-path="url(#p7f5c1a2e78)" style="fill: none; stroke-dasharray: 4.07,1.76; stroke-dashoffset: 0; stroke: #065a82; stroke-width: 1.1"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 18px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="32.4" y="30.578203" transform="rotate(-0 32.4 30.578203)">The P4 proxy, module by module</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #4f4f4f" x="927.576" y="28.507891" transform="rotate(-0 927.576 28.507891)">READ · trunk 3368412d</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="56.16" y="74.745469" transform="rotate(-0 56.16 74.745469)">NDTwin kernel</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 9px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #4f4f4f" x="903.6" y="73.969102" transform="rotate(-0 903.6 73.969102)">/ndt/* HTTP API  ·  sFlow collector, UDP 6343</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 8px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #4f4f4f" x="289.44" y="117.990313" transform="rotate(-0 289.44 117.990313)">Ryu-compatible REST</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 8px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #4f4f4f" x="608.4" y="117.990313" transform="rotate(-0 608.4 117.990313)">/ndt/ push</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #065a82" x="57.6" y="128.580762" transform="rotate(-0 57.6 128.580762)">P4 proxy agent</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #1a1a1a" x="115.2" y="160.387441" transform="rotate(-0 115.2 160.387441)">main.py</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 8.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #2e2e2e" transform="translate(101.027578 213.628486)">startup:</text>
+    <text style="font-size: 8.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #2e2e2e" transform="translate(87.558398 222.879707)">connect, push,</text>
+    <text style="font-size: 8.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #2e2e2e" transform="translate(101.032891 232.130928)">fill, wire</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #065a82" x="115.2" y="311.66373" transform="rotate(-0 115.2 311.66373)">profile.py</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 8.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #2e2e2e" transform="translate(104.334609 335.254097)">which</text>
+    <text style="font-size: 8.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #2e2e2e" transform="translate(99.133008 344.505317)">package</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #1a1a1a" x="280.8" y="160.387441" transform="rotate(-0 280.8 160.387441)">api_routes.py</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 8.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #2e2e2e" x="280.8" y="183.279707" transform="rotate(-0 280.8 183.279707)">the only door in</text>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #1a1a1a" x="466.2" y="157.235859" transform="rotate(-0 466.2 157.235859)">ryu_topology.py</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #1a1a1a" x="466.2" y="189.718613" transform="rotate(-0 466.2 189.718613)">ryu_flow_stats.py</text>
+   </g>
+   <g id="text_16">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f4f4f" x="774" y="160.722686" transform="rotate(-0 774 160.722686)">bookkeeping</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 7px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #6e6e6e" x="774" y="176.050156" transform="rotate(-0 774 176.050156)">rule_journal.py</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 7px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #6e6e6e" x="774" y="185.410156" transform="rotate(-0 774 185.410156)">rule_install_times.py</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 7px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #6e6e6e" x="774" y="194.770156" transform="rotate(-0 774 194.770156)">boot_identity.py</text>
+   </g>
+   <g id="text_20">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #1a1a1a" x="617.4" y="173.386055" transform="rotate(-0 617.4 173.386055)">kernel_notifier.py</text>
+   </g>
+   <g id="text_21">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #1a1a1a" x="403.2" y="239.700469" transform="rotate(-0 403.2 239.700469)">topology_manager.py</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 8.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #2e2e2e" x="403.2" y="262.479707" transform="rotate(-0 403.2 262.479707)">graph · BFS routes · LLDP beacon + link watchdog · Ryu rule → table entry</text>
+   </g>
+   <g id="text_23">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #065a82" x="743.4" y="239.587441" transform="rotate(-0 743.4 239.587441)">link_heartbeat.py</text>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 8.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #2e2e2e" x="743.4" y="262.479707" transform="rotate(-0 743.4 262.479707)">heartbeat report → up / down</text>
+   </g>
+   <g id="text_25">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #065a82" x="270" y="318.772266" transform="rotate(-0 270 318.772266)">route_binding.py</text>
+   </g>
+   <g id="text_26">
+    <text style="font-size: 8.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #2e2e2e" transform="translate(232.916094 338.854097)">roles → which table</text>
+    <text style="font-size: 8.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #2e2e2e" transform="translate(241.179688 348.105317)">no roles → 501</text>
+   </g>
+   <g id="text_27">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #1a1a1a" x="493.2" y="318.787441" transform="rotate(-0 493.2 318.787441)">p4_client.py</text>
+   </g>
+   <g id="text_28">
+    <text style="font-size: 8.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #2e2e2e" x="493.2" y="343.479707" transform="rotate(-0 493.2 343.479707)">one per switch · entries by p4info name</text>
+   </g>
+   <g id="text_29">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #1a1a1a" x="743.4" y="318.86373" transform="rotate(-0 743.4 318.86373)">sflow_emitter.py</text>
+   </g>
+   <g id="text_30">
+    <text style="font-size: 8.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #2e2e2e" x="743.4" y="343.479707" transform="rotate(-0 743.4 343.479707)">sFlow v5 builder</text>
+   </g>
+   <g id="text_31">
+    <text style="font-size: 7.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #065a82" transform="translate(896.900918 230.794336) rotate(-90)">sFlow v5</text>
+   </g>
+   <g id="text_32">
+    <text style="font-size: 8px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #4f4f4f" x="501.84" y="387.990313" transform="rotate(-0 501.84 387.990313)">P4Runtime gRPC</text>
+   </g>
+   <g id="text_33">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="403.2" y="431.238838" transform="rotate(-0 403.2 431.238838)">bmv2 simple_switch_grpc × N</text>
+   </g>
+   <g id="text_34">
+    <text style="font-size: 9px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #2e2e2e" x="403.2" y="453.769102" transform="rotate(-0 403.2 453.769102)">each runs the program its package names</text>
+   </g>
+   <g id="text_35">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="108" y="423.651724" transform="rotate(-0 108 423.651724)">app package</text>
+   </g>
+   <g id="text_36">
+    <text style="font-size: 7.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #4f4f4f" transform="translate(76.528711 442.819497)">program · topology</text>
+    <text style="font-size: 7.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #4f4f4f" transform="translate(78.205078 450.982339)">sN-runtime · roles</text>
+   </g>
+   <g id="text_37">
+    <text style="font-size: 7.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f4f4f" x="108" y="490.100918" transform="rotate(-0 108 490.100918)">convert.py → pre-flight</text>
+   </g>
+   <g id="text_38">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #065a82" x="775.8" y="422.218496" transform="rotate(-0 775.8 422.218496)">outside the proxy, as root</text>
+   </g>
+   <g id="text_39">
+    <text style="font-size: 8px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #2e2e2e" x="775.8" y="439.110313" transform="rotate(-0 775.8 439.110313)">ndtwin-lab: veth heartbeat → heartbeat.json</text>
+   </g>
+   <g id="text_40">
+    <text style="font-size: 8px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #2e2e2e" x="775.8" y="455.670312" transform="rotate(-0 775.8 455.670312)">fabric: tc sample 1/256 →</text>
+   </g>
+   <g id="text_41">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #065a82" x="775.8" y="470.253496" transform="rotate(-0 775.8 470.253496)">psample_sflow_emitter.py</text>
+   </g>
+   <g id="text_42">
+    <text style="font-size: 7.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #065a82" x="735.84" y="385.700918" transform="rotate(-0 735.84 385.700918)">same builder (import)</text>
+   </g>
+   <g id="text_43">
+    <text style="font-size: 7.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #065a82" x="855.36" y="390.740918" transform="rotate(-0 855.36 390.740918)">heartbeat.json</text>
+   </g>
+   <g id="text_44">
+    <text style="font-size: 8px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #065a82" x="907.2" y="365.670312" transform="rotate(-0 907.2 365.670312)">link sFlow</text>
+   </g>
+   <g id="text_45">
+    <text style="font-size: 8.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #4f4f4f" x="70.56" y="506.919707" transform="rotate(-0 70.56 506.919707)">added since 09-16, for a program that is not NDTwin's own</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p7f5c1a2e78">
+   <rect x="0" y="0" width="959.976" height="518.4"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -1,0 +1,3996 @@
+{
+ "legend": {
+  "builtin": "●",
+  "diy": "◐",
+  "no": "○",
+  "unknown": "?",
+  "flag_defect": "⚠",
+  "flag_unrun": "◌"
+ },
+ "personas": {
+  "app": {
+   "label": "Developer writing a network control app",
+   "rows": {
+    "A1": "Read the topology (switches, links, hosts) through an API",
+    "A2": "List active flows with their path and rate",
+    "A3": "Read per-link utilization in near real time",
+    "A4": "Install or change forwarding rules from an external app",
+    "A5": "Fail a link on purpose and watch the app react",
+    "A6": "Ask 'what if' before applying a change (simulate the effect)",
+    "A7": "Run the same app code on OpenFlow and on P4 data planes",
+    "A8": "Run the same app code on an emulated network and on real switches"
+   },
+   "columns": [
+    "Mininet + Ryu (assemble it yourself)",
+    "ONOS (+ Mininet)",
+    "Containerlab",
+    "ns-3",
+    "sFlow-RT",
+    "NDTwin"
+   ],
+   "cells": {
+    "A1": {
+     "Mininet + Ryu (assemble it yourself)": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "rest_topology app serves switches, links, hosts as JSON; links need the --observe-links flag, hosts are learned from seen packets.",
+      "scope": "needs ryu-manager --observe-links; hosts appear only after they send traffic",
+      "source": "https://raw.githubusercontent.com/faucetsdn/ryu/master/ryu/app/rest_topology.py",
+      "locator": "route table: /v1.0/topology/switches, /links, /hosts; plus ryu/topology/switches.py (observe_links)",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://raw.githubusercontent.com/faucetsdn/ryu/master/ryu/app/rest_topology.py"
+      }
+     },
+     "ONOS (+ Mininet)": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "REST resources for topology, devices, links and hosts exist; Java services give the same data in-process.",
+      "scope": null,
+      "source": "https://github.com/opennetworkinglab/onos/tree/master/web/api/src/main/java/org/onosproject/rest/resources",
+      "locator": "TopologyWebResource, DevicesWebResource, LinksWebResource, HostsWebResource",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "Containerlab": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "inspect JSON lists nodes and inspect interfaces lists per-node interfaces, not links; parse the YAML topology or query each NOS.",
+      "scope": "topology lives in the YAML file; no link-discovery API",
+      "source": "https://containerlab.dev/cmd/inspect/",
+      "locator": "Output formats; 'nodes only, not links'; inspect interfaces page",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "ns-3": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Simulation code enumerates nodes, devices and channels through C++ or Python object APIs and config paths; no REST or discovery.",
+      "scope": null,
+      "source": "https://www.nsnam.org/docs/manual/html/tracing.html",
+      "locator": "Config paths such as /NodeList/0/$ns3::PointToPointNetDevice",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "sFlow-RT": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "GET /topology/json reads a topology, but you supply nodes and links via PUT or setTopology; no discovery documented.",
+      "scope": "projects such as mininet-dashboard and containerlab topo.py upload topology for you",
+      "source": "https://sflow-rt.com/reference.php",
+      "locator": "Topology: /topology/json, setTopology()",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "NDTwin": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [
+       "◌"
+      ],
+      "note": "GET /ndt/get_graph_data lists switches, hosts, links from a pre-declared topology file; discovery only flips up/down.",
+      "scope": "OVS: builtin; bmv2: builtin (proxy serves Ryu-shaped topology); physical: same call, hardware path unrun in repo. Devices missing from the topology file are ignored with a WARN, so the twin does not learn new devices.",
+      "source": "doc/2026-01-02_ndt_api.md:472; src/ndt_core/http/HttpSession.cpp:348; src/ndt_core/collection/TopologyAndFlowMonitor.cpp:2373",
+      "locator": "api section 3 get_graph_data; HttpSession::buildResponse route; updateSwitches",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "doc/2026-01-02_ndt_api.md:472; doc/2026-01-02_ndt_api.md:1598"
+      },
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+     }
+    },
+    "A2": {
+     "Mininet + Ryu (assemble it yourself)": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "ofctl_rest returns per-flow packet/byte counters and duration only; developer polls, differences counters for rate, and stitches per-switch entries into paths.",
+      "scope": null,
+      "source": "https://ryu.readthedocs.io/en/latest/app/ofctl_rest.html",
+      "locator": "Get flows stats (/stats/flow/<dpid>); response has no rate field",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "ONOS (+ Mininet)": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "GET /flows lists entries per device; Java FlowStatisticService gives per-flow load per port; no end-to-end per-flow path view.",
+      "scope": "rate per flow per port: builtin (Java); flow-to-path stitching: diy",
+      "source": "https://raw.githubusercontent.com/opennetworkinglab/onos/master/core/api/src/main/java/org/onosproject/net/statistic/FlowStatisticService.java",
+      "locator": "FlowStatisticService.loadAllByType/loadTopnByType; web/.../PathsWebResource (shortest paths only)",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "Containerlab": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "No flow concept in containerlab; bolt on sFlow-RT, whose project publishes containerlab labs and a topology uploader script.",
+      "scope": null,
+      "source": "https://github.com/sflow-rt/containerlab",
+      "locator": "README: topology aware fabric analytics, topo.py",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "ns-3": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "FlowMonitor reports per-flow bytes, packets, delay, loss for L4 5-tuples; no path or rate field, so derive both yourself.",
+      "scope": "TCP/UDP flows only",
+      "source": "https://www.nsnam.org/docs/models/html/flow-monitor.html",
+      "locator": "Statistics collected; flow definition",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "sFlow-RT": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "activeflows gives top flows with rates for keys you define; a path must be inferred from flowlocations plus topology.",
+      "scope": "rate: builtin; path: diy",
+      "source": "https://sflow-rt.com/reference.php",
+      "locator": "Flows: setFlow, /activeflows, /flowlocations; topologyShortestPath()",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "NDTwin": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [
+       "⚠",
+       "◌"
+      ],
+      "note": "get_detected_flow_data returns 5-tuple, hop-by-hop path, bit/packet rate from sFlow; flows under ~22 pps often missed.",
+      "scope": "OVS: switch sFlow sampling=256 (39 concurrent flows seen live on the 128-host fabric); bmv2: proxy builds sFlow from 1/256 pipeline clones; physical: switch sFlow (website example 1/1000), unrun in repo. Default view lists only flows sampled in the last 3 s.",
+      "source": "doc/2026-01-02_ndt_api.md:1056; doc/2026-01-02_ndt_api.md:1138; src/ndt_core/http/HttpSession.cpp:358; doc/2026-08-14_cross-component-integration-matrix.md:119",
+      "locator": "api section 4 get_detected_flow_data, 'How much traffic a flow needs'",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verdict_prev": "builtin",
+      "flags_prev": [
+       "◌"
+      ],
+      "verification": {
+       "status": "CHANGE",
+       "why": "Missing ⚠: KI lists the low-pps blind spot as an OPEN defect. Fully delivered flows drop out of the default view below ~22 pps.",
+       "evidence": "doc/KNOWN-ISSUES.md:2296-2298 (B-x reverse, OPEN, code unchanged); include/ndt_core/collection/FlowLinkUsageCollector.hpp:91 (kFlowActiveWindowMs=3000)"
+      },
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+     }
+    },
+    "A3": {
+     "Mininet + Ryu (assemble it yourself)": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "ofctl_rest exposes port byte counters; developer polls, computes deltas, divides by capacity, and maps ports to links.",
+      "scope": null,
+      "source": "https://ryu.readthedocs.io/en/latest/app/ofctl_rest.html",
+      "locator": "Get ports stats (/stats/port/<dpid>[/<port>])",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "ONOS (+ Mininet)": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "GET /statistics/flows/link returns load for links, derived from flow-rule statistics; port statistics and deltas have their own endpoints.",
+      "scope": "load comes from flow-rule stats polling, not sampled telemetry; update interval not checked",
+      "source": "https://raw.githubusercontent.com/opennetworkinglab/onos/master/web/api/src/main/java/org/onosproject/rest/resources/StatisticsWebResource.java",
+      "locator": "paths statistics/flows/link, statistics/ports, statistics/delta/ports",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "Containerlab": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Not provided by containerlab; read counters from the NOS (e.g. gNMI) or add sFlow-RT as in the sflow-rt/containerlab labs.",
+      "scope": null,
+      "source": "https://github.com/sflow-rt/containerlab",
+      "locator": "README: real-time telemetry from Clos fabrics",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "ns-3": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Connect trace callbacks on device transmit events, accumulate bytes per interval, divide by link capacity; no ready utilization metric found.",
+      "scope": null,
+      "source": "https://www.nsnam.org/docs/manual/html/tracing.html",
+      "locator": "Trace sources and sinks; Config::ConnectWithoutContext",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "sFlow-RT": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "Interface metrics include ifinutilization and ifoututilization, and topologyLinkMetric reads metrics at both ends of a topology link.",
+      "scope": "update interval not stated in the docs checked",
+      "source": "https://sflow-rt.com/metrics.php",
+      "locator": "Interface metrics; topologyLinkMetric in reference",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "NDTwin": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [
+       "⚠",
+       "◌"
+      ],
+      "note": "Per-edge link_bandwidth_utilization_percent in get_graph_data; ~1 s lag after a change; 0 can mean idle or silent telemetry.",
+      "scope": "OVS: sFlow flow samples (counter polling skipped in Mininet); an OVS power cycle can zero a link reading silently (A-4f, open); bmv2: synthesised samples, +-5% at a 1 s window unreachable (KNOWN-ISSUES section F); physical: sFlow counters, unrun in repo; A-4f fix is merged in 2ece656c (36e3d78a), live verification pending; ⚠ rests on C-9 and B-17",
+      "source": "doc/2026-01-02_ndt_api.md:983; doc/2026-01-02_ndt_api.md:5388; doc/KNOWN-ISSUES.md:3016; doc/KNOWN-ISSUES.md:476",
+      "locator": "api section 3 edge fields; api 'Closed-loop apps' table; KNOWN-ISSUES C-9, A-4f",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "doc/KNOWN-ISSUES.md:3016-3021 (C-9 OPEN); doc/KNOWN-ISSUES.md:2169-2175 (B-17 OPEN); doc/KNOWN-ISSUES.md:476-479 + merge 36e3d78a + src/ndt_core/power_management/OVSPowerStrategy.cpp:230"
+      },
+      "note_corrections": [
+       {
+        "field": "scope",
+        "before": "OVS: sFlow flow samples (counter polling skipped in Mininet); an OVS power cycle can zero a link reading silently (A-4f, open); bmv2: synthesised samples, +-5% at a 1 s window unreachable (KNOWN-ISSUES section F); physical: sFlow counters, unrun in repo",
+        "after": "OVS: sFlow flow samples (counter polling skipped in Mininet); an OVS power cycle can zero a link reading silently (A-4f, open); bmv2: synthesised samples, +-5% at a 1 s window unreachable (KNOWN-ISSUES section F); physical: sFlow counters, unrun in repo; A-4f fix is merged in 2ece656c (36e3d78a), live verification pending; ⚠ rests on C-9 and B-17",
+        "source": "NDTwin verifier report"
+       }
+      ],
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+     }
+    },
+    "A4": {
+     "Mininet + Ryu (assemble it yourself)": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "ofctl_rest accepts flow entry add, modify and delete requests over HTTP for OpenFlow 1.0 to 1.5 switches.",
+      "scope": null,
+      "source": "https://ryu.readthedocs.io/en/latest/app/ofctl_rest.html",
+      "locator": "Add/Modify/Delete a flow entry (/stats/flowentry/*)",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "ONOS (+ Mininet)": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "POST /flows installs flow rules from JSON; Intents and Flow Objectives REST resources provide higher-level alternatives.",
+      "scope": null,
+      "source": "https://github.com/opennetworkinglab/onos/tree/master/web/api/src/main/java/org/onosproject/rest/resources",
+      "locator": "FlowsWebResource (POST/DELETE /flows); IntentsWebResource; FlowObjectiveWebResource",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "Containerlab": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Containerlab does not program forwarding; the app configures each NOS via its own CLI, gNMI or NETCONF, or exec.",
+      "scope": null,
+      "source": "https://containerlab.dev/cmd/exec/",
+      "locator": "exec command: run commands inside lab nodes",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "ns-3": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Built-in OpenFlow switch module supports only controllers written inside the simulation (subclass ofi::Controller); external controller listed as future possibility.",
+      "scope": "third-party OpenFlow modules exist; not assessed",
+      "source": "https://www.nsnam.org/docs/models/html/openflow-switch.html",
+      "locator": "Controller section: embedded controllers only",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "sFlow-RT": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "sFlow-RT is analytics, not a controller; scripts can act through documented BGP FlowSpec and HTTP hooks, no OpenFlow rule installation.",
+      "scope": null,
+      "source": "https://sflow-rt.com/index.php",
+      "locator": "Home page: BGP, Flowspec and HTTP control integration",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "NDTwin": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [
+       "⚠",
+       "◌"
+      ],
+      "note": "POST install/modify/delete_flow_entry plus a batch route; 200 means 'queued', not installed; failures surface in a separate status endpoint.",
+      "scope": "OVS: OpenFlow via Ryu; bmv2: dst-IP and 5-tuple matches only, 1024 entries per switch, table-full and priority-delete refusals still answer 200 (C-6, C-7), proxy restart drops rules (A-4c); physical: OpenFlow via Ryu, unrun in repo",
+      "source": "src/ndt_core/http/HttpSession.cpp:2443; doc/2026-01-02_ndt_api.md:1905; doc/2026-01-02_ndt_api.md:5419; doc/KNOWN-ISSUES.md:2909; doc/KNOWN-ISSUES.md:2971",
+      "locator": "HttpSession::processFlowBatch; api section 9; api 'Closed-loop apps'; KNOWN-ISSUES C-6, C-7",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "doc/KNOWN-ISSUES.md:339-344 (A-4c OPEN; boot_id/table_generation have 0 hits in src/ include/); doc/KNOWN-ISSUES.md:2909-2920 (C-6); doc/KNOWN-ISSUES.md:2971-2973 (C-7)"
+      },
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+     }
+    },
+    "A5": {
+     "Mininet + Ryu (assemble it yourself)": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "Mininet sets a link down or up at runtime from CLI or Python; the Ryu app handles resulting events itself.",
+      "scope": null,
+      "source": "https://mininet.org/api/classmininet_1_1net_1_1Mininet.html",
+      "locator": "Mininet.configLinkStatus (src, dst, 'up'|'down')",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "ONOS (+ Mininet)": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "Link failure via Mininet link down; ONOS updates its topology and apps can listen for link events and intent recompilation.",
+      "scope": "failure injection is Mininet's; ONOS link-event reaction taken from its service API, not tested here",
+      "source": "https://mininet.org/api/classmininet_1_1net_1_1Mininet.html",
+      "locator": "Mininet.configLinkStatus; ONOS side: README 'northbound abstractions' (link events from LinkService)",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "Containerlab": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "netem set adds delay, jitter, loss, rate; docs describe no link-down, so use exec to down an interface.",
+      "scope": null,
+      "source": "https://containerlab.dev/cmd/tools/netem/set/",
+      "locator": "What netem set does; examples",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "ns-3": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Schedule Ipv4::SetDown on both link ends at a simulated time, as in the RIP example; reaction code is yours.",
+      "scope": null,
+      "source": "https://www.nsnam.org/docs/release/3.40/doxygen/d9/db8/rip-simple-network_8cc_source.html",
+      "locator": "TearDownLink and Simulator::Schedule in rip-simple-network.cc",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "sFlow-RT": {
+      "verdict": "diy",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "No failure injection; it can observe interface state (ifoperstatus) and raise threshold events, but the link must be failed elsewhere.",
+      "scope": "watch: builtin; fail: no",
+      "source": "https://sflow-rt.com/metrics.php",
+      "locator": "Status metrics ifoperstatus; reference: thresholds and events",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08",
+      "verdict_prev": "no",
+      "flags_prev": [],
+      "verification": {
+       "status": "CHANGE",
+       "why": "sFlow-RT ships extras/sflow.py for Mininet; fail link there, watch ifoperstatus/threshold events. Bolt-on tool = diy, as ONOS got Mininet credit.",
+       "evidence": "https://blog.sflow.com/2016/05/mininet-dashboard.html"
+      }
+     },
+     "NDTwin": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "inject_link_failure cuts a link with tc netem on Mininet; outside Mininet it only marks the twin graph down.",
+      "scope": "OVS/Mininet: builtin (needs NOPASSWD tc sudo grants); bmv2/Mininet: builtin; physical: twin graph only, packets keep flowing. No event push: the app must poll get_graph_data; a real cut took 10.7-14 s to detect on bmv2.",
+      "source": "src/ndt_core/http/HttpSession.cpp:1098; src/ndt_core/http/HttpSession.cpp:1158; doc/2026-01-02_ndt_api.md:383; doc/2026-01-02_ndt_api.md:428; doc/KNOWN-ISSUES.md:3051",
+      "locator": "HttpSession::handleInjectLinkFailure; api section 2b; KNOWN-ISSUES D-2",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "src/ndt_core/http/HttpSession.cpp:340 (inject_link_failure route); doc/KNOWN-ISSUES.md:2104-2106 (B-16 says OPEN) vs merge 6c4000eb in 2ece656c"
+      },
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+     }
+    },
+    "A6": {
+     "Mininet + Ryu (assemble it yourself)": {
+      "verdict": "diy",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "Neither Mininet nor Ryu's bundled apps offer a simulate-before-apply step; changes go straight to switches, effect is observed afterwards.",
+      "scope": null,
+      "source": "https://ryu.readthedocs.io/en/latest/app/ofctl_rest.html",
+      "locator": "REST endpoint list (no simulation or dry-run endpoint)",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08",
+      "verdict_prev": "no",
+      "flags_prev": [],
+      "verification": {
+       "status": "CHANGE",
+       "why": "Mininet is a prototyping emulator: replay the change on a replica first, then deploy. Same effort class as ns-3 (diy) and NDTwin (diy).",
+       "evidence": "https://mininet.org/overview/"
+      }
+     },
+     "ONOS (+ Mininet)": {
+      "verdict": "diy",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "No what-if or simulation feature found in the ONOS REST resources or README; changes are applied to the live network.",
+      "scope": null,
+      "source": "https://github.com/opennetworkinglab/onos/tree/master/web/api/src/main/java/org/onosproject/rest/resources",
+      "locator": "REST resource class list (no simulation resource)",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08",
+      "verdict_prev": "no",
+      "flags_prev": [],
+      "verification": {
+       "status": "CHANGE",
+       "why": "Column includes Mininet; stand up a Mininet replica with ONOS and apply the change there first. Consistent with ns-3 and NDTwin diy.",
+       "evidence": "https://mininet.org/overview/"
+      }
+     },
+     "Containerlab": {
+      "verdict": "diy",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "No simulation or dry-run feature found in containerlab docs; labs run real NOS images.",
+      "scope": null,
+      "source": "https://containerlab.dev/",
+      "locator": "Overview: key features list",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08",
+      "verdict_prev": "no",
+      "flags_prev": [],
+      "verification": {
+       "status": "CHANGE",
+       "why": "Docs list Testing and CI: deploy a code-defined lab copy and test changes before production; prediction is yours to script.",
+       "evidence": "https://containerlab.dev/"
+      }
+     },
+     "ns-3": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "The simulator can run what-if scenarios, but you model network and traffic in code; it does not import live state.",
+      "scope": null,
+      "source": "https://www.nsnam.org/about/",
+      "locator": "About ns-3: discrete-event simulator",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "sFlow-RT": {
+      "verdict": "no",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "Measures live sFlow telemetry; no simulation or prediction feature found in the reference.",
+      "scope": null,
+      "source": "https://sflow-rt.com/reference.php",
+      "locator": "REST/JavaScript function list",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://sflow-rt.com/reference.php"
+      }
+     },
+     "NDTwin": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Kernel relays cases to plug-in simulators; the one shipped simulator only models switch power on/off at flow level.",
+      "scope": "same on all planes; manager and Energy app need root and an NFS mount; any other what-if (rule change, link cut) needs your own simulator executable",
+      "source": "doc/2026-01-02_ndt_api.md:2369; doc/2026-01-02_ndt_api.md:2432; Simulation-Platform-Manager@b7efd93:simulation_platform_manager.cpp:41; Energy-Saving-App@9facb78:src/sim/energy_saving_simulator.cpp:621",
+      "locator": "api sections 16-18 app_register / received_a_simulation_case; run_simulator; simulator input switchesDpidToPowerOn/Off",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "doc/2026-01-02_ndt_api.md:2369; Energy-Saving-App@9facb78:src/sim/energy_saving_simulator.cpp:621"
+      },
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+     }
+    },
+    "A7": {
+     "Mininet + Ryu (assemble it yourself)": {
+      "verdict": "no",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "Ryu speaks OpenFlow 1.0 to 1.5 and Nicira extensions; no P4Runtime support in the framework or bundled apps.",
+      "scope": null,
+      "source": "https://github.com/faucetsdn/ryu",
+      "locator": "README: supported protocols",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://github.com/faucetsdn/ryu"
+      }
+     },
+     "ONOS (+ Mininet)": {
+      "verdict": "builtin",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Ships a basic pipeconf for bmv2 (PipeconfLoader); fwd, LLDP and host apps run unchanged over OpenFlow or that pipeline; another P4 program needs its own pipeconf.",
+      "scope": "OpenFlow: builtin; P4: builtin with the shipped basic pipeconf on bmv2; any other P4 program: write a pipeconf",
+      "source": "https://raw.githubusercontent.com/opennetworkinglab/onos/master/README.md",
+      "locator": "README: 'pluggable southbound for OpenFlow, P4Runtime'; github.com/opennetworkinglab/onos-p4-tutorial (pipeconf exercises)",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08",
+      "verdict_prev": "diy",
+      "flags_prev": [],
+      "verification": {
+       "status": "CHANGE",
+       "why": "ONOS ships basic pipeconf for bmv2 (PipeconfLoader); fwd, LLDP, host apps run unchanged. NDTwin got builtin with its own shipped P4.",
+       "evidence": "https://raw.githubusercontent.com/opennetworkinglab/onos/master/apps/p4-tutorial/exercise-1.md"
+      },
+      "judge_r1": [
+       {
+        "finding": 4,
+        "field": "note",
+        "before": "OpenFlow and P4Runtime southbound both exist; a P4 target needs a pipeconf (pipeline, interpreter) written before apps reuse flow objectives.",
+        "after": "Ships a basic pipeconf for bmv2 (PipeconfLoader); fwd, LLDP and host apps run unchanged over OpenFlow or that pipeline; another P4 program needs its own pipeconf.",
+        "why": "Old note said a pipeconf must be written first, contradicting the CHANGE that rests on the shipped basic pipeconf. Same basis as NDTwin's builtin for its shipped ndtwin_switch.p4."
+       },
+       {
+        "finding": 4,
+        "field": "scope",
+        "before": "OpenFlow: builtin; P4: write a pipeconf; docs do not state identical app code across both",
+        "after": "OpenFlow: builtin; P4: builtin with the shipped basic pipeconf on bmv2; any other P4 program: write a pipeconf",
+        "why": "Scope brought in line with the verdict (stale since the CHANGE)."
+       }
+      ]
+     },
+     "Containerlab": {
+      "verdict": "no",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "Node kinds are NOS images; docs list no OpenFlow controller or P4 abstraction, so nothing is shared across the two.",
+      "scope": null,
+      "source": "https://containerlab.dev/",
+      "locator": "Overview: supported node kinds; no OpenFlow/P4 mention",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://containerlab.dev/"
+      }
+     },
+     "ns-3": {
+      "verdict": "no",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "Built-in switch module is OpenFlow only (embedded controllers); no P4 support in documented core models.",
+      "scope": "P4 via third-party add-ons not assessed",
+      "source": "https://www.nsnam.org/docs/models/html/openflow-switch.html",
+      "locator": "OpenFlow model description",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://arxiv.org/html/2503.17554v1"
+      }
+     },
+     "sFlow-RT": {
+      "verdict": "diy",
+      "verdict_raw": "unknown",
+      "flags": [],
+      "note": "Input is sFlow from agents, so data plane type is irrelevant if an agent exists; docs say nothing about P4.",
+      "scope": "Open vSwitch/OpenFlow: works via sFlow agent; P4: no documented agent",
+      "source": "https://sflow.org/products/network.php",
+      "locator": "Product list (Open vSwitch listed; no P4 target seen)",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08",
+      "verdict_prev": "unknown",
+      "flags_prev": [],
+      "verification": {
+       "status": "CHANGE",
+       "why": "Not silent: sFlow blog cites p4lang/switch sflow.p4 on Tofino; add sFlow sampling to your P4, same scripts work.",
+       "evidence": "https://blog.sflow.com/2016/06/programmable-hardware-barefoot-networks.html"
+      }
+     },
+     "NDTwin": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [
+       "⚠"
+      ],
+      "note": "Same /ndt API on OVS and bmv2; group/meter calls return 501 on P4; mixing planes in one run is refused.",
+      "scope": "P4 (shipped ndtwin_switch.p4): group and meter calls return 501 (P4RoutingStrategy.cpp:27-33), so ECMP-group apps such as Traffic-Engineering-App are OpenFlow-only; flow/graph/power/telemetry endpoints identical on OVS and bmv2; ECMP-group apps (Traffic-Engineering-App) are OpenFlow-only; TE congestion migration was shown end to end on OVS but its 70% threshold cannot trigger on bmv2; Energy app was run against both planes (A-9); ⚠ rests on C-6/C-7 (P4-only silent failures: bmv2 table full and priority delete both answer 200), not A-9",
+      "source": "README.md:31; src/ndt_core/routing_management/P4RoutingStrategy.cpp:27; src/ndt_core/collection/TopologyAndFlowMonitor.cpp:3427; NDTwin-Website@dcd59f5:content/en/docs/overview.md:24; doc/KNOWN-ISSUES.md:761; doc/2026-08-14_cross-component-integration-matrix.md:44",
+      "locator": "README 'Data planes'; P4RoutingStrategy; validateDataPlaneHomogeneity; website Key Features; KNOWN-ISSUES A-9; matrix finding 4",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "doc/KNOWN-ISSUES.md:768-777 (A-9: kernel fixed, app bug same on both planes); doc/KNOWN-ISSUES.md:2971-2976 (C-7 P4-only); src/ndt_core/routing_management/P4RoutingStrategy.cpp:27-33; README.md:36"
+      },
+      "note_corrections": [
+       {
+        "field": "scope",
+        "before": "flow/graph/power/telemetry endpoints identical on OVS and bmv2; ECMP-group apps (Traffic-Engineering-App) are OpenFlow-only; TE congestion migration was shown end to end on OVS but its 70% threshold cannot trigger on bmv2; Energy app was run against both planes (A-9)",
+        "after": "flow/graph/power/telemetry endpoints identical on OVS and bmv2; ECMP-group apps (Traffic-Engineering-App) are OpenFlow-only; TE congestion migration was shown end to end on OVS but its 70% threshold cannot trigger on bmv2; Energy app was run against both planes (A-9); ⚠ rests on C-6/C-7 (P4-only silent failures: bmv2 table full and priority delete both answer 200), not A-9",
+        "source": "NDTwin verifier report"
+       }
+      ],
+      "judge_r1": [
+       {
+        "finding": 4,
+        "field": "scope",
+        "before": "flow/graph/power/telemetry endpoints identical on OVS and bmv2; ECMP-group apps (Traffic-Engineering-App) are OpenFlow-only; TE congestion migration was shown end to end on OVS but its 70% threshold cannot trigger on bmv2; Energy app was run against both planes (A-9); ⚠ rests on C-6/C-7 (P4-only silent failures: bmv2 table full and priority delete both answer 200), not A-9",
+        "after": "P4 (shipped ndtwin_switch.p4): group and meter calls return 501 (P4RoutingStrategy.cpp:27-33), so ECMP-group apps such as Traffic-Engineering-App are OpenFlow-only; flow/graph/power/telemetry endpoints identical on OVS and bmv2; ECMP-group apps (Traffic-Engineering-App) are OpenFlow-only; TE congestion migration was shown end to end on OVS but its 70% threshold cannot trigger on bmv2; Energy app was run against both planes (A-9); ⚠ rests on C-6/C-7 (P4-only silent failures: bmv2 table full and priority delete both answer 200), not A-9",
+        "why": "Group/meter 501 on P4 belongs in the scope; ruled together with ONOS A7 (both builtin on their shipped pipeline; if 'every shipped app ports' were the bar, both would be diy)."
+       }
+      ],
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+     }
+    },
+    "A8": {
+     "Mininet + Ryu (assemble it yourself)": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "Ryu apps speak standard OpenFlow, and Mininet says designs usually move to hardware; topology script and hardware quirks remain yours.",
+      "scope": "controller app reusable; Mininet topology script is not; hardware table limits differ",
+      "source": "https://mininet.org/overview/",
+      "locator": "Overview: 'Real Code Execution' / hardware portability statement",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://mininet.org/overview/"
+      }
+     },
+     "ONOS (+ Mininet)": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "Same ONOS app runs against OpenFlow devices, whether Mininet's Open vSwitch or physical hardware, since the southbound is protocol based.",
+      "scope": "hardware driver and pipeline support per device model not assessed",
+      "source": "https://raw.githubusercontent.com/opennetworkinglab/onos/master/README.md",
+      "locator": "README: pluggable southbound (OpenFlow); Mininet topologies shipped for testing",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "Containerlab": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Nodes run vendor NOS images, so management scripts can target lab or hardware; docs silent; no app layer.",
+      "scope": "applies to NOS management interfaces (gNMI/NETCONF/CLI), not SDN controller apps",
+      "source": "https://containerlab.dev/",
+      "locator": "Overview: container-based NOS labs",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "ns-3": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "FdNetDevice and TapBridge link simulated nodes to real hosts or networks; ns-3 app code is not the deployed binary.",
+      "scope": "emulation links simulation to real hosts; real-switch control apps need separate integration",
+      "source": "https://www.nsnam.org/docs/models/html/emulation-overview.html",
+      "locator": "FdNetDevice, TapBridge, use cases",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "sFlow-RT": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "Same scripts consume sFlow from Open vSwitch in Mininet or from sFlow-capable hardware; repository mininet-dashboard shows the Mininet case.",
+      "scope": "read-only monitoring apps; not a control-plane app",
+      "source": "https://github.com/sflow-rt/mininet-dashboard",
+      "locator": "README: dashboard for Mininet traffic",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "NDTwin": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [
+       "◌"
+      ],
+      "note": "Same API in mininet or testbed mode; HPE5520 and Brocade ICX6610/ICX7250 are coded, no run log in repo.",
+      "scope": "Mininet: builtin (many logged runs); physical: HPE5520 (SNMP power+temperature), BrocadeICX6610/ICX7250 (SSH power), flows over OpenFlow via Ryu, smart-plug power control. api.md says the physical testbed is out of service and the TESTBED branch 'has not been exercised'; website claims tests on Brocade and HPE; I found no hardware run log in the repo; api.md's 'has not been exercised' refers to the physical power-state branch only",
+      "source": "src/main.cpp:142; include/common_types/GraphTypes.hpp:142; src/ndt_core/routing_management/FlowRoutingManager.cpp:84; doc/2026-01-02_ndt_api.md:1598; NDTwin-Website@dcd59f5:content/en/docs/overview.md:23",
+      "locator": "main.cpp --mode mininet|testbed; kAcceptedSwitchBrands; getStrategyForDpid; api section 7 TESTBED note; website Key Features",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "doc/2026-01-02_ndt_api.md:1598-1599; src/main.cpp:142"
+      },
+      "note_corrections": [
+       {
+        "field": "scope",
+        "before": "Mininet: builtin (many logged runs); physical: HPE5520 (SNMP power+temperature), BrocadeICX6610/ICX7250 (SSH power), flows over OpenFlow via Ryu, smart-plug power control. api.md says the physical testbed is out of service and the TESTBED branch 'has not been exercised'; website claims tests on Brocade and HPE; I found no hardware run log in the repo.",
+        "after": "Mininet: builtin (many logged runs); physical: HPE5520 (SNMP power+temperature), BrocadeICX6610/ICX7250 (SSH power), flows over OpenFlow via Ryu, smart-plug power control. api.md says the physical testbed is out of service and the TESTBED branch 'has not been exercised'; website claims tests on Brocade and HPE; I found no hardware run log in the repo; api.md's 'has not been exercised' refers to the physical power-state branch only",
+        "source": "NDTwin verifier report"
+       }
+      ],
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+     }
+    }
+   }
+  },
+  "p4": {
+   "label": "Developer writing a P4 program",
+   "rows": {
+    "P1": "Compile and run my own .p4 on a software switch",
+    "P2": "Get a multi-switch topology with hosts built for me",
+    "P3": "Write table entries at runtime through an API",
+    "P4": "Link/topology discovery keeps working with my own P4 program",
+    "P5": "Per-flow telemetry (who talks to whom, at what rate) without writing my own",
+    "P6": "Automated packet-level tests generated for my program",
+    "P7": "Network-wide view (graph or GUI) of my P4 network",
+    "P8": "Path from software switch to a hardware target"
+   },
+   "columns": [
+    "p4lang/tutorials VM",
+    "p4-utils (ETH Zurich nsg)",
+    "ONOS + Stratum",
+    "NDTwin"
+   ],
+   "cells": {
+    "P1": {
+     "p4lang/tutorials VM": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "make run compiles the exercise .p4 with p4c and starts bmv2 inside Mininet; edit the file and rerun.",
+      "scope": null,
+      "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/utils/Makefile",
+      "locator": "targets run / build",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "p4-utils (ETH Zurich nsg)": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "p4run compiles the program with p4c and starts bmv2 nodes inside a Mininet network.",
+      "scope": null,
+      "source": "https://github.com/nsg-ethz/p4-utils",
+      "locator": "README features / p4run",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "ONOS + Stratum": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "Stratum lists bmv2 as a platform; the NG-SDN tutorial compiles P4 with p4c (make p4-build) and runs stratum_bmv2 in containers.",
+      "scope": "ONOS integration of a new program is under P4",
+      "source": "https://raw.githubusercontent.com/stratum/stratum/main/README.md",
+      "locator": "Supported platforms / ngsdn-tutorial README",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "NDTwin": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "13 tutorials exercises ran on bmv2 via convert.py and 'ndt up p4 --app', an internal lab CLI.",
+      "scope": "NDTwin's own ndtwin_switch.p4: builtin (documented install on website); your own .p4: 24 of 26 arms PASS and 2 red-control arms fail by design (REPORT-P3); exact, lpm, ternary, range and optional entries (pre-flight checks them with the proxy's match_shape; no live run with ternary entries); not described on the website",
+      "source": "tools/p4_exercise/convert.py:1; p4_proxy/mininet/app_package.py:1; doc/audit/2026-09-04_p4-tutorial-exercise-prep/GAP-2b-ndtwin-p4-capabilities-2026-09-27.md:88; doc/audit/2026-09-04_p4-tutorial-exercise-prep/REPORT-P3-2026-09-24.md:106",
+      "locator": "convert.py docstring; app_package.py; GAP-2b capability matrix; REPORT-P3 live 13/13",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "tools/p4_exercise/convert.py:1; no *.md outside doc/audit documents app packages except tools/ndt_serve/README.md; app_package.py absent at 20cd80b (website-linked P4 snapshot base)"
+      },
+      "repin_1014": [
+       {
+        "field": "scope",
+        "before": "NDTwin's own ndtwin_switch.p4: builtin (documented install on website); your own .p4: 24 of 26 arms PASS and 2 red-control arms fail by design (REPORT-P3); only exact/lpm entries; not described on the website",
+        "after": "NDTwin's own ndtwin_switch.p4: builtin (documented install on website); your own .p4: 24 of 26 arms PASS and 2 red-control arms fail by design (REPORT-P3); exact, lpm, ternary, range and optional entries (pre-flight checks them with the proxy's match_shape; no live run with ternary entries); not described on the website",
+        "why": "pre-flight accepts ternary/range/optional since #38: tools/p4_exercise/preflight.py:33-37,62-65,235-243@3a47bdb7; p4_proxy/proxy_agent/match_shape.py:47@3a47bdb7",
+        "basis": "trunk 3a47bdb7"
+       }
+      ],
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+     }
+    },
+    "P2": {
+     "p4lang/tutorials VM": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "Hosts, switches and links come from a per-exercise topology.json; run_exercise.py builds the Mininet network from it.",
+      "scope": null,
+      "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/utils/run_exercise.py",
+      "locator": "ExerciseRunner / create_network()",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "p4-utils (ETH Zurich nsg)": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "Describe switches, hosts and links in NetworkAPI Python or JSON; IP and MAC addresses are assigned by selectable strategies.",
+      "scope": null,
+      "source": "https://nsg-ethz.github.io/p4-utils/usage.html",
+      "locator": "Network Setup / Automated Assignment Strategies",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "ONOS + Stratum": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Mininet hosts come free, but you write the topology script; the tutorial ships a leaf-spine stratum_bmv2 example to copy.",
+      "scope": null,
+      "source": "https://raw.githubusercontent.com/opennetworkinglab/ngsdn-tutorial/advanced/EXERCISE-1.md",
+      "locator": "Topology Construction (mininet/topo-v6.py)",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "NDTwin": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "p4_testbed_topo.py builds a 10-switch bmv2 Mininet fabric with 4 or 128 hosts from a JSON model; needs sudo.",
+      "scope": "layout is the fixed 10-switch fabric; a custom topology goes through tools/p4_exercise/convert.py from a tutorials topology.json",
+      "source": "NDTwin-Website@dcd59f5:content/en/docs/NDTwin Installation Manual/NDTwin Kernel/Operate an Emulated (Software) Network/Native-Linux Excution Environment.md:858; p4_proxy/mininet/p4_testbed_topo.py:1; setting/StaticNetworkTopologyP4_10Switches_128Hosts.json",
+      "locator": "website install manual Step 6.5; p4_testbed_topo.py; topology models",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "NDTwin-Website@dcd59f5:.../Native-Linux Excution Environment.md:869-874 (bmv2_binary_override, Step 6.1); p4_proxy/mininet/p4_testbed_topo.py:1"
+      },
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+     }
+    },
+    "P3": {
+     "p4lang/tutorials VM": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "Entries in sN-runtime.json load at startup via simple_switch_CLI or P4Runtime; a separate exercise covers a Python P4Runtime controller.",
+      "scope": "startup load is scripted; live changes need your own controller code",
+      "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/utils/run_exercise.py",
+      "locator": "program_switch_cli / program_switch_p4runtime",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "p4-utils (ETH Zurich nsg)": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "SimpleSwitchP4RuntimeAPI and SimpleSwitchThriftAPI expose table_add etc. to controller code; command files load entries at boot.",
+      "scope": null,
+      "source": "https://nsg-ethz.github.io/p4-utils/advanced_usage.html",
+      "locator": "Control Plane Configuration",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "ONOS + Stratum": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "ONOS translates flow rules to P4Runtime writes through a pipeconf; p4runtime-sh also inserts entries directly on Stratum.",
+      "scope": null,
+      "source": "https://raw.githubusercontent.com/opennetworkinglab/ngsdn-tutorial/advanced/EXERCISE-1.md",
+      "locator": "Writing table entries via P4Runtime shell",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "NDTwin": {
+      "verdict": "diy",
+      "verdict_raw": "builtin",
+      "flags": [
+       "⚠",
+       "◌"
+      ],
+      "note": "POST /p4/table_entry writes exact, lpm, ternary, range and optional entries by table name (priority where the table has one); NDTwin-owned tables answer 409; entries are lost on proxy restart.",
+      "scope": "bmv2 under Mininet only; route is not on the website; boot-time entries from a package were applied with 0 failures in 9 exercises (GAP-2b tables row); a switch refusal answers 502 with the P4Runtime error code; the four extended writes were observed offline only (throwaway bmv2 stock and fast, commit e17d39e5), not on the NDTwin fabric",
+      "source": "p4_proxy/proxy_agent/api_routes.py:895@3a47bdb7; p4_proxy/proxy_agent/api_routes.py:891@3a47bdb7; p4_proxy/proxy_agent/match_shape.py:47@3a47bdb7; p4_proxy/proxy_agent/p4_client.py:1273@3a47bdb7; NDTwin-Website@dcd59f5:content/en/docs/NDTwin Developer Manual/NDTwin Application/P4 Proxy API.md:15",
+      "locator": "table_entry route, TABLE_ENTRY_NOT_JOURNALED, match_shape BUILDABLE_MATCH_TYPES, table_owned_by_ndtwin; website P4 Proxy API ('only two endpoints documented')",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verdict_prev": "builtin",
+      "flags_prev": [],
+      "verification": {
+       "status": "CHANGE",
+       "why": "Route exists but is in no user doc or public snapshot. No live runtime call found. Entries are lost on proxy restart.",
+       "evidence": "p4_proxy/proxy_agent/api_routes.py:9; no user-facing *.md mentions /p4/table_entry; doc/audit/2026-10-03_p4-health-check/expected_today.tsv:1,11 (predictions, before any live run); doc/KNOWN-ISSUES.md:339 (A-4c)"
+      },
+      "repin_1014": [
+       {
+        "field": "note",
+        "before": "POST /p4/table_entry writes exact/lpm entries by table name; ternary/range/optional return 501; entries are lost on proxy restart.",
+        "after": "POST /p4/table_entry writes exact, lpm, ternary, range and optional entries by table name (priority where the table has one); NDTwin-owned tables answer 409; entries are lost on proxy restart.",
+        "why": "#36, #38: api_routes.py:1006-1022, match_shape.py:47@3a47bdb7",
+        "basis": "trunk 3a47bdb7"
+       },
+       {
+        "field": "scope",
+        "before": "bmv2 under Mininet only; route is not on the website; boot-time entries from a package were applied with 0 failures in 9 exercises (GAP-2b tables row)",
+        "after": "bmv2 under Mininet only; route is not on the website; boot-time entries from a package were applied with 0 failures in 9 exercises (GAP-2b tables row); a switch refusal answers 502 with the P4Runtime error code; the four extended writes were observed offline only (throwaway bmv2 stock and fast, commit e17d39e5), not on the NDTwin fabric",
+        "why": "api_routes.py:246-282,1035-1047@3a47bdb7; offline observation at commit e17d39e5 (raw not cited)",
+        "basis": "trunk 3a47bdb7"
+       },
+       {
+        "field": "source",
+        "before": "p4_proxy/proxy_agent/api_routes.py:845; p4_proxy/proxy_agent/api_routes.py:841; NDTwin-Website@dcd59f5:content/en/docs/NDTwin Developer Manual/NDTwin Application/P4 Proxy API.md:15",
+        "after": "p4_proxy/proxy_agent/api_routes.py:895@3a47bdb7; p4_proxy/proxy_agent/api_routes.py:891@3a47bdb7; p4_proxy/proxy_agent/match_shape.py:47@3a47bdb7; p4_proxy/proxy_agent/p4_client.py:1273@3a47bdb7; NDTwin-Website@dcd59f5:content/en/docs/NDTwin Developer Manual/NDTwin Application/P4 Proxy API.md:15",
+        "why": "line numbers at 3a47bdb7 (route was :845, TABLE_ENTRY_NOT_JOURNALED was :841 at 2ece656c)",
+        "basis": "trunk 3a47bdb7"
+       },
+       {
+        "field": "locator",
+        "before": "table_entry route and TABLE_ENTRY_NOT_JOURNALED; website P4 Proxy API ('only two endpoints documented')",
+        "after": "table_entry route, TABLE_ENTRY_NOT_JOURNALED, match_shape BUILDABLE_MATCH_TYPES, table_owned_by_ndtwin; website P4 Proxy API ('only two endpoints documented')",
+        "why": "re-pin",
+        "basis": "trunk 3a47bdb7"
+       }
+      ],
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+     }
+    },
+    "P4": {
+     "p4lang/tutorials VM": {
+      "verdict": "no",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "No discovery: exercises use static routes and manual ARP entries; the repo ships no LLDP or link-discovery component.",
+      "scope": null,
+      "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/exercises/basic/README.md",
+      "locator": "Topology / topology.json",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://raw.githubusercontent.com/p4lang/tutorials/master/exercises/basic/README.md"
+      }
+     },
+     "p4-utils (ETH Zurich nsg)": {
+      "verdict": "diy",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "No discovery mechanism documented; topology.json is generated from your own network definition at startup.",
+      "scope": null,
+      "source": "https://nsg-ethz.github.io/p4-utils/advanced_usage.html",
+      "locator": "Topology Database",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08",
+      "verdict_prev": "no",
+      "flags_prev": [],
+      "verification": {
+       "status": "CHANGE",
+       "why": "Topology DB works with any program (like NDTwin 'declared'); documented enableCpuPort lets you write LLDP discovery. Matches NDTwin diy.",
+       "evidence": "https://nsg-ethz.github.io/p4-utils/p4utils.mininetlib.network_API.html"
+      }
+     },
+     "ONOS + Stratum": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "ONOS finds links by LLDP; your P4 must clone packets to the controller; you write a Java pipeconf and interpreter.",
+      "scope": null,
+      "source": "https://raw.githubusercontent.com/opennetworkinglab/ngsdn-tutorial/advanced/EXERCISE-3.md",
+      "locator": "Developer must implement (pipeconf, interpreter, packet-in/out)",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "NDTwin": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "LLDP discovery works only with ndtwin_switch.p4; own programs get declared links or a root heartbeat helper.",
+      "scope": "ndtwin_switch.p4: LLDP builtin; foreign program: 'declared' (no failure detection) or 'heartbeat' via 'sudo ndtwin-lab heartbeat start' (lab tool); 6 of 6 cuts detected in 12.2-16.8 s as quoted in GAP-2b; external control plane: heartbeat detect only (cuts reported to the twin, nothing rerouted)",
+      "source": "doc/2026-01-02_ndt_api.md:627; p4_proxy/proxy_agent/link_heartbeat.py:54; doc/audit/2026-09-04_p4-tutorial-exercise-prep/GAP-2b-ndtwin-p4-capabilities-2026-09-27.md:101",
+      "locator": "api 'capabilities' link_discovery row; link_heartbeat.py REPORT_PATH; GAP-2b topology row",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "doc/2026-01-02_ndt_api.md:627; p4_proxy/proxy_agent/link_heartbeat.py:52-54"
+      },
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv",
+      "repin_1014": [
+       {
+        "field": "scope",
+        "before": "ndtwin_switch.p4: LLDP builtin; foreign program: 'declared' (no failure detection) or 'heartbeat' via 'sudo ndtwin-lab heartbeat start' (lab tool); 6 of 6 cuts detected in 12.2-16.8 s as quoted in GAP-2b; no heartbeat in external-controller mode",
+        "after": "ndtwin_switch.p4: LLDP builtin; foreign program: 'declared' (no failure detection) or 'heartbeat' via 'sudo ndtwin-lab heartbeat start' (lab tool); 6 of 6 cuts detected in 12.2-16.8 s as quoted in GAP-2b; external control plane: heartbeat detect only (cuts reported to the twin, nothing rerouted)",
+        "why": "since PR #25 (merged 2026-10-03) an external control plane runs the heartbeat detect only: tools/test_workflow/ndt:2960-2962 and p4_proxy/proxy_agent/main.py:1459@3a47bdb7; the 2ece656c reading missed it",
+        "basis": "trunk 3a47bdb7"
+       }
+      ]
+     }
+    },
+    "P5": {
+     "p4lang/tutorials VM": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "MRI, link-monitor and ECN exercises are teaching programs to adapt; no ready per-flow collector or reporting tool.",
+      "scope": null,
+      "source": "https://github.com/p4lang/tutorials",
+      "locator": "README exercise list",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "p4-utils (ETH Zurich nsg)": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Nothing documented for flow telemetry; you write counters or INT in P4 and poll them through the runtime APIs.",
+      "scope": null,
+      "source": "https://nsg-ethz.github.io/p4-utils/advanced_usage.html",
+      "locator": "Control Plane Configuration",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "ONOS + Stratum": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "INT ships only in fabric-tna profiles (fabric-int); your own program needs its own INT code; no collector described.",
+      "scope": null,
+      "source": "https://github.com/stratum/fabric-tna",
+      "locator": "Profiles / INT support",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://github.com/stratum/fabric-tna"
+      }
+     },
+     "NDTwin": {
+      "verdict": "diy",
+      "verdict_raw": "builtin",
+      "flags": [
+       "◌"
+      ],
+      "note": "Own program: telemetry 'auto' picks tc-sample link sampling on Mininet, converted to sFlow 1/256; ndtwin_switch.p4 samples in-pipeline.",
+      "scope": "bmv2 under Mininet only. Foreign programs: per-link usage verified in 10 of 13 exercises, per-flow view not checked there. Cooperative path needs 5 insertions plus 2 apply lines in your .p4 (ndtwin_telemetry.p4). Telemetry adds variance near the bmv2 knee (REPORT-P3).",
+      "source": "p4_proxy/mininet/app_package.py:481; p4_proxy/mininet/psample_sflow_emitter.py:6; p4_proxy/p4_src/ndtwin_telemetry.p4:28; doc/audit/2026-09-04_p4-tutorial-exercise-prep/GAP-2b-ndtwin-p4-capabilities-2026-09-27.md:103",
+      "locator": "telemetry_source(); psample_sflow_emitter; ndtwin_telemetry.p4 include; GAP-2b verification row",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verdict_prev": "builtin",
+      "flags_prev": [],
+      "verification": {
+       "status": "CHANGE",
+       "why": "Telemetry for your own program comes only via the undocumented app-package path (diy, as P1). Cooperative path edits your .p4. Per-flow view never verified.",
+       "evidence": "p4_proxy/mininet/app_package.py:481; p4_proxy/p4_src/ndtwin_telemetry.p4:28; no user *.md mentions psample/link_telemetry; doc/audit/2026-09-04_p4-tutorial-exercise-prep/GAP-2b-ndtwin-p4-capabilities-2026-09-27.md:103"
+      },
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+     }
+    },
+    "P6": {
+     "p4lang/tutorials VM": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Ping checks by hand; exercises carry hand-written PTF tests. P4Testgen (in p4c) is the usual generator add-on.",
+      "scope": null,
+      "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/exercises/basic/README.md",
+      "locator": "Testing / ptf directory",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "p4-utils (ETH Zurich nsg)": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "No test generation documented; Task Scheduler only runs commands and traffic. P4Testgen or PTF are separate add-ons.",
+      "scope": null,
+      "source": "https://nsg-ethz.github.io/p4-utils/advanced_usage.html",
+      "locator": "Task Scheduler",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "ONOS + Stratum": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Tutorial runs hand-written PTF tests (make p4-test). P4Testgen is the usual generator add-on.",
+      "scope": null,
+      "source": "https://raw.githubusercontent.com/opennetworkinglab/ngsdn-tutorial/advanced/README.md",
+      "locator": "Tools used / P4 compilation and tests",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "NDTwin": {
+      "verdict": "diy",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "No built-in test generation for user programs; p4testgen, the usual add-on, already runs here as a coverage gate on NDTwin's own pipeline (p4_coverage_gate.sh).",
+      "scope": "internal test tool; gate cannot reach the sampling clone branch (85.2% statement coverage)",
+      "source": "tools/test_workflow/p4_coverage_gate.sh:1; doc/2026-08-07_testing_tools_overview.md:547",
+      "locator": "p4_coverage_gate.sh header; testing tools overview item 3",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "tools/test_workflow/p4_coverage_gate.sh:1"
+      },
+      "judge_r1": [
+       {
+        "finding": 5,
+        "field": "verdict",
+        "before": "no",
+        "after": "diy",
+        "why": "The three competitors get diy because P4Testgen is the usual add-on; NDTwin already runs p4testgen (tools/test_workflow/p4_coverage_gate.sh:1), so the same evidence gives diy."
+       },
+       {
+        "finding": 5,
+        "field": "note",
+        "before": "No test generation for user programs; p4testgen runs only as a coverage gate on NDTwin's own pipeline.",
+        "after": "No built-in test generation for user programs; p4testgen, the usual add-on, already runs here as a coverage gate on NDTwin's own pipeline (p4_coverage_gate.sh).",
+        "why": "Note brought in line with the diy verdict."
+       }
+      ],
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+     }
+    },
+    "P7": {
+     "p4lang/tutorials VM": {
+      "verdict": "no",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "No graph or GUI view; interaction is the Mininet CLI (pingall, host commands).",
+      "scope": null,
+      "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/exercises/basic/README.md",
+      "locator": "Testing approach (ping tests)",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://raw.githubusercontent.com/p4lang/tutorials/master/exercises/basic/README.md"
+      }
+     },
+     "p4-utils (ETH Zurich nsg)": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "NetworkGraph (networkx subclass) answers topology queries from topology.json; programmatic graph only, built from the definition, no GUI.",
+      "scope": "graph API only; not a live or GUI view",
+      "source": "https://nsg-ethz.github.io/p4-utils/p4utils.utils.topology.html",
+      "locator": "NetworkGraph class",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://nsg-ethz.github.io/p4-utils/p4utils.utils.topology.html"
+      }
+     },
+     "ONOS + Stratum": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "ONOS web GUI draws devices and links; it shows P4 devices and their pipeconf once link discovery works.",
+      "scope": "depends on P4 link discovery working",
+      "source": "https://github.com/opennetworkinglab/onos",
+      "locator": "README features (GUI at /onos/ui)",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08"
+     },
+     "NDTwin": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "get_graph_data plus Web-GUI, Visualizer and NSR read a P4 fabric; live check on 10 bmv2 switches fed all consumers.",
+      "scope": "bmv2 under Mininet; your own pipeline appears only if its links and flows reach the kernel (see P4, P5)",
+      "source": "doc/2026-08-14_cross-component-integration-matrix.md:16; doc/2026-08-14_cross-component-integration-matrix.md:17; doc/2026-08-14_cross-component-integration-matrix.md:18; Web-GUI@f63a55c:src/api/index.ts:36; doc/2026-01-02_ndt_api.md:472",
+      "locator": "integration matrix table (2026-08-14, P4 fabric); Web-GUI getGraphData",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "doc/2026-08-14_cross-component-integration-matrix.md:14-18,25"
+      },
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+     }
+    },
+    "P8": {
+     "p4lang/tutorials VM": {
+      "verdict": "no",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "Scripts target bmv2 only; the repo describes no route to Tofino or other hardware.",
+      "scope": null,
+      "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/utils/run_exercise.py",
+      "locator": "supported targets (simple_switch, gRPC bmv2)",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://raw.githubusercontent.com/p4lang/tutorials/master/utils/run_exercise.py"
+      }
+     },
+     "p4-utils (ETH Zurich nsg)": {
+      "verdict": "diy",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "Docs name only the behavioral-model software switch; no hardware target or Tofino path is described.",
+      "scope": null,
+      "source": "https://nsg-ethz.github.io/p4-utils/introduction.html",
+      "locator": "Introduction",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08",
+      "verdict_prev": "no",
+      "flags_prev": [],
+      "verification": {
+       "status": "CHANGE",
+       "why": "Documented addTofino() runs tofino-model with Intel SDE; retarget to TNA, then deploy on Tofino with SDE tools.",
+       "evidence": "https://nsg-ethz.github.io/p4-utils/p4utils.mininetlib.network_API.html"
+      }
+     },
+     "ONOS + Stratum": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "Stratum runs on Tofino and Tomahawk switches via P4Runtime; the program must be retargeted from v1model to TNA.",
+      "scope": "Tofino discontinued by Intel (PCN Aug 2024); Stratum last release 2022-06-30; Intel BSP requests closed 2026-01-01",
+      "source": "https://raw.githubusercontent.com/stratum/stratum/main/README.md",
+      "locator": "Supported platforms",
+      "evidence_kind": "READ: official docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://raw.githubusercontent.com/stratum/stratum/main/README.md"
+      }
+     },
+     "NDTwin": {
+      "verdict": "no",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "Only bmv2 (v1model) is supported; no Tofino, Stratum or other hardware P4 target in code or docs.",
+      "scope": "the website mentions a P4 hardware switch for a sampling technique; the repo contains no code for it (grep for tofino/stratum: no hits)",
+      "source": "README.md:5; p4_proxy/p4_src/SPEC.md:1; NDTwin-Website@dcd59f5:content/en/docs/overview.md:16",
+      "locator": "README badges; p4_src SPEC; website Key Features (ICC technique 'requires a P4 hardware switch')",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "README.md:5; p4_proxy/p4_src/SPEC.md:1"
+      },
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+     }
+    }
+   }
+  },
+  "ops": {
+   "label": "Network operator",
+   "rows": {
+    "O1": "Mirror a running network's live state (topology, flows, load)",
+    "O2": "Check configuration correctness (reachability, ACLs) before a change",
+    "O3": "Predict congestion after removing a link or switch (traffic-aware what-if)",
+    "O4": "Run real vendor network OS images",
+    "O5": "Run fault-injection drills on a copy, not on production",
+    "O6": "Energy-saving analysis (which devices can be powered down)",
+    "O7": "Turn a natural-language intent into a network action",
+    "O8": "Record and replay historical network state"
+   },
+   "columns": [
+    "Batfish",
+    "GNS3",
+    "Forward Networks (commercial, public docs only)",
+    "Cisco Modeling Labs (commercial, public docs only)",
+    "IP Fabric (commercial, public docs only)",
+    "RouteNet-Fermi (academic, paper only)",
+    "IRTF NMRG network digital twin architecture draft (academic reference framework)",
+    "NDTwin"
+   ],
+   "cells": {
+    "O1": {
+     "Batfish": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Model comes from config files you export, plus optional layer-1 and runtime data; no live flows or load.",
+      "scope": "config snapshot only",
+      "source": "https://batfish.readthedocs.io/en/latest/formats.html",
+      "locator": "Snapshot layout; supplemental data",
+      "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repo)",
+      "accessed": "2026-10-08"
+     },
+     "GNS3": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "No live-state import; script the REST API to build projects from inventory and load configs; flows and load not mirrored.",
+      "scope": "static lab",
+      "source": "https://gns3-server.readthedocs.io/en/latest/endpoints.html",
+      "locator": "Controller endpoints: Project, Node, Link",
+      "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repos)",
+      "accessed": "2026-10-08"
+     },
+     "Forward Networks (commercial, public docs only)": {
+      "verdict": "diy",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "vendor claim: Collector logs into devices over SSH, gathers config and state into snapshots; no flow or load telemetry stated.; missing: flow and load telemetry",
+      "scope": "config/state snapshots",
+      "source": "https://community.forwardnetworks.com/snapshots-83/how-to-create-a-custom-snapshot-467",
+      "locator": "How snapshots are collected",
+      "evidence_kind": "READ: vendor marketing (datasheets, press release, blog); one community page for collection",
+      "accessed": "2026-10-08"
+     },
+     "Cisco Modeling Labs (commercial, public docs only)": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "NetBox-to-lab exporter (nrx) and YAML import can seed a topology; configs are yours to load; no live flows or load.",
+      "scope": "static lab",
+      "source": "https://blogs.cisco.com/learning/two-new-ways-to-bring-netbox-into-your-cml-networks",
+      "locator": "NetBox to CML",
+      "evidence_kind": "READ: vendor docs (developer.cisco.com) and one Cisco blog",
+      "accessed": "2026-10-08"
+     },
+     "IP Fabric (commercial, public docs only)": {
+      "verdict": "diy",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "Discovers devices over SSH/Telnet or APIs into scheduled snapshots; builds topology from configs and state; no flow or load telemetry.; missing: flow and load telemetry",
+      "scope": "config/state snapshots",
+      "source": "https://docs.ipfabric.io/7.5/IP_Fabric_Settings/Discovery_and_Snapshots/snapshot_collection/",
+      "locator": "Discovery Methods; Scheduling",
+      "evidence_kind": "READ: vendor docs (docs.ipfabric.io) and vendor marketing (ipfabric.io)",
+      "accessed": "2026-10-08"
+     },
+     "RouteNet-Fermi (academic, paper only)": {
+      "verdict": "no",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "Offline GNN trained on simulated or testbed datasets; it does not ingest or mirror a running network.",
+      "scope": "model, not a mirror",
+      "source": "https://arxiv.org/pdf/2212.12070",
+      "locator": "Introduction: training and generalization",
+      "evidence_kind": "READ: paper (arXiv v3, IEEE/ACM ToN 2023) and GitHub repo",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://arxiv.org/abs/2212.12070"
+      }
+     },
+     "IRTF NMRG network digital twin architecture draft (academic reference framework)": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Framework requires a data repository fed with real-time operational data via SNMP, NETCONF, IPFIX, telemetry; no implementation exists.",
+      "scope": "framework only",
+      "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+      "locator": "Section 4 Data; Section 9.1",
+      "evidence_kind": "READ: IETF Internet-Draft text, rev -13 (reference architecture, not software)",
+      "accessed": "2026-10-08"
+     },
+     "NDTwin": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [
+       "⚠",
+       "◌"
+      ],
+      "note": "Kernel polls Ryu/proxy and sFlow to mirror topology, flows, load; needs NDTwin's own Ryu app and a declared topology file.",
+      "scope": "Mininet OVS and bmv2: builtin, logged runs; physical: HPE5520/Brocade models in code, website claims tens of switches and hundreds of hosts, largest physical model in repo is 10 switches / 48 hosts, no hardware run log. Does not attach to an existing non-Ryu controller.",
+      "source": "intelligent_router.py:26; src/ndt_core/collection/TopologyAndFlowMonitor.cpp:2373; NDTwin-Website@dcd59f5:content/en/docs/overview.md:23; setting/StaticNetworkTopology_ipAlias4_10_HPE_Switches_all_1g_cable.json:2000",
+      "locator": "intelligent_router.py (2084 lines, installs all-pairs routes from the static file); updateSwitches; website claim; HPE topology model",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verdict_prev": "builtin",
+      "flags_prev": [
+       "◌"
+      ],
+      "verification": {
+       "status": "CHANGE",
+       "why": "Flow and load parts carry the same OPEN defects as A2/A3. Mirroring requires NDTwin's own Ryu app to control the network. No hardware run.",
+       "evidence": "doc/KNOWN-ISSUES.md:3016 (C-9); doc/KNOWN-ISSUES.md:2296 (B-x reverse); intelligent_router.py:38"
+      },
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+     }
+    },
+    "O2": {
+     "Batfish": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "Reachability, ACL/filter and differential-reachability questions run on parsed configs, before any change reaches devices.",
+      "scope": null,
+      "source": "https://batfish.readthedocs.io/en/latest/questions.html",
+      "locator": "Packet Forwarding; Access-lists and Firewall Rules; Differential Questions",
+      "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repo)",
+      "accessed": "2026-10-08"
+     },
+     "GNS3": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Boot device copies in a project, push the candidate config, then test reachability and ACLs with your own scripts.",
+      "scope": null,
+      "source": "https://gns3-server.readthedocs.io/en/latest/endpoints.html",
+      "locator": "Controller endpoints: Node, Link",
+      "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repos)",
+      "accessed": "2026-10-08"
+     },
+     "Forward Networks (commercial, public docs only)": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "vendor claim: tests routing, ACL, NAT and segmentation changes on the model and returns pass/fail before production.",
+      "scope": null,
+      "source": "https://www.forwardnetworks.com/wp-content/uploads/2026/08/Enterprise-Datasheet-4-Pager-V04-1.pdf",
+      "locator": "p.1 Capabilities: Change Verification; p.2 Forward Predict",
+      "evidence_kind": "READ: vendor marketing (datasheets, press release, blog); one community page for collection",
+      "accessed": "2026-10-08"
+     },
+     "Cisco Modeling Labs (commercial, public docs only)": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Build a lab from candidate configs and test with pyATS or scripts via the API; checks are yours to write.",
+      "scope": null,
+      "source": "https://developer.cisco.com/modeling-labs/",
+      "locator": "API & Automation: pyATS, Ansible, Terraform",
+      "evidence_kind": "READ: vendor docs (developer.cisco.com) and one Cisco blog",
+      "accessed": "2026-10-08"
+     },
+     "IP Fabric (commercial, public docs only)": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "Intent verification rules check configs against policy; path lookup traces routing and ACL decisions per snapshot.",
+      "scope": null,
+      "source": "https://docs.ipfabric.io/latest/",
+      "locator": "Key features: Intent Verification; Path Lookup",
+      "evidence_kind": "READ: vendor docs (docs.ipfabric.io) and vendor marketing (ipfabric.io)",
+      "accessed": "2026-10-08"
+     },
+     "RouteNet-Fermi (academic, paper only)": {
+      "verdict": "no",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "Predicts delay, jitter and loss; no reachability, ACL or configuration-correctness reasoning.",
+      "scope": null,
+      "source": "https://arxiv.org/abs/2212.12070",
+      "locator": "Abstract",
+      "evidence_kind": "READ: paper (arXiv v3, IEEE/ACM ToN 2023) and GitHub repo",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://arxiv.org/abs/2212.12070"
+      }
+     },
+     "IRTF NMRG network digital twin architecture draft (academic reference framework)": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Framework says config changes can be pre-verified in the twin; it specifies no checker, so you build one.",
+      "scope": "framework only",
+      "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+      "locator": "Section 5.1; Section 9.2",
+      "evidence_kind": "READ: IETF Internet-Draft text, rev -13 (reference architecture, not software)",
+      "accessed": "2026-10-08"
+     },
+     "NDTwin": {
+      "verdict": "no",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "No configuration model: no ACL, reachability or loop checks; only a switch count over observed paths.",
+      "scope": "all modes; I found no ACL or reachability code in src/ or include/ (git grep)",
+      "source": "doc/2026-01-02_ndt_api.md:2817; src/ndt_core/http/HttpSession.cpp:327",
+      "locator": "api section 22 get_path_switch_count; route table (45 routes)",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "src/ndt_core/http/HttpSession.cpp:327"
+      },
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+     }
+    },
+    "O3": {
+     "Batfish": {
+      "verdict": "diy",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "Failure forks report reachability/path differences only; snapshot format has no traffic or utilization input (inferred from absence).",
+      "scope": "reachability only",
+      "source": "https://batfish.readthedocs.io/en/latest/notebooks/linked/analyzing-the-impact-of-failures-and-letting-loose-a-chaos-monkey.html",
+      "locator": "Notebook: Analyzing the Impact of Failures",
+      "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repo)",
+      "accessed": "2026-10-08",
+      "verdict_prev": "no",
+      "flags_prev": [],
+      "verification": {
+       "status": "CHANGE",
+       "why": "Forked snapshot plus traceroute gives post-failure paths; add your traffic matrix and sum loads. Same diy class as RouteNet and NDTwin.",
+       "evidence": "https://batfish.readthedocs.io/en/latest/notebooks/linked/analyzing-the-impact-of-failures-and-letting-loose-a-chaos-monkey.html"
+      }
+     },
+     "GNS3": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Rebuild the topology, suspend a link, drive your own traffic generators; congestion is read off emulated devices.",
+      "scope": "emulated copy you build",
+      "source": "https://docs.gns3.com/docs/using-gns3/beginners/link-control",
+      "locator": "Link Control: Suspend Links",
+      "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repos)",
+      "accessed": "2026-10-08"
+     },
+     "Forward Networks (commercial, public docs only)": {
+      "verdict": "unknown",
+      "verdict_raw": "unknown",
+      "flags": [],
+      "note": "Public material shows reachability blast-radius and change impact; no traffic-aware congestion prediction described. Searched datasheets and community.",
+      "scope": null,
+      "source": "https://www.forwardnetworks.com/wp-content/uploads/2026/08/Enterprise-Datasheet-4-Pager-V04-1.pdf",
+      "locator": "p.3 Security Posture & Blast Radius",
+      "evidence_kind": "READ: vendor marketing (datasheets, press release, blog); one community page for collection",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://www.forwardnetworks.com/wp-content/uploads/2026/08/Enterprise-Datasheet-4-Pager-V04-1.pdf"
+      }
+     },
+     "Cisco Modeling Labs (commercial, public docs only)": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Rebuild topology, vary link bandwidth/latency/loss, drive your own traffic nodes; no built-in congestion predictor.",
+      "scope": "emulated copy you build",
+      "source": "https://developer.cisco.com/docs/modeling-labs/link-conditioning/",
+      "locator": "Link Conditioning",
+      "evidence_kind": "READ: vendor docs (developer.cisco.com) and one Cisco blog",
+      "accessed": "2026-10-08"
+     },
+     "IP Fabric (commercial, public docs only)": {
+      "verdict": "unknown",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "Docs say path lookup uses no traffic load; no congestion prediction feature found.",
+      "scope": "reachability only",
+      "source": "https://docs.ipfabric.io/latest/IP_Fabric_API/Path_Lookup/",
+      "locator": "Path Lookup overview",
+      "evidence_kind": "READ: vendor docs (docs.ipfabric.io) and vendor marketing (ipfabric.io)",
+      "accessed": "2026-10-08",
+      "verdict_prev": "no",
+      "flags_prev": [],
+      "verification": {
+       "status": "CHANGE",
+       "why": "Could not find the cited 'no traffic load' statement; docs silent on congestion; vendor claims failure what-if via MCP. Silent = unknown.",
+       "evidence": "https://ipfabric.io/get-a-demo-of-ip-fabric-enterprise-mcp-server/"
+      }
+     },
+     "RouteNet-Fermi (academic, paper only)": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Predicts per-flow delay, jitter, loss from topology, routing, traffic; you supply post-removal topology, rerouting and matrix, and train.",
+      "scope": "paper's model; no tool or API",
+      "source": "https://arxiv.org/pdf/2212.12070",
+      "locator": "Introduction; model inputs",
+      "evidence_kind": "READ: paper (arXiv v3, IEEE/ACM ToN 2023) and GitHub repo",
+      "accessed": "2026-10-08"
+     },
+     "IRTF NMRG network digital twin architecture draft (academic reference framework)": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Names what-if analysis and performance models such as bottleneck structures; gives no traffic-aware congestion method.",
+      "scope": "framework only",
+      "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+      "locator": "Section 9.2 Network Modeling",
+      "evidence_kind": "READ: IETF Internet-Draft text, rev -13 (reference architecture, not software)",
+      "accessed": "2026-10-08"
+     },
+     "NDTwin": {
+      "verdict": "diy",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "Shipped simulator reroutes flows around powered-off switches and recomputes max-min rates; switches only, no link input.; missing: link removal",
+      "scope": "flow-level model: flows under 10 Mbit/s are fixed demands, others greedy (TODO in code); needs Simulation-Platform-Manager, root, NFS; I found no comparison of its predictions with measured post-change traffic in the repo",
+      "source": "Energy-Saving-App@9facb78:src/sim/energy_saving_simulator.cpp:467; Energy-Saving-App@9facb78:src/sim/energy_saving_simulator.cpp:561; Energy-Saving-App@9facb78:src/sim/max_min_fairness.cpp:12; Energy-Saving-App@9facb78:src/sim/max_min_fairness.cpp:60",
+      "locator": "energy_saving_simulator main (power-off set, BFS reroute); max_min_fairness",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "Energy-Saving-App@9facb78:src/sim/energy_saving_simulator.cpp:467"
+      },
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+     }
+    },
+    "O4": {
+     "Batfish": {
+      "verdict": "no",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "Analyses config text in its own model; it runs no router or switch OS images.",
+      "scope": null,
+      "source": "https://github.com/batfish/batfish",
+      "locator": "README: description",
+      "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repo)",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://github.com/batfish/batfish"
+      }
+     },
+     "GNS3": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "Runs Cisco IOS (Dynamips), IOU/IOL, QEMU and Docker nodes; you must supply licensed vendor images yourself.",
+      "scope": "images not included",
+      "source": "https://docs.gns3.com/docs/troubleshooting-faq/where-do-i-get-ios-images",
+      "locator": "Where do I get IOS images",
+      "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repos)",
+      "accessed": "2026-10-08"
+     },
+     "Forward Networks (commercial, public docs only)": {
+      "verdict": "no",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "vendor claim: model built from collected device state; it analyses existing devices and does not run vendor OS images.",
+      "scope": null,
+      "source": "https://www.forwardnetworks.com/wp-content/uploads/2025/12/ProductDataSheet.pdf",
+      "locator": "What Forward Enterprise does: 1. Build a Digital Twin",
+      "evidence_kind": "READ: vendor marketing (datasheets, press release, blog); one community page for collection",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://www.forwardnetworks.com/wp-content/uploads/2025/12/ProductDataSheet.pdf"
+      }
+     },
+     "Cisco Modeling Labs (commercial, public docs only)": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "Runs real Cisco reference images (IOL, ASAv, XRd and more) plus third-party KVM and Docker nodes; some images are tier-limited.",
+      "scope": "image library depends on edition",
+      "source": "https://developer.cisco.com/docs/modeling-labs/software-version-history",
+      "locator": "CML 2.10.0 entry",
+      "evidence_kind": "READ: vendor docs (developer.cisco.com) and one Cisco blog",
+      "accessed": "2026-10-08"
+     },
+     "IP Fabric (commercial, public docs only)": {
+      "verdict": "no",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "Read-only twin built from discovered devices; it does not run vendor OS images.",
+      "scope": null,
+      "source": "https://ipfabric.io/",
+      "locator": "Overview: digital twin; read-only access",
+      "evidence_kind": "READ: vendor docs (docs.ipfabric.io) and vendor marketing (ipfabric.io)",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://ipfabric.io/"
+      }
+     },
+     "RouteNet-Fermi (academic, paper only)": {
+      "verdict": "no",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "A neural performance model; it runs no network OS images.",
+      "scope": null,
+      "source": "https://github.com/BNN-UPC/RouteNet-Fermi",
+      "locator": "README: contents",
+      "evidence_kind": "READ: paper (arXiv v3, IEEE/ACM ToN 2023) and GitHub repo",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://github.com/BNN-UPC/RouteNet-Fermi"
+      }
+     },
+     "IRTF NMRG network digital twin architecture draft (academic reference framework)": {
+      "verdict": "no",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "Document, not software; mentions GNS3 and EVE-NG only as example emulators for small networks.",
+      "scope": "not software",
+      "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+      "locator": "Section 9.2 Network Modeling",
+      "evidence_kind": "READ: IETF Internet-Draft text, rev -13 (reference architecture, not software)",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt"
+      }
+     },
+     "NDTwin": {
+      "verdict": "no",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "No vendor NOS images; switches are OVS, bmv2, or real HPE/Brocade devices driven over OpenFlow.",
+      "scope": "other brands can be modelled with an explicit switch_kind but get no power or health path (power_path: none)",
+      "source": "include/common_types/GraphTypes.hpp:142; src/ndt_core/routing_management/FlowRoutingManager.cpp:84",
+      "locator": "kAcceptedSwitchBrands; getStrategyForDpid",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "include/common_types/GraphTypes.hpp:142"
+      },
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+     }
+    },
+    "O5": {
+     "Batfish": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "fork_snapshot deactivates nodes/interfaces on a copy; differential reachability and a random-failure loop check effects.",
+      "scope": "config model, not running devices",
+      "source": "https://batfish.readthedocs.io/en/latest/notebooks/linked/analyzing-the-impact-of-failures-and-letting-loose-a-chaos-monkey.html",
+      "locator": "Notebook: snapshot forking; Chaos Monkey",
+      "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repo)",
+      "accessed": "2026-10-08"
+     },
+     "GNS3": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "Suspend links, add latency, loss or corruption filters to running links, stop nodes, all inside a lab copy.",
+      "scope": "lab you build; no auto-copy of production",
+      "source": "https://docs.gns3.com/docs/using-gns3/beginners/link-control",
+      "locator": "Link Control: packet filters; suspend",
+      "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repos)",
+      "accessed": "2026-10-08"
+     },
+     "Forward Networks (commercial, public docs only)": {
+      "verdict": "unknown",
+      "verdict_raw": "unknown",
+      "flags": [],
+      "note": "Public material describes verifying proposed changes and blast radius; failure-injection drills on a copy are not described.",
+      "scope": null,
+      "source": "https://www.forwardnetworks.com/wp-content/uploads/2026/08/Enterprise-Datasheet-4-Pager-V04-1.pdf",
+      "locator": "p.2 Verify before you deploy; p.3 Blast Radius",
+      "evidence_kind": "READ: vendor marketing (datasheets, press release, blog); one community page for collection",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://www.forwardnetworks.com/wp-content/uploads/2026/08/Enterprise-Datasheet-4-Pager-V04-1.pdf"
+      }
+     },
+     "Cisco Modeling Labs (commercial, public docs only)": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "Stop nodes and links, apply loss, latency, jitter or bandwidth limits in a lab; you build or import the copy.",
+      "scope": "lab you build; no auto-copy of production",
+      "source": "https://developer.cisco.com/docs/modeling-labs/link-conditioning/",
+      "locator": "Link Conditioning",
+      "evidence_kind": "READ: vendor docs (developer.cisco.com) and one Cisco blog",
+      "accessed": "2026-10-08"
+     },
+     "IP Fabric (commercial, public docs only)": {
+      "verdict": "builtin",
+      "verdict_raw": "unknown",
+      "flags": [],
+      "note": "vendor claim (MCP demo page): simulates a gateway failure on the model; product docs show SPOF highlighting only",
+      "scope": null,
+      "source": "https://ipfabric.io/blog/tag/network-testing/",
+      "locator": "Network testing articles (from search result)",
+      "evidence_kind": "READ: vendor docs (docs.ipfabric.io) and vendor marketing (ipfabric.io)",
+      "accessed": "2026-10-08",
+      "verdict_prev": "unknown",
+      "flags_prev": [],
+      "verification": {
+       "status": "CHANGE",
+       "why": "Vendor claim: Enterprise MCP server simulates a first-hop gateway failure and reports failover behaviour, on the model not production.",
+       "evidence": "https://ipfabric.io/get-a-demo-of-ip-fabric-enterprise-mcp-server/"
+      },
+      "judge_r1": [
+       {
+        "finding": 2,
+        "field": "note",
+        "before": "Docs show path-based single-point-of-failure highlighting; no failure-injection drill on a copy is documented.",
+        "after": "vendor claim (MCP demo page): simulates a gateway failure on the model; product docs show SPOF highlighting only",
+        "why": "Old note contradicted the verdict. Batfish O5 gets builtin for a failure what-if on a model copy, and rule 9 accepts vendor material (Forward O7 rests on a press release); the MCP demo page is that kind of material."
+       },
+       {
+        "finding": 2,
+        "field": "verdict",
+        "kept": "builtin",
+        "why": "builtin kept on the vendor MCP demo page; note rewritten."
+       }
+      ]
+     },
+     "RouteNet-Fermi (academic, paper only)": {
+      "verdict": "diy",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "Not an environment; paper notes the model predicts only scenarios resembling training, so failures must come from a testbed dataset.",
+      "scope": null,
+      "source": "https://arxiv.org/pdf/2212.12070",
+      "locator": "Introduction: training and generalization",
+      "evidence_kind": "READ: paper (arXiv v3, IEEE/ACM ToN 2023) and GitHub repo",
+      "accessed": "2026-10-08",
+      "verdict_prev": "no",
+      "flags_prev": [],
+      "verification": {
+       "status": "CHANGE",
+       "why": "Paper evaluates link-failure scenarios by removing links; supply the modified topology and predict. Same mechanism already scored diy on O3.",
+       "evidence": "https://arxiv.org/pdf/2212.12070"
+      }
+     },
+     "IRTF NMRG network digital twin architecture draft (academic reference framework)": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Cites twin-based fuzzing and resilience (what-if) testing as use cases; defines no drill mechanism.",
+      "scope": "framework only",
+      "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+      "locator": "Abstract; Section 11.4 Network Fuzzing",
+      "evidence_kind": "READ: IETF Internet-Draft text, rev -13 (reference architecture, not software)",
+      "accessed": "2026-10-08"
+     },
+     "NDTwin": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [
+       "⚠"
+      ],
+      "note": "Cut links via netem and power switches off in the Mininet fabric; physical mode only edits the twin graph.",
+      "scope": "Mininet OVS and bmv2: builtin; OVS off-then-on silently cut every host under that switch while all twin checks stayed green (B-9, open); physical: declaration only. The 'copy' is a Mininet fabric you build from the topology file, not an automatic clone of production; the OVS fabric copy is a hard-coded 10-switch topology (Network-Traffic-Generator testbed_topo.py); only the bmv2 builder reads a topology model",
+      "source": "src/ndt_core/http/HttpSession.cpp:1098; doc/2026-01-02_ndt_api.md:1688; doc/KNOWN-ISSUES.md:1690; doc/KNOWN-ISSUES.md:45",
+      "locator": "handleInjectLinkFailure; api section 8 set_switches_power_state; KNOWN-ISSUES B-9, A-1",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "doc/KNOWN-ISSUES.md:1690-1699 (B-9 OPEN); src/ndt_core/power_management/OVSPowerStrategy.cpp:475 (add-port in list order, no ofport_request); Network-Traffic-Generator@6e3f388:testbed_topo.py:39-48"
+      },
+      "note_corrections": [
+       {
+        "field": "scope",
+        "before": "Mininet OVS and bmv2: builtin; OVS off-then-on silently cut every host under that switch while all twin checks stayed green (B-9, open); physical: declaration only. The 'copy' is a Mininet fabric you build from the topology file, not an automatic clone of production.",
+        "after": "Mininet OVS and bmv2: builtin; OVS off-then-on silently cut every host under that switch while all twin checks stayed green (B-9, open); physical: declaration only. The 'copy' is a Mininet fabric you build from the topology file, not an automatic clone of production; the OVS fabric copy is a hard-coded 10-switch topology (Network-Traffic-Generator testbed_topo.py); only the bmv2 builder reads a topology model",
+        "source": "NDTwin verifier report"
+       }
+      ],
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+     }
+    },
+    "O6": {
+     "Batfish": {
+      "verdict": "no",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "No power or energy analysis in the question catalogue; scope is configuration and forwarding correctness.",
+      "scope": null,
+      "source": "https://batfish.readthedocs.io/en/latest/questions.html",
+      "locator": "Question categories list",
+      "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repo)",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://batfish.readthedocs.io/en/latest/questions.html"
+      }
+     },
+     "GNS3": {
+      "verdict": "no",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "No energy or power analysis in the documented feature set; it is an emulator manager.",
+      "scope": null,
+      "source": "https://github.com/GNS3/gns3-server",
+      "locator": "README: description",
+      "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repos)",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://github.com/GNS3/gns3-server"
+      }
+     },
+     "Forward Networks (commercial, public docs only)": {
+      "verdict": "unknown",
+      "verdict_raw": "unknown",
+      "flags": [],
+      "note": "Not mentioned in datasheets, press release or API blog; no energy or power feature found.",
+      "scope": null,
+      "source": "https://www.forwardnetworks.com/wp-content/uploads/2026/08/Enterprise-Datasheet-4-Pager-V04-1.pdf",
+      "locator": "Whole document (searched)",
+      "evidence_kind": "READ: vendor marketing (datasheets, press release, blog); one community page for collection",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://www.forwardnetworks.com/wp-content/uploads/2026/08/Enterprise-Datasheet-4-Pager-V04-1.pdf"
+      }
+     },
+     "Cisco Modeling Labs (commercial, public docs only)": {
+      "verdict": "unknown",
+      "verdict_raw": "unknown",
+      "flags": [],
+      "note": "No energy or power feature found on the product page, docs index or 2.10 version history.",
+      "scope": null,
+      "source": "https://developer.cisco.com/modeling-labs/",
+      "locator": "Product overview (searched)",
+      "evidence_kind": "READ: vendor docs (developer.cisco.com) and one Cisco blog",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://developer.cisco.com/docs/modeling-labs/software-version-history"
+      }
+     },
+     "IP Fabric (commercial, public docs only)": {
+      "verdict": "unknown",
+      "verdict_raw": "unknown",
+      "flags": [],
+      "note": "Not mentioned in docs index, release notes 8.1 or overview; no energy feature found.",
+      "scope": null,
+      "source": "https://docs.ipfabric.io/latest/",
+      "locator": "Docs index (searched)",
+      "evidence_kind": "READ: vendor docs (docs.ipfabric.io) and vendor marketing (ipfabric.io)",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://docs.ipfabric.io/latest/"
+      }
+     },
+     "RouteNet-Fermi (academic, paper only)": {
+      "verdict": "no",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "Out of scope; outputs are delay, jitter and packet loss only.",
+      "scope": null,
+      "source": "https://arxiv.org/abs/2212.12070",
+      "locator": "Abstract",
+      "evidence_kind": "READ: paper (arXiv v3, IEEE/ACM ToN 2023) and GitHub repo",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://arxiv.org/abs/2212.12070"
+      }
+     },
+     "IRTF NMRG network digital twin architecture draft (academic reference framework)": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Only lists energy monitoring and optimization as a twinning-management topic; defines no device power-down analysis.",
+      "scope": "framework only",
+      "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+      "locator": "Section 9.5 Twinning Management",
+      "evidence_kind": "READ: IETF Internet-Draft text, rev -13 (reference architecture, not software)",
+      "accessed": "2026-10-08"
+     },
+     "NDTwin": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [
+       "⚠",
+       "◌"
+      ],
+      "note": "Energy-Saving-App powers off low-load switches after a simulated check; Mininet power readings are synthetic, derived from dpid.",
+      "scope": "OVS: runs, but the 2026-08-18 runs powered off 3 of 10 switches (live-findings-2026-08-18-ovs.md:73); the 0-switch runs were TR-5 on 2026-08-30 (A-9 lock livelock) and off-then-on can cut hosts (B-9); bmv2: P4PowerStrategy kills one switch process; physical: SNMP/SSH power read and smart-plug control, unrun in repo",
+      "source": "NDTwin-Website@dcd59f5:content/en/docs/overview.md:20; Energy-Saving-App@9facb78:src/app/energy_saving_app.cpp:561; src/ndt_core/power_management/DeviceConfigurationAndPowerManager.cpp:1929; doc/2026-01-02_ndt_api.md:1437; doc/KNOWN-ISSUES.md:761",
+      "locator": "website Key Features; easy_disable_switch; syntheticPowerMilliwattsFor; api section 6; KNOWN-ISSUES A-9",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "doc/KNOWN-ISSUES.md:768-775 (A-9 app side OPEN; Energy-Saving-App@9facb78 dated 2026-08-11 predates it); doc/KNOWN-ISSUES.md:1690; doc/audit/2026-08-18_live-full-stack-round/live-findings-2026-08-18-ovs.md:73"
+      },
+      "note_corrections": [
+       {
+        "field": "scope",
+        "before": "OVS: runs, but first logged full-pipeline runs shut 0 switches (A-9 lock livelock) and off-then-on can cut hosts (B-9); bmv2: P4PowerStrategy kills one switch process; physical: SNMP/SSH power read and smart-plug control, unrun in repo",
+        "after": "OVS: runs, but the 2026-08-18 runs powered off 3 of 10 switches (live-findings-2026-08-18-ovs.md:73); the 0-switch runs were TR-5 on 2026-08-30 (A-9 lock livelock) and off-then-on can cut hosts (B-9); bmv2: P4PowerStrategy kills one switch process; physical: SNMP/SSH power read and smart-plug control, unrun in repo",
+        "source": "live-findings-2026-08-18-ovs.md:73"
+       }
+      ],
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+     }
+    },
+    "O7": {
+     "Batfish": {
+      "verdict": "no",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "Interface is Python calls to named questions; no natural-language or intent-parsing feature in the docs.",
+      "scope": null,
+      "source": "https://batfish.readthedocs.io/en/latest/notebooks/interacting.html",
+      "locator": "Running Questions",
+      "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repo)",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://batfish.readthedocs.io/en/latest/notebooks/interacting.html"
+      }
+     },
+     "GNS3": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "GNS3 3.1 MCP service lets an external AI assistant create projects, nodes, links from plain-language requests; 3.1 is prerelease.",
+      "scope": "lab management only; needs external LLM client",
+      "source": "https://docs.gns3.com/docs-3.1-en/ai-tools/use-mcp-service",
+      "locator": "How to Use the MCP Service",
+      "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repos)",
+      "accessed": "2026-10-08",
+      "judge_r1": [
+       {
+        "finding": 3,
+        "field": "verdict",
+        "kept": "builtin",
+        "why": "O7 reading: a plain-language request changes the network the tool runs, emulated networks included. GNS3's MCP service builds projects, nodes and links from plain language; it is in the 3.1 pre-release (footnote on P07)."
+       }
+      ]
+     },
+     "Forward Networks (commercial, public docs only)": {
+      "verdict": "diy",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "vendor claim: Forward AI answers natural-language questions and runs verified workflows against the model; GA planned April 2026.",
+      "scope": "uses MCP; vendor claim",
+      "source": "https://www.forwardnetworks.com/?p=5314",
+      "locator": "Press release 2026-01-29: Forward AI",
+      "evidence_kind": "READ: vendor marketing (datasheets, press release, blog); one community page for collection",
+      "accessed": "2026-10-08",
+      "judge_r1": [
+       {
+        "finding": 3,
+        "field": "verdict",
+        "before": "builtin",
+        "after": "diy",
+        "why": "O7 reading: a plain-language request changes the network the tool runs, emulated networks included. Forward AI answers questions and runs workflows against the model, not the network; GA only planned (press release)."
+       }
+      ]
+     },
+     "Cisco Modeling Labs (commercial, public docs only)": {
+      "verdict": "builtin",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "2.10 lists MCP server integration; Cisco blog describes an open-source server plus your own LLM client, for building labs only.",
+      "scope": "lab building; not live-network actions",
+      "source": "https://blogs.cisco.com/learning/speak-your-lab-into-existence-with-ai-driven-cisco-modeling-labs-and-mcp",
+      "locator": "Speak your lab into existence (2025-11-17)",
+      "evidence_kind": "READ: vendor docs (developer.cisco.com) and one Cisco blog",
+      "accessed": "2026-10-08",
+      "verdict_prev": "diy",
+      "flags_prev": [],
+      "verification": {
+       "status": "CHANGE",
+       "why": "CML 2.10 'introduces MCP Server integration' with setup docs; GNS3 and IP Fabric got builtin for the same external-LLM MCP pattern.",
+       "evidence": "https://developer.cisco.com/docs/modeling-labs/software-version-history"
+      },
+      "judge_r1": [
+       {
+        "finding": 3,
+        "field": "verdict",
+        "kept": "builtin",
+        "why": "O7 reading: a plain-language request changes the network the tool runs, emulated networks included. CML 2.10's MCP server builds labs from plain language."
+       }
+      ]
+     },
+     "IP Fabric (commercial, public docs only)": {
+      "verdict": "diy",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "MCP server lets an external AI assistant query health, paths and API in plain language; read-only queries.",
+      "scope": "queries only; needs external AI assistant",
+      "source": "https://docs.ipfabric.io/main/IP_Fabric_Settings/integration/mcp/",
+      "locator": "What it does; Exposed tools",
+      "evidence_kind": "READ: vendor docs (docs.ipfabric.io) and vendor marketing (ipfabric.io)",
+      "accessed": "2026-10-08",
+      "judge_r1": [
+       {
+        "finding": 3,
+        "field": "verdict",
+        "before": "builtin",
+        "after": "diy",
+        "why": "O7 reading: a plain-language request changes the network the tool runs, emulated networks included. IP Fabric's MCP server answers read-only queries and takes no action on the network."
+       }
+      ]
+     },
+     "RouteNet-Fermi (academic, paper only)": {
+      "verdict": "no",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "No natural-language or intent interface; Python scripts for training and prediction.",
+      "scope": null,
+      "source": "https://github.com/BNN-UPC/RouteNet-Fermi",
+      "locator": "README: files",
+      "evidence_kind": "READ: paper (arXiv v3, IEEE/ACM ToN 2023) and GitHub repo",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://github.com/BNN-UPC/RouteNet-Fermi"
+      }
+     },
+     "IRTF NMRG network digital twin architecture draft (academic reference framework)": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Describes intent-based networking validated on the twin; abstract intents, no natural-language requirement.",
+      "scope": "framework only",
+      "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+      "locator": "Section 10 Interaction with IBN",
+      "evidence_kind": "READ: IETF Internet-Draft text, rev -13 (reference architecture, not software)",
+      "accessed": "2026-10-08"
+     },
+     "NDTwin": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [
+       "⚠",
+       "◌"
+      ],
+      "note": "POST /ndt/intent_translator/text calls OpenAI (OPENAI_API_KEY); off by default (--no-ai), answers 503 when disabled.",
+      "scope": "external dependency: internet plus your own OpenAI API key (default model gpt-5-nano); the test stack always starts with --no-ai, so I found no run log; the BLOCK_HOST intent replies success even when nothing is installed (A-4g)",
+      "source": "src/ndt_core/intent_translator/LLMAgent.cpp:27; src/ndt_core/intent_translator/LLMAgent.cpp:138; src/main.cpp:416; doc/2026-01-02_ndt_api.md:5054; doc/KNOWN-ISSUES.md:527",
+      "locator": "LLMAgent key lookup and https://api.openai.com call; main.cpp useToken; api section 41; KNOWN-ISSUES A-4g",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "src/ndt_core/intent_translator/IntentTranslator.cpp:809 (bare installAnEntry, result dropped); doc/KNOWN-ISSUES.md:527-533"
+      },
+      "judge_r1": [
+       {
+        "finding": 3,
+        "field": "verdict",
+        "kept": "builtin",
+        "why": "O7 reading: a plain-language request changes the network the tool runs, emulated networks included. NDTwin's intent translator turns text into actions on the Mininet fabric it controls."
+       }
+      ],
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+     }
+    },
+    "O8": {
+     "Batfish": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "A snapshot is one point in time; keep your own snapshot archive and compare pairs with differential questions.",
+      "scope": null,
+      "source": "https://batfish.readthedocs.io/en/latest/notebooks/interacting.html",
+      "locator": "Network and Snapshot Management",
+      "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repo)",
+      "accessed": "2026-10-08"
+     },
+     "GNS3": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Project snapshots save and restore lab state; no history of network telemetry; capture and replay traffic with external tools.",
+      "scope": null,
+      "source": "https://gns3-server.readthedocs.io/en/latest/endpoints.html",
+      "locator": "Controller endpoints: Snapshot; Link capture",
+      "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repos)",
+      "accessed": "2026-10-08"
+     },
+     "Forward Networks (commercial, public docs only)": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "vendor claim: continuous snapshots plus Behavior Diff between any two snapshots; API returns historical states; no event replay.",
+      "scope": "snapshot history, not replay",
+      "source": "https://www.forwardnetworks.com/wp-content/uploads/2026/08/Enterprise-Datasheet-4-Pager-V04-1.pdf",
+      "locator": "p.3 Rapid troubleshooting of unintended changes",
+      "evidence_kind": "READ: vendor marketing (datasheets, press release, blog); one community page for collection",
+      "accessed": "2026-10-08"
+     },
+     "Cisco Modeling Labs (commercial, public docs only)": {
+      "verdict": "unknown",
+      "verdict_raw": "unknown",
+      "flags": [],
+      "note": "No state-history or replay feature found in product page, docs index or version history; packet capture exists.",
+      "scope": null,
+      "source": "https://developer.cisco.com/docs/modeling-labs/software-version-history",
+      "locator": "CML 2.10.0 entry (searched)",
+      "evidence_kind": "READ: vendor docs (developer.cisco.com) and one Cisco blog",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://developer.cisco.com/docs/modeling-labs/software-version-history"
+      }
+     },
+     "IP Fabric (commercial, public docs only)": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [],
+      "note": "Scheduled snapshots with retention rules and snapshot comparison; no packet-level or event replay.",
+      "scope": "snapshot history, not replay",
+      "source": "https://docs.ipfabric.io/7.5/IP_Fabric_Settings/Discovery_and_Snapshots/snapshot_collection/",
+      "locator": "Snapshot limits; Retention policies",
+      "evidence_kind": "READ: vendor docs (docs.ipfabric.io) and vendor marketing (ipfabric.io)",
+      "accessed": "2026-10-08"
+     },
+     "RouteNet-Fermi (academic, paper only)": {
+      "verdict": "no",
+      "verdict_raw": "no",
+      "flags": [],
+      "note": "No state history or replay feature; real traffic traces serve only as offline evaluation inputs.",
+      "scope": null,
+      "source": "https://arxiv.org/pdf/2212.12070",
+      "locator": "Evaluation: real traffic",
+      "evidence_kind": "READ: paper (arXiv v3, IEEE/ACM ToN 2023) and GitHub repo",
+      "accessed": "2026-10-08",
+      "verification": {
+       "status": "CONFIRMED",
+       "evidence": "https://arxiv.org/pdf/2212.12070"
+      }
+     },
+     "IRTF NMRG network digital twin architecture draft (academic reference framework)": {
+      "verdict": "diy",
+      "verdict_raw": "diy",
+      "flags": [],
+      "note": "Requires historical and/or real-time data and reproducibility, meaning replay of event sequences; no mechanism defined.",
+      "scope": "framework only",
+      "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+      "locator": "Section 4 Characteristics: repeatability, reproducibility",
+      "evidence_kind": "READ: IETF Internet-Draft text, rev -13 (reference architecture, not software)",
+      "accessed": "2026-10-08"
+     },
+     "NDTwin": {
+      "verdict": "builtin",
+      "verdict_raw": "builtin",
+      "flags": [
+       "⚠",
+       "◌"
+      ],
+      "note": "Network-State-Recorder polls graph and flow data (default every 5 s) into zip files; Web-GUI and Visualizer replay them.",
+      "scope": "replays recorded kernel state, not a re-simulation; the kernel's own /ndt/historical_logging writes nothing under Mininet (B-3); NSR start/stop scripts always exit 0 (NDTwin-Website@7724114 commit subject)",
+      "source": "Network-State-Recorder@850f61d:README.md:3; Network-State-Recorder@850f61d:README.md:66; Network-State-Recorder@850f61d:network_state_recorder.py:21; doc/2026-08-14_cross-component-integration-matrix.md:17; doc/KNOWN-ISSUES.md:1252",
+      "locator": "NSR README features and recorder_setting; network_state_recorder.py URLs; integration matrix; KNOWN-ISSUES B-3",
+      "evidence_kind": "READ: code and docs",
+      "accessed": "2026-10-08",
+      "verdict_prev": "builtin",
+      "flags_prev": [
+       "⚠"
+      ],
+      "verification": {
+       "status": "CHANGE",
+       "why": "B-3 is off this path. The real ⚠: NSR silently stops for good after one refused connection. Replay of recordings was never run (◌).",
+       "evidence": "doc/2026-08-14_cross-component-integration-matrix.md:147-151 (NSR #9; Network-State-Recorder@850f61d dated 2026-04-20 predates it); doc/KNOWN-ISSUES.md:1252-1255 (B-3 is the kernel logger, not NSR)"
+      },
+      "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+     }
+    }
+   }
+  }
+ },
+ "maturity": {
+  "columns": [
+   "Mininet + Ryu (assemble it yourself)",
+   "ONOS (+ Mininet)",
+   "Containerlab",
+   "ns-3",
+   "sFlow-RT",
+   "p4lang/tutorials VM",
+   "p4-utils (ETH Zurich nsg)",
+   "ONOS + Stratum",
+   "Batfish",
+   "GNS3",
+   "Forward Networks (commercial, public docs only)",
+   "Cisco Modeling Labs (commercial, public docs only)",
+   "IP Fabric (commercial, public docs only)",
+   "RouteNet-Fermi (academic, paper only)",
+   "IRTF NMRG network digital twin architecture draft (academic reference framework)",
+   "NDTwin"
+  ],
+  "rows": {
+   "M1": "License",
+   "M2": "Cost to a developer (free / free tier / paid; list price if public)",
+   "M3": "Latest release and its date",
+   "M4": "GitHub stars (unauthenticated public page/API, give the number and date) or 'not on GitHub'",
+   "M5": "Contributors (approx., from the public repo) or 'closed source'",
+   "M6": "Fidelity: packet-level emulation / packet-level simulation / flow-level model / config model / ML model",
+   "M7": "Largest documented scale (nodes/links/hosts), with the source",
+   "M8": "Install path (package, VM image, container, SaaS) and documented prerequisites",
+   "M9": "Primary programmatic interface (REST, gRPC/P4Runtime, Python API, CLI, none)"
+  },
+  "cells": {
+   "M1": {
+    "Mininet + Ryu (assemble it yourself)": {
+     "verdict": "info",
+     "note": "Mininet: BSD-3-Clause. Ryu: Apache-2.0.",
+     "source": "https://github.com/faucetsdn/ryu",
+     "locator": "GitHub repo sidebar / GitHub API license field (mininet/mininet, faucetsdn/ryu)",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ONOS (+ Mininet)": {
+     "verdict": "info",
+     "note": "Apache License 2.0.",
+     "source": "https://github.com/opennetworkinglab/onos",
+     "locator": "Repo license (GitHub API spdx_id Apache-2.0)",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "Containerlab": {
+     "verdict": "info",
+     "note": "BSD-3-Clause.",
+     "source": "https://github.com/srl-labs/containerlab",
+     "locator": "README / GitHub license",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ns-3": {
+     "verdict": "info",
+     "note": "GNU GPLv2.",
+     "source": "https://www.nsnam.org/about/",
+     "locator": "License paragraph",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "sFlow-RT": {
+     "verdict": "info",
+     "note": "Proprietary: download requires accepting a license agreement; companion apps on GitHub use MIT.",
+     "source": "https://sflow-rt.com/download.php",
+     "locator": "License Agreement notice; github.com/sflow-rt/mininet-dashboard",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "NDTwin": {
+     "verdict": "info",
+     "note": "Apache License 2.0 in the kernel and in all seven sibling repos checked.",
+     "source": "LICENSE:1; README.md:152; Energy-Saving-App@9facb78:LICENSE:1",
+     "locator": "LICENSE file first lines",
+     "accessed": "2026-10-08",
+     "detail": "Sibling LICENSE files read: Energy-Saving-App, Simulation-Platform-Manager, Web-GUI, Network-State-Recorder, Traffic-Engineering-App, Network-Traffic-Visualizer, Network-Traffic-Generator; all Apache 2.0.",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: code and docs",
+     "scope": null,
+     "verification": {
+      "status": "CONFIRMED",
+      "evidence": "LICENSE:1; sibling HEAD LICENSE files (ESA 9facb78, SPM b7efd93, Web-GUI f63a55c, NSR 850f61d, TE f108c7c, NTV 9b56b30, NTG 6e3f388)"
+     },
+     "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+    },
+    "p4lang/tutorials VM": {
+     "verdict": "info",
+     "note": "Apache-2.0 (SPDX header in README); GitHub API reports NOASSERTION.",
+     "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/README.md",
+     "locator": "file header / license",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "p4-utils (ETH Zurich nsg)": {
+     "verdict": "info",
+     "note": "GPL-2.0.",
+     "source": "https://api.github.com/repos/nsg-ethz/p4-utils",
+     "locator": "license",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ONOS + Stratum": {
+     "verdict": "info",
+     "note": "Apache-2.0 (ONOS and Stratum).",
+     "source": "https://api.github.com/repos/opennetworkinglab/onos",
+     "locator": "license",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "Batfish": {
+     "verdict": "info",
+     "note": "Apache-2.0",
+     "source": "https://github.com/batfish/batfish",
+     "locator": "License (GitHub sidebar/API spdx_id)",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repo)",
+     "scope": null
+    },
+    "GNS3": {
+     "verdict": "info",
+     "note": "GPL-3.0 (gns3-server and gns3-gui)",
+     "source": "https://github.com/GNS3/gns3-server",
+     "locator": "License",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repos)",
+     "scope": null
+    },
+    "Forward Networks (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "Proprietary commercial software",
+     "source": "https://www.forwardnetworks.com/wp-content/uploads/2026/08/Enterprise-Datasheet-4-Pager-V04-1.pdf",
+     "locator": "Copyright footer",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor marketing (datasheets, press release, blog); one community page for collection",
+     "scope": null
+    },
+    "Cisco Modeling Labs (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "Proprietary commercial; CML-Free tier is licensed, not open source",
+     "source": "https://developer.cisco.com/docs/modeling-labs/cml-free/",
+     "locator": "CML-Free",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (developer.cisco.com) and one Cisco blog",
+     "scope": null
+    },
+    "IP Fabric (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "Proprietary commercial software",
+     "source": "https://ipfabric.io/pricing/",
+     "locator": "Pricing",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (docs.ipfabric.io) and vendor marketing (ipfabric.io)",
+     "scope": null
+    },
+    "RouteNet-Fermi (academic, paper only)": {
+     "verdict": "info",
+     "note": "Apache-2.0",
+     "source": "https://github.com/BNN-UPC/RouteNet-Fermi",
+     "locator": "License",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: paper (arXiv v3, IEEE/ACM ToN 2023) and GitHub repo",
+     "scope": null
+    },
+    "IRTF NMRG network digital twin architecture draft (academic reference framework)": {
+     "verdict": "info",
+     "note": "n/a: Internet-Draft text, not software",
+     "source": "https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch",
+     "locator": "Header",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: IETF Internet-Draft text, rev -13 (reference architecture, not software)",
+     "scope": null
+    }
+   },
+   "M2": {
+    "Mininet + Ryu (assemble it yourself)": {
+     "verdict": "info",
+     "note": "Both free, open source; no paid tier found.",
+     "source": "https://github.com/faucetsdn/ryu",
+     "locator": "README / repo pages",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ONOS (+ Mininet)": {
+     "verdict": "info",
+     "note": "Free, open source.",
+     "source": "https://hub.docker.com/r/onosproject/onos",
+     "locator": "Overview: Apache License 2.0",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "Containerlab": {
+     "verdict": "info",
+     "note": "Free, open source; no paid tier found in docs.",
+     "source": "https://containerlab.dev/",
+     "locator": "Overview",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ns-3": {
+     "verdict": "info",
+     "note": "Free, open source.",
+     "source": "https://www.nsnam.org/about/",
+     "locator": "Overview",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "sFlow-RT": {
+     "verdict": "info",
+     "note": "Free to download; production licensing via InMon sales, price not public.",
+     "source": "https://sflow-rt.com/download.php",
+     "locator": "Licensing note",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "NDTwin": {
+     "verdict": "info",
+     "note": "Free (Apache 2.0); the optional LLM translator needs your own paid OpenAI key; no price list found.",
+     "source": "README.md:152; src/ndt_core/intent_translator/LLMAgent.cpp:27",
+     "locator": "License section; OPENAI_API_KEY lookup",
+     "accessed": "2026-10-08",
+     "detail": "No pricing page or commercial tier found in the repo or in the website pages read.",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: code and docs",
+     "scope": null,
+     "verification": {
+      "status": "CONFIRMED",
+      "evidence": "README.md:152; src/ndt_core/intent_translator/LLMAgent.cpp:27"
+     },
+     "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+    },
+    "p4lang/tutorials VM": {
+     "verdict": "info",
+     "note": "Free and open source.",
+     "source": "https://github.com/p4lang/tutorials",
+     "locator": "README",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "p4-utils (ETH Zurich nsg)": {
+     "verdict": "info",
+     "note": "Free and open source.",
+     "source": "https://github.com/nsg-ethz/p4-utils",
+     "locator": "README",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ONOS + Stratum": {
+     "verdict": "info",
+     "note": "Free and open source.",
+     "source": "https://github.com/opennetworkinglab/onos",
+     "locator": "README",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "Batfish": {
+     "verdict": "info",
+     "note": "Free, open source; no paid tier found",
+     "source": "https://github.com/batfish/batfish",
+     "locator": "README",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repo)",
+     "scope": null
+    },
+    "GNS3": {
+     "verdict": "info",
+     "note": "Free; gns3.com account needed for installers; vendor images need separate licences",
+     "source": "https://docs.gns3.com/docs/getting-started/installation/windows",
+     "locator": "Installation steps: Download",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repos)",
+     "scope": null
+    },
+    "Forward Networks (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "Quote only; modular subscription priced per modelled device; free-trial and demo links on pricing page",
+     "source": "https://www.forwardnetworks.com/pricing/",
+     "locator": "Pricing",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor marketing (datasheets, press release, blog); one community page for collection",
+     "scope": null
+    },
+    "Cisco Modeling Labs (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "Free tier 5 nodes; Personal $199 (20 nodes), Personal Plus $349 (40 nodes) on Cisco page; Enterprise quote only",
+     "source": "https://developer.cisco.com/modeling-labs/",
+     "locator": "Editions & pricing",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (developer.cisco.com) and one Cisco blog",
+     "scope": null
+    },
+    "IP Fabric (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "Quote only; subscription by active devices and cloud objects; free trial offered",
+     "source": "https://ipfabric.io/pricing/",
+     "locator": "Pricing",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (docs.ipfabric.io) and vendor marketing (ipfabric.io)",
+     "scope": null
+    },
+    "RouteNet-Fermi (academic, paper only)": {
+     "verdict": "info",
+     "note": "Free (research code); training data and GPU time are the real cost",
+     "source": "https://github.com/BNN-UPC/RouteNet-Fermi",
+     "locator": "README",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: paper (arXiv v3, IEEE/ACM ToN 2023) and GitHub repo",
+     "scope": null
+    },
+    "IRTF NMRG network digital twin architecture draft (academic reference framework)": {
+     "verdict": "info",
+     "note": "Free to read; nothing to buy or run",
+     "source": "https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch",
+     "locator": "Header",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: IETF Internet-Draft text, rev -13 (reference architecture, not software)",
+     "scope": null
+    }
+   },
+   "M3": {
+    "Mininet + Ryu (assemble it yourself)": {
+     "verdict": "info",
+     "note": "Mininet release 2.3.0 (2021-02-11); newer tag 2.3.1b4 (2023-05-03). Ryu tag v4.34 (2019-10-01).",
+     "source": "https://github.com/mininet/mininet/tags",
+     "locator": "Tags list (GitHub API releases/latest for 2.3.0 date); ryu: github.com/faucetsdn/ryu/tags",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ONOS (+ Mininet)": {
+     "verdict": "info",
+     "note": "2.7.0 LTS announced 2022-01-17, last of the 2.x line; GitHub tags list shows 2.5.9 patch dated 2022-07-29.",
+     "source": "https://opennetworking.org/news-and-events/blog/onos-v2-7-0-lts-release-adds-features-and-optimization-enhancements/",
+     "locator": "Release summary; github.com/opennetworkinglab/onos/tags",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "Containerlab": {
+     "verdict": "info",
+     "note": "v0.79.0, published 2026-08-21 (GitHub API releases/latest).",
+     "source": "https://api.github.com/repos/srl-labs/containerlab/releases/latest",
+     "locator": "tag_name, published_at",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ns-3": {
+     "verdict": "info",
+     "note": "ns-3.49, GitLab tag dated 2026-10-06; releases page still listed ns-3.48 first when fetched.",
+     "source": "https://gitlab.com/nsnam/ns-3-dev/-/tags",
+     "locator": "Tags list; nsnam.org/releases",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "sFlow-RT": {
+     "verdict": "info",
+     "note": "Version 3.2-1736; release date not stated on page (copyright 2015-2026).",
+     "source": "https://sflow-rt.com/download.php",
+     "locator": "Version heading",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "NDTwin": {
+     "verdict": "info",
+     "note": "Public kernel: v1.0.0, 2026-02-06. P4 trunk: unreleased snapshot, README says testing only. Different repos.",
+     "source": "README.md:9; README.md:147; NDTwin-Website@dcd59f5:content/en/docs/Download/_index.md:71; GitHub API releases (fetched 2026-10-07 17:57 UTC)",
+     "locator": "README CAUTION and Status; website Download table; GitHub releases endpoint",
+     "accessed": "2026-10-08",
+     "detail": "ndtwin-lab/NDTwin-Kernel has release/tag v1.0.0 (2026-02-06T00:13Z); website Download lists Kernel v1.0.0 and 'P4/BMv2 snapshot 936f8c6' (repo ndtwin-lab/NDTwin-Kernel-P4-public). The README describes NDTwin-Kernel-P4 (this trunk): 'Snapshot of an internal development branch, not a tagged release'; Adam010341/NDTwin-Kernel-P4 has no releases or tags. trunk 3a47bdb7 is 2987 commits after tag v1.0.0 (399dd79c, 2026-02-03); still no release or tag on Adam010341/NDTwin-Kernel-P4 (gh, 2026-10-12).",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: code and docs",
+     "scope": null,
+     "verification": {
+      "status": "CONFIRMED",
+      "evidence": "README.md:8-10,147; git rev-list v1.0.0..3a47bdb7 = 2987 (2772 at 2ece656c); app_package/convert/heartbeat/table_entry absent at 20cd80b"
+     },
+     "repin_1014": [
+      {
+       "field": "detail",
+       "before": "ndtwin-lab/NDTwin-Kernel has release/tag v1.0.0 (2026-02-06T00:13Z); website Download lists Kernel v1.0.0 and 'P4/BMv2 snapshot 936f8c6' (repo ndtwin-lab/NDTwin-Kernel-P4-public). The README describes NDTwin-Kernel-P4 (this trunk): 'Snapshot of an internal development branch, not a tagged release'; Adam010341/NDTwin-Kernel-P4 has no releases or tags. trunk 2ece656c is 2772 commits after tag v1.0.0 (399dd79c, 2026-02-03).",
+       "after": "ndtwin-lab/NDTwin-Kernel has release/tag v1.0.0 (2026-02-06T00:13Z); website Download lists Kernel v1.0.0 and 'P4/BMv2 snapshot 936f8c6' (repo ndtwin-lab/NDTwin-Kernel-P4-public). The README describes NDTwin-Kernel-P4 (this trunk): 'Snapshot of an internal development branch, not a tagged release'; Adam010341/NDTwin-Kernel-P4 has no releases or tags. trunk 3a47bdb7 is 2987 commits after tag v1.0.0 (399dd79c, 2026-02-03); still no release or tag on Adam010341/NDTwin-Kernel-P4 (gh, 2026-10-12).",
+       "why": "git rev-list --count v1.0.0..3a47bdb7",
+       "basis": "trunk 3a47bdb7"
+      }
+     ],
+     "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+    },
+    "p4lang/tutorials VM": {
+     "verdict": "info",
+     "note": "No versioned releases beyond one 2018 event tag (p4d2-2018-spring, 2018-06-06); master last pushed 2026-10-06, active.",
+     "source": "https://github.com/p4lang/tutorials/releases",
+     "locator": "Releases; API pushed_at",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "p4-utils (ETH Zurich nsg)": {
+     "verdict": "info",
+     "note": "Only tagged release is v0.0 (2018-09-09, no Python 3); master last pushed 2024-07-09, nothing newer seen.",
+     "source": "https://github.com/nsg-ethz/p4-utils/releases",
+     "locator": "Releases; API pushed_at",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ONOS + Stratum": {
+     "verdict": "info",
+     "note": "ONOS 2.7.0 LTS (tag 2021-12-21), last 2.x line; Stratum latest release 2022-06-30; both repos last pushed mid-2024.",
+     "source": "https://opennetworking.org/news-and-events/blog/onos-v2-7-0-lts-release-adds-features-and-optimization-enhancements/",
+     "locator": "Release summary; Stratum releases page; GitHub API pushed_at",
+     "accessed": "2026-10-08",
+     "scope": "ONOS 2.5.9 patch 2022-07-29, 2.7.0 announced 2022-01-17; ONF dissolved 2024, projects moved to Linux Foundation; Stratum pushed 2024-07-09, ONOS 2024-06-18",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs"
+    },
+    "Batfish": {
+     "verdict": "info",
+     "note": "v2026.08.27, published 2026-08-27 (GitHub releases API); latest commit 2026-10-07; pybatfish docs 0.36.0",
+     "source": "https://api.github.com/repos/batfish/batfish/releases/latest",
+     "locator": "tag_name, published_at",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repo)",
+     "scope": null
+    },
+    "GNS3": {
+     "verdict": "info",
+     "note": "Latest stable on GitHub v2.2.61 (2026-07-30); 3.1.0a6 pre-release 2026-09-27; PyPI shows 3.0.6 (2026-01-28)",
+     "source": "https://api.github.com/repos/GNS3/gns3-server/releases?per_page=6",
+     "locator": "tag_name, published_at, prerelease",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repos)",
+     "scope": null
+    },
+    "Forward Networks (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "Latest public release note found: Forward Enterprise 25.6.0 (2025-06-17, community page); newer may exist",
+     "source": "https://community.forwardnetworks.com/product-updates/product-updates-for-25-6-0-575",
+     "locator": "Product updates 25.6.0",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor marketing (datasheets, press release, blog); one community page for collection",
+     "scope": null
+    },
+    "Cisco Modeling Labs (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "CML 2.10.0, released 2026-03-02 (previous 2.9.0 on 2025-07-18)",
+     "source": "https://developer.cisco.com/docs/modeling-labs/software-version-history",
+     "locator": "Version table",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (developer.cisco.com) and one Cisco blog",
+     "scope": null
+    },
+    "IP Fabric (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "v8.1 current at docs /latest (8.1.4 released 2026-10-02 per 8.1 notes); /main shows 8.2 unreleased",
+     "source": "https://docs.ipfabric.io/latest/releases/release_notes/8.1/",
+     "locator": "Release summary",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (docs.ipfabric.io) and vendor marketing (ipfabric.io)",
+     "scope": null
+    },
+    "RouteNet-Fermi (academic, paper only)": {
+     "verdict": "info",
+     "note": "No GitHub releases; paper published IEEE/ACM ToN 2023, arXiv v3 dated 2023-09-20; repo has 8 commits",
+     "source": "https://github.com/BNN-UPC/RouteNet-Fermi",
+     "locator": "Commits; arXiv header",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: paper (arXiv v3, IEEE/ACM ToN 2023) and GitHub repo",
+     "scope": null
+    },
+    "IRTF NMRG network digital twin architecture draft (academic reference framework)": {
+     "verdict": "info",
+     "note": "draft-irtf-nmrg-network-digital-twin-arch-13, dated 2026-07-01; Informational, IRTF stream, no RFC number; expires 2027-01-02",
+     "source": "https://datatracker.ietf.org/doc/draft-irtf-nmrg-network-digital-twin-arch/",
+     "locator": "Datatracker: state, intended status (page lists waiting for IRTF Chair approval)",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: IETF Internet-Draft text, rev -13 (reference architecture, not software)",
+     "scope": null
+    }
+   },
+   "M4": {
+    "Mininet + Ryu (assemble it yourself)": {
+     "verdict": "info",
+     "note": "Mininet 5,862 stars; Ryu 1,605 stars (GitHub API, read 2026-10-08).",
+     "source": "https://api.github.com/repos/mininet/mininet",
+     "locator": "stargazers_count (also api.github.com/repos/faucetsdn/ryu)",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ONOS (+ Mininet)": {
+     "verdict": "info",
+     "note": "1,290 stars on the GitHub mirror (GitHub API, 2026-10-08; last push 2024-06-18).",
+     "source": "https://api.github.com/repos/opennetworkinglab/onos",
+     "locator": "stargazers_count, pushed_at",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "Containerlab": {
+     "verdict": "info",
+     "note": "2,866 stars (GitHub API, 2026-10-08).",
+     "source": "https://api.github.com/repos/srl-labs/containerlab",
+     "locator": "stargazers_count",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ns-3": {
+     "verdict": "info",
+     "note": "563 stars on the read-only GitHub mirror (GitHub API, 2026-10-08); main repo is on GitLab.",
+     "source": "https://api.github.com/repos/nsnam/ns-3-dev-git",
+     "locator": "stargazers_count",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "sFlow-RT": {
+     "verdict": "info",
+     "note": "Core not on GitHub; org sflow-rt hosts apps only (top repo ddos-protect, 53 stars).",
+     "source": "https://github.com/sflow-rt",
+     "locator": "Organization repository list",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "NDTwin": {
+     "verdict": "info",
+     "note": "GitHub stars on 2026-10-07: ndtwin-lab/NDTwin-Kernel 0 (1 fork, 0 issues); Adam010341/NDTwin-Kernel-P4 5 (0 forks, 1 issue).",
+     "source": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel; https://api.github.com/repos/Adam010341/NDTwin-Kernel-P4",
+     "locator": "GitHub REST repos endpoint, unauthenticated, fetched 2026-10-07 17:57 UTC",
+     "accessed": "2026-10-08",
+     "detail": "Third repo named by the website, ndtwin-lab/NDTwin-Kernel-P4-public, was not fetched: the shared-IP unauthenticated GitHub rate limit (60/h) was already used up. The same API gave ndtwin-lab/NDTwin-Kernel-P4: 0 stars, 0 forks, 0 issues.",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: code and docs",
+     "scope": null,
+     "verification": {
+      "status": "CONFIRMED",
+      "evidence": "not re-fetched: GitHub API rate-limited 2026-10-08 (remaining 0)"
+     },
+     "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+    },
+    "p4lang/tutorials VM": {
+     "verdict": "info",
+     "note": "1,598 stars as of 2026-10-08.",
+     "source": "https://api.github.com/repos/p4lang/tutorials",
+     "locator": "stargazers_count",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "p4-utils (ETH Zurich nsg)": {
+     "verdict": "info",
+     "note": "209 stars as of 2026-10-08.",
+     "source": "https://api.github.com/repos/nsg-ethz/p4-utils",
+     "locator": "stargazers_count",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ONOS + Stratum": {
+     "verdict": "info",
+     "note": "ONOS 1,290 stars; Stratum 420 stars (as of 2026-10-08).",
+     "source": "https://api.github.com/repos/opennetworkinglab/onos",
+     "locator": "stargazers_count (ONOS); stratum/stratum same endpoint",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "Batfish": {
+     "verdict": "info",
+     "note": "1,495 stars (github.com page, 2026-10-08)",
+     "source": "https://github.com/batfish/batfish",
+     "locator": "stargazerCount",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repo)",
+     "scope": null
+    },
+    "GNS3": {
+     "verdict": "info",
+     "note": "gns3-server 1,030 stars (github.com page, 2026-10-08); gns3-gui 2,640 (API)",
+     "source": "https://github.com/GNS3/gns3-server",
+     "locator": "stargazerCount",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repos)",
+     "scope": null
+    },
+    "Forward Networks (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "Closed source; not on GitHub",
+     "source": "https://www.forwardnetworks.com/wp-content/uploads/2026/08/Enterprise-Datasheet-4-Pager-V04-1.pdf",
+     "locator": "n/a",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor marketing (datasheets, press release, blog); one community page for collection",
+     "scope": null
+    },
+    "Cisco Modeling Labs (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "Closed source; product not on GitHub",
+     "source": "https://developer.cisco.com/modeling-labs/",
+     "locator": "n/a",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (developer.cisco.com) and one Cisco blog",
+     "scope": null
+    },
+    "IP Fabric (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "Closed source product; docs list a separate Python SDK",
+     "source": "https://docs.ipfabric.io/latest/",
+     "locator": "Integrations: Python SDK",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (docs.ipfabric.io) and vendor marketing (ipfabric.io)",
+     "scope": null
+    },
+    "RouteNet-Fermi (academic, paper only)": {
+     "verdict": "info",
+     "note": "44 stars (github.com page, 2026-10-08)",
+     "source": "https://github.com/BNN-UPC/RouteNet-Fermi",
+     "locator": "stargazerCount",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: paper (arXiv v3, IEEE/ACM ToN 2023) and GitHub repo",
+     "scope": null
+    },
+    "IRTF NMRG network digital twin architecture draft (academic reference framework)": {
+     "verdict": "info",
+     "note": "Not on GitHub; hosted on IETF datatracker",
+     "source": "https://datatracker.ietf.org/doc/draft-irtf-nmrg-network-digital-twin-arch/",
+     "locator": "n/a",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: IETF Internet-Draft text, rev -13 (reference architecture, not software)",
+     "scope": null
+    }
+   },
+   "M5": {
+    "Mininet + Ryu (assemble it yourself)": {
+     "verdict": "info",
+     "note": "Mininet about 81 contributors; Ryu about 134 (GitHub API contributors, anonymous included, last-page count).",
+     "source": "https://api.github.com/repos/mininet/mininet/contributors?per_page=1&anon=true",
+     "locator": "Link header rel=last page (Ryu: repos/faucetsdn/ryu/contributors)",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ONOS (+ Mininet)": {
+     "verdict": "info",
+     "note": "About 506 contributors on the GitHub mirror (anonymous included); development happens in Gerrit.",
+     "source": "https://api.github.com/repos/opennetworkinglab/onos/contributors?per_page=1&anon=true",
+     "locator": "Link header rel=last page",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "Containerlab": {
+     "verdict": "info",
+     "note": "About 214 contributors (GitHub API, anonymous included).",
+     "source": "https://api.github.com/repos/srl-labs/containerlab/contributors?per_page=1&anon=true",
+     "locator": "Link header rel=last page",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ns-3": {
+     "verdict": "info",
+     "note": "About 472 contributors on the GitHub mirror (anonymous included); GitLab count not checked.",
+     "source": "https://api.github.com/repos/nsnam/ns-3-dev-git/contributors?per_page=1&anon=true",
+     "locator": "Link header rel=last page",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "sFlow-RT": {
+     "verdict": "info",
+     "note": "Closed source for the core engine; apps are public repositories.",
+     "source": "https://github.com/sflow-rt",
+     "locator": "Organization repository list",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "NDTwin": {
+     "verdict": "info",
+     "note": "GitHub contributors: kernel repo 2 (36 commits); P4 repo 3, with Adam010341 at 2,530 of 2,564.",
+     "source": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel/contributors; https://api.github.com/repos/Adam010341/NDTwin-Kernel-P4/contributors; git shortlog -sn 2ece656c; ndtwin-license-header.txt:15",
+     "locator": "GitHub contributors endpoint 2026-10-07; git shortlog",
+     "accessed": "2026-10-08",
+     "detail": "Kernel repo: xxxPatty 25, joemou 11. P4 repo: Adam010341 2530, xxxPatty 24, joemou 10. git shortlog on trunk 2ece656c (2805 commits): Adam010341 2767, patty 24, joemou 9, Adam Fan 3, JM 1, xxxPatty 1. License header lists 5 'core contributors' as of 2026-01-15.",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: code and docs",
+     "scope": null,
+     "verification": {
+      "status": "CONFIRMED",
+      "evidence": "git shortlog -sn 2ece656c: Adam010341 2767 of 2805"
+     },
+     "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+    },
+    "p4lang/tutorials VM": {
+     "verdict": "info",
+     "note": "About 62 contributors (contributors list on repo page, 2026-10-08).",
+     "source": "https://github.com/p4lang/tutorials/contributors_list",
+     "locator": "avatar list count",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "p4-utils (ETH Zurich nsg)": {
+     "verdict": "info",
+     "note": "About 9 contributors (contributors list on repo page, 2026-10-08).",
+     "source": "https://github.com/nsg-ethz/p4-utils/contributors_list",
+     "locator": "avatar list count",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ONOS + Stratum": {
+     "verdict": "info",
+     "note": "ONOS at least 100 (list capped at 100); Stratum about 47 (2026-10-08).",
+     "source": "https://github.com/stratum/stratum/contributors_list",
+     "locator": "avatar list count",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "Batfish": {
+     "verdict": "info",
+     "note": "About 69 (contributors API list, 2026-10-08; count by summariser, approximate)",
+     "source": "https://api.github.com/repos/batfish/batfish/contributors?per_page=100",
+     "locator": "contributors list",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repo)",
+     "scope": null
+    },
+    "GNS3": {
+     "verdict": "info",
+     "note": "About 75 for gns3-server (contributors API list, 2026-10-08; summariser count, approximate)",
+     "source": "https://api.github.com/repos/GNS3/gns3-server/contributors?per_page=100",
+     "locator": "contributors list",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repos)",
+     "scope": null
+    },
+    "Forward Networks (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "Closed source",
+     "source": "https://www.forwardnetworks.com/wp-content/uploads/2026/08/Enterprise-Datasheet-4-Pager-V04-1.pdf",
+     "locator": "n/a",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor marketing (datasheets, press release, blog); one community page for collection",
+     "scope": null
+    },
+    "Cisco Modeling Labs (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "Closed source",
+     "source": "https://developer.cisco.com/modeling-labs/",
+     "locator": "n/a",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (developer.cisco.com) and one Cisco blog",
+     "scope": null
+    },
+    "IP Fabric (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "Closed source",
+     "source": "https://docs.ipfabric.io/latest/",
+     "locator": "n/a",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (docs.ipfabric.io) and vendor marketing (ipfabric.io)",
+     "scope": null
+    },
+    "RouteNet-Fermi (academic, paper only)": {
+     "verdict": "info",
+     "note": "5 main contributors named in README; GitHub contributors API was rate-limited",
+     "source": "https://github.com/BNN-UPC/RouteNet-Fermi",
+     "locator": "Main Contributors",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: paper (arXiv v3, IEEE/ACM ToN 2023) and GitHub repo",
+     "scope": null
+    },
+    "IRTF NMRG network digital twin architecture draft (academic reference framework)": {
+     "verdict": "info",
+     "note": "n/a: 8 authors and editors on the header (China Mobile, Telefonica, Huawei, Orange)",
+     "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+     "locator": "Front page author block",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: IETF Internet-Draft text, rev -13 (reference architecture, not software)",
+     "scope": null
+    }
+   },
+   "M6": {
+    "Mininet + Ryu (assemble it yourself)": {
+     "verdict": "info",
+     "note": "Packet-level emulation: real Linux kernel and Open vSwitch in network namespaces; Ryu is the controller only.",
+     "source": "https://mininet.org/overview/",
+     "locator": "Technical Approach: process-based virtualization, namespaces",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ONOS (+ Mininet)": {
+     "verdict": "info",
+     "note": "Controller, not an emulator: fidelity comes from the data plane used, e.g. Mininet packet-level emulation or real switches.",
+     "source": "https://raw.githubusercontent.com/opennetworkinglab/onos/master/README.md",
+     "locator": "README description",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "Containerlab": {
+     "verdict": "info",
+     "note": "Packet-level emulation: real NOS containers or VMs joined by veth links.",
+     "source": "https://containerlab.dev/manual/network/",
+     "locator": "Link configuration (veth pairs)",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ns-3": {
+     "verdict": "info",
+     "note": "Packet-level simulation (discrete-event); optional emulation devices link it to real hosts.",
+     "source": "https://www.nsnam.org/about/",
+     "locator": "About ns-3",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "sFlow-RT": {
+     "verdict": "info",
+     "note": "Not an emulator or simulator: analytics on sFlow samples and counters from real or emulated devices.",
+     "source": "https://sflow-rt.com/intro.php",
+     "locator": "Role; UDP port 6343 collection",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "NDTwin": {
+     "verdict": "info",
+     "note": "Packet-level emulation (Mininet with OVS or bmv2); twin state from sampled sFlow; shipped what-if is flow-level max-min.",
+     "source": "README.md:32; Energy-Saving-App@9facb78:src/sim/max_min_fairness.cpp:12; p4_proxy/proxy_agent/sflow_emitter.py:1",
+     "locator": "README Data planes; max_min_fairness; sflow_emitter",
+     "accessed": "2026-10-08",
+     "detail": "Flow-count and frame-size effects on the bmv2 ceiling in KNOWN-ISSUES F-bmv2. No ML model and no packet-level simulator in the repos read.",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: code and docs",
+     "scope": null,
+     "verification": {
+      "status": "CONFIRMED",
+      "evidence": "README.md:31-34; Energy-Saving-App@9facb78:src/sim/max_min_fairness.cpp:12"
+     },
+     "judge_r2": [
+      {
+       "item": "new 1",
+       "field": "detail",
+       "before": "bmv2 stock build ceiling about 3.6 kpps (website install manual Step 6.7); flow-count and frame-size effects in KNOWN-ISSUES F-bmv2. No ML model and no packet-level simulator in the repos read.",
+       "after": "Flow-count and frame-size effects on the bmv2 ceiling in KNOWN-ISSUES F-bmv2. No ML model and no packet-level simulator in the repos read.",
+       "why": "The stock-build 3.6 kpps figure is retired by KNOWN-ISSUES F-bmv2 (do not cite; no source in the kernel tree)."
+      }
+     ],
+     "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+    },
+    "p4lang/tutorials VM": {
+     "verdict": "info",
+     "note": "Packet-level emulation: Mininet with bmv2 software switches.",
+     "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/utils/run_exercise.py",
+     "locator": "create_network()",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "p4-utils (ETH Zurich nsg)": {
+     "verdict": "info",
+     "note": "Packet-level emulation: Mininet with bmv2 software switches and optional FRRouting nodes.",
+     "source": "https://nsg-ethz.github.io/p4-utils/introduction.html",
+     "locator": "Introduction",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ONOS + Stratum": {
+     "verdict": "info",
+     "note": "Packet-level emulation with bmv2 via Mininet; real hardware switches also supported.",
+     "source": "https://raw.githubusercontent.com/stratum/stratum/main/README.md",
+     "locator": "Supported platforms",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "Batfish": {
+     "verdict": "info",
+     "note": "Config model (control plane computed from configs, then data-plane analysis); not packets, not flows",
+     "source": "https://par.nsf.gov/servlets/purl/10534020",
+     "locator": "Abstract and Introduction (Brown et al., SIGCOMM 2023)",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repo)",
+     "scope": null
+    },
+    "GNS3": {
+     "verdict": "info",
+     "note": "Packet-level emulation (real or virtualized OS images via Dynamips, QEMU, Docker)",
+     "source": "https://github.com/GNS3/gns3-server",
+     "locator": "README: description",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repos)",
+     "scope": null
+    },
+    "Forward Networks (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "Config and state model (header-space path computation); vendor claims no sampling or simulation",
+     "source": "https://www.forwardnetworks.com/wp-content/uploads/2025/12/ProductDataSheet.pdf",
+     "locator": "Why Forward Enterprise stands out",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor marketing (datasheets, press release, blog); one community page for collection",
+     "scope": null
+    },
+    "Cisco Modeling Labs (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "Packet-level emulation (VM and container images)",
+     "source": "https://developer.cisco.com/modeling-labs/",
+     "locator": "Overview: real Cisco images",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (developer.cisco.com) and one Cisco blog",
+     "scope": null
+    },
+    "IP Fabric (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "Config and state model from discovery; path lookup simulates hop-by-hop data-plane decisions",
+     "source": "https://docs.ipfabric.io/latest/IP_Fabric_API/Path_Lookup/",
+     "locator": "Path Lookup overview",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (docs.ipfabric.io) and vendor marketing (ipfabric.io)",
+     "scope": null
+    },
+    "RouteNet-Fermi (academic, paper only)": {
+     "verdict": "info",
+     "note": "ML model (graph neural network over flows, links, queues)",
+     "source": "https://arxiv.org/abs/2212.12070",
+     "locator": "Abstract",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: paper (arXiv v3, IEEE/ACM ToN 2023) and GitHub repo",
+     "scope": null
+    },
+    "IRTF NMRG network digital twin architecture draft (academic reference framework)": {
+     "verdict": "info",
+     "note": "n/a: reference framework; leaves model type open (emulation, simulation, math models)",
+     "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+     "locator": "Section 9.2 Network Modeling",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: IETF Internet-Draft text, rev -13 (reference architecture, not software)",
+     "scope": null
+    }
+   },
+   "M7": {
+    "Mininet + Ryu (assemble it yourself)": {
+     "verdict": "info",
+     "note": "Mininet overview says hundreds of hosts and switches on modest hardware; Ryu states no scale figure.",
+     "source": "https://mininet.org/overview/",
+     "locator": "Scale and performance paragraph",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ONOS (+ Mininet)": {
+     "verdict": "info",
+     "note": "ONOS 1.8-era test report: ring and hub-spoke topologies of 100 to 400 switches; found via search snippet, page not fetched.",
+     "source": "https://wiki.onosproject.org/x/jwm1",
+     "locator": "ONOS scale topology test page (unverified by direct fetch)",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "Containerlab": {
+     "verdict": "info",
+     "note": "No official maximum found; Clabernetes aims to scale labs beyond one host without stating node counts.",
+     "source": "https://containerlab.dev/manual/clabernetes/",
+     "locator": "Introduction; no figures given",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ns-3": {
+     "verdict": "info",
+     "note": "LLNL study simulated up to 10^9 nodes using MPI on HPC clusters (WNS3 2015 paper).",
+     "source": "https://eudl.eu/doi/10.1145/2756509.2756525",
+     "locator": "Abstract",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "sFlow-RT": {
+     "verdict": "info",
+     "note": "No published scale figure found in sFlow-RT docs checked.",
+     "source": "https://sflow-rt.com/",
+     "locator": "Overview (only qualitative scale claim)",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "NDTwin": {
+     "verdict": "info",
+     "note": "Largest shipped and measured: 10 switches, 128 hosts, 288 directed edges (OVS, bmv2); physical models max 10 switches, 48 hosts.",
+     "source": "setting/StaticNetworkTopologyMininet_10Switches.json; setting/StaticNetworkTopologyP4_10Switches_128Hosts.json; doc/2026-08-14_cross-component-integration-matrix.md:112; doc/2026-08-14_cross-component-integration-matrix.md:119; tools/make_topology.py:1",
+     "locator": "setting/ topology files (counted by script); integration matrix OVS round",
+     "accessed": "2026-10-08",
+     "detail": "39 concurrent flows seen live on the 128-host OVS fabric; the topology generator varies hosts only, switches stay 10 (make_topology.py). Website claims physical networks of 'tens of hardware switches and hundreds of hosts' (overview.md:23); no such model or log in the repo.",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: code and docs",
+     "scope": null,
+     "verification": {
+      "status": "CONFIRMED",
+      "evidence": "doc/KNOWN-ISSUES.md:1711 (10 switches, 128 hosts, 288 edges live); doc/KNOWN-ISSUES.md:1763 (P4 128-host run)"
+     },
+     "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+    },
+    "p4lang/tutorials VM": {
+     "verdict": "info",
+     "note": "Not documented; the basic exercise topology has 4 hosts, 4 switches, 8 links.",
+     "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/exercises/basic/pod-topo/topology.json",
+     "locator": "topology.json",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "p4-utils (ETH Zurich nsg)": {
+     "verdict": "info",
+     "note": "Not documented in the pages read.",
+     "source": "https://nsg-ethz.github.io/p4-utils/index.html",
+     "locator": "documentation index",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ONOS + Stratum": {
+     "verdict": "info",
+     "note": "Tutorial: 4 switches, 6 hosts. ONOS Blackbird (2015) press report: 2M flow ops/s, clusters up to 7 nodes.",
+     "source": "https://www.lightwaveonline.com/network-automation/article/16651629/onos-blackbird-release-improves-sdn-control-plane-performance-and-scale",
+     "locator": "ngsdn-tutorial topology; press report on Blackbird",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "Batfish": {
+     "verdict": "info",
+     "note": "SIGCOMM 2023 paper benchmarks 11 real networks of 75 to 2735 nodes; analysis in minutes",
+     "source": "https://par.nsf.gov/servlets/purl/10534020",
+     "locator": "Section 6 evaluation (Brown et al., Lessons from the evolution of Batfish)",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repo)",
+     "scope": null
+    },
+    "GNS3": {
+     "verdict": "info",
+     "note": "Docs: no node limit, hardware-bound, multi-server supported; CENGN reports about 600-800 routers on one UCS C240 (third-party)",
+     "source": "https://docs.gns3.com/docs/using-gns3/administration/scale-gns3",
+     "locator": "Scale GNS3; cengn.ca/?p=7720 (from search result)",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repos)",
+     "scope": null
+    },
+    "Forward Networks (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "vendor claim: thousands of devices, billions of paths; no named customer scale published",
+     "source": "https://www.forwardnetworks.com/wp-content/uploads/2025/12/ProductDataSheet.pdf",
+     "locator": "Why Forward Enterprise stands out",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor marketing (datasheets, press release, blog); one community page for collection",
+     "scope": null
+    },
+    "Cisco Modeling Labs (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "Licence up to 20 base plus 500 additional nodes; cluster limited to 8 compute hosts; 2.9 blog cites 520 running nodes",
+     "source": "https://developer.cisco.com/docs/modeling-labs/clustering",
+     "locator": "Cluster capacity limits",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (developer.cisco.com) and one Cisco blog",
+     "scope": null
+    },
+    "IP Fabric (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "Sizing tier up to 20,000 devices in 7.5 docs; vendor case study cites 10,000+ devices (HCLTech)",
+     "source": "https://docs.ipfabric.io/7.5/overview/",
+     "locator": "Hardware sizing; ipfabric.io/wp-content/uploads/2024/07/CS_HCL_2024-1.pdf",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (docs.ipfabric.io) and vendor marketing (ipfabric.io)",
+     "scope": null
+    },
+    "RouteNet-Fermi (academic, paper only)": {
+     "verdict": "info",
+     "note": "Tested up to 300 nodes after training on 5 to 10 node networks; physical testbed of 8 routers, 2 switches",
+     "source": "https://arxiv.org/pdf/2212.12070",
+     "locator": "Generalization and Scalability; testbed section",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: paper (arXiv v3, IEEE/ACM ToN 2023) and GitHub repo",
+     "scope": null
+    },
+    "IRTF NMRG network digital twin architecture draft (academic reference framework)": {
+     "verdict": "info",
+     "note": "n/a: no implementation; text says emulators scale poorly and suggests mathematical models for large networks",
+     "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+     "locator": "Section 9.2 Network Modeling",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: IETF Internet-Draft text, rev -13 (reference architecture, not software)",
+     "scope": null
+    }
+   },
+   "M8": {
+    "Mininet + Ryu (assemble it yourself)": {
+     "verdict": "info",
+     "note": "Mininet: prebuilt VM or source install on Linux, root needed. Ryu: pip install ryu plus gcc and dev libraries.",
+     "source": "https://ryu.readthedocs.io/en/latest/getting_started.html",
+     "locator": "Installation / Prerequisites (Mininet: github.com/mininet/mininet README, INSTALL)",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ONOS (+ Mininet)": {
+     "verdict": "info",
+     "note": "Official Docker image (onosproject/onos, Docker Hub); or build from source with Bazel, git, zip, python3, Java.",
+     "source": "https://raw.githubusercontent.com/opennetworkinglab/onos/master/README.md",
+     "locator": "Installation; Docker Hub overview",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "Containerlab": {
+     "verdict": "info",
+     "note": "apt/yum/dnf/apk packages, setup script, or Docker image; needs Linux (or WSL/macOS), Docker, sudo or clab_admins group.",
+     "source": "https://containerlab.dev/install/",
+     "locator": "Prerequisites; Installation methods",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ns-3": {
+     "verdict": "info",
+     "note": "Source tarball or git clone, built locally; needs g++ 11.1+ or clang 17+, Python 3.10+, CMake 3.25+.",
+     "source": "https://www.nsnam.org/docs/release/3.48/tutorial/html/getting-started.html",
+     "locator": "Prerequisites; installation methods",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "sFlow-RT": {
+     "verdict": "info",
+     "note": "tar.gz, Docker image, RPM or DEB; requires Java 17+; listens on UDP 6343 and HTTP 8008.",
+     "source": "https://sflow-rt.com/download.php",
+     "locator": "Installation requirements",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "NDTwin": {
+     "verdict": "info",
+     "note": "VM images (.ova, 3.2 or 17.9 GB) or Ubuntu 24.04 source build: C++23, Boost 1.83+, Ryu on Python 3.8, sudo.",
+     "source": "NDTwin-Website@dcd59f5:content/en/docs/Download/_index.md:22; NDTwin-Website@dcd59f5:content/en/docs/Download/_index.md:23; NDTwin-Website@dcd59f5:content/en/docs/NDTwin Installation Manual/NDTwin Kernel/Operate an Emulated (Software) Network/Native-Linux Excution Environment.md:18",
+     "locator": "website Download table; install manual section 1 requirements",
+     "accessed": "2026-10-08",
+     "detail": "17.9 GB image needs VMware and has no P4; 3.2 GB P4/BMv2 image runs on VMware or VirtualBox. Source build needs conda Ryu env, Mininet, OVS, p4c and bmv2 built from source for P4; Energy app and Simulation Platform Manager need root and NFS. No distro package or kernel container image found; only Web-GUI ships a docker-compose.",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: code and docs",
+     "scope": null,
+     "verification": {
+      "status": "CONFIRMED",
+      "evidence": "NDTwin-Website@dcd59f5:.../NDTwin User Manual/.../Native-Linux Excution Environment.md:72-80; tools/test_workflow/ndtwin-lab:88-101"
+     },
+     "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+    },
+    "p4lang/tutorials VM": {
+     "verdict": "info",
+     "note": "Prebuilt VirtualBox VM, build-your-own VM, or install on Ubuntu 22.04/24.04; needs enough RAM and disk.",
+     "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/README.md",
+     "locator": "Obtaining required software",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "p4-utils (ETH Zurich nsg)": {
+     "verdict": "info",
+     "note": "Install script or QEMU VM (Ubuntu 20); VirtualBox VM unavailable; tested on Ubuntu 20.04/22.04; needs PI, bmv2, p4c, Mininet.",
+     "source": "https://nsg-ethz.github.io/p4-utils/installation.html",
+     "locator": "Installation",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ONOS + Stratum": {
+     "verdict": "info",
+     "note": "ONOS builds with Bazel from Gerrit; tutorial needs Docker 1.13+, make, Python 3, or a 4GB VirtualBox VM.",
+     "source": "https://raw.githubusercontent.com/opennetworkinglab/ngsdn-tutorial/advanced/README.md",
+     "locator": "System requirements",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "Batfish": {
+     "verdict": "info",
+     "note": "Docker image batfish/allinone or pybatfish via pip; min 8 GB RAM and dual core, 32 GB recommended",
+     "source": "https://github.com/batfish/batfish",
+     "locator": "README: Installation; prerequisites",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repo)",
+     "scope": null
+    },
+    "GNS3": {
+     "verdict": "info",
+     "note": "Windows/macOS installers (v3 server must run on Linux or GNS3 VM), Ubuntu PPA, pip; needs uBridge, Dynamips, QEMU; Python 3.9+",
+     "source": "https://pypi.org/project/gns3-server/",
+     "locator": "Dependencies; Availability",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repos)",
+     "scope": null
+    },
+    "Forward Networks (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "SaaS or on-prem VM; Collector needs SSH reach to devices (OVA for KVM/ESXi per a 2021 datasheet)",
+     "source": "https://www.forwardnetworks.com/wp-content/uploads/2025/12/ProductDataSheet.pdf",
+     "locator": "Flexible deployment; Forward Collector (2021 datasheet for OVA)",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor marketing (datasheets, press release, blog); one community page for collection",
+     "scope": null
+    },
+    "Cisco Modeling Labs (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "OVA on ESXi/Workstation/Fusion, bare metal, AWS/Azure; min 8 GB RAM, 4 Intel cores, 32 GB disk; Cisco.com account for Free",
+     "source": "https://developer.cisco.com/docs/modeling-labs/system-requirements/",
+     "locator": "System requirements",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (developer.cisco.com) and one Cisco blog",
+     "scope": null
+    },
+    "IP Fabric (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "Single VM appliance (OVA for VMware primary, QCOW2 limited); min 8 CPU, 32 GB RAM; SSH/Telnet reach and read-only credentials",
+     "source": "https://docs.ipfabric.io/7.5/overview/",
+     "locator": "Supported virtualization; network prerequisites",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (docs.ipfabric.io) and vendor marketing (ipfabric.io)",
+     "scope": null
+    },
+    "RouteNet-Fermi (academic, paper only)": {
+     "verdict": "info",
+     "note": "git clone plus pip; requirements.txt pins tensorflow 2.6, networkx 2.6, pandas 1.1",
+     "source": "https://raw.githubusercontent.com/BNN-UPC/RouteNet-Fermi/main/requirements.txt",
+     "locator": "requirements.txt",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: paper (arXiv v3, IEEE/ACM ToN 2023) and GitHub repo",
+     "scope": null
+    },
+    "IRTF NMRG network digital twin architecture draft (academic reference framework)": {
+     "verdict": "info",
+     "note": "n/a: read the draft; no install path",
+     "source": "https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch",
+     "locator": "Header",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: IETF Internet-Draft text, rev -13 (reference architecture, not software)",
+     "scope": null
+    }
+   },
+   "M9": {
+    "Mininet + Ryu (assemble it yourself)": {
+     "verdict": "info",
+     "note": "Mininet: Python API and mn CLI. Ryu: Python app API plus REST via ofctl_rest and rest_topology.",
+     "source": "https://ryu.readthedocs.io/en/latest/app/ofctl_rest.html",
+     "locator": "REST endpoints; Mininet overview 'Python API'",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ONOS (+ Mininet)": {
+     "verdict": "info",
+     "note": "REST API on port 8181, Java app API, CLI and web GUI; OpenFlow and P4Runtime southbound.",
+     "source": "https://raw.githubusercontent.com/opennetworkinglab/onos/master/README.md",
+     "locator": "Access methods / protocol support",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "Containerlab": {
+     "verdict": "info",
+     "note": "CLI plus YAML topology files; JSON output for inspect and exec.",
+     "source": "https://containerlab.dev/cmd/inspect/",
+     "locator": "Output formats",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ns-3": {
+     "verdict": "info",
+     "note": "C++ API (optional Python bindings); no network-facing API.",
+     "source": "https://www.nsnam.org/docs/release/3.48/tutorial/html/getting-started.html",
+     "locator": "Python bindings optional",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "sFlow-RT": {
+     "verdict": "info",
+     "note": "REST API with explorer plus JavaScript apps run inside the engine; no access control built in.",
+     "source": "https://sflow-rt.com/intro.php",
+     "locator": "Access methods; security note",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "NDTwin": {
+     "verdict": "info",
+     "note": "REST/JSON over HTTP, port 8000: 45 routes, no auth, no OpenAPI spec, no push; P4 proxy adds REST on 8081.",
+     "source": "src/ndt_core/http/HttpSession.cpp:327; src/ndt_core/event_handling/ControllerAndOtherEventHandler.cpp:100; src/ndt_core/http/HttpSession.cpp:305; NDTwin-Website@dcd59f5:content/en/docs/NDTwin Developer Manual/NDTwin Application/P4 Proxy API.md:15",
+     "locator": "buildResponse route table; acceptor bind (all IPv4 interfaces); CORS header; website P4 Proxy API",
+     "accessed": "2026-10-08",
+     "detail": "Apps in the sibling repos call it with hand-written HTTP clients; no SDK. Locks are advisory (api.md:3445). The OpenFlow-style group/meter routes return 501 on P4.",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: code and docs",
+     "scope": null,
+     "verification": {
+      "status": "CONFIRMED",
+      "evidence": "src/ndt_core/http/HttpSession.cpp:326-345 (route chain; 44 distinct /ndt/ literals)"
+     },
+     "pinned_at": "trunk 3a47bdb7 (re-checked 2026-10-12; was 2ece656c), see research/CHANGES_1014.tsv"
+    },
+    "p4lang/tutorials VM": {
+     "verdict": "info",
+     "note": "CLI (make run, Mininet CLI); P4Runtime/Thrift for table entries; no REST.",
+     "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/utils/run_exercise.py",
+     "locator": "program_switch_* functions",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "p4-utils (ETH Zurich nsg)": {
+     "verdict": "info",
+     "note": "Python API (NetworkAPI, switch runtime APIs), JSON config, p4run and Mininet-style CLI; no REST.",
+     "source": "https://nsg-ethz.github.io/p4-utils/usage.html",
+     "locator": "Network Setup / Control Plane",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "ONOS + Stratum": {
+     "verdict": "info",
+     "note": "ONOS REST, Karaf CLI, GUI and Java app API; gRPC (P4Runtime, gNMI) to Stratum.",
+     "source": "https://raw.githubusercontent.com/opennetworkinglab/onos/master/README.md",
+     "locator": "Features / CLI",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: official docs",
+     "scope": null
+    },
+    "Batfish": {
+     "verdict": "info",
+     "note": "Python API (pybatfish) to a Batfish service on ports 9996/9997; questions return Pandas frames",
+     "source": "https://batfish.readthedocs.io/en/latest/notebooks/interacting.html",
+     "locator": "Setting Up a Connection; Running Questions",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repo)",
+     "scope": null
+    },
+    "GNS3": {
+     "verdict": "info",
+     "note": "REST API (HTTP JSON, OpenAPI docs at /docs) with WebSocket notifications; MCP in 3.1",
+     "source": "https://gns3-server.readthedocs.io/en/latest/endpoints.html",
+     "locator": "Controller endpoint groups",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repos)",
+     "scope": null
+    },
+    "Forward Networks (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "REST API (token, OpenAPI at fwd.app/api-doc) and Network Query Engine; MCP support via Forward AI",
+     "source": "https://www.forwardnetworks.com/blog/2025/09/16/automate-network-intelligence-with-the-forward-networks-api",
+     "locator": "What the API exposes",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor marketing (datasheets, press release, blog); one community page for collection",
+     "scope": null
+    },
+    "Cisco Modeling Labs (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "REST API with Python client library; pyATS, Ansible, Terraform integrations; MCP server",
+     "source": "https://developer.cisco.com/modeling-labs/",
+     "locator": "API & Automation",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (developer.cisco.com) and one Cisco blog",
+     "scope": null
+    },
+    "IP Fabric (commercial, public docs only)": {
+     "verdict": "info",
+     "note": "REST API with Python SDK; MCP server; ServiceNow and Splunk integrations",
+     "source": "https://docs.ipfabric.io/latest/",
+     "locator": "Eight sections: API; Integrations",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: vendor docs (docs.ipfabric.io) and vendor marketing (ipfabric.io)",
+     "scope": null
+    },
+    "RouteNet-Fermi (academic, paper only)": {
+     "verdict": "info",
+     "note": "Python scripts (main.py, predict.py) and datanetAPI.py dataset reader; no service API",
+     "source": "https://github.com/BNN-UPC/RouteNet-Fermi",
+     "locator": "Key files",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: paper (arXiv v3, IEEE/ACM ToN 2023) and GitHub repo",
+     "scope": null
+    },
+    "IRTF NMRG network digital twin architecture draft (academic reference framework)": {
+     "verdict": "info",
+     "note": "none concrete: names network-facing (SNMP, NETCONF), application-facing (RESTful) and internal interfaces",
+     "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+     "locator": "Section 9.4 Interfaces",
+     "accessed": "2026-10-08",
+     "verdict_raw": "info",
+     "flags": [],
+     "evidence_kind": "READ: IETF Internet-Draft text, rev -13 (reference architecture, not software)",
+     "scope": null
+    }
+   }
+  }
+ }
+}

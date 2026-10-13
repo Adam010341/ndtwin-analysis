@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="959.976pt" height="504pt" viewBox="0 0 959.976 504" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-29T21:31:22.358512</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 504 
+L 959.976 504 
+L 959.976 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 43.2 75.6 
+L 201.6 75.6 
+L 201.6 154.8 
+L 43.2 154.8 
+z
+" clip-path="url(#pe4f259fb1d)" style="fill: #ffffff; stroke: #1a1a1a; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 201.6 115.2 
+Q 213.48 115.2 223.906556 115.2 
+" clip-path="url(#pe4f259fb1d)" style="fill: none; stroke: #1a1a1a; stroke-width: 1.3; stroke-linecap: round"/>
+    <path d="M 218.306556 112.4 
+L 223.906556 115.2 
+L 218.306556 118 
+z
+" clip-path="url(#pe4f259fb1d)" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 225.36 75.6 
+L 383.76 75.6 
+L 383.76 154.8 
+L 225.36 154.8 
+z
+" clip-path="url(#pe4f259fb1d)" style="fill: #ffffff; stroke: #1a1a1a; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 383.76 115.2 
+Q 395.64 115.2 406.066556 115.2 
+" clip-path="url(#pe4f259fb1d)" style="fill: none; stroke: #1a1a1a; stroke-width: 1.3; stroke-linecap: round"/>
+    <path d="M 400.466556 112.4 
+L 406.066556 115.2 
+L 400.466556 118 
+z
+" clip-path="url(#pe4f259fb1d)" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 407.52 75.6 
+L 565.92 75.6 
+L 565.92 154.8 
+L 407.52 154.8 
+z
+" clip-path="url(#pe4f259fb1d)" style="fill: #ffffff; stroke: #1a1a1a; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 565.92 115.2 
+Q 577.8 115.2 588.226556 115.2 
+" clip-path="url(#pe4f259fb1d)" style="fill: none; stroke: #1a1a1a; stroke-width: 1.3; stroke-linecap: round"/>
+    <path d="M 582.626556 112.4 
+L 588.226556 115.2 
+L 582.626556 118 
+z
+" clip-path="url(#pe4f259fb1d)" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 589.68 75.6 
+L 748.08 75.6 
+L 748.08 154.8 
+L 589.68 154.8 
+z
+" clip-path="url(#pe4f259fb1d)" style="fill: #ffffff; stroke: #1a1a1a; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 748.08 115.2 
+Q 759.96 115.2 770.386556 115.2 
+" clip-path="url(#pe4f259fb1d)" style="fill: none; stroke: #1a1a1a; stroke-width: 1.3; stroke-linecap: round"/>
+    <path d="M 764.786556 112.4 
+L 770.386556 115.2 
+L 764.786556 118 
+z
+" clip-path="url(#pe4f259fb1d)" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 771.84 75.6 
+L 930.24 75.6 
+L 930.24 154.8 
+L 771.84 154.8 
+z
+" clip-path="url(#pe4f259fb1d)" style="fill: #eef3f6; stroke: #065a82; stroke-width: 1.7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 115.2 216 
+L 842.4 216 
+L 842.4 464.4 
+L 115.2 464.4 
+z
+" clip-path="url(#pe4f259fb1d)" style="fill: #f7f8f9; stroke-dasharray: 4.44,1.92; stroke-dashoffset: 0; stroke: #6e6e6e; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 304.56 154.8 
+Q 304.56 185.4 304.56 214.546556 
+" clip-path="url(#pe4f259fb1d)" style="fill: none; stroke: #6e6e6e; stroke-width: 1.3; stroke-linecap: round"/>
+    <path d="M 307.36 208.946556 
+L 304.56 214.546556 
+L 301.76 208.946556 
+z
+" clip-path="url(#pe4f259fb1d)" style="fill: #6e6e6e; stroke: #6e6e6e; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 129.6 273.6 
+L 291.6 273.6 
+L 291.6 370.8 
+L 129.6 370.8 
+z
+" clip-path="url(#pe4f259fb1d)" style="fill: #eef3f6; stroke: #065a82; stroke-width: 1.7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 306 273.6 
+L 468 273.6 
+L 468 370.8 
+L 306 370.8 
+z
+" clip-path="url(#pe4f259fb1d)" style="fill: #ffffff; stroke: #1a1a1a; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 482.4 273.6 
+L 644.4 273.6 
+L 644.4 370.8 
+L 482.4 370.8 
+z
+" clip-path="url(#pe4f259fb1d)" style="fill: #ffffff; stroke: #1a1a1a; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 658.8 273.6 
+L 820.8 273.6 
+L 820.8 370.8 
+L 658.8 370.8 
+z
+" clip-path="url(#pe4f259fb1d)" style="fill: #ffffff; stroke: #1a1a1a; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 20px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="32.4" y="33.961523" transform="rotate(-0 32.4 33.961523)">From an exercise to a package</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #4f4f4f" x="927.576" y="31.387891" transform="rotate(-0 927.576 31.387891)">READ · trunk 3368412d</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="122.4" y="118.564258" transform="rotate(-0 122.4 118.564258)">exercise</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #1a1a1a" x="304.56" y="107.083211" transform="rotate(-0 304.56 107.083211)">convert.py</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f4f4f" x="304.56" y="133.88668" transform="rotate(-0 304.56 133.88668)">package/</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="486.72" y="107.46699" transform="rotate(-0 486.72 107.46699)">pre-flight</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f4f4f" x="486.72" y="133.88668" transform="rotate(-0 486.72 133.88668)">names vs p4info</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #1a1a1a" x="668.88" y="107.46407" transform="rotate(-0 668.88 107.46407)">ndt up p4 --app</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f4f4f" x="668.88" y="133.88668" transform="rotate(-0 668.88 133.88668)">builds fabric</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #065a82" x="851.04" y="107.476258" transform="rotate(-0 851.04 107.476258)">proxy</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f4f4f" x="851.04" y="133.88668" transform="rotate(-0 851.04 133.88668)">reads package.json</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 14px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #1a1a1a" x="129.6" y="244.789688" transform="rotate(-0 129.6 244.789688)">package/</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #065a82" x="210.6" y="311.668875" transform="rotate(-0 210.6 311.668875)">package.json</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f4f4f" x="210.6" y="344.357285" transform="rotate(-0 210.6 344.357285)">the manifest</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #1a1a1a" x="387" y="311.27325" transform="rotate(-0 387 311.27325)">sN program</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f4f4f" x="387" y="344.357285" transform="rotate(-0 387 344.357285)">bmv2 json + p4info</text>
+   </g>
+   <g id="text_17">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #1a1a1a" x="563.4" y="311.686219" transform="rotate(-0 563.4 311.686219)">sN-runtime.json</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f4f4f" x="563.4" y="344.357285" transform="rotate(-0 563.4 344.357285)">start-up entries</text>
+   </g>
+   <g id="text_19">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #1a1a1a" x="739.8" y="311.668875" transform="rotate(-0 739.8 311.668875)">ndtwin/topology.json</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f4f4f" x="739.8" y="344.357285" transform="rotate(-0 739.8 344.357285)">switches · links · hosts</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f4f4f" x="478.8" y="431.117285" transform="rotate(-0 478.8 431.117285)">copied from the exercise: program, runtime  ·  written by convert: manifest, topology</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pe4f259fb1d">
+   <rect x="0" y="0" width="959.976" height="504"/>
+  </clipPath>
+ </defs>
+</svg>

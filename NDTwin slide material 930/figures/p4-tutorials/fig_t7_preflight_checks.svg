@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="959.76pt" height="504pt" viewBox="0 0 959.76 504" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-28T01:05:15.916084</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 504 
+L 959.76 504 
+L 959.76 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 33.12 75.6 
+L 240.48 75.6 
+Q 244.8 75.6 244.8 79.92 
+L 244.8 321.12 
+Q 244.8 325.44 240.48 325.44 
+L 33.12 325.44 
+Q 28.8 325.44 28.8 321.12 
+L 28.8 79.92 
+Q 28.8 75.6 33.12 75.6 
+z
+" clip-path="url(#p86784220fd)" style="fill: #f7f8f9; stroke: #d0d0d0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 257.76 75.6 
+L 465.12 75.6 
+Q 469.44 75.6 469.44 79.92 
+L 469.44 280.08 
+Q 469.44 284.4 465.12 284.4 
+L 257.76 284.4 
+Q 253.44 284.4 253.44 280.08 
+L 253.44 79.92 
+Q 253.44 75.6 257.76 75.6 
+z
+" clip-path="url(#p86784220fd)" style="fill: #f7f8f9; stroke: #d0d0d0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 257.76 298.8 
+L 465.12 298.8 
+Q 469.44 298.8 469.44 303.12 
+L 469.44 421.2 
+Q 469.44 425.52 465.12 425.52 
+L 257.76 425.52 
+Q 253.44 425.52 253.44 421.2 
+L 253.44 303.12 
+Q 253.44 298.8 257.76 298.8 
+z
+" clip-path="url(#p86784220fd)" style="fill: #f7f8f9; stroke: #d0d0d0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 482.4 75.6 
+L 689.76 75.6 
+Q 694.08 75.6 694.08 79.92 
+L 694.08 198 
+Q 694.08 202.32 689.76 202.32 
+L 482.4 202.32 
+Q 478.08 202.32 478.08 198 
+L 478.08 79.92 
+Q 478.08 75.6 482.4 75.6 
+z
+" clip-path="url(#p86784220fd)" style="fill: #f7f8f9; stroke: #d0d0d0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 482.4 216.72 
+L 689.76 216.72 
+Q 694.08 216.72 694.08 221.04 
+L 694.08 339.12 
+Q 694.08 343.44 689.76 343.44 
+L 482.4 343.44 
+Q 478.08 343.44 478.08 339.12 
+L 478.08 221.04 
+Q 478.08 216.72 482.4 216.72 
+z
+" clip-path="url(#p86784220fd)" style="fill: #f7f8f9; stroke: #d0d0d0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 482.4 357.84 
+L 689.76 357.84 
+Q 694.08 357.84 694.08 362.16 
+L 694.08 439.2 
+Q 694.08 443.52 689.76 443.52 
+L 482.4 443.52 
+Q 478.08 443.52 478.08 439.2 
+L 478.08 362.16 
+Q 478.08 357.84 482.4 357.84 
+z
+" clip-path="url(#p86784220fd)" style="fill: #f7f8f9; stroke: #d0d0d0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 711.36 75.6 
+L 925.2 75.6 
+Q 930.96 75.6 930.96 81.36 
+L 930.96 253.44 
+Q 930.96 259.2 925.2 259.2 
+L 711.36 259.2 
+Q 705.6 259.2 705.6 253.44 
+L 705.6 81.36 
+Q 705.6 75.6 711.36 75.6 
+z
+" clip-path="url(#p86784220fd)" style="fill: #fbf2f0; stroke: #9c3b2e; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 705.6 290.88 
+L 721.44 290.88 
+L 721.44 306.72 
+L 705.6 306.72 
+z
+" clip-path="url(#p86784220fd)" style="fill: #2f7d4f; stroke: #2f7d4f; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 777.6 290.88 
+L 793.44 290.88 
+L 793.44 306.72 
+L 777.6 306.72 
+z
+" clip-path="url(#p86784220fd)" style="fill: #6e6e6e; stroke: #6e6e6e; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 849.6 290.88 
+L 865.44 290.88 
+L 865.44 306.72 
+L 849.6 306.72 
+z
+" clip-path="url(#p86784220fd)" style="fill: #9c3b2e; stroke: #9c3b2e; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 691.598196 138.676556 
+Q 697.210735 135.166119 702.599219 134.758165 
+" clip-path="url(#p86784220fd)" style="fill: none; stroke: #9c3b2e; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 697.217777 132.558146 
+L 702.599219 134.758165 
+L 697.610339 137.743307 
+z
+" clip-path="url(#p86784220fd)" style="fill: #9c3b2e; stroke: #9c3b2e; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 22px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="32.4" y="40.200938" transform="rotate(-0 32.4 40.200938)">What pre-flight checks before ndt up</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="39.6" y="98.501484" transform="rotate(-0 39.6 98.501484)">package &amp; control plane</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="39.6" y="125.607188" transform="rotate(-0 39.6 125.607188)">format</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="236.16" y="125.646406" transform="rotate(-0 236.16 125.646406)">26</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="39.6" y="145.153477" transform="rotate(-0 39.6 145.153477)">name</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6e6e6e" x="236.16" y="146.166406" transform="rotate(-0 236.16 146.166406)">26</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="39.6" y="165.615234" transform="rotate(-0 39.6 165.615234)">control_plane.mode</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="236.16" y="166.686406" transform="rotate(-0 236.16 166.686406)">26</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="39.6" y="186.135234" transform="rotate(-0 39.6 186.135234)">control_plane.grpc_base</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="236.16" y="187.206406" transform="rotate(-0 236.16 187.206406)">26</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="39.6" y="206.655234" transform="rotate(-0 39.6 206.655234)">control_plane.device_id</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="236.16" y="207.726406" transform="rotate(-0 236.16 207.726406)">26</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="39.6" y="227.175234" transform="rotate(-0 39.6 227.175234)">control_plane.election_id</text>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="236.16" y="228.246406" transform="rotate(-0 236.16 228.246406)">26</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="39.6" y="247.695234" transform="rotate(-0 39.6 247.695234)">bmv2.cpu_port</text>
+   </g>
+   <g id="text_16">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="236.16" y="248.766406" transform="rotate(-0 236.16 248.766406)">26</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="39.6" y="268.215234" transform="rotate(-0 39.6 268.215234)">switches keys</text>
+   </g>
+   <g id="text_18">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="236.16" y="269.286406" transform="rotate(-0 236.16 269.286406)">26</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="39.6" y="289.77293" transform="rotate(-0 39.6 289.77293)">switches name</text>
+   </g>
+   <g id="text_20">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="236.16" y="289.806406" transform="rotate(-0 236.16 289.806406)">26</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="39.6" y="310.29293" transform="rotate(-0 39.6 310.29293)">referenced files</text>
+   </g>
+   <g id="text_22">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="236.16" y="310.326406" transform="rotate(-0 236.16 310.326406)">26</text>
+   </g>
+   <g id="text_23">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="264.24" y="98.501484" transform="rotate(-0 264.24 98.501484)">topology agrees</text>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="264.24" y="124.575234" transform="rotate(-0 264.24 124.575234)">topo_from_json.switches</text>
+   </g>
+   <g id="text_25">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="460.8" y="125.646406" transform="rotate(-0 460.8 125.646406)">26</text>
+   </g>
+   <g id="text_26">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="264.24" y="145.095234" transform="rotate(-0 264.24 145.095234)">topo_from_json.hosts</text>
+   </g>
+   <g id="text_27">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="460.8" y="146.166406" transform="rotate(-0 460.8 146.166406)">26</text>
+   </g>
+   <g id="text_28">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="264.24" y="165.615234" transform="rotate(-0 264.24 165.615234)">topo_from_json.switch_links</text>
+   </g>
+   <g id="text_29">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="460.8" y="166.686406" transform="rotate(-0 460.8 166.686406)">26</text>
+   </g>
+   <g id="text_30">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="264.24" y="186.135234" transform="rotate(-0 264.24 186.135234)">topo_from_json.host_links</text>
+   </g>
+   <g id="text_31">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="460.8" y="187.206406" transform="rotate(-0 460.8 187.206406)">26</text>
+   </g>
+   <g id="text_32">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="264.24" y="206.655234" transform="rotate(-0 264.24 206.655234)">switches agree</text>
+   </g>
+   <g id="text_33">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="460.8" y="207.726406" transform="rotate(-0 460.8 207.726406)">26</text>
+   </g>
+   <g id="text_34">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="264.24" y="227.175234" transform="rotate(-0 264.24 227.175234)">links agree</text>
+   </g>
+   <g id="text_35">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="460.8" y="228.246406" transform="rotate(-0 460.8 228.246406)">26</text>
+   </g>
+   <g id="text_36">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="264.24" y="248.73293" transform="rotate(-0 264.24 248.73293)">hosts named h&lt;last octet&gt;</text>
+   </g>
+   <g id="text_37">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="460.8" y="248.766406" transform="rotate(-0 460.8 248.766406)">26</text>
+   </g>
+   <g id="text_38">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="264.24" y="268.215234" transform="rotate(-0 264.24 268.215234)">hosts agree</text>
+   </g>
+   <g id="text_39">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="460.8" y="269.286406" transform="rotate(-0 460.8 269.286406)">26</text>
+   </g>
+   <g id="text_40">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="264.24" y="321.731016" transform="rotate(-0 264.24 321.731016)">pipeline &amp; p4info</text>
+   </g>
+   <g id="text_41">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="264.24" y="347.775234" transform="rotate(-0 264.24 347.775234)">switches pipeline</text>
+   </g>
+   <g id="text_42">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="460.8" y="348.846406" transform="rotate(-0 460.8 348.846406)">26</text>
+   </g>
+   <g id="text_43">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="264.24" y="368.295234" transform="rotate(-0 264.24 368.295234)">sN pipeline</text>
+   </g>
+   <g id="text_44">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6e6e6e" x="460.8" y="369.366406" transform="rotate(-0 460.8 369.366406)">26</text>
+   </g>
+   <g id="text_45">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="264.24" y="388.815234" transform="rotate(-0 264.24 388.815234)">p4info parses</text>
+   </g>
+   <g id="text_46">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="460.8" y="389.886406" transform="rotate(-0 460.8 389.886406)">26</text>
+   </g>
+   <g id="text_47">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="264.24" y="409.335234" transform="rotate(-0 264.24 409.335234)">telemetry.source</text>
+   </g>
+   <g id="text_48">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6e6e6e" x="460.8" y="410.406406" transform="rotate(-0 460.8 410.406406)">26</text>
+   </g>
+   <g id="text_49">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="488.88" y="99.865195" transform="rotate(-0 488.88 99.865195)">entries</text>
+   </g>
+   <g id="text_50">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="488.88" y="125.61293" transform="rotate(-0 488.88 125.61293)">entries</text>
+   </g>
+   <g id="text_51">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6e6e6e" x="685.44" y="125.638672" transform="rotate(-0 685.44 125.638672)">3</text>
+   </g>
+   <g id="text_52">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="488.88" y="145.095234" transform="rotate(-0 488.88 145.095234)">entries match p4info</text>
+   </g>
+   <g id="text_53">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #9c3b2e" x="685.44" y="146.163828" transform="rotate(-0 685.44 146.163828)">1</text>
+   </g>
+   <g id="text_54">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="663.84" y="146.220547" transform="rotate(-0 663.84 146.220547)">22</text>
+   </g>
+   <g id="text_55">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="488.88" y="165.615234" transform="rotate(-0 488.88 165.615234)">entries p4info is the pipeline's</text>
+   </g>
+   <g id="text_56">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="685.44" y="166.678672" transform="rotate(-0 685.44 166.678672)">23</text>
+   </g>
+   <g id="text_57">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="488.88" y="187.17293" transform="rotate(-0 488.88 187.17293)">PRE entries</text>
+   </g>
+   <g id="text_58">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6e6e6e" x="685.44" y="187.260547" transform="rotate(-0 685.44 187.260547)">24</text>
+   </g>
+   <g id="text_59">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="663.84" y="187.260547" transform="rotate(-0 663.84 187.260547)">2</text>
+   </g>
+   <g id="text_60">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="488.88" y="240.985195" transform="rotate(-0 488.88 240.985195)">roles</text>
+   </g>
+   <g id="text_61">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="488.88" y="265.695234" transform="rotate(-0 488.88 265.695234)">roles.ipv4_route resolves</text>
+   </g>
+   <g id="text_62">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="685.44" y="266.763828" transform="rotate(-0 685.44 266.763828)">1</text>
+   </g>
+   <g id="text_63">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="488.88" y="286.215234" transform="rotate(-0 488.88 286.215234)">owned table has no package entries</text>
+   </g>
+   <g id="text_64">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="685.44" y="287.283828" transform="rotate(-0 685.44 287.283828)">1</text>
+   </g>
+   <g id="text_65">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="488.88" y="307.77293" transform="rotate(-0 488.88 307.77293)">owned table default action</text>
+   </g>
+   <g id="text_66">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6e6e6e" x="685.44" y="307.803828" transform="rotate(-0 685.44 307.803828)">1</text>
+   </g>
+   <g id="text_67">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="488.88" y="327.255234" transform="rotate(-0 488.88 327.255234)">roles suggestion</text>
+   </g>
+   <g id="text_68">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6e6e6e" x="685.44" y="328.326406" transform="rotate(-0 685.44 328.326406)">16</text>
+   </g>
+   <g id="text_69">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="488.88" y="380.771016" transform="rotate(-0 488.88 380.771016)">ports &amp; compile</text>
+   </g>
+   <g id="text_70">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="488.88" y="406.815234" transform="rotate(-0 488.88 406.815234)">gRPC port block</text>
+   </g>
+   <g id="text_71">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="685.44" y="407.886406" transform="rotate(-0 685.44 407.886406)">26</text>
+   </g>
+   <g id="text_72">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="488.88" y="427.335234" transform="rotate(-0 488.88 427.335234)">p4c-bm2-ss</text>
+   </g>
+   <g id="text_73">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2f7d4f" x="685.44" y="428.406406" transform="rotate(-0 685.44 428.406406)">26</text>
+   </g>
+   <g id="text_74">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="718.56" y="104.14793" transform="rotate(-0 718.56 104.14793)">basic_tunnel · skeleton</text>
+   </g>
+   <g id="text_75">
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #9c3b2e" x="718.56" y="138.939805" transform="rotate(-0 718.56 138.939805)">FAIL</text>
+   </g>
+   <g id="text_76">
+    <text style="font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="757.44" y="137.743125" transform="rotate(-0 757.44 137.743125)">entries match p4info</text>
+   </g>
+   <g id="text_77">
+    <text style="font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="718.56" y="170.863125" transform="rotate(-0 718.56 170.863125)">9 problems, first:</text>
+   </g>
+   <g id="text_78">
+    <text style="font-size: 11px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #1a1a1a" x="718.56" y="197.964531" transform="rotate(-0 718.56 197.964531)">MyIngress.myTunnel_exact</text>
+   </g>
+   <g id="text_79">
+    <text style="font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="718.56" y="225.583125" transform="rotate(-0 718.56 225.583125)">not in its p4info</text>
+   </g>
+   <g id="text_80">
+    <text style="font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #4f4f4f" x="728.64" y="302.930625" transform="rotate(-0 728.64 302.930625)">PASS</text>
+   </g>
+   <g id="text_81">
+    <text style="font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #4f4f4f" x="800.64" y="302.930625" transform="rotate(-0 800.64 302.930625)">INFO</text>
+   </g>
+   <g id="text_82">
+    <text style="font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #4f4f4f" x="872.64" y="302.927812" transform="rotate(-0 872.64 302.927812)">FAIL</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p86784220fd">
+   <rect x="0" y="0" width="959.76" height="504"/>
+  </clipPath>
+ </defs>
+</svg>

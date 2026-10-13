@@ -1,0 +1,660 @@
+{
+ "persona": "app",
+ "accessed": "2026-10-08",
+ "tools": [
+  {
+   "tool": "Mininet + Ryu (assemble it yourself)",
+   "evidence_kind": "READ: official docs",
+   "cells": {
+    "A1": {
+     "verdict": "builtin",
+     "note": "rest_topology app serves switches, links, hosts as JSON; links need the --observe-links flag, hosts are learned from seen packets.",
+     "source": "https://raw.githubusercontent.com/faucetsdn/ryu/master/ryu/app/rest_topology.py",
+     "locator": "route table: /v1.0/topology/switches, /links, /hosts; plus ryu/topology/switches.py (observe_links)",
+     "accessed": "2026-10-08",
+     "scope": "needs ryu-manager --observe-links; hosts appear only after they send traffic"
+    },
+    "A2": {
+     "verdict": "diy",
+     "note": "ofctl_rest returns per-flow packet/byte counters and duration only; developer polls, differences counters for rate, and stitches per-switch entries into paths.",
+     "source": "https://ryu.readthedocs.io/en/latest/app/ofctl_rest.html",
+     "locator": "Get flows stats (/stats/flow/<dpid>); response has no rate field",
+     "accessed": "2026-10-08"
+    },
+    "A3": {
+     "verdict": "diy",
+     "note": "ofctl_rest exposes port byte counters; developer polls, computes deltas, divides by capacity, and maps ports to links.",
+     "source": "https://ryu.readthedocs.io/en/latest/app/ofctl_rest.html",
+     "locator": "Get ports stats (/stats/port/<dpid>[/<port>])",
+     "accessed": "2026-10-08"
+    },
+    "A4": {
+     "verdict": "builtin",
+     "note": "ofctl_rest accepts flow entry add, modify and delete requests over HTTP for OpenFlow 1.0 to 1.5 switches.",
+     "source": "https://ryu.readthedocs.io/en/latest/app/ofctl_rest.html",
+     "locator": "Add/Modify/Delete a flow entry (/stats/flowentry/*)",
+     "accessed": "2026-10-08"
+    },
+    "A5": {
+     "verdict": "builtin",
+     "note": "Mininet sets a link down or up at runtime from CLI or Python; the Ryu app handles resulting events itself.",
+     "source": "https://mininet.org/api/classmininet_1_1net_1_1Mininet.html",
+     "locator": "Mininet.configLinkStatus (src, dst, 'up'|'down')",
+     "accessed": "2026-10-08"
+    },
+    "A6": {
+     "verdict": "no",
+     "note": "Neither Mininet nor Ryu's bundled apps offer a simulate-before-apply step; changes go straight to switches, effect is observed afterwards.",
+     "source": "https://ryu.readthedocs.io/en/latest/app/ofctl_rest.html",
+     "locator": "REST endpoint list (no simulation or dry-run endpoint)",
+     "accessed": "2026-10-08"
+    },
+    "A7": {
+     "verdict": "no",
+     "note": "Ryu speaks OpenFlow 1.0 to 1.5 and Nicira extensions; no P4Runtime support in the framework or bundled apps.",
+     "source": "https://github.com/faucetsdn/ryu",
+     "locator": "README: supported protocols",
+     "accessed": "2026-10-08"
+    },
+    "A8": {
+     "verdict": "builtin",
+     "note": "Ryu apps speak standard OpenFlow, and Mininet says designs usually move to hardware; topology script and hardware quirks remain yours.",
+     "source": "https://mininet.org/overview/",
+     "locator": "Overview: 'Real Code Execution' / hardware portability statement",
+     "accessed": "2026-10-08",
+     "scope": "controller app reusable; Mininet topology script is not; hardware table limits differ"
+    }
+   },
+   "maturity": {
+    "M1": {
+     "verdict": "info",
+     "note": "Mininet: BSD-3-Clause. Ryu: Apache-2.0.",
+     "source": "https://github.com/faucetsdn/ryu",
+     "locator": "GitHub repo sidebar / GitHub API license field (mininet/mininet, faucetsdn/ryu)",
+     "accessed": "2026-10-08"
+    },
+    "M2": {
+     "verdict": "info",
+     "note": "Both free, open source; no paid tier found.",
+     "source": "https://github.com/faucetsdn/ryu",
+     "locator": "README / repo pages",
+     "accessed": "2026-10-08"
+    },
+    "M3": {
+     "verdict": "info",
+     "note": "Mininet release 2.3.0 (2021-02-11); newer tag 2.3.1b4 (2023-05-03). Ryu tag v4.34 (2019-10-01).",
+     "source": "https://github.com/mininet/mininet/tags",
+     "locator": "Tags list (GitHub API releases/latest for 2.3.0 date); ryu: github.com/faucetsdn/ryu/tags",
+     "accessed": "2026-10-08"
+    },
+    "M4": {
+     "verdict": "info",
+     "note": "Mininet 5,862 stars; Ryu 1,605 stars (GitHub API, read 2026-10-08).",
+     "source": "https://api.github.com/repos/mininet/mininet",
+     "locator": "stargazers_count (also api.github.com/repos/faucetsdn/ryu)",
+     "accessed": "2026-10-08"
+    },
+    "M5": {
+     "verdict": "info",
+     "note": "Mininet about 81 contributors; Ryu about 134 (GitHub API contributors, anonymous included, last-page count).",
+     "source": "https://api.github.com/repos/mininet/mininet/contributors?per_page=1&anon=true",
+     "locator": "Link header rel=last page (Ryu: repos/faucetsdn/ryu/contributors)",
+     "accessed": "2026-10-08"
+    },
+    "M6": {
+     "verdict": "info",
+     "note": "Packet-level emulation: real Linux kernel and Open vSwitch in network namespaces; Ryu is the controller only.",
+     "source": "https://mininet.org/overview/",
+     "locator": "Technical Approach: process-based virtualization, namespaces",
+     "accessed": "2026-10-08"
+    },
+    "M7": {
+     "verdict": "info",
+     "note": "Mininet overview says hundreds of hosts and switches on modest hardware; Ryu states no scale figure.",
+     "source": "https://mininet.org/overview/",
+     "locator": "Scale and performance paragraph",
+     "accessed": "2026-10-08"
+    },
+    "M8": {
+     "verdict": "info",
+     "note": "Mininet: prebuilt VM or source install on Linux, root needed. Ryu: pip install ryu plus gcc and dev libraries.",
+     "source": "https://ryu.readthedocs.io/en/latest/getting_started.html",
+     "locator": "Installation / Prerequisites (Mininet: github.com/mininet/mininet README, INSTALL)",
+     "accessed": "2026-10-08"
+    },
+    "M9": {
+     "verdict": "info",
+     "note": "Mininet: Python API and mn CLI. Ryu: Python app API plus REST via ofctl_rest and rest_topology.",
+     "source": "https://ryu.readthedocs.io/en/latest/app/ofctl_rest.html",
+     "locator": "REST endpoints; Mininet overview 'Python API'",
+     "accessed": "2026-10-08"
+    }
+   }
+  },
+  {
+   "tool": "ONOS (+ Mininet)",
+   "evidence_kind": "READ: official docs",
+   "cells": {
+    "A1": {
+     "verdict": "builtin",
+     "note": "REST resources for topology, devices, links and hosts exist; Java services give the same data in-process.",
+     "source": "https://github.com/opennetworkinglab/onos/tree/master/web/api/src/main/java/org/onosproject/rest/resources",
+     "locator": "TopologyWebResource, DevicesWebResource, LinksWebResource, HostsWebResource",
+     "accessed": "2026-10-08"
+    },
+    "A2": {
+     "verdict": "diy",
+     "note": "GET /flows lists entries per device; Java FlowStatisticService gives per-flow load per port; no end-to-end per-flow path view.",
+     "source": "https://raw.githubusercontent.com/opennetworkinglab/onos/master/core/api/src/main/java/org/onosproject/net/statistic/FlowStatisticService.java",
+     "locator": "FlowStatisticService.loadAllByType/loadTopnByType; web/.../PathsWebResource (shortest paths only)",
+     "accessed": "2026-10-08",
+     "scope": "rate per flow per port: builtin (Java); flow-to-path stitching: diy"
+    },
+    "A3": {
+     "verdict": "builtin",
+     "note": "GET /statistics/flows/link returns load for links, derived from flow-rule statistics; port statistics and deltas have their own endpoints.",
+     "source": "https://raw.githubusercontent.com/opennetworkinglab/onos/master/web/api/src/main/java/org/onosproject/rest/resources/StatisticsWebResource.java",
+     "locator": "paths statistics/flows/link, statistics/ports, statistics/delta/ports",
+     "accessed": "2026-10-08",
+     "scope": "load comes from flow-rule stats polling, not sampled telemetry; update interval not checked"
+    },
+    "A4": {
+     "verdict": "builtin",
+     "note": "POST /flows installs flow rules from JSON; Intents and Flow Objectives REST resources provide higher-level alternatives.",
+     "source": "https://github.com/opennetworkinglab/onos/tree/master/web/api/src/main/java/org/onosproject/rest/resources",
+     "locator": "FlowsWebResource (POST/DELETE /flows); IntentsWebResource; FlowObjectiveWebResource",
+     "accessed": "2026-10-08"
+    },
+    "A5": {
+     "verdict": "builtin",
+     "note": "Link failure via Mininet link down; ONOS updates its topology and apps can listen for link events and intent recompilation.",
+     "source": "https://mininet.org/api/classmininet_1_1net_1_1Mininet.html",
+     "locator": "Mininet.configLinkStatus; ONOS side: README 'northbound abstractions' (link events from LinkService)",
+     "accessed": "2026-10-08",
+     "scope": "failure injection is Mininet's; ONOS link-event reaction taken from its service API, not tested here"
+    },
+    "A6": {
+     "verdict": "no",
+     "note": "No what-if or simulation feature found in the ONOS REST resources or README; changes are applied to the live network.",
+     "source": "https://github.com/opennetworkinglab/onos/tree/master/web/api/src/main/java/org/onosproject/rest/resources",
+     "locator": "REST resource class list (no simulation resource)",
+     "accessed": "2026-10-08"
+    },
+    "A7": {
+     "verdict": "diy",
+     "note": "OpenFlow and P4Runtime southbound both exist; a P4 target needs a pipeconf (pipeline, interpreter) written before apps reuse flow objectives.",
+     "source": "https://raw.githubusercontent.com/opennetworkinglab/onos/master/README.md",
+     "locator": "README: 'pluggable southbound for OpenFlow, P4Runtime'; github.com/opennetworkinglab/onos-p4-tutorial (pipeconf exercises)",
+     "accessed": "2026-10-08",
+     "scope": "OpenFlow: builtin; P4: write a pipeconf; docs do not state identical app code across both"
+    },
+    "A8": {
+     "verdict": "builtin",
+     "note": "Same ONOS app runs against OpenFlow devices, whether Mininet's Open vSwitch or physical hardware, since the southbound is protocol based.",
+     "source": "https://raw.githubusercontent.com/opennetworkinglab/onos/master/README.md",
+     "locator": "README: pluggable southbound (OpenFlow); Mininet topologies shipped for testing",
+     "accessed": "2026-10-08",
+     "scope": "hardware driver and pipeline support per device model not assessed"
+    }
+   },
+   "maturity": {
+    "M1": {
+     "verdict": "info",
+     "note": "Apache License 2.0.",
+     "source": "https://github.com/opennetworkinglab/onos",
+     "locator": "Repo license (GitHub API spdx_id Apache-2.0)",
+     "accessed": "2026-10-08"
+    },
+    "M2": {
+     "verdict": "info",
+     "note": "Free, open source.",
+     "source": "https://hub.docker.com/r/onosproject/onos",
+     "locator": "Overview: Apache License 2.0",
+     "accessed": "2026-10-08"
+    },
+    "M3": {
+     "verdict": "info",
+     "note": "2.7.0 LTS announced 2022-01-17, last of the 2.x line; GitHub tags list shows 2.5.9 patch dated 2022-07-29.",
+     "source": "https://opennetworking.org/news-and-events/blog/onos-v2-7-0-lts-release-adds-features-and-optimization-enhancements/",
+     "locator": "Release summary; github.com/opennetworkinglab/onos/tags",
+     "accessed": "2026-10-08"
+    },
+    "M4": {
+     "verdict": "info",
+     "note": "1,290 stars on the GitHub mirror (GitHub API, 2026-10-08; last push 2024-06-18).",
+     "source": "https://api.github.com/repos/opennetworkinglab/onos",
+     "locator": "stargazers_count, pushed_at",
+     "accessed": "2026-10-08"
+    },
+    "M5": {
+     "verdict": "info",
+     "note": "About 506 contributors on the GitHub mirror (anonymous included); development happens in Gerrit.",
+     "source": "https://api.github.com/repos/opennetworkinglab/onos/contributors?per_page=1&anon=true",
+     "locator": "Link header rel=last page",
+     "accessed": "2026-10-08"
+    },
+    "M6": {
+     "verdict": "info",
+     "note": "Controller, not an emulator: fidelity comes from the data plane used, e.g. Mininet packet-level emulation or real switches.",
+     "source": "https://raw.githubusercontent.com/opennetworkinglab/onos/master/README.md",
+     "locator": "README description",
+     "accessed": "2026-10-08"
+    },
+    "M7": {
+     "verdict": "info",
+     "note": "ONOS 1.8-era test report: ring and hub-spoke topologies of 100 to 400 switches; found via search snippet, page not fetched.",
+     "source": "https://wiki.onosproject.org/x/jwm1",
+     "locator": "ONOS scale topology test page (unverified by direct fetch)",
+     "accessed": "2026-10-08"
+    },
+    "M8": {
+     "verdict": "info",
+     "note": "Official Docker image (onosproject/onos, Docker Hub); or build from source with Bazel, git, zip, python3, Java.",
+     "source": "https://raw.githubusercontent.com/opennetworkinglab/onos/master/README.md",
+     "locator": "Installation; Docker Hub overview",
+     "accessed": "2026-10-08"
+    },
+    "M9": {
+     "verdict": "info",
+     "note": "REST API on port 8181, Java app API, CLI and web GUI; OpenFlow and P4Runtime southbound.",
+     "source": "https://raw.githubusercontent.com/opennetworkinglab/onos/master/README.md",
+     "locator": "Access methods / protocol support",
+     "accessed": "2026-10-08"
+    }
+   }
+  },
+  {
+   "tool": "Containerlab",
+   "evidence_kind": "READ: official docs",
+   "cells": {
+    "A1": {
+     "verdict": "diy",
+     "note": "inspect JSON lists nodes and inspect interfaces lists per-node interfaces, not links; parse the YAML topology or query each NOS.",
+     "source": "https://containerlab.dev/cmd/inspect/",
+     "locator": "Output formats; 'nodes only, not links'; inspect interfaces page",
+     "accessed": "2026-10-08",
+     "scope": "topology lives in the YAML file; no link-discovery API"
+    },
+    "A2": {
+     "verdict": "diy",
+     "note": "No flow concept in containerlab; bolt on sFlow-RT, whose project publishes containerlab labs and a topology uploader script.",
+     "source": "https://github.com/sflow-rt/containerlab",
+     "locator": "README: topology aware fabric analytics, topo.py",
+     "accessed": "2026-10-08"
+    },
+    "A3": {
+     "verdict": "diy",
+     "note": "Not provided by containerlab; read counters from the NOS (e.g. gNMI) or add sFlow-RT as in the sflow-rt/containerlab labs.",
+     "source": "https://github.com/sflow-rt/containerlab",
+     "locator": "README: real-time telemetry from Clos fabrics",
+     "accessed": "2026-10-08"
+    },
+    "A4": {
+     "verdict": "diy",
+     "note": "Containerlab does not program forwarding; the app configures each NOS via its own CLI, gNMI or NETCONF, or exec.",
+     "source": "https://containerlab.dev/cmd/exec/",
+     "locator": "exec command: run commands inside lab nodes",
+     "accessed": "2026-10-08"
+    },
+    "A5": {
+     "verdict": "diy",
+     "note": "netem set adds delay, jitter, loss, rate; docs describe no link-down, so use exec to down an interface.",
+     "source": "https://containerlab.dev/cmd/tools/netem/set/",
+     "locator": "What netem set does; examples",
+     "accessed": "2026-10-08"
+    },
+    "A6": {
+     "verdict": "no",
+     "note": "No simulation or dry-run feature found in containerlab docs; labs run real NOS images.",
+     "source": "https://containerlab.dev/",
+     "locator": "Overview: key features list",
+     "accessed": "2026-10-08"
+    },
+    "A7": {
+     "verdict": "no",
+     "note": "Node kinds are NOS images; docs list no OpenFlow controller or P4 abstraction, so nothing is shared across the two.",
+     "source": "https://containerlab.dev/",
+     "locator": "Overview: supported node kinds; no OpenFlow/P4 mention",
+     "accessed": "2026-10-08"
+    },
+    "A8": {
+     "verdict": "diy",
+     "note": "Nodes run vendor NOS images, so management scripts can target lab or hardware; docs silent; no app layer.",
+     "source": "https://containerlab.dev/",
+     "locator": "Overview: container-based NOS labs",
+     "accessed": "2026-10-08",
+     "scope": "applies to NOS management interfaces (gNMI/NETCONF/CLI), not SDN controller apps"
+    }
+   },
+   "maturity": {
+    "M1": {
+     "verdict": "info",
+     "note": "BSD-3-Clause.",
+     "source": "https://github.com/srl-labs/containerlab",
+     "locator": "README / GitHub license",
+     "accessed": "2026-10-08"
+    },
+    "M2": {
+     "verdict": "info",
+     "note": "Free, open source; no paid tier found in docs.",
+     "source": "https://containerlab.dev/",
+     "locator": "Overview",
+     "accessed": "2026-10-08"
+    },
+    "M3": {
+     "verdict": "info",
+     "note": "v0.79.0, published 2026-08-21 (GitHub API releases/latest).",
+     "source": "https://api.github.com/repos/srl-labs/containerlab/releases/latest",
+     "locator": "tag_name, published_at",
+     "accessed": "2026-10-08"
+    },
+    "M4": {
+     "verdict": "info",
+     "note": "2,866 stars (GitHub API, 2026-10-08).",
+     "source": "https://api.github.com/repos/srl-labs/containerlab",
+     "locator": "stargazers_count",
+     "accessed": "2026-10-08"
+    },
+    "M5": {
+     "verdict": "info",
+     "note": "About 214 contributors (GitHub API, anonymous included).",
+     "source": "https://api.github.com/repos/srl-labs/containerlab/contributors?per_page=1&anon=true",
+     "locator": "Link header rel=last page",
+     "accessed": "2026-10-08"
+    },
+    "M6": {
+     "verdict": "info",
+     "note": "Packet-level emulation: real NOS containers or VMs joined by veth links.",
+     "source": "https://containerlab.dev/manual/network/",
+     "locator": "Link configuration (veth pairs)",
+     "accessed": "2026-10-08"
+    },
+    "M7": {
+     "verdict": "info",
+     "note": "No official maximum found; Clabernetes aims to scale labs beyond one host without stating node counts.",
+     "source": "https://containerlab.dev/manual/clabernetes/",
+     "locator": "Introduction; no figures given",
+     "accessed": "2026-10-08"
+    },
+    "M8": {
+     "verdict": "info",
+     "note": "apt/yum/dnf/apk packages, setup script, or Docker image; needs Linux (or WSL/macOS), Docker, sudo or clab_admins group.",
+     "source": "https://containerlab.dev/install/",
+     "locator": "Prerequisites; Installation methods",
+     "accessed": "2026-10-08"
+    },
+    "M9": {
+     "verdict": "info",
+     "note": "CLI plus YAML topology files; JSON output for inspect and exec.",
+     "source": "https://containerlab.dev/cmd/inspect/",
+     "locator": "Output formats",
+     "accessed": "2026-10-08"
+    }
+   }
+  },
+  {
+   "tool": "ns-3",
+   "evidence_kind": "READ: official docs",
+   "cells": {
+    "A1": {
+     "verdict": "diy",
+     "note": "Simulation code enumerates nodes, devices and channels through C++ or Python object APIs and config paths; no REST or discovery.",
+     "source": "https://www.nsnam.org/docs/manual/html/tracing.html",
+     "locator": "Config paths such as /NodeList/0/$ns3::PointToPointNetDevice",
+     "accessed": "2026-10-08"
+    },
+    "A2": {
+     "verdict": "diy",
+     "note": "FlowMonitor reports per-flow bytes, packets, delay, loss for L4 5-tuples; no path or rate field, so derive both yourself.",
+     "source": "https://www.nsnam.org/docs/models/html/flow-monitor.html",
+     "locator": "Statistics collected; flow definition",
+     "accessed": "2026-10-08",
+     "scope": "TCP/UDP flows only"
+    },
+    "A3": {
+     "verdict": "diy",
+     "note": "Connect trace callbacks on device transmit events, accumulate bytes per interval, divide by link capacity; no ready utilization metric found.",
+     "source": "https://www.nsnam.org/docs/manual/html/tracing.html",
+     "locator": "Trace sources and sinks; Config::ConnectWithoutContext",
+     "accessed": "2026-10-08"
+    },
+    "A4": {
+     "verdict": "diy",
+     "note": "Built-in OpenFlow switch module supports only controllers written inside the simulation (subclass ofi::Controller); external controller listed as future possibility.",
+     "source": "https://www.nsnam.org/docs/models/html/openflow-switch.html",
+     "locator": "Controller section: embedded controllers only",
+     "accessed": "2026-10-08",
+     "scope": "third-party OpenFlow modules exist; not assessed"
+    },
+    "A5": {
+     "verdict": "diy",
+     "note": "Schedule Ipv4::SetDown on both link ends at a simulated time, as in the RIP example; reaction code is yours.",
+     "source": "https://www.nsnam.org/docs/release/3.40/doxygen/d9/db8/rip-simple-network_8cc_source.html",
+     "locator": "TearDownLink and Simulator::Schedule in rip-simple-network.cc",
+     "accessed": "2026-10-08"
+    },
+    "A6": {
+     "verdict": "diy",
+     "note": "The simulator can run what-if scenarios, but you model network and traffic in code; it does not import live state.",
+     "source": "https://www.nsnam.org/about/",
+     "locator": "About ns-3: discrete-event simulator",
+     "accessed": "2026-10-08"
+    },
+    "A7": {
+     "verdict": "no",
+     "note": "Built-in switch module is OpenFlow only (embedded controllers); no P4 support in documented core models.",
+     "source": "https://www.nsnam.org/docs/models/html/openflow-switch.html",
+     "locator": "OpenFlow model description",
+     "accessed": "2026-10-08",
+     "scope": "P4 via third-party add-ons not assessed"
+    },
+    "A8": {
+     "verdict": "diy",
+     "note": "FdNetDevice and TapBridge link simulated nodes to real hosts or networks; ns-3 app code is not the deployed binary.",
+     "source": "https://www.nsnam.org/docs/models/html/emulation-overview.html",
+     "locator": "FdNetDevice, TapBridge, use cases",
+     "accessed": "2026-10-08",
+     "scope": "emulation links simulation to real hosts; real-switch control apps need separate integration"
+    }
+   },
+   "maturity": {
+    "M1": {
+     "verdict": "info",
+     "note": "GNU GPLv2.",
+     "source": "https://www.nsnam.org/about/",
+     "locator": "License paragraph",
+     "accessed": "2026-10-08"
+    },
+    "M2": {
+     "verdict": "info",
+     "note": "Free, open source.",
+     "source": "https://www.nsnam.org/about/",
+     "locator": "Overview",
+     "accessed": "2026-10-08"
+    },
+    "M3": {
+     "verdict": "info",
+     "note": "ns-3.49, GitLab tag dated 2026-10-06; releases page still listed ns-3.48 first when fetched.",
+     "source": "https://gitlab.com/nsnam/ns-3-dev/-/tags",
+     "locator": "Tags list; nsnam.org/releases",
+     "accessed": "2026-10-08"
+    },
+    "M4": {
+     "verdict": "info",
+     "note": "563 stars on the read-only GitHub mirror (GitHub API, 2026-10-08); main repo is on GitLab.",
+     "source": "https://api.github.com/repos/nsnam/ns-3-dev-git",
+     "locator": "stargazers_count",
+     "accessed": "2026-10-08"
+    },
+    "M5": {
+     "verdict": "info",
+     "note": "About 472 contributors on the GitHub mirror (anonymous included); GitLab count not checked.",
+     "source": "https://api.github.com/repos/nsnam/ns-3-dev-git/contributors?per_page=1&anon=true",
+     "locator": "Link header rel=last page",
+     "accessed": "2026-10-08"
+    },
+    "M6": {
+     "verdict": "info",
+     "note": "Packet-level simulation (discrete-event); optional emulation devices link it to real hosts.",
+     "source": "https://www.nsnam.org/about/",
+     "locator": "About ns-3",
+     "accessed": "2026-10-08"
+    },
+    "M7": {
+     "verdict": "info",
+     "note": "LLNL study simulated up to 10^9 nodes using MPI on HPC clusters (WNS3 2015 paper).",
+     "source": "https://eudl.eu/doi/10.1145/2756509.2756525",
+     "locator": "Abstract",
+     "accessed": "2026-10-08"
+    },
+    "M8": {
+     "verdict": "info",
+     "note": "Source tarball or git clone, built locally; needs g++ 11.1+ or clang 17+, Python 3.10+, CMake 3.25+.",
+     "source": "https://www.nsnam.org/docs/release/3.48/tutorial/html/getting-started.html",
+     "locator": "Prerequisites; installation methods",
+     "accessed": "2026-10-08"
+    },
+    "M9": {
+     "verdict": "info",
+     "note": "C++ API (optional Python bindings); no network-facing API.",
+     "source": "https://www.nsnam.org/docs/release/3.48/tutorial/html/getting-started.html",
+     "locator": "Python bindings optional",
+     "accessed": "2026-10-08"
+    }
+   }
+  },
+  {
+   "tool": "sFlow-RT",
+   "evidence_kind": "READ: official docs",
+   "cells": {
+    "A1": {
+     "verdict": "diy",
+     "note": "GET /topology/json reads a topology, but you supply nodes and links via PUT or setTopology; no discovery documented.",
+     "source": "https://sflow-rt.com/reference.php",
+     "locator": "Topology: /topology/json, setTopology()",
+     "accessed": "2026-10-08",
+     "scope": "projects such as mininet-dashboard and containerlab topo.py upload topology for you"
+    },
+    "A2": {
+     "verdict": "diy",
+     "note": "activeflows gives top flows with rates for keys you define; a path must be inferred from flowlocations plus topology.",
+     "source": "https://sflow-rt.com/reference.php",
+     "locator": "Flows: setFlow, /activeflows, /flowlocations; topologyShortestPath()",
+     "accessed": "2026-10-08",
+     "scope": "rate: builtin; path: diy"
+    },
+    "A3": {
+     "verdict": "builtin",
+     "note": "Interface metrics include ifinutilization and ifoututilization, and topologyLinkMetric reads metrics at both ends of a topology link.",
+     "source": "https://sflow-rt.com/metrics.php",
+     "locator": "Interface metrics; topologyLinkMetric in reference",
+     "accessed": "2026-10-08",
+     "scope": "update interval not stated in the docs checked"
+    },
+    "A4": {
+     "verdict": "diy",
+     "note": "sFlow-RT is analytics, not a controller; scripts can act through documented BGP FlowSpec and HTTP hooks, no OpenFlow rule installation.",
+     "source": "https://sflow-rt.com/index.php",
+     "locator": "Home page: BGP, Flowspec and HTTP control integration",
+     "accessed": "2026-10-08"
+    },
+    "A5": {
+     "verdict": "no",
+     "note": "No failure injection; it can observe interface state (ifoperstatus) and raise threshold events, but the link must be failed elsewhere.",
+     "source": "https://sflow-rt.com/metrics.php",
+     "locator": "Status metrics ifoperstatus; reference: thresholds and events",
+     "accessed": "2026-10-08",
+     "scope": "watch: builtin; fail: no"
+    },
+    "A6": {
+     "verdict": "no",
+     "note": "Measures live sFlow telemetry; no simulation or prediction feature found in the reference.",
+     "source": "https://sflow-rt.com/reference.php",
+     "locator": "REST/JavaScript function list",
+     "accessed": "2026-10-08"
+    },
+    "A7": {
+     "verdict": "unknown",
+     "note": "Input is sFlow from agents, so data plane type is irrelevant if an agent exists; docs say nothing about P4.",
+     "source": "https://sflow.org/products/network.php",
+     "locator": "Product list (Open vSwitch listed; no P4 target seen)",
+     "accessed": "2026-10-08",
+     "scope": "Open vSwitch/OpenFlow: works via sFlow agent; P4: no documented agent"
+    },
+    "A8": {
+     "verdict": "builtin",
+     "note": "Same scripts consume sFlow from Open vSwitch in Mininet or from sFlow-capable hardware; repository mininet-dashboard shows the Mininet case.",
+     "source": "https://github.com/sflow-rt/mininet-dashboard",
+     "locator": "README: dashboard for Mininet traffic",
+     "accessed": "2026-10-08",
+     "scope": "read-only monitoring apps; not a control-plane app"
+    }
+   },
+   "maturity": {
+    "M1": {
+     "verdict": "info",
+     "note": "Proprietary: download requires accepting a license agreement; companion apps on GitHub use MIT.",
+     "source": "https://sflow-rt.com/download.php",
+     "locator": "License Agreement notice; github.com/sflow-rt/mininet-dashboard",
+     "accessed": "2026-10-08"
+    },
+    "M2": {
+     "verdict": "info",
+     "note": "Free to download; production licensing via InMon sales, price not public.",
+     "source": "https://sflow-rt.com/download.php",
+     "locator": "Licensing note",
+     "accessed": "2026-10-08"
+    },
+    "M3": {
+     "verdict": "info",
+     "note": "Version 3.2-1736; release date not stated on page (copyright 2015-2026).",
+     "source": "https://sflow-rt.com/download.php",
+     "locator": "Version heading",
+     "accessed": "2026-10-08"
+    },
+    "M4": {
+     "verdict": "info",
+     "note": "Core not on GitHub; org sflow-rt hosts apps only (top repo ddos-protect, 53 stars).",
+     "source": "https://github.com/sflow-rt",
+     "locator": "Organization repository list",
+     "accessed": "2026-10-08"
+    },
+    "M5": {
+     "verdict": "info",
+     "note": "Closed source for the core engine; apps are public repositories.",
+     "source": "https://github.com/sflow-rt",
+     "locator": "Organization repository list",
+     "accessed": "2026-10-08"
+    },
+    "M6": {
+     "verdict": "info",
+     "note": "Not an emulator or simulator: analytics on sFlow samples and counters from real or emulated devices.",
+     "source": "https://sflow-rt.com/intro.php",
+     "locator": "Role; UDP port 6343 collection",
+     "accessed": "2026-10-08"
+    },
+    "M7": {
+     "verdict": "info",
+     "note": "No published scale figure found in sFlow-RT docs checked.",
+     "source": "https://sflow-rt.com/",
+     "locator": "Overview (only qualitative scale claim)",
+     "accessed": "2026-10-08"
+    },
+    "M8": {
+     "verdict": "info",
+     "note": "tar.gz, Docker image, RPM or DEB; requires Java 17+; listens on UDP 6343 and HTTP 8008.",
+     "source": "https://sflow-rt.com/download.php",
+     "locator": "Installation requirements",
+     "accessed": "2026-10-08"
+    },
+    "M9": {
+     "verdict": "info",
+     "note": "REST API with explorer plus JavaScript apps run inside the engine; no access control built in.",
+     "source": "https://sflow-rt.com/intro.php",
+     "locator": "Access methods; security note",
+     "accessed": "2026-10-08"
+    }
+   }
+  }
+ ]
+}

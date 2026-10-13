@@ -1,0 +1,476 @@
+# NDTwin report deck -- 2026-10-21 -- "Why would a developer use NDTwin?" -- content template (DRAFT)
+
+v0.1 draft, written 2026-10-08 (UTC). Single source of truth for page order, table contents, figure specs
+and speaker notes. Format imitates NDTwin-slide-template-930.md (§0 rules, §1 page table, §2 per page).
+Times in UTC.
+
+Sources (all read for this draft):
+- Matrix: research/matrix_final.json (sha256 d31c5af9c9bf493e...), research/ROWS.json (d25c7b3994fcaf03...),
+  research/CHANGES_final.tsv (9453c47d941eba21...), research/verify_ndtwin.tsv (47c566ab48811a0b...),
+  research/verify_competitors.tsv (2b5b96d8d6ad30d8...). Competitor cells = READ of public material
+  (commercial = vendor material, academic = paper/draft), accessed 2026-10-08. NDTwin cells = READ of code and
+  docs at trunk 2ece656c (git commit sha, full 2ece656c4a280477209a09b6fb7a51304d38b8ff).
+- NDTwin code/docs: K = /home/adam/Desktop/NDTwin-Kernel, read with `git show 2ece656c:<path>` (not the working
+  tree). Sibling repos read at their HEAD commits: Energy-Saving-App 9facb78, Simulation-Platform-Manager
+  b7efd93, Web-GUI f63a55c, Network-State-Recorder 850f61d, Traffic-Engineering-App f108c7c,
+  Network-Traffic-Visualizer 9b56b30, Network-Traffic-Generator 6e3f388 (`git show HEAD:<path>`; their working
+  trees have 1-4 uncommitted files each, not read).
+- Defect tracker: K/doc/KNOWN-ISSUES.md@2ece656c (ids such as C-6 below). Its own header says entries can be
+  stale; every id used here was re-checked against code or merge ancestry at 2ece656c (see §3).
+- Hands-on: K/doc/audit/2026-10-08_why-ndtwin-handson/PHASE0_NOTES.txt, controls.tsv, raw/ (controls running
+  live while this draft was written; see P13).
+- Previous deck format: NDTwin slide material 930/NDTwin-slide-template-930.md.
+- Figure specs: figures_spec/architecture.txt (P02), figures_spec/landscape.tsv (P04),
+  figures_spec/problems.tsv (P17-P19, P20), figures_spec/roadmap.txt (P20).
+
+[Co-developed with claude code -- Adam]
+
+## 0. Rules (standing; carried over from 930 where they still apply, plus this deck's own)
+
+1. ONE figure or ONE table per page (930 rule 2). No bullets, paragraphs, captions, kickers or verdict chips.
+   The slide title is the only free text. Table cells are short "label -> value", never sentences.
+   Every page has a `form:` in §1 (title / figure / table).
+2. Figure pages: the figure fills the content area; its top-left title (<=45 chars) IS the slide title, not
+   repeated by the generator (930 rule 3). Few words on figures: title, axes, value labels, box names, panel
+   titles, a few key annotations. Derivations, caveats, methods and reconciliation go to the figure's .md and
+   the §2 notes (CLAUDE.md; 930 rule 4).
+3. Evidence classes, never mixed in one table or one sentence: RAN (OBSERVED, executed, with raw path and
+   binary identity), READ (code or documents read, not executed), INFERRED. Pages 2-9 and 15-19 are READ;
+   pages 10-14 are RAN; page 20 is a plan (INFERRED from 17-19). If one figure must show both, use two
+   titled panels (930 rule 5).
+4. RAN pages identify the binary: repo sha (+N uncommitted files), kernel binary sha256 prefix, bmv2 binary
+   sha256 prefix, P4 pipeline json sha256 prefix -- in notes and the figure .md, not on the canvas
+   (930 v1.8 practice). Every RAN number is reconciled with earlier results (which result it updates or can
+   be compared with).
+5. No conference or journal names, no private repos, no development or debugging history, no mention of how
+   the material was checked (no review/verification process words, no work-item numbers). Defect-tracker
+   ids (KNOWN-ISSUES C-6 etc.) and path:line@2ece656c are allowed as evidence.
+6. Titles: English, sentence case, <=45 characters (each checked in §1).
+7. 🔴 Non-code problems are EXCLUDED from slides AND notes (Adam's ruling): maintainer or commit concentration,
+   contributor counts, GitHub stars or community size, the state of the lab's official public README, the
+   website's documentation coverage, which repository holds what. Consequences in this draft: maturity rows
+   M4 (stars) and M5 (contributors) are dropped for ALL tools; M3 for NDTwin says only the release status of
+   what is compared; documentation gaps are not listed as problems; the problems list is code only.
+8. No sugarcoat: ⚠ and ◌ stay visible on pages 5-7 with a legend row; pages 16-19 state real technical
+   problems plainly, each with evidence and a concrete fix plus rough cost; "disclose" only where a fix is
+   infeasible, with the reason.
+9. Fairness (say it on 5-7): NDTwin's own defect tracker is visible to us and competitors' are not, so ⚠ exists
+   only for NDTwin; commercial cells rest on vendor material, academic cells on the paper/draft; a cell is
+   about the documented feature, not about how well it works.
+10. Visual: 827 §E2 palette and the 916/930 figure style (matplotlib, Liberation Sans). Persona colours are the
+    same on pages 3, 5-7, 17-20 (control-app dev / P4 dev / operator), with a shape as second encoding.
+11. Generators stop with a named reason on bad input and are red-checked before delivery (930 rule 10): a
+    table generator stops if a §2 table cell differs from matrix_final.json; the roadmap generator stops if a
+    problems.tsv rank is missing or duplicated.
+12. Guards for the speaker (❌ = do not say):
+    - ❌ "NDTwin operates any foreign P4 program" (930 guard, still in force). Say "13 tutorial exercises run on
+      the NDTwin fabric"; own programs enter only via `ndt up p4 --app`.
+    - ❌ "NDTwin stays in sync with your production network". It mirrors a Mininet fabric it controls through
+      its own Ryu app or P4 proxy; physical mode is coded, not run.
+    - ❌ any bmv2 rate in Mbit/s. The ceiling is in packets per second (KNOWN-ISSUES F-bmv2: 16x ambiguity).
+    - ❌ "the what-if predicts congestion". The shipped simulator models switch power-off only and was never
+      compared with measured traffic.
+    - ❌ hands-on numbers before the run that produced them is complete and archived.
+
+## 1. Page order (20 pages)
+
+| # | id | title (= on-slide title) | chars | form | evidence | status |
+|---|---|---|---|---|---|---|
+| 1 | P01 | Why would a developer use NDTwin? | 33 | title | -- | ready |
+| 2 | P02 | What NDTwin is, as built today | 30 | figure `arch/fig_p02_architecture` | READ | ready (spec: figures_spec/architecture.txt; redraw of the 827 layout) |
+| 3 | P03 | Three developers, three jobs | 28 | table | READ | ready |
+| 4 | P04 | Where 16 tools sit: fidelity vs live link | 41 | figure `landscape/fig_p04_map` | READ | ready (spec: figures_spec/landscape.tsv; 6 positions flagged) |
+| 5 | P05 | Control-app developer: who does what | 36 | table | READ | ready |
+| 6 | P06 | P4-program developer: who does what | 35 | table | READ | ready |
+| 7 | P07 | Network operator: who does what | 31 | table | READ | ready (4 contested competitor cells, §3) |
+| 8 | P08 | Open-source tools: license, scale, interface | 44 | table | READ | ready |
+| 9 | P09 | Commercial and academic: public material only | 45 | table | READ | ready |
+| 10 | P10 | Hands-on: one task, two setups | 30 | figure `handson/fig_p10_setup` | RAN (topology) | waits for hands-on (task wording) |
+| 11 | P11 | What each side had to build | 27 | table | RAN | waits for hands-on |
+| 12 | P12 | Effort, measured | 16 | table | RAN | waits for hands-on |
+| 13 | P13 | Time to relief after the trigger | 32 | figure `handson/fig_p13_relief` | RAN | left panel: controls running now; right panel waits |
+| 14 | P14 | The same app, unchanged, on bmv2 | 32 | table | RAN | waits for hands-on |
+| 15 | P15 | When NDTwin is the right pick | 29 | table | READ | ready |
+| 16 | P16 | When NDTwin is the wrong pick | 29 | table | READ | ready |
+| 17 | P17 | Real problems, ranked: 1-6 | 26 | table | READ | ready |
+| 18 | P18 | Real problems, ranked: 7-12 | 27 | table | READ | ready |
+| 19 | P19 | Real problems, ranked: 13-18 | 28 | table | READ | ready |
+| 20 | P20 | What we fix first, and what we disclose | 39 | figure `next/fig_p20_roadmap` | INFERRED (plan) | ready (spec: figures_spec/roadmap.txt) |
+
+form count: title 1, figure 5 (P02, P04, P10, P13, P20), table 14.
+Narrative: the question (P01) -> what NDTwin is (P02) -> who asks it (P03) -> where everyone sits (P04) ->
+task by task per developer (P05-P07) -> how mature and how big (P08-P09) -> one task built both ways, measured
+(P10-P14) -> pick / do not pick (P15-P16) -> what is wrong with NDTwin, ranked by "would a developer give up"
+(P17-P19) -> what we fix first (P20).
+
+## 2. Per page: content and speaker notes
+
+Marks: 🟢 RAN (OBSERVED), 🟠 READ, INFERRED. K = /home/adam/Desktop/NDTwin-Kernel; M = research/matrix_final.json;
+H = K/doc/audit/2026-10-08_why-ndtwin-handson. Every NDTwin path:line is @2ece656c unless another sha is given.
+
+### P01 `Why would a developer use NDTwin?`   form: title
+Slide: the title only (signature "Adam" as in 930, Adam decides).
+講者備註：
+- 「老師上次問：開發者為什麼要用 NDTwin？今天整份報告就回答這一題，做法是拿 NDTwin 和 15 個現有工具逐項比。」
+- 「三種開發者：寫網路控制 app 的、寫 P4 程式的、網管。每一種挑 8 件他們真的要做的事，逐格查證。」
+- 「我們沒有修飾：NDTwin 自己的缺陷在表上用 ⚠ 標出來，後面三頁按『會不會讓開發者放棄』排序列出真正的問題和修法。」
+- 證據分兩類：讀文件與程式碼（READ，第 2–9、15–19 頁）、實際跑過（RAN，第 10–14 頁，實作對照）。兩類不混在同一張表。
+
+### P02 `What NDTwin is, as built today`   form: figure `arch/fig_p02_architecture`
+Figure spec: figures_spec/architecture.txt (layers A apps / B kernel / C adapters / D data planes / E tools;
+repo-boundary tint; physical plane dashed "not run"; Local LLM and AI/ML-apps boxes removed).
+Reuse: the 827 layout (NDTwin slide material 827/generator/build_arch_merged.js), redrawn with the five changes
+listed in architecture.txt §0. Do not paste the old PNG.
+講者備註：
+- 🟠「NDTwin 的核心是一個 C++ kernel，對上只有一個 REST API（port 8000），對下接三種資料平面之一：Mininet 裡的 OVS、Mininet 裡的 bmv2、實體交換機。一次只能接一種，混用會被拒絕。」
+  出處：K/src/ndt_core/event_handling/ControllerAndOtherEventHandler.cpp:100（port 8000）；K/src/ndt_core/collection/TopologyAndFlowMonitor.cpp:3425-3427（混用平面拒絕）。
+- OVS 與實體交換機經由 NDTwin 自己的 Ryu app 走 OpenFlow 1.3（K/intelligent_router.py:617-618）；bmv2 經由 P4 proxy 走 P4Runtime（K/p4_proxy/proxy_agent/main.py:2466 port 8081、p4_client.py:5,8）。kernel 對 proxy 講的是和 Ryu 同形的 REST，所以上層 app 不必知道底下是哪一種。
+- 遙測一律進 kernel 的 sFlow 收集器（UDP 6343，K/include/ndt_core/collection/FlowLinkUsageCollector.hpp:33）：OVS 是交換機自己的 sFlow 1/256；bmv2 是 proxy 合成的 sFlow（K/p4_proxy/proxy_agent/sflow_emitter.py:1），外來程式走 tc 取樣（K/p4_proxy/mininet/psample_sflow_emitter.py:6）。
+- 灰色方塊是獨立的 repo：Traffic-Engineering-App、Energy-Saving-App、Simulation-Platform-Manager、Web-GUI、Network-State-Recorder、Network-Traffic-Visualizer、Network-Traffic-Generator，都只透過 REST 和 kernel 溝通（各自出處在 architecture.txt）。
+- 實體網路那一塊是虛線：程式寫了（HPE5520、Brocade ICX6610／ICX7250，K/include/common_types/GraphTypes.hpp:140-144），但 testbed 停用，這條路沒有跑過（K/doc/2026-01-02_ndt_api.md:1598-1599）。
+- 和 827 那張的差別：拿掉「Local LLM (fine-tuning)」與「AI/ML 推論 app」兩格，因為程式碼裡沒有（git grep 0 筆；唯一的 LLM 呼叫是 OpenAI，K/src/ndt_core/intent_translator/LLMAgent.cpp:138）；「Data cache manager」改名為實際模組名 Historical data manager。
+- ❌ 不說「NDTwin 和你的正式網路即時同步」。
+
+### P03 `Three developers, three jobs`   form: table
+| developer | wants to get done | compared with | tasks |
+|---|---|---|---|
+| control-app developer | read state, write rules, test failures, reuse the app | Mininet+Ryu, ONOS+Mininet, Containerlab, ns-3, sFlow-RT | A1-A8 |
+| P4-program developer | run own .p4, topology, entries, telemetry, tests | P4 tutorials VM, p4-utils, ONOS+Stratum | P1-P8 |
+| network operator | mirror, check, predict, drill, save energy | Batfish, GNS3, Forward*, CML*, IP Fabric*, RouteNet-Fermi†, IRTF NDT draft† | O1-O8 |
+| legend | * vendor material only · † paper or draft only | | |
+講者備註：
+- 🟠 三種開發者與 24 件事的定義在 research/ROWS.json（「personas」）。每一格的判定只有四種：● 內建（設定即可，不寫程式）、◐ 自己做（要寫程式或接別的工具）、○ 不支援或超出範圍、? 公開文件沒寫。
+- 15 個對照工具的挑法：每一種開發者今天最可能拿來用的組合。商用的三個（Forward Networks、Cisco Modeling Labs、IP Fabric）只看得到廠商公開資料；學術的兩個（RouteNet-Fermi、IRTF 的 network digital twin 架構草案）只看得到論文或草案本身。
+- 「Mininet+Ryu」那一欄是「自己組裝」的基準：一個開發者不用 NDTwin、自己拼起來會有什麼。
+
+### P04 `Where 16 tools sit: fidelity vs live link`   form: figure `landscape/fig_p04_map`
+Figure spec:
+- Data: figures_spec/landscape.tsv (16 rows; columns tool, x_category, y_category, short_label, rationale,
+  source, unsure). The generator reads x/y/short_label only; rationale and source go to the figure .md.
+- x axis (left -> right, categorical, equal spacing): config model · ML model · flow-level model ·
+  packet-level emulation · real devices. y axis (bottom -> top): design-time only · imports snapshots ·
+  stays synced live. Light grid: 5 x 3 cells.
+- Markers: filled circle per tool, label = short_label; tools sharing a cell are packed in the cell (the
+  packet-level-emulation x design-time cell holds 9: Mininet+Ryu, ONOS+Mininet, Containerlab, ns-3,
+  P4 tutorials VM, p4-utils, ONOS+Stratum, GNS3, CML*; pack as a 3 x 3 cluster).
+  ns-3: a distinct marker (open circle) at the left edge of that cell = packet-level SIMULATION.
+  sFlow-RT: hollow diamond = monitor, not a model.
+  IRTF NDT draft†: dashed horizontal band across the whole top row, label at the left end, no point.
+  NDTwin: the only highlighted marker (accent colour) at packet-level emulation x stays synced live; a
+  dashed whisker left to flow-level model (shipped what-if) and a hollow marker at real devices x stays
+  synced live tagged "not run".
+- Colours: persona of the tool's matrix group (app / P4 / operator); NDTwin in the accent colour.
+- Words on canvas: title, axis category names, short labels, "not run" tag, legend (4 marker kinds).
+講者備註：
+- 🟠 位置全部根據 M 的 maturity.M6（fidelity）與 ops.O1／O8（和真實網路的關係），逐列理由與出處在 figures_spec/landscape.tsv。
+- 讀法：越右邊，模型越接近真實封包；越上面，和運作中的網路連得越緊。大多數開發工具（Mininet、Containerlab、P4 教學環境、GNS3、CML）擠在「封包級模擬、只在設計時用」那一格；商用的 Forward、IP Fabric 和 Batfish 在左中間——它們讀設定與狀態快照，不跑封包；RouteNet-Fermi 是 ML 模型、不接網路。
+- NDTwin 在右上：封包級的 Mininet fabric，而且 twin 狀態持續從那個 fabric 同步。但要講清楚兩件事：（1）它同步的是**它自己控制的** fabric——O1 要求它自己的 Ryu app 當 controller，不能掛到別人的網路上（M ops.O1 NDTwin scope）；（2）右上角那個空心點（實體交換機）程式寫了、沒跑過。它附帶的 what-if 是 flow-level（max-min），所以有一條虛線往左拉到 flow-level。
+- 不確定的位置（landscape.tsv 的 unsure 欄）：ns-3（x 軸沒有「封包級 simulation」這一格，所以畫在 emulation 格的左緣、換一種記號）、sFlow-RT（只量測、不建模型）、ONOS 兩組（當 controller 接實體交換機時就是網路本身，不是 twin）、CML（NetBox 匯入只帶拓樸，算不上快照）、IRTF 草案（是框架不是工具，畫成一條帶子）、NDTwin（見上）。
+
+### P05 `Control-app developer: who does what`   form: table
+| task | Mininet+Ryu | ONOS+Mininet | Containerlab | ns-3 | sFlow-RT | NDTwin |
+|---|---|---|---|---|---|---|
+| A1 Read topology via API | ● | ● | ◐ | ◐ | ◐ | ●◌ |
+| A2 Flows with path and rate | ◐ | ◐ | ◐ | ◐ | ◐ | ●⚠◌ |
+| A3 Per-link utilization, live | ◐ | ● | ◐ | ◐ | ● | ●⚠◌ |
+| A4 Install rules from an app | ● | ● | ◐ | ◐ | ◐ | ●⚠◌ |
+| A5 Fail a link, watch the app | ● | ● | ◐ | ◐ | ◐ | ● |
+| A6 What-if before a change | ◐ | ◐ | ◐ | ◐ | ○ | ◐ |
+| A7 Same app: OpenFlow and P4 | ○ | ● | ○ | ○ | ◐ | ●⚠ |
+| A8 Same app: emulated and real | ● | ● | ◐ | ◐ | ● | ●◌ |
+| legend | ● built in · ◐ you build it · ○ no · ? docs silent | ⚠ open defect on that path (NDTwin only) · ◌ no run on that target | | | | |
+(Generated from M personas.app; the generator stops if any cell differs from M.)
+講者備註：
+- 🟠 全表讀自 M（competitor 讀公開文件，NDTwin 讀 trunk 2ece656c 的程式碼與文件）。每格的一句說明、出處網址或 path:line 在 M 的 note／source。
+- 數字：NDTwin 8 列裡 7 個 ●，最多；但其中 6 個帶 ⚠ 或 ◌——乾淨的 ● 只有 A5（故意弄斷一條 link）。ONOS+Mininet 6 個 ●、0 旗標；Mininet+Ryu 4 個。
+- 旗標的意思：⚠＝那條路上有一個還開著的已知缺陷；◌＝在宣稱的那個目標上沒有任何跑過的紀錄（多半是實體交換機）。
+  - A2 ⚠：每秒不到約 22 個封包的流，在預設 3 秒視窗裡有一半時間看不到（KNOWN-ISSUES「B-x 的反向」；K/include/ndt_core/collection/FlowLinkUsageCollector.hpp:91）。
+  - A3 ⚠：遙測停了的時候利用率回 0，而不是「不知道」（KNOWN-ISSUES C-9、B-17）。
+  - A4 ⚠：bmv2 表滿、或帶 priority 的刪除失敗，HTTP 仍回 200（C-6、C-7）；proxy 重啟規則全消失（A-4c）。
+  - A7 ⚠：同一組 endpoint 兩個平面都在，但 P4 上 group／meter 回 501（K/src/ndt_core/routing_management/P4RoutingStrategy.cpp:27-33），ECMP 的 TE app 只能跑 OpenFlow；⚠ 來自 C-6／C-7 這兩個只在 P4 發生的靜默失敗。
+  - ◌（A1–A4、A8）：實體交換機模式程式寫了，沒有跑過（K/doc/2026-01-02_ndt_api.md:1598）。
+- A5：NDTwin 在 Mininet 上用 tc netem 真的切斷一條 link（K/src/ndt_core/http/HttpSession.cpp:20,282），但**沒有事件推送**，app 要自己 poll；bmv2 上一次真的切斷要 10.7–14 秒才偵測到（KNOWN-ISSUES D-2）。
+- A6：大家都是 ◐。NDTwin 的 kernel 會把案例轉給外掛的模擬器，但唯一附帶的模擬器只模擬「關掉哪些交換機」；其他 what-if 要自己寫模擬器（M app.A6）。
+- 公平性（規則 9）：⚠ 只出現在 NDTwin，因為我們看得到 NDTwin 自己的缺陷清單、看不到別人的；別人的格子講的是文件上有沒有這個功能，不是它做得好不好。
+
+### P06 `P4-program developer: who does what`   form: table
+| task | P4 tutorials VM | p4-utils | ONOS+Stratum | NDTwin |
+|---|---|---|---|---|
+| P1 Run my own .p4 on bmv2 | ● | ● | ● | ◐ |
+| P2 Topology with hosts, built | ● | ● | ◐ | ● |
+| P3 Table entries through an API | ● | ● | ● | ◐⚠◌ |
+| P4 Link discovery, my program | ○ | ◐ | ◐ | ◐ |
+| P5 Per-flow telemetry, no code | ◐ | ◐ | ◐ | ◐◌ |
+| P6 Generated packet tests | ◐ | ◐ | ◐ | ○ |
+| P7 Network-wide view | ○ | ● | ● | ● |
+| P8 Path to a hardware target | ○ | ◐ | ● | ○ |
+| legend | ● built in · ◐ you build it · ○ no · ? docs silent | ⚠ open defect (NDTwin only) · ◌ no run on that target | | |
+(Generated from M personas.p4.)
+講者備註：
+- 🟠 這一頁 NDTwin 是最弱的一欄：2 個 ●（P2、P7）、4 個 ◐、2 個 ○；三個對照組各有 3–4 個 ●。我們照實講。
+- P1 ◐：自己的 .p4 只能經由 `tools/p4_exercise/convert.py` 打包、再用實驗室的 `ndt up p4 --app` 起來（K/tools/p4_exercise/convert.py:1、K/tools/test_workflow/ndt:1642）；13 支 P4 tutorial exercise 在 NDTwin fabric 上跑起來（M p4.P1 note）。只支援 exact／lpm 表項。
+- P3 ◐⚠◌：`POST /p4/table_entry` 依表名寫 exact／lpm；ternary／range／optional 回 501（K/p4_proxy/proxy_agent/api_routes.py:880）；proxy 重啟表項就消失（api_routes.py:841、KNOWN-ISSUES A-4c）；執行期呼叫沒有跑過的紀錄（◌）。
+- P4 ◐：LLDP 鏈路發現只對 NDTwin 自己的 ndtwin_switch.p4 有效；別的程式要嘛宣告鏈路（沒有斷線偵測），要嘛用 root 的心跳 helper（K/doc/2026-01-02_ndt_api.md:627；K/p4_proxy/proxy_agent/link_heartbeat.py:52-54）。
+- P5 ◐◌：外來程式在 Mininet 上用 tc 取樣換算成 sFlow，不用改 .p4（K/p4_proxy/mininet/app_package.py:481）；每條鏈路的使用量在 13 支裡 10 支驗過，**每條流**的視圖在外來程式上沒驗過（◌）。
+- P6 ○、P8 ○：NDTwin 沒有替使用者產生封包測試（p4testgen 只用在自己的 pipeline 覆蓋率檢查，K/tools/test_workflow/p4_coverage_gate.sh:1）；沒有硬體 P4 目標，只有 bmv2 v1model（K/README.md:5、K/p4_proxy/p4_src/SPEC.md:1）。
+- ONOS+Stratum P8 ●：Stratum 支援 Tofino／Tomahawk，但 M 的 scope 註明 Tofino 已停產、Stratum 最後一次 release 是 2022-06-30。
+- 公平性同 P05。
+
+### P07 `Network operator: who does what`   form: table
+| task | Batfish | GNS3 | Forward* | CML* | IP Fabric* | RouteNet-Fermi† | IRTF NDT draft† | NDTwin |
+|---|---|---|---|---|---|---|---|---|
+| O1 Mirror live state | ◐ | ◐ | ◐ | ◐ | ◐ | ○ | ◐ | ●⚠◌ |
+| O2 Config correctness check | ● | ◐ | ● | ◐ | ● | ○ | ◐ | ○ |
+| O3 Congestion what-if | ◐ | ◐ | ? | ◐ | ? | ◐ | ◐ | ◐ |
+| O4 Run vendor NOS images | ○ | ● | ○ | ● | ○ | ○ | ○ | ○ |
+| O5 Fault drills on a copy | ● | ● | ? | ● | ● | ◐ | ◐ | ●⚠ |
+| O6 Energy-saving analysis | ○ | ○ | ? | ? | ? | ○ | ◐ | ●⚠◌ |
+| O7 Natural-language intent | ○ | ● | ● | ● | ● | ○ | ◐ | ●⚠◌ |
+| O8 Record and replay state | ◐ | ◐ | ● | ? | ● | ○ | ◐ | ●⚠◌ |
+| legend | ● built in · ◐ you build it · ○ no · ? docs silent | ⚠ open defect (NDTwin only) · ◌ no run on that target | * vendor material · † paper or draft | | | | | |
+(Generated from M personas.ops. Four competitor cells are contested, see §3; until ruled, the table shows M as is.)
+講者備註：
+- 🟠 NDTwin 5 個 ●，5 個都帶旗標。獨有的是 O1（唯一把拓樸、流、負載都即時鏡像的）與 O6（唯一內建節能分析的）。
+- O1 ●⚠◌：kernel 輪詢 Ryu／proxy 與 sFlow 來鏡像；前提是 NDTwin 自己的 Ryu app 在控制那個網路、拓樸檔事先宣告（K/intelligent_router.py:617；K/src/ndt_core/collection/TopologyAndFlowMonitor.cpp:2373：拓樸檔沒有的交換機只印 WARN、被忽略）。⚠ 同 A2／A3；◌：沒有實體交換機的執行紀錄。
+- O2 ○：NDTwin 沒有設定模型，沒有 ACL／可達性檢查——這是 Batfish、Forward、IP Fabric 的主場。
+- O3 ◐：附帶的模擬器只吃「要關掉哪些交換機」，不吃「拿掉哪條鏈路」；它的預測從來沒有和實測比過（Energy-Saving-App@9facb78 src/sim/energy_saving_simulator.cpp:467；M ops.O3 scope）。沒有一個工具在這格是 ●。
+- O5 ●⚠：Mininet 上可以切 link、關交換機；但 OVS 上「關再開」會讓那台交換機底下所有主機永久斷線，而四種健康檢查全綠（KNOWN-ISSUES B-9）。「副本」是你用拓樸檔建的 Mininet fabric，不是自動複製的正式網路；OVS 的副本還是寫死的 10 台交換機（Network-Traffic-Generator@6e3f388 testbed_topo.py:39-48）。
+- O6 ●⚠◌：Energy-Saving-App 會在模擬檢查後關掉低負載交換機；Mininet 上的功率讀數是由 dpid 合成的；app 端的鎖 livelock 仍開著（KNOWN-ISSUES A-9）。
+- O7 ●⚠◌：`POST /ndt/intent_translator/text` 呼叫 OpenAI，預設關閉，從來沒有在開啟 AI 的狀態下跑過；BLOCK_HOST 沒裝任何東西也回 success（KNOWN-ISSUES A-4g；K/src/ndt_core/intent_translator/IntentTranslator.cpp:809）。注意：GNS3／CML／IP Fabric 的 ● 是「透過 MCP 讓外部 LLM 建 lab 或查詢」，範圍與 NDTwin 的「轉成網路動作」不同（各格 scope）。
+- O8 ●⚠◌：Network-State-Recorder 每 5 秒錄 graph 與 flow，Web-GUI／Visualizer 可以回放；但 recorder 遇到一次 connection refused 就永久停止、之後只產生空檔（K/doc/2026-08-14_cross-component-integration-matrix.md:147）；回放沒有跑過的紀錄（◌）。
+- 公平性：商用三家（*）只根據廠商公開資料，它們的 ● 是廠商的說法；? 是「公開資料沒寫」，不等於沒有。學術兩個（†）只有論文或草案。
+
+### P08 `Open-source tools: license, scale, interface`   form: table
+| tool | license | cost | latest release | largest documented scale | install | interface |
+|---|---|---|---|---|---|---|
+| Mininet+Ryu | BSD-3 · Apache-2.0 | free | Mininet 2.3.0 (2021) · Ryu 4.34 (2019) | "hundreds of hosts", no figure | VM or source; root | Python API, CLI · Ryu REST |
+| ONOS+Mininet | Apache-2.0 | free | 2.7.0 LTS (2022) | 100-400 switches (old test report) | Docker or Bazel build | REST, Java, CLI, GUI |
+| Containerlab | BSD-3 | free | v0.79.0 (2026-08) | not stated | packages, Docker; sudo | CLI + YAML |
+| ns-3 | GPL-2.0 | free | ns-3.49 (2026-10) | 10^9 nodes on HPC (study) | source build | C++ (Python bindings) |
+| sFlow-RT | proprietary | free download; production by quote | 3.2 (date not stated) | not stated | tar, Docker, RPM, DEB; Java 17 | REST + JavaScript |
+| P4 tutorials VM | Apache-2.0 | free | no versioned release | 4 switches, 4 hosts (basic) | VM or Ubuntu install | make, Mininet CLI, P4Runtime |
+| p4-utils | GPL-2.0 | free | v0.0 (2018) | not stated | script or QEMU VM | Python API, JSON |
+| ONOS+Stratum | Apache-2.0 | free | ONOS 2.7.0 (2022) · Stratum (2022-06) | tutorial: 4 switches, 6 hosts | Docker + make, or VM | REST, Java · P4Runtime, gNMI |
+| Batfish | Apache-2.0 | free | v2026.08.27 | 75-2735 nodes (11 real networks) | Docker or pip; 8 GB RAM min | Python (pybatfish) |
+| GNS3 | GPL-3.0 | free; NOS images licensed apart | 2.2.61 (2026-07) | 600-800 routers, one server (third party) | installers, PPA, pip | REST + WebSocket |
+| NDTwin | Apache-2.0 | free; LLM needs own OpenAI key | v1.0.0 (2026-02, OpenFlow only); P4 plane unreleased | 10 switches, 128 hosts (measured) | VM image or Ubuntu 24.04 build; sudo | REST :8000; no auth, no push |
+(Rows M1, M2, M3, M7, M8, M9 of M; M6 fidelity is P04; M4 and M5 dropped for every tool, §0 rule 7.)
+講者備註：
+- 🟠 每格讀自 M 的 maturity 列；出處網址在 M 的 source／locator。日期是 2026-10-08 讀到的。
+- NDTwin 的「latest release」：最後一個正式版 v1.0.0（2026-02）只有 OpenFlow（該 tag 的檔案樹沒有 p4_proxy/，`git ls-tree v1.0.0`）；今天比較的 P4 平面在 trunk 上，README 寫明是測試用快照、不是 release（K/README.md:8-10、:145-148）。
+- NDTwin 的「scale」：10 台交換機、128 台主機、288 條有向邊，OVS 與 bmv2 兩個平面都量過（M maturity.M7）；網站上「數十台硬體交換機」沒有模型也沒有紀錄，所以不放。
+- NDTwin 的「interface」：約 45 個 REST route、沒有認證、沒有 OpenAPI 規格、沒有推送（K/src/ndt_core/http/HttpSession.cpp:326-345）；P4 proxy 另有 REST :8081。
+- 「install」欄的 NDTwin 前提：C++23、Boost 1.83+、Ryu 跑在 Python 3.8、需要 sudo（M maturity.M8）。
+
+### P09 `Commercial and academic: public material only`   form: table
+| tool | basis | what it models | cost | latest release | documented scale | interface |
+|---|---|---|---|---|---|---|
+| Forward Networks | vendor datasheet | config + state, from snapshots | quote, per device | 25.6.0 (2025-06) or newer | "thousands of devices" (vendor) | REST, query engine, MCP |
+| Cisco Modeling Labs | vendor docs | VM / container NOS emulation | free 5 nodes · $199 (20) · $349 (40) | 2.10.0 (2026-03) | 520 running nodes | REST, Python client, MCP |
+| IP Fabric | vendor docs | config + state, from discovery | quote, per device | 8.1.4 (2026-10) | sizing tier to 20,000 devices | REST, Python SDK, MCP |
+| RouteNet-Fermi | paper | GNN: delay, jitter, loss | free code; data + GPU | paper 2023; no release | 300 nodes (trained on 5-10) | Python scripts |
+| IRTF NDT draft | draft text | framework; model left open | free to read | draft -13 (2026-07) | n/a | names SNMP, NETCONF, REST |
+講者備註：
+- 🟠 讀自 M 的 maturity 列，五個都只用公開資料：商用三家看 datasheet、文件與定價頁，學術兩個看論文（arXiv 2212.12070）與 IETF 草案 draft-irtf-nmrg-network-digital-twin-arch-13。
+- 為什麼放進來：它們是「network digital twin」這個詞今天在業界與學界的代表。Forward 與 IP Fabric 把自己叫 digital twin，但它們是設定與狀態的模型，不跑封包、沒有流量與負載（M ops.O1 note）；IRTF 草案要求即時資料與 what-if，但沒有實作；RouteNet-Fermi 是預測延遲的神經網路模型。
+- 數字的性質：Forward 的「thousands of devices」是廠商說法；CML 的 520 是 2.9 版部落格的數字；IP Fabric 的 20,000 是 sizing 文件的級距；Forward 25.6.0 是找到的最新公開 release note，可能有更新的。
+
+### P10 `Hands-on: one task, two setups`   form: figure `handson/fig_p10_setup`   status: waits for hands-on
+Figure spec (topology part ready; task wording waits):
+- Data: H/topology.tsv (10 switches, 4 hosts, 16 switch-switch links; same wiring for all arms).
+- Canvas: one fat-tree style drawing: core s9, s10; aggregation s5-s8; edge s1-s4; hosts h1-h4 on port 3.
+  Highlight h1 -> h3; path P = s1-s5-s9-s7-s3 (solid accent), alternate A = s1-s6-s10-s8-s3 (dashed).
+  Mark the trigger point on s1-s5 (a small lightning glyph; for the congestion task, a load glyph).
+- Two titled side panels: "NDTwin arm" = app -> REST :8000 -> kernel -> Ryu (OVS) or P4 proxy (bmv2);
+  "DIY arm" = app -> stock Ryu 4.34 (ofctl_rest / rest_topology) -> OVS. Same fabric for both (the lab
+  helper's ovs_4host_topo.py), same OpenFlow 1.3.
+- On canvas: box names, "same fabric", "OVS + bmv2" vs "OVS only". No numbers.
+講者備註：
+- 🟢 拓樸：三個臂用同一個 10 台交換機／4 台主機的 fabric；兩個 JSON 模型與 ovs_4host_topo.py 的 16 條鏈路與埠完全一致（H/raw/helper_topo_vs_tsv.txt，離線比對）。
+- 任務：【待第一階段定稿】預定為「把一條流從壅塞的鏈路搬走」（congestion relief）。為什麼不是「斷線後重新路由」：NDTwin 的 stack 自己就會重新路由（H/PHASE0_NOTES.txt §4），一個 failover app 在 NDTwin 那一側等於重寫平台已經做的事，兩邊不是同一件工作；平台內建的 failover 時間當成資料放在 P13 左半。
+- DIY 臂為什麼也用實驗室的 helper 起 fabric：這樣兩邊是同一個 fabric，排除「DIY 的網路長得不一樣」這一類疑問。代價：helper 的 fabric 有開 sFlow（DIY 臂沒有人收），DIY 臂另外把 bridge 釘在 OpenFlow 1.3 以和 NDTwin 臂協商出同一版本（H/PHASE0_NOTES.txt §6 第 1、2 點）。
+- 公平性：DIY 臂沒有 P4 對應物，「同一個 app 不改就能跑 bmv2」只能問 NDTwin（P14）。
+
+### P11 `What each side had to build`   form: table   status: waits for hands-on
+Table shape (cells filled from the phase-1 run's records; RAN only):
+| component | NDTwin arm | DIY arm |
+|---|---|---|
+| topology and link state | TBD | TBD |
+| flow rates per link | TBD | TBD |
+| congestion detection | TBD | TBD |
+| path computation | TBD | TBD |
+| rule install and check | TBD | TBD |
+| runs on bmv2 too | TBD | n/a (no P4 counterpart) |
+Each cell: "given by <API/tool>" or "written: <N lines>".
+講者備註：
+- 【待實作完成】每格的依據是兩臂 app 的原始碼與 run 紀錄（路徑、commit sha）。
+- 預期但未驗證（INFERRED，H/PHASE0_NOTES.txt §5）：NDTwin 臂從 REST 拿到拓樸、鏈路利用率與規則安裝；DIY 臂要自己做鏈路偵測（LLDP 或探測；netem 不會觸發 port-status）、路徑計算與規則重裝，而且只在 OVS 上。
+- 公平性註記：Ryu 附帶的 simple_switch_stp_13 可能不寫一行就讓 DIY 臂通過 failover 類任務（PHASE0 §4）——這也是任務改成壅塞搬移的原因之一。
+
+### P12 `Effort, measured`   form: table   status: waits for hands-on
+Table shape:
+| metric | NDTwin arm | DIY arm |
+|---|---|---|
+| app lines of code (cloc) | TBD | TBD |
+| files | TBD | TBD |
+| external pieces added | TBD | TBD |
+| privileged steps | TBD | TBD |
+| time to first working run | TBD | TBD |
+講者備註：
+- 【待實作完成】每個數字標量法（cloc 版本與參數、計時起點與終點）與 raw 路徑；兩臂由誰、以什麼順序寫，要寫明（先寫的那一臂會讓後寫的變快）。
+
+### P13 `Time to relief after the trigger`   form: figure `handson/fig_p13_relief`
+Figure spec: two titled panels, both RAN.
+- Left panel "Built-in reroute, no app (link cut)": data H/controls.tsv (columns arm, data_plane, trial,
+  gap_ms, stayed_up, notes). One strip per (arm, plane): NDTwin OVS, NDTwin bmv2, DIY static (expected red:
+  never recovers), DIY simple_switch_stp_13. Dots = trials (gap_ms / 1000, seconds); red cross for
+  NOT_RECOVERED. Value label: median per strip. x: seconds.
+- Right panel "Congestion relief by the app": waits for phase 1 (same encoding; data file TBD).
+- Words on canvas: panel titles, strip names, axis "seconds after the trigger", medians.
+- Generator stops if a strip has fewer trials than run_controls.sh planned (5 for NDTwin arms, 3 for DIY)
+  or if any row's verdict is INVALID_*.
+講者備註：
+- 🟢 左半（平台內建、沒有 app）：用 tc netem 把 h1→h3 主路徑上 s1 的上行鏈路兩個方向都切成 100% loss，量「切斷之後送出、而且收到回覆的第一個 ping」距離切斷的時間（H/analyze_ping.py 的定義：只算切斷之後送出的封包，還要連續 10 秒沒有 >0.5 s 的空檔才算恢復）。
+- 🟢【部分結果，run 仍在進行，數字以完成後的 controls.tsv 為準】截至 2026-10-08 02:53Z，NDTwin OVS 5 次全部 RECOVERED：18.5、20.6、20.8、15.9、20.3 s（切 s1-s5；H/controls.tsv、H/raw/run_controls.20261008T104711.log）。身分：repo HEAD 50ce5022（+105 個未提交檔），kernel binary build/bin/ndtwin_kernel sha256 6fc7e4187df49ee9（2026-10-03 建），bmv2 simple_switch_grpc 3ff54b5c1901c9d3，P4 pipeline json 0b19d789d74fc996，Ryu 4.34，Mininet 2.3.0，OVS 3.3.9（H/raw/identity.20261008T104711.txt）。bmv2 與兩個 DIY 臂尚未跑完。
+- 對帳：2026-08-17 同一個 10 台／4 主機 cell 的舊量測（K/doc/audit/2026-08-17_p4-vs-ovs-matched-topology/REPORT.md）：OVS n=10 平均 15.7 s（13.7–18.1）、bmv2 n=10 平均 13.7 s（11.0–16.4），全部恢復。今天的 OVS 落在 15.9–20.8 s，可以比但不能直接相減：舊的是單向 loss、h1→h2、每秒 5 個封包、08-17 的 commit；今天是雙向、h1→h3、每秒 100 個、2ece656c 之後。這是「更新」，不是「推翻」。（舊筆記裡的「約 50 s」是 128 主機那一格，不是這一格。）
+- 意義：平台自己約 16–21 秒會繞路（OVS），這就是 problems 第 4 名「只能 poll、晚 10–20 秒」的實測樣子。
+- 右半：【待第一階段】。
+
+### P14 `The same app, unchanged, on bmv2`   form: table   status: waits for hands-on
+Table shape:
+| check | OVS | bmv2 |
+|---|---|---|
+| app code changed | -- | TBD (expected: 0 lines) |
+| relief observed | TBD | TBD |
+| time to relief, median | TBD | TBD |
+| write refusals seen | TBD | TBD |
+| DIY arm | runs | n/a |
+講者備註：
+- 【待實作完成】「write refusals seen」要從 GET /ndt/get_flow_dispatch_status 讀（因為 install 端點即使失敗也回 200，problems 第 2 名），不能只看 HTTP 狀態碼。
+- 預期風險（INFERRED）：bmv2 每台表 1024 筆、P4 上沒有 group，若 app 用到 ECMP group 會在 bmv2 上被拒（K/src/ndt_core/routing_management/P4RoutingStrategy.cpp:27-33）。
+
+### P15 `When NDTwin is the right pick`   form: table
+| you need | NDTwin | nearest alternative | tasks |
+|---|---|---|---|
+| one API: topology, flows, link load, rule writes | ● on all four (⚠ on three) | ONOS+Mininet: ● on three | A1-A4 |
+| one app on OVS and bmv2 | ●⚠ | ONOS: write a pipeconf first | A7 |
+| power-state and energy experiments | ●⚠◌ (only ●) | none built in | O6 |
+| live mirror with flows and load | ●⚠◌ (fabric it controls) | Forward*, IP Fabric*: snapshots, no load | O1 |
+| fault drills with twin state alongside | ●⚠ | GNS3, CML*: drills, no twin state | A5, O5 |
+| recorded state, replayed in a GUI | ●⚠◌ | Forward*, IP Fabric*: snapshot history | O8 |
+講者備註：
+- 🟠 每一列都是 P05–P07 的格子，原樣帶過來，旗標不拿掉。
+- 這一頁回答原題：一個開發者要的是「一個 API 同時給拓樸、流、鏈路負載，還能寫規則、能故障演練、同一份 app 跑兩種資料平面」——這個組合目前只有 NDTwin 內建；ONOS 最接近，但 P4 要先寫 pipeconf、沒有節能與 twin 狀態。
+- 第 4 列一定要講括號：鏡像的是 NDTwin 自己在控制的 fabric。
+- 第 2 列：A7 的 ⚠ 是 P4 平面的靜默失敗（C-6、C-7）；ECMP 類 app 在 P4 上不能跑。
+
+### P16 `When NDTwin is the wrong pick`   form: table
+| you need | use instead | NDTwin today | tasks |
+|---|---|---|---|
+| config, ACL, reachability checks | Batfish, Forward*, IP Fabric* | ○ | O2 |
+| vendor NOS behaviour | GNS3, CML*, Containerlab | ○ | O4 |
+| generated P4 tests, hardware path | p4-utils, ONOS+Stratum | ○ · ○ | P6, P8 |
+| your own .p4, least friction | P4 tutorials VM, p4-utils | ◐ via lab CLI | P1, P3 |
+| a twin of a network you do not control | Forward*, IP Fabric*, sFlow-RT | needs its own Ryu app | O1 |
+| more than 10 switches, 128 hosts | ns-3, Batfish, IP Fabric* | largest measured: 10 / 128 | M7 |
+| high packet rates on the P4 plane | OVS plane or hardware | bmv2: ~16-20 kpps per flow | F-bmv2 |
+| traffic-aware what-if beyond power | ns-3, RouteNet-Fermi† | switch power-off only | A6, O3 |
+| physical switches today | ONOS, Mininet+Ryu | coded, not run | A8 |
+講者備註：
+- 🟠 前 5 列與第 8、9 列來自 P05–P07 的格子；第 6 列來自 M maturity.M7；第 7 列來自 KNOWN-ISSUES F-bmv2：bmv2 單流、三跳、fast build 的乾淨上限約 16–20 kpps，**天花板是 pps 不是 Mbit/s**（換 frame size，Mbit/s 差 16 倍）。❌ 不要把它講成「bmv2 大約幾 Mbps」。
+- 第 4 列：自己的 .p4 在 NDTwin 上可以跑（13 支 tutorial exercise），但入口只有實驗室的 `ndt up p4 --app`，對想快速試自己程式的人，p4-utils 或 P4 tutorials VM 比較省事。
+- 第 5 列：要鏡像一個不是 NDTwin 在控制的網路，今天做不到（problems 第 5 名）。
+- 這一頁的用意：讓老師知道我們清楚 NDTwin 不適合什麼。
+
+### P17 `Real problems, ranked: 1-6`   form: table
+| # | problem | hurts | evidence | fix | cost |
+|---|---|---|---|---|---|
+| 1 | setup tied to one lab machine | P4 · app · ops | ndtwin-lab:98; AppConfig.hpp.example:8 | install-relative defaults, runtime URLs, clean-VM CI | 1-2 weeks |
+| 2 | writes report success that did not happen | app · P4 · ops | api_routes.py:548; KI C-6, C-7, A-4g | non-2xx with reason; wait mode with per-entry result | 3-5 days |
+| 3 | zero means idle or blind; slow flows vanish | app · ops | KI C-9, B-x reverse; FlowLinkUsageCollector.hpp:91 | null when silent; window parameter; contract test | 3-5 days |
+| 4 | failures reach apps only by polling | app | no push in src/; KI D-2 | event stream (SSE); LLDP interval sweep | ~1 week |
+| 5 | mirroring needs NDTwin as the controller | ops | intelligent_router.py:617; O1 | read-only observer mode | 3-6 weeks |
+| 6 | topology must be declared; OVS copy fixed | ops · app | TopologyAndFlowMonitor.cpp:2373 | OVS fabric from model; undeclared vertices; 64-switch run | 2-3 weeks |
+(Full rows, paths and costs: figures_spec/problems.tsv. All paths @2ece656c. Costs INFERRED.)
+講者備註：
+- 排序軸：「這件事會不會讓一個開發者放棄」。先擋住第一次使用的（裝不起來）> 讓人不再相信數字的（API 說成功其實沒做、0 分不出是閒還是瞎）> 少了能力但有繞法的 > 少見路徑上的。成本是粗估（INFERRED），以人天計，不含排隊。
+- 第 1 名：root helper 的預設路徑寫死在一個人的家目錄（K/tools/test_workflow/ndtwin-lab:98；/etc/ndtwin-lab.conf 可以覆寫，KNOWN-ISSUES G-7），Ryu app 的預設拓樸路徑也是（K/intelligent_router.py:36-38，可用環境變數覆寫），而 Ryu／proxy／模擬器的位址是編譯期常數（K/setting/AppConfig.hpp.example:6-10），自己的 .p4 只能走 `ndt up p4 --app`。修法：預設改成相對安裝路徑、位址改成執行期參數、把 helper 與它的 sudoers 片段一起出貨，再加一個在乾淨 VM 上從頭跑 `ndt up p4 --app` 的 CI job。
+- 第 2 名：bmv2 表滿時 proxy 回 200 `Failed to add route`（K/p4_proxy/proxy_agent/api_routes.py:548；C-6：每台第 897 筆起全部失敗）；P4 上帶 priority 的刪除全部失敗，呼叫端每次都拿到 200 queued（C-7：12 分鐘 4312 次 POST、100% 回 200）；kernel 的 install 只回 queued，結果要另外查（K/src/ndt_core/http/HttpSession.cpp:2443）；意圖翻譯的 BLOCK_HOST 不檢查安裝結果（A-4g；IntentTranslator.cpp:809）。修法：proxy 對被拒的寫入回非 2xx 並說明原因（bmv2 給的錯誤是空的 UNKNOWN 時，proxy 自己讀一次表列數、講出「表滿」）；kernel 把 proxy 的非 2xx 記為失敗，並提供等待模式回傳逐筆結果。
+- 第 3 名：遙測停了時利用率回 0（C-9）、`last_sample_age_seconds` 回 −1.0（C-8，K/src/ndt_core/collection/FlowLinkUsageCollector.cpp:2042）、ifSpeed=0 讓利用率變 null（B-17）、每秒不到約 22 個封包的流在預設 3 秒視窗裡一半時間看不到（B-x 的反向；FlowLinkUsageCollector.hpp:91）。節能 app 正是靠「利用率低」決定關機，所以這是會關錯交換機的形狀（INFERRED）。修法：telemetry_status 不是 live 時 usage 與 age 給 null；視窗做成文件化的參數並回報每條流的取樣下限；加一條契約測試「silent 就不得有數值」。
+- 第 4 名：src/、include/ 裡沒有任何推送機制（websocket／event-stream git grep 0 筆）；P4 上 LLDP 每 5 秒、逾時 15 秒（K/p4_proxy/proxy_agent/topology_manager.py:373），實測 bmv2 偵測 10.7–14 s（D-2）；今天 OVS 平台自己繞路 15.9–20.8 s（🟢 P13，部分結果）。修法：kernel 加 SSE 事件流（link、switch、規則結果）；跑 D-2 的 beacon 間隔掃描（knob `NDTWIN_P4_BEACON_S` 已在，實驗沒跑）。
+- 第 5 名：鏡像的前提是 NDTwin 自己的 Ryu app 安裝所有路由（K/intelligent_router.py:617-618）。修法：唯讀 observer 模式——拓樸從既有 controller 的 REST（ONOS、原版 Ryu）讀、遙測從交換機 sFlow，寫入關閉。需要先做設計決定（twin 對不是它控制的網路能做什麼）。
+- 第 6 名：拓樸檔沒有的交換機只印 WARN、被忽略（K/src/ndt_core/collection/TopologyAndFlowMonitor.cpp:2373）；OVS 副本是寫死的 10 台（Network-Traffic-Generator@6e3f388 testbed_topo.py:39-48），只有 bmv2 的 builder 讀拓樸模型；量過最大 10 台／128 主機。修法：OVS fabric 也從模型建（重用 K/p4_proxy/mininet/topo_from_json.py）；發現的交換機以「未宣告」頂點加入；兩個平面各做一次 64 台的規模量測。
+
+### P18 `Real problems, ranked: 7-12`   form: table
+| # | problem | hurts | evidence | fix | cost |
+|---|---|---|---|---|---|
+| 7 | P4 rules vanish on proxy restart | P4 · app | api_routes.py:841; KI A-4c | proxy journal + replay; kernel reads boot_id | 3-5 days |
+| 8 | what-if narrow, never checked | ops · app | energy_saving_simulator.cpp:467 | link-removal input; predicted vs measured run | 1-2 weeks |
+| 9 | power cycle cuts hosts, checks green | ops | OVSPowerStrategy.cpp:475; KI B-9 | keep ofport on re-add; ping before "success" | 2-4 days |
+| 10 | API open to the network, no auth | ops | ControllerAndOtherEventHandler.cpp:100 | bind 127.0.0.1; token; narrow CORS | 1-2 days |
+| 11 | P4 plane narrower than OpenFlow | P4 · app | P4RoutingStrategy.cpp:27; api_routes.py:880 | ternary/range; ECMP selector; table size | 2-3 weeks |
+| 12 | built on an unmaintained controller | app · ops | intelligent_router.py:618; Ryu 4.34 (2019) | port to os-ken, current Python | ~1 week |
+講者備註：
+- 第 7 名：`/p4/table_entry` 寫的表項不寫日誌，proxy 重啟就全部消失（K/p4_proxy/proxy_agent/api_routes.py:841 TABLE_ENTRY_NOT_JOURNALED）；proxy 已經會發 boot_id／table_generation，但 kernel 沒有讀它（KNOWN-ISSUES A-4c）。修法：proxy 記日誌並在啟動時重放；kernel 讀 boot_id，在 dispatch status 裡標出「已遺失」。
+- 第 8 名：模擬器的輸入只有「要關掉的交換機集合」（Energy-Saving-App@9facb78 src/sim/energy_saving_simulator.cpp:467），每個案例要掛 NFS、要 root（Simulation-Platform-Manager@b7efd93 app.cpp:286），預測從沒和實測比過。修法：加「拿掉鏈路」的輸入（BFS 改路已經有）；在 10 台 fabric 上做一次「預測 vs 實測」；案例改用 HTTP 傳。分項：2–3 天、1–2 個實驗夜、約 1 週。
+- 第 9 名：OVS 關機後重新 add-port 沒有指定 ofport_request，埠號重排（K/src/ndt_core/power_management/OVSPowerStrategy.cpp:475）；結果是那台底下所有主機 100% 掉封包，而 reachable、is_up、路徑查詢、`ndt status --check` 四種都說健康（KNOWN-ISSUES B-9，128 主機 OVS 實測重現兩次）。Energy app 的鎖 livelock（A-9，kernel 端已修、app 端仍開）一起修。修法：關機前記下每個埠的 ofport、重新加入時用 ofport_request；回報成功前先 ping 一台主機；app 改用 kernel 的 leaseId 租約。
+- 第 10 名：REST 伺服器綁在 0.0.0.0:8000（K/src/ndt_core/event_handling/ControllerAndOtherEventHandler.cpp:100），CORS 是 *（K/src/ndt_core/http/HttpSession.cpp:305），沒有認證——關交換機、切鏈路的 route 都在同一個 port。推論（INFERRED，未測）：同網段的任何主機都能呼叫它；瀏覽器裡的網頁也能送簡單 POST。修法：預設只綁 127.0.0.1、要放寬得明確給旗標；會改變狀態的 route 要 bearer token；CORS 只開給 GUI 的 origin。
+- 第 11 名：P4 上 group／meter 被拒（P4RoutingStrategy.cpp:27-33），ternary／range／optional 回 501（api_routes.py:880），每張表 1024 筆（K/p4_proxy/p4_src/ndtwin_switch.p4:344,360）。修法：table_entry 支援 ternary／range（bmv2 本身支援，2–3 天）；ndtwin_switch.p4 用 action selector 做 ECMP（1–2 週）；表大小做成建置參數（1 天）。
+- 第 12 名：OVS 平面靠 Ryu 4.34（最後一個 tag 是 2019-10-01）跑在 Python 3.8（M maturity.M3、M8；K/intelligent_router.py:617-618）。修法：把 intelligent_router.py 移到 os-ken（OpenStack 維護的 Ryu 分支，API 同形），換到現行 Python，重跑 OVS 的 live 閘門。
+
+### P19 `Real problems, ranked: 13-18`   form: table
+| # | problem | hurts | evidence | fix | cost |
+|---|---|---|---|---|---|
+| 13 | rule view lags, can show rejected rules | app | KI C-4b, C-4 | fresh read-back from the switch; ghost filter on OVS | 2-4 days |
+| 14 | any app can release another's lock | app | KI B-2 | owner check on release and renew | ~2 days |
+| 15 | recording stops silently | ops | integration-matrix.md:147; KI B-3 | reconnect with backoff; refuse instead of 200 | 1-2 days |
+| 16 | intent translator: one cloud LLM, never run | ops | LLMAgent.cpp:138 | configurable endpoint; one end-to-end run | 1-2 days |
+| 17 | physical switch path never run | ops · app | ndt_api.md:1598 | disclose: no testbed; mark "unverified" | < 1 day |
+| 18 | no P4 hardware target; bmv2 pps ceiling | P4 | SPEC.md:1; KI F-bmv2 | disclose: target discontinued; state pps | -- |
+講者備註：
+- 第 13 名：刪掉的規則在 `get_switch_openflow_table_entries` 裡還會被列 9.61 秒（KNOWN-ISSUES C-4b）；OVS 寫入路徑沒有套用「交換機拒絕的規則不要當成存在」的過濾（C-4；OVS 這一側是讀碼推論，沒有實跑）。
+- 第 14 名：任何 app 都能釋放或續約別人的鎖（KNOWN-ISSUES B-2 第 2 部分；第 1 部分已修）。只有一個 app 時不會踩到；兩個 app 同時跑（例如 TE 與節能）就會。
+- 第 15 名：Network-State-Recorder 一次 connection refused 就永久停止、之後只產生空檔（K/doc/2026-08-14_cross-component-integration-matrix.md:147）；kernel 的 /ndt/historical_logging 在 Mininet 下一列都不寫（KNOWN-ISSUES B-3）。
+- 第 16 名：唯一的端點寫死 https://api.openai.com（K/src/ndt_core/intent_translator/LLMAgent.cpp:138），預設模型在 K/src/main.cpp:418；從沒在開啟 AI 的狀態下跑過。修法：可設定的 OpenAI 相容 base URL（本機模型也能接）＋一次端到端測試。
+- 第 17、18 名是「揭露」，不是修法，理由：
+  - 17：程式寫了 HPE5520 與 Brocade 兩種（K/include/common_types/GraphTypes.hpp:140-144），但實體 testbed 停用（K/doc/2026-01-02_ndt_api.md:1598）。沒有硬體就沒辦法驗證；能做的是在 `--help` 與 get_graph_data 標出「testbed 模式未驗證」，拿到硬體的第一天就跑。
+  - 18：程式只有 bmv2 v1model（K/README.md:5、K/p4_proxy/p4_src/SPEC.md:1）；主要的硬體 P4 目標（Tofino）已停產（M p4.P8 ONOS+Stratum scope）。bmv2 的天花板用 pps 講（約 16–20 kpps／流，KNOWN-ISSUES F-bmv2）。以後的選項是評估 P4-DPDK 或 eBPF 後端，以月計。
+
+### P20 `What we fix first, and what we disclose`   form: figure `next/fig_p20_roadmap`
+Figure spec: figures_spec/roadmap.txt (columns NOW / NEXT / LATER + grey DISCLOSE; lanes "Trust what the API
+says", "See failures and load in time", "Run it anywhere", "Model more of the network"; one box per problem
+rank, label = short fix + #N; fill = persona hurt most; four dependency arrows). Data: figures_spec/problems.tsv.
+講者備註：
+- 這張圖是 P17–P19 的修法排程（INFERRED 的計畫，不是已完成的事）。不寫日期。
+- NOW 放的是幾天就能修、而且直接影響「能不能相信 twin」的：#2 誠實的寫入結果、#3 遙測瞎了就給 null、#9 OVS 電源循環保留埠號、#10 只綁本機加 token、#14 鎖的 owner 檢查、#15 recorder 重連、#16 可設定的 LLM 端點。
+- NEXT 第一個是 #1（排名第一但要 1–2 週，因為是打包加 CI），接著 #4 事件流、#6 從模型建 OVS fabric、#7 proxy 日誌、#8 what-if 加鏈路並對實測、#11 P4 表項種類與 ECMP、#12 換 os-ken、#13 即時讀回。
+- LATER 只有 #5 observer 模式：需要先決定 twin 對它不控制的網路可以做什麼。
+- DISCLOSE：#17 實體交換機（沒有 testbed）、#18 硬體 P4 目標（已停產）——修不了，理由在 P19。
+- 箭頭：#2→#4（事件流要帶誠實的規則結果）、#1→#12（設定改成執行期後再換 os-ken，CI 一起蓋到）、#6→#5（observer 需要未宣告頂點）、#3→#8（驗證 what-if 需要會說「我瞎了」的遙測）。
+
+## 3. Open items for the orchestrator (not slide content)
+
+Contested matrix cells (M shown as is on P05-P07 until ruled):
+1. ops O5 IP Fabric = ● but its own note says "no failure-injection drill on a copy is documented"; the CHANGE
+   (unknown -> builtin) rests on a vendor MCP demo page claiming a gateway-failure simulation. Note and verdict
+   disagree; either update the note or set ?.
+2. ops O7 CML ● / GNS3 ● / IP Fabric ●: MCP lets an external LLM build labs or run read-only queries; NDTwin's
+   row meaning is "turn intent into a network action". Scope differs; GNS3's MCP is in a 3.1 pre-release;
+   Forward's ● rests on a press release with GA "planned April 2026". Consider ◐ for lab-building-only cells.
+3. app A7 ONOS+Mininet = ● while its own scope says "P4: write a pipeconf; docs do not state identical app code";
+   the CHANGE cites a shipped basic pipeconf. Note and verdict disagree.
+4. app A7 NDTwin = ●⚠ although group/meter return 501 on P4 and the ECMP app is OpenFlow-only; ◐⚠ would be
+   defensible. Left as M.
+NDTwin scope texts in M that are stale or self-contradictory (cell glyphs unaffected):
+5. ops O8 scope still cites B-3; the check found B-3 is the kernel logger, off the NSR path; the real ⚠ is NSR
+   stopping after one refused connection (integration matrix :147). Notes on P07 use the latter.
+6. app A3 scope says "(A-4f, open)" and later "A-4f fix is merged in 2ece656c (36e3d78a)"; 36e3d78a is an
+   ancestor of 2ece656c (checked). P05 notes rest ⚠ on C-9/B-17 only.
+7. maturity M3 NDTwin text includes the repository split; P08 rewrites it per §0 rule 7.
+Stale line numbers in KNOWN-ISSUES (ids still valid, lines moved): C-8 cites FlowLinkUsageCollector.cpp:1874
+(now :2042); D-2 cites topology_manager.py:137 (now :373). This template cites the current lines.
+Other: README.md (trunk) says both planes support group and meter entries; P4RoutingStrategy.cpp:27-33 refuses
+them on P4. Not a slide item (documentation), noted for the owner.
+Landscape positions marked unsure: see figures_spec/landscape.tsv column `unsure` (6 rows).
+Hands-on: P13 left panel numbers are partial (OVS n=5 only at 02:53Z); do not freeze them until the run's
+release line is in raw/run_controls.*.log.

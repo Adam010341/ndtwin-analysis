@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="959.76pt" height="446.4pt" viewBox="0 0 959.76 446.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-28T03:51:48.798927</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 446.4 
+L 959.76 446.4 
+L 959.76 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 38.16 68.4 
+L 473.04 68.4 
+Q 478.8 68.4 478.8 74.16 
+L 478.8 361.44 
+Q 478.8 367.2 473.04 367.2 
+L 38.16 367.2 
+Q 32.4 367.2 32.4 361.44 
+L 32.4 74.16 
+Q 32.4 68.4 38.16 68.4 
+z
+" clip-path="url(#pb3448e5f8a)" style="fill: #f7f8f9; stroke: #d0d0d0; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 183.6 277.2 
+L 327.6 277.2 
+" clip-path="url(#pb3448e5f8a)" style="fill: none; stroke: #4f4f4f; stroke-width: 2.5; stroke-linecap: square"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 509.76 68.4 
+L 944.64 68.4 
+Q 950.4 68.4 950.4 74.16 
+L 950.4 361.44 
+Q 950.4 367.2 944.64 367.2 
+L 509.76 367.2 
+Q 504 367.2 504 361.44 
+L 504 74.16 
+Q 504 68.4 509.76 68.4 
+z
+" clip-path="url(#pb3448e5f8a)" style="fill: #f7f8f9; stroke: #d0d0d0; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 655.2 277.2 
+L 799.2 277.2 
+" clip-path="url(#pb3448e5f8a)" style="fill: none; stroke: #4f4f4f; stroke-width: 2.5; stroke-linecap: square"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 187.92 118.8 
+L 323.28 118.8 
+Q 327.6 118.8 327.6 123.12 
+L 327.6 172.08 
+Q 327.6 176.4 323.28 176.4 
+L 187.92 176.4 
+Q 183.6 176.4 183.6 172.08 
+L 183.6 123.12 
+Q 183.6 118.8 187.92 118.8 
+z
+" clip-path="url(#pb3448e5f8a)" style="fill: #ffffff; stroke: #1a1a1a; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 72.72 248.4 
+L 179.28 248.4 
+Q 183.6 248.4 183.6 252.72 
+L 183.6 301.68 
+Q 183.6 306 179.28 306 
+L 72.72 306 
+Q 68.4 306 68.4 301.68 
+L 68.4 252.72 
+Q 68.4 248.4 72.72 248.4 
+z
+" clip-path="url(#pb3448e5f8a)" style="fill: #ffffff; stroke: #1a1a1a; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 331.92 248.4 
+L 438.48 248.4 
+Q 442.8 248.4 442.8 252.72 
+L 442.8 301.68 
+Q 442.8 306 438.48 306 
+L 331.92 306 
+Q 327.6 306 327.6 301.68 
+L 327.6 252.72 
+Q 327.6 248.4 331.92 248.4 
+z
+" clip-path="url(#pb3448e5f8a)" style="fill: #ffffff; stroke: #1a1a1a; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 151.92 320.4 
+L 359.28 320.4 
+Q 363.6 320.4 363.6 324.72 
+L 363.6 352.08 
+Q 363.6 356.4 359.28 356.4 
+L 151.92 356.4 
+Q 147.6 356.4 147.6 352.08 
+L 147.6 324.72 
+Q 147.6 320.4 151.92 320.4 
+z
+" clip-path="url(#pb3448e5f8a)" style="fill: #ffffff; stroke: #2f7d4f; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 659.52 118.8 
+L 794.88 118.8 
+Q 799.2 118.8 799.2 123.12 
+L 799.2 172.08 
+Q 799.2 176.4 794.88 176.4 
+L 659.52 176.4 
+Q 655.2 176.4 655.2 172.08 
+L 655.2 123.12 
+Q 655.2 118.8 659.52 118.8 
+z
+" clip-path="url(#pb3448e5f8a)" style="fill: #ffffff; stroke: #1a1a1a; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 544.32 248.4 
+L 650.88 248.4 
+Q 655.2 248.4 655.2 252.72 
+L 655.2 301.68 
+Q 655.2 306 650.88 306 
+L 544.32 306 
+Q 540 306 540 301.68 
+L 540 252.72 
+Q 540 248.4 544.32 248.4 
+z
+" clip-path="url(#pb3448e5f8a)" style="fill: #ffffff; stroke: #1a1a1a; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 803.52 248.4 
+L 910.08 248.4 
+Q 914.4 248.4 914.4 252.72 
+L 914.4 301.68 
+Q 914.4 306 910.08 306 
+L 803.52 306 
+Q 799.2 306 799.2 301.68 
+L 799.2 252.72 
+Q 799.2 248.4 803.52 248.4 
+z
+" clip-path="url(#pb3448e5f8a)" style="fill: #ffffff; stroke: #1a1a1a; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 623.52 320.4 
+L 830.88 320.4 
+Q 835.2 320.4 835.2 324.72 
+L 835.2 352.08 
+Q 835.2 356.4 830.88 356.4 
+L 623.52 356.4 
+Q 619.2 356.4 619.2 352.08 
+L 619.2 324.72 
+Q 619.2 320.4 623.52 320.4 
+z
+" clip-path="url(#pb3448e5f8a)" style="fill: #ffffff; stroke: #9c3b2e; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 22px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="32.4" y="40.237676" transform="rotate(-0 32.4 40.237676)">Why link discovery stops at a foreign P4</text>
+   </g>
+   <g id="patch_12">
+    <path d="M 198 177.84 
+Q 165.6 212.4 134.347004 245.736529 
+" clip-path="url(#pb3448e5f8a)" style="fill: none; stroke: #065a82; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 140.219779 243.566156 
+L 134.347004 245.736529 
+L 136.13437 239.736085 
+z
+" clip-path="url(#pb3448e5f8a)" style="fill: #065a82; stroke: #065a82; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 378 246.96 
+Q 345.6 212.4 314.347004 179.063471 
+" clip-path="url(#pb3448e5f8a)" style="fill: none; stroke: #065a82; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 316.13437 185.063915 
+L 314.347004 179.063471 
+L 320.219779 181.233844 
+z
+" clip-path="url(#pb3448e5f8a)" style="fill: #065a82; stroke: #065a82; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 669.6 177.84 
+Q 637.2 212.4 605.947004 245.736529 
+" clip-path="url(#pb3448e5f8a)" style="fill: none; stroke-dasharray: 6,4.5; stroke-dashoffset: 0; stroke: #9c3b2e; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 611.819779 243.566156 
+L 605.947004 245.736529 
+L 607.73437 239.736085 
+z
+" clip-path="url(#pb3448e5f8a)" style="fill: #9c3b2e; stroke-dasharray: 6,4.5; stroke-dashoffset: 0; stroke: #9c3b2e; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6e6e6e" x="464.4" y="93.786406" transform="rotate(-0 464.4 93.786406)">READ THE CODE</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="50.4" y="95.361328" transform="rotate(-0 50.4 95.361328)">NDTwin's own P4</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 14px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="255.6" y="150.963281" transform="rotate(-0 255.6 150.963281)">P4 proxy</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="126" y="282.025195" transform="rotate(-0 126 282.025195)">switch A</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="385.2" y="282.025195" transform="rotate(-0 385.2 282.025195)">switch B</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #065a82" x="122.4" y="208.303125" transform="rotate(-0 122.4 208.303125)">packet-out</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #065a82" x="388.8" y="208.303125" transform="rotate(-0 388.8 208.303125)">packet-in</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #065a82" x="255.6" y="264.767812" transform="rotate(-0 255.6 264.767812)">LLDP</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #2f7d4f" x="255.6" y="343.225195" transform="rotate(-0 255.6 343.225195)">link seen</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6e6e6e" x="936" y="93.786406" transform="rotate(-0 936 93.786406)">READ THE CODE</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #9c3b2e" x="522" y="93.846094" transform="rotate(-0 522 93.846094)">a foreign P4 program</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 14px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="727.2" y="150.963281" transform="rotate(-0 727.2 150.963281)">P4 proxy</text>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="597.6" y="282.025195" transform="rotate(-0 597.6 282.025195)">switch A</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="856.8" y="282.025195" transform="rotate(-0 856.8 282.025195)">switch B</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #9c3b2e" x="594" y="208.303125" transform="rotate(-0 594 208.303125)">packet-out</text>
+   </g>
+   <g id="line2d_3">
+    <path d="M 627.84 203.04 
+L 646.56 221.76 
+" clip-path="url(#pb3448e5f8a)" style="fill: none; stroke: #9c3b2e; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 627.84 221.76 
+L 646.56 203.04 
+" clip-path="url(#pb3448e5f8a)" style="fill: none; stroke: #9c3b2e; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #9c3b2e" transform="translate(860.4 202.450488)">no controller</text>
+    <text style="font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #9c3b2e" transform="translate(860.4 216.527637)">header</text>
+   </g>
+   <g id="text_18">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #9c3b2e" x="727.2" y="343.225195" transform="rotate(-0 727.2 343.225195)">no link seen</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 12.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #4f4f4f" x="32.4" y="402.832422" transform="rotate(-0 32.4 402.832422)">RAN IT · 09-24, before the heartbeat · skipped on a foreign fabric:</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 12.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #9c3b2e" x="471.6" y="402.832422" transform="rotate(-0 471.6 402.832422)">install_initial_routes   ·   link_watchdog   ·   lldp_discovery</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pb3448e5f8a">
+   <rect x="0" y="0" width="959.76" height="446.4"/>
+  </clipPath>
+ </defs>
+</svg>

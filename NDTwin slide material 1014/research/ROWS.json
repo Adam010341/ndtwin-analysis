@@ -1,0 +1,71 @@
+{
+  "_about": "Shared row definitions for the 'why would a developer use NDTwin' comparison (report ~2026-10-21). Every research worker fills cells for these exact row ids. [Co-developed with claude code -- Adam]",
+  "verdicts": {
+    "builtin": "documented feature does the task out of the box (config/flags allowed, no new code)",
+    "diy": "possible, but the developer writes code or bolts on another tool; say what",
+    "no": "not supported or out of the tool's scope",
+    "unknown": "public docs are silent; say where you looked"
+  },
+  "cell_schema": {
+    "verdict": "builtin | diy | no | unknown",
+    "note": "<= 20 words, your own words, no marketing adjectives",
+    "source": "URL (competitors) or repo path:line on trunk 2ece656c (NDTwin)",
+    "locator": "page section / heading / anchor",
+    "accessed": "2026-10-08"
+  },
+  "personas": {
+    "app": {
+      "label": "Developer writing a network control app",
+      "rows": {
+        "A1": "Read the topology (switches, links, hosts) through an API",
+        "A2": "List active flows with their path and rate",
+        "A3": "Read per-link utilization in near real time",
+        "A4": "Install or change forwarding rules from an external app",
+        "A5": "Fail a link on purpose and watch the app react",
+        "A6": "Ask 'what if' before applying a change (simulate the effect)",
+        "A7": "Run the same app code on OpenFlow and on P4 data planes",
+        "A8": "Run the same app code on an emulated network and on real switches"
+      },
+      "competitors": ["Mininet + Ryu (assemble it yourself)", "ONOS (+ Mininet)", "Containerlab", "ns-3", "sFlow-RT"]
+    },
+    "p4": {
+      "label": "Developer writing a P4 program",
+      "rows": {
+        "P1": "Compile and run my own .p4 on a software switch",
+        "P2": "Get a multi-switch topology with hosts built for me",
+        "P3": "Write table entries at runtime through an API",
+        "P4": "Link/topology discovery keeps working with my own P4 program",
+        "P5": "Per-flow telemetry (who talks to whom, at what rate) without writing my own",
+        "P6": "Automated packet-level tests generated for my program",
+        "P7": "Network-wide view (graph or GUI) of my P4 network",
+        "P8": "Path from software switch to a hardware target"
+      },
+      "competitors": ["p4lang/tutorials VM", "p4-utils (ETH Zurich nsg)", "ONOS + Stratum"]
+    },
+    "ops": {
+      "label": "Network operator",
+      "rows": {
+        "O1": "Mirror a running network's live state (topology, flows, load)",
+        "O2": "Check configuration correctness (reachability, ACLs) before a change",
+        "O3": "Predict congestion after removing a link or switch (traffic-aware what-if)",
+        "O4": "Run real vendor network OS images",
+        "O5": "Run fault-injection drills on a copy, not on production",
+        "O6": "Energy-saving analysis (which devices can be powered down)",
+        "O7": "Turn a natural-language intent into a network action",
+        "O8": "Record and replay historical network state"
+      },
+      "competitors": ["Batfish", "GNS3", "Forward Networks (commercial, public docs only)", "Cisco Modeling Labs (commercial, public docs only)", "IP Fabric (commercial, public docs only)", "RouteNet-Fermi (academic, paper only)", "IRTF NMRG network digital twin architecture draft (academic reference framework)"]
+    }
+  },
+  "maturity_rows": {
+    "M1": "License",
+    "M2": "Cost to a developer (free / free tier / paid; list price if public)",
+    "M3": "Latest release and its date",
+    "M4": "GitHub stars (unauthenticated public page/API, give the number and date) or 'not on GitHub'",
+    "M5": "Contributors (approx., from the public repo) or 'closed source'",
+    "M6": "Fidelity: packet-level emulation / packet-level simulation / flow-level model / config model / ML model",
+    "M7": "Largest documented scale (nodes/links/hosts), with the source",
+    "M8": "Install path (package, VM image, container, SaaS) and documented prerequisites",
+    "M9": "Primary programmatic interface (REST, gRPC/P4Runtime, Python API, CLI, none)"
+  }
+}

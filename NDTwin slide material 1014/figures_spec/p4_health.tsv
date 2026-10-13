@@ -1,0 +1,40 @@
+# PAGE 18 FIGURE SPEC -- the P4 health check (form: figure, two titled panels: READ left, RAN offline right)
+# [Co-developed with claude code -- Adam]
+# title: P4 health check: 57 cells, offline only
+# left: What it decides (cells per P4 feature)
+# right: Offline results; not yet run against a live lab
+# source: tools/p4_health/cells/table.py@3a47bdb7 CELLS
+# Left panel = READ (code at 3a47bdb7): every Cell(id, dimension) of CELLS, one `dim` row per dimension, in the
+# file's order; the generator re-reads the file with `git show 3a47bdb7:<path>` and stops if this list differs.
+# Right panel = RAN offline only: the S0 static stage, cells T4-T7 and the table-writer comparison (52 shape
+# cases), on throwaway bmv2 switches, never on the NDTwin fabric. No prediction may appear on this figure (expected_today.tsv is not read).
+# Provenance (commits, binaries) is in the template notes of P18, not here and not on the canvas.
+kind	label	cells_or_result	bmv2
+dim	pipeline load	PL1,PL2
+dim	tables	T1,T2,T3,T4,T5,T6,T7,T8,PF-T
+dim	multicast	M1,M2
+dim	clone	C1,C2
+dim	counters	K1,K2,K3
+dim	meters	MT1,MT2,MT3
+dim	registers	R2,R3
+dim	digest	D1
+dim	packet in/out	P1,P2,P3,P4
+dim	custom headers	CH1,CH2,CH3,CH4,CH5,CH6,CH7,CH8,VB1
+dim	queue metadata	Q1,Q2
+dim	checksum	CS1
+dim	TTL / hop	TTL1
+dim	topology	TP1,TP2,TP4
+dim	control-plane mode	CP1,CP2,CP4
+dim	verification	V1,V2
+dim	action profile	AP1,AS1
+dim	idle timeout	IT1
+dim	value set	VS1
+dim	recirculate	RC1
+dim	hash / random	HR1,HR2
+dim	header union	HU1
+off	S0 static stage	COMPLETE	stock; fast ×3
+off	T4 ternary entry	GREEN	stock · fast
+off	T5 range entry	GREEN	stock · fast
+off	T6 optional entry	GREEN	stock · fast
+off	T7 priority order	GREEN	stock · fast
+off	writer vs bmv2, 52 cases	0 disagree	stock · fast

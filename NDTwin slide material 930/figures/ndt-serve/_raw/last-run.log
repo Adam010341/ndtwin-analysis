@@ -1,0 +1,20 @@
+[code] HEAD fed37cff  BIND 127.0.0.1  nonce ttl 600 s  walk claim 30 min
+[live 09-24] code_fix     c836cff081ac5e656f4137003384406036bbd315
+[live 09-24] code_first   a139bceb2fe2579325a248cffd5b2bb97e371d7f
+[live 09-24] ndt256       cb134ccc7af9577a3a4ef3e71e64e238817029ec50977e099b7477b95b870e89
+[live 09-24] listen       127.0.0.1:8765
+[live 09-24] day          2026-09-24
+[live 09-24] host         (403, 'host', 'rebind.attacker.test:8765')
+[live 09-24] token        (403, 'token')
+[live 09-24] busy         (409, 'busy')
+[live 09-24] up_P4        (5, 'refused', 'a GUARD REFUSED and nothing was built (claimed by somebody else, a measurement in flight, a teardown still running, or a model of another network)')
+[live 09-24] up_OVS       (0, 'ok', 'the fabric came up and verified')
+[live 09-24] dirty        ('fd7382a3', 60, 2, ('p4_proxy/mininet/host_count_override', 'tools/remote-lab/dorm_lab/'))
+[walks] serve code 940c1233  ndt sha256 cb134ccc
+[walk] help_drops_deleted_claims          none  asserts 6  old FAIL 4 (fixture gap 0)  red->green 4  run PASS  ndt 3273df8b  verdict green 2026-09-26
+[walk] up_target_names_a_readable_model status step: ('fd7382a3', 60, 2, ('p4_proxy/mininet/host_count_override', 'tools/remote-lab/dorm_lab/'))
+[walk] up_target_names_a_readable_model   ovs4  asserts 9  old FAIL 8 (fixture gap 4)  red->green 8  run PASS  ndt 3273df8b  verdict green 2026-09-26
+[out] fig_s2_security_model
+[out] fig_s3_cells_and_walks
+[gui] v1 f186ce98 2026-09-27  v2 ruled 2026-09-27 stack ['React', 'Vite', 'Tailwind', 'TypeScript', 'i18next'] refresh 10 s  Web-GUI 0.0.0.0:3000  v2: on a branch, no page yet [('feat/ndt-serve-gui-v2-0927', '6d5621ab 2026-09-28T00:36:32+08:00 tests/browser: a stdlib DevTools-protocol driver for headless Chrome'), ('feat/ndt-serve-gui-v2-0927', 'f3a20447 2026-09-28T00:20:54+08:00 ndt serve: Web-GUI link setting, safer `url`, OWN_CLAIM pinned to ndt'), ('feat/ndt-serve-gui-v2-0927', '0d7f6ce8 2026-09-27T23:53:20+08:00 doc: scope draft for the ndt serve page rebuilt on the Web-GUI stack')] files ['doc/audit/2026-09-27_ndt-serve-gui/SCOPE-v2.md', 'tests/browser/cdp_pipe.py', 'tests/python/test_ndt_serve.py', 'tests/python/test_ndt_serve_gui.py', 'tests/shell/mutate_ndt_serve.sh', 'tools/ndt_serve/serve.py']
+[out] fig_s4_gui_plan

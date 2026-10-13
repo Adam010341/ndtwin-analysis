@@ -1,0 +1,103 @@
+{
+  "name": "main",
+  "commit": {
+    "sha": "ce6a983242d2339a2528f2af769661bba772f496",
+    "node_id": "C_kwDOTfuMiNoAKGNlNmE5ODMyNDJkMjMzOWEyNTI4ZjJhZjc2OTY2MWJiYTc3MmY0OTY",
+    "commit": {
+      "author": {
+        "name": "Adam Fan",
+        "email": "adam010341@gmail.com",
+        "date": "2026-09-27T15:45:02Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-09-27T15:45:02Z"
+      },
+      "message": "tests: tighten the shell-suite scorer and the sudo stub checks (#6)\n\nThe L1 scorer now follows a summary printed by a helper function through its call sites, so deleting the call is caught. Guarded exits, one-line case arms and redirected prints are read as conditionals. The sudo stub library checks the tc and ovs-vsctl it finds on PATH, and its mutation gate names the entry it removed in every failure.",
+      "tree": {
+        "sha": "c8bf95a443616c87b77deda8057338bef4188905",
+        "url": "https://api.github.com/repos/Adam010341/NDTwin-Kernel-P4/git/trees/c8bf95a443616c87b77deda8057338bef4188905"
+      },
+      "url": "https://api.github.com/repos/Adam010341/NDTwin-Kernel-P4/git/commits/ce6a983242d2339a2528f2af769661bba772f496",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJquTn+CRC1aQ7uu5UhlAAAwZMQABy2xbaz6kmAn2bbCBaa3C7G\nGE3vycgpFXjq5s0ECYiKHRcXHdd8hXLt4+1WjklVxrC/o2s37n84+qkGp+p8O1bT\nEL1FYgvDL7YSOXBdyvAKlsaAAA8IpsiRPIMRy4hdJZle62UvgolaHo/OeHqzBkmJ\nyuaUvnjC5mfmIWMU7BtFWnCevQz1eyAAwrHbxttkj0FP98oPVvlNf5zoIHdsYovS\nmUFPU8G53F/SupoYkdR5Qmum4bx8AsIvqPDnqMwfNG3hw2UousS1y2EIx60cTBUF\nIV+qZsGKZ16+PlWDIqiK7m0JmJcFlrJbmBE9eNSJHAN3jMGwXuXy0ArzfOvudPiF\n16jiFQvCSPE1zTl8BBPjNObd6PxBp6HxZrlG6qlYcoPXgrEb0LyYSAUKKo+LCRZf\nETv4Roids/NrhOIXEGA/qSXCP7HHOYL1rip1JoWqUSJLT0R71ufoj/4C4EaY2WrB\nq+HQjhQftC8v+4B12DTSdcC5RbZB4qUKnqE46u3sGNsTAbEsRpBVdM3nD8DvGCxN\nFGNeqEDTSu+SjhVzwm0nhzQi9chxfCcbVklr6H5DZRSRlB7ZQbmmJP5cKSwhyhq7\n1+nUlfAwo4PSmUoyTKGXWxNPRAbRPc0aFaVYBh7udINOaP1ZI5O94T7NDxC2Z78e\nMp5M+ABYEBAwW5ImAPBm\n=vUi5\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree c8bf95a443616c87b77deda8057338bef4188905\nparent f186ce98c7643cf1e7a9e7e402e4193bd0d72805\nauthor Adam Fan <adam010341@gmail.com> 1790523902 +0800\ncommitter GitHub <noreply@github.com> 1790523902 +0800\n\ntests: tighten the shell-suite scorer and the sudo stub checks (#6)\n\nThe L1 scorer now follows a summary printed by a helper function through its call sites, so deleting the call is caught. Guarded exits, one-line case arms and redirected prints are read as conditionals. The sudo stub library checks the tc and ovs-vsctl it finds on PATH, and its mutation gate names the entry it removed in every failure.",
+        "verified_at": "2026-09-27T15:45:03Z"
+      }
+    },
+    "url": "https://api.github.com/repos/Adam010341/NDTwin-Kernel-P4/commits/ce6a983242d2339a2528f2af769661bba772f496",
+    "html_url": "https://github.com/Adam010341/NDTwin-Kernel-P4/commit/ce6a983242d2339a2528f2af769661bba772f496",
+    "comments_url": "https://api.github.com/repos/Adam010341/NDTwin-Kernel-P4/commits/ce6a983242d2339a2528f2af769661bba772f496/comments",
+    "author": {
+      "login": "Adam010341",
+      "id": 180733882,
+      "node_id": "U_kgDOCsXHug",
+      "avatar_url": "https://avatars.githubusercontent.com/u/180733882?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Adam010341",
+      "html_url": "https://github.com/Adam010341",
+      "followers_url": "https://api.github.com/users/Adam010341/followers",
+      "following_url": "https://api.github.com/users/Adam010341/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Adam010341/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Adam010341/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Adam010341/subscriptions",
+      "organizations_url": "https://api.github.com/users/Adam010341/orgs",
+      "repos_url": "https://api.github.com/users/Adam010341/repos",
+      "events_url": "https://api.github.com/users/Adam010341/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Adam010341/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "f186ce98c7643cf1e7a9e7e402e4193bd0d72805",
+        "url": "https://api.github.com/repos/Adam010341/NDTwin-Kernel-P4/commits/f186ce98c7643cf1e7a9e7e402e4193bd0d72805",
+        "html_url": "https://github.com/Adam010341/NDTwin-Kernel-P4/commit/f186ce98c7643cf1e7a9e7e402e4193bd0d72805"
+      }
+    ]
+  },
+  "_links": {
+    "self": "https://api.github.com/repos/Adam010341/NDTwin-Kernel-P4/branches/main",
+    "html": "https://github.com/Adam010341/NDTwin-Kernel-P4/tree/main"
+  },
+  "protected": false,
+  "protection": {
+    "enabled": false,
+    "required_status_checks": {
+      "enforcement_level": "off",
+      "contexts": [
+
+      ],
+      "checks": [
+
+      ]
+    }
+  },
+  "protection_url": "https://api.github.com/repos/Adam010341/NDTwin-Kernel-P4/branches/main/protection"
+}

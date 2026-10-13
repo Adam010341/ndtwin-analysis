@@ -1,0 +1,273 @@
+{
+  "tool": "NDTwin (trunk 2ece656c)",
+  "evidence_kind": "READ: code and docs",
+  "accessed": "2026-10-08",
+  "cells": {
+    "A1": {
+      "verdict": "builtin",
+      "note": "GET /ndt/get_graph_data lists switches, hosts, links from a pre-declared topology file; discovery only flips up/down.",
+      "source": "doc/2026-01-02_ndt_api.md:472; src/ndt_core/http/HttpSession.cpp:348; src/ndt_core/collection/TopologyAndFlowMonitor.cpp:2373",
+      "locator": "api section 3 get_graph_data; HttpSession::buildResponse route; updateSwitches",
+      "accessed": "2026-10-08",
+      "scope": "OVS: builtin; bmv2: builtin (proxy serves Ryu-shaped topology); physical: same call, hardware path unrun in repo. Devices missing from the topology file are ignored with a WARN, so the twin does not learn new devices."
+    },
+    "A2": {
+      "verdict": "builtin",
+      "note": "get_detected_flow_data returns 5-tuple, hop-by-hop path, bit/packet rate from sFlow; flows under ~22 pps often missed.",
+      "source": "doc/2026-01-02_ndt_api.md:1056; doc/2026-01-02_ndt_api.md:1138; src/ndt_core/http/HttpSession.cpp:358; doc/2026-08-14_cross-component-integration-matrix.md:119",
+      "locator": "api section 4 get_detected_flow_data, 'How much traffic a flow needs'",
+      "accessed": "2026-10-08",
+      "scope": "OVS: switch sFlow sampling=256 (39 concurrent flows seen live on the 128-host fabric); bmv2: proxy builds sFlow from 1/256 pipeline clones; physical: switch sFlow (website example 1/1000), unrun in repo. Default view lists only flows sampled in the last 3 s."
+    },
+    "A3": {
+      "verdict": "builtin",
+      "note": "Per-edge link_bandwidth_utilization_percent in get_graph_data; ~1 s lag after a change; 0 can mean idle or silent telemetry.",
+      "source": "doc/2026-01-02_ndt_api.md:983; doc/2026-01-02_ndt_api.md:5388; doc/KNOWN-ISSUES.md:3016; doc/KNOWN-ISSUES.md:476",
+      "locator": "api section 3 edge fields; api 'Closed-loop apps' table; KNOWN-ISSUES C-9, A-4f",
+      "accessed": "2026-10-08",
+      "scope": "OVS: sFlow flow samples (counter polling skipped in Mininet); an OVS power cycle can zero a link reading silently (A-4f, open); bmv2: synthesised samples, +-5% at a 1 s window unreachable (KNOWN-ISSUES section F); physical: sFlow counters, unrun in repo"
+    },
+    "A4": {
+      "verdict": "builtin",
+      "note": "POST install/modify/delete_flow_entry plus a batch route; 200 means 'queued', not installed; failures surface in a separate status endpoint.",
+      "source": "src/ndt_core/http/HttpSession.cpp:2443; doc/2026-01-02_ndt_api.md:1905; doc/2026-01-02_ndt_api.md:5419; doc/KNOWN-ISSUES.md:2909; doc/KNOWN-ISSUES.md:2971",
+      "locator": "HttpSession::processFlowBatch; api section 9; api 'Closed-loop apps'; KNOWN-ISSUES C-6, C-7",
+      "accessed": "2026-10-08",
+      "scope": "OVS: OpenFlow via Ryu; bmv2: dst-IP and 5-tuple matches only, 1024 entries per switch, table-full and priority-delete refusals still answer 200 (C-6, C-7), proxy restart drops rules (A-4c); physical: OpenFlow via Ryu, unrun in repo"
+    },
+    "A5": {
+      "verdict": "builtin",
+      "note": "inject_link_failure cuts a link with tc netem on Mininet; outside Mininet it only marks the twin graph down.",
+      "source": "src/ndt_core/http/HttpSession.cpp:1098; src/ndt_core/http/HttpSession.cpp:1158; doc/2026-01-02_ndt_api.md:383; doc/2026-01-02_ndt_api.md:428; doc/KNOWN-ISSUES.md:3051",
+      "locator": "HttpSession::handleInjectLinkFailure; api section 2b; KNOWN-ISSUES D-2",
+      "accessed": "2026-10-08",
+      "scope": "OVS/Mininet: builtin (needs NOPASSWD tc sudo grants); bmv2/Mininet: builtin; physical: twin graph only, packets keep flowing. No event push: the app must poll get_graph_data; a real cut took 10.7-14 s to detect on bmv2."
+    },
+    "A6": {
+      "verdict": "diy",
+      "note": "Kernel relays cases to plug-in simulators; the one shipped simulator only models switch power on/off at flow level.",
+      "source": "doc/2026-01-02_ndt_api.md:2369; doc/2026-01-02_ndt_api.md:2432; Simulation-Platform-Manager@b7efd93:simulation_platform_manager.cpp:41; Energy-Saving-App@9facb78:src/sim/energy_saving_simulator.cpp:621",
+      "locator": "api sections 16-18 app_register / received_a_simulation_case; run_simulator; simulator input switchesDpidToPowerOn/Off",
+      "accessed": "2026-10-08",
+      "scope": "same on all planes; manager and Energy app need root and an NFS mount; any other what-if (rule change, link cut) needs your own simulator executable"
+    },
+    "A7": {
+      "verdict": "builtin",
+      "note": "Same /ndt API on OVS and bmv2; group/meter calls return 501 on P4; mixing planes in one run is refused.",
+      "source": "README.md:31; src/ndt_core/routing_management/P4RoutingStrategy.cpp:27; src/ndt_core/collection/TopologyAndFlowMonitor.cpp:3427; NDTwin-Website@dcd59f5:content/en/docs/overview.md:24; doc/KNOWN-ISSUES.md:761; doc/2026-08-14_cross-component-integration-matrix.md:44",
+      "locator": "README 'Data planes'; P4RoutingStrategy; validateDataPlaneHomogeneity; website Key Features; KNOWN-ISSUES A-9; matrix finding 4",
+      "accessed": "2026-10-08",
+      "scope": "flow/graph/power/telemetry endpoints identical on OVS and bmv2; ECMP-group apps (Traffic-Engineering-App) are OpenFlow-only; TE congestion migration was shown end to end on OVS but its 70% threshold cannot trigger on bmv2; Energy app was run against both planes (A-9)"
+    },
+    "A8": {
+      "verdict": "builtin",
+      "note": "Same API in mininet or testbed mode; HPE5520 and Brocade ICX6610/ICX7250 are coded, no run log in repo.",
+      "source": "src/main.cpp:142; include/common_types/GraphTypes.hpp:142; src/ndt_core/routing_management/FlowRoutingManager.cpp:84; doc/2026-01-02_ndt_api.md:1598; NDTwin-Website@dcd59f5:content/en/docs/overview.md:23",
+      "locator": "main.cpp --mode mininet|testbed; kAcceptedSwitchBrands; getStrategyForDpid; api section 7 TESTBED note; website Key Features",
+      "accessed": "2026-10-08",
+      "scope": "Mininet: builtin (many logged runs); physical: HPE5520 (SNMP power+temperature), BrocadeICX6610/ICX7250 (SSH power), flows over OpenFlow via Ryu, smart-plug power control. api.md says the physical testbed is out of service and the TESTBED branch 'has not been exercised'; website claims tests on Brocade and HPE; I found no hardware run log in the repo."
+    },
+    "P1": {
+      "verdict": "diy",
+      "note": "13 tutorials exercises ran on bmv2 via convert.py and 'ndt up p4 --app', an internal lab CLI.",
+      "source": "tools/p4_exercise/convert.py:1; p4_proxy/mininet/app_package.py:1; doc/audit/2026-09-04_p4-tutorial-exercise-prep/GAP-2b-ndtwin-p4-capabilities-2026-09-27.md:88; doc/audit/2026-09-04_p4-tutorial-exercise-prep/REPORT-P3-2026-09-24.md:106",
+      "locator": "convert.py docstring; app_package.py; GAP-2b capability matrix; REPORT-P3 live 13/13",
+      "accessed": "2026-10-08",
+      "scope": "NDTwin's own ndtwin_switch.p4: builtin (documented install on website); your own .p4: 24 of 26 arms PASS and 2 red-control arms fail by design (REPORT-P3); only exact/lpm entries; not described on the website"
+    },
+    "P2": {
+      "verdict": "builtin",
+      "note": "p4_testbed_topo.py builds a 10-switch bmv2 Mininet fabric with 4 or 128 hosts from a JSON model; needs sudo.",
+      "source": "NDTwin-Website@dcd59f5:content/en/docs/NDTwin Installation Manual/NDTwin Kernel/Operate an Emulated (Software) Network/Native-Linux Excution Environment.md:858; p4_proxy/mininet/p4_testbed_topo.py:1; setting/StaticNetworkTopologyP4_10Switches_128Hosts.json",
+      "locator": "website install manual Step 6.5; p4_testbed_topo.py; topology models",
+      "accessed": "2026-10-08",
+      "scope": "layout is the fixed 10-switch fabric; a custom topology goes through tools/p4_exercise/convert.py from a tutorials topology.json"
+    },
+    "P3": {
+      "verdict": "builtin",
+      "note": "POST /p4/table_entry writes exact/lpm entries by table name; ternary/range/optional return 501; entries are lost on proxy restart.",
+      "source": "p4_proxy/proxy_agent/api_routes.py:845; p4_proxy/proxy_agent/api_routes.py:841; NDTwin-Website@dcd59f5:content/en/docs/NDTwin Developer Manual/NDTwin Application/P4 Proxy API.md:15",
+      "locator": "table_entry route and TABLE_ENTRY_NOT_JOURNALED; website P4 Proxy API ('only two endpoints documented')",
+      "accessed": "2026-10-08",
+      "scope": "bmv2 under Mininet only; route is not on the website; boot-time entries from a package were applied with 0 failures in 9 exercises (GAP-2b tables row)"
+    },
+    "P4": {
+      "verdict": "diy",
+      "note": "LLDP discovery works only with ndtwin_switch.p4; own programs get declared links or a root heartbeat helper.",
+      "source": "doc/2026-01-02_ndt_api.md:627; p4_proxy/proxy_agent/link_heartbeat.py:54; doc/audit/2026-09-04_p4-tutorial-exercise-prep/GAP-2b-ndtwin-p4-capabilities-2026-09-27.md:101",
+      "locator": "api 'capabilities' link_discovery row; link_heartbeat.py REPORT_PATH; GAP-2b topology row",
+      "accessed": "2026-10-08",
+      "scope": "ndtwin_switch.p4: LLDP builtin; foreign program: 'declared' (no failure detection) or 'heartbeat' via 'sudo ndtwin-lab heartbeat start' (lab tool); 6 of 6 cuts detected in 12.2-16.8 s as quoted in GAP-2b; no heartbeat in external-controller mode"
+    },
+    "P5": {
+      "verdict": "builtin",
+      "note": "Own program: telemetry 'auto' picks tc-sample link sampling on Mininet, converted to sFlow 1/256; ndtwin_switch.p4 samples in-pipeline.",
+      "source": "p4_proxy/mininet/app_package.py:481; p4_proxy/mininet/psample_sflow_emitter.py:6; p4_proxy/p4_src/ndtwin_telemetry.p4:28; doc/audit/2026-09-04_p4-tutorial-exercise-prep/GAP-2b-ndtwin-p4-capabilities-2026-09-27.md:103",
+      "locator": "telemetry_source(); psample_sflow_emitter; ndtwin_telemetry.p4 include; GAP-2b verification row",
+      "accessed": "2026-10-08",
+      "scope": "bmv2 under Mininet only. Foreign programs: per-link usage verified in 10 of 13 exercises, per-flow view not checked there. Cooperative path needs 5 insertions plus 2 apply lines in your .p4 (ndtwin_telemetry.p4). Telemetry adds variance near the bmv2 knee (REPORT-P3)."
+    },
+    "P6": {
+      "verdict": "no",
+      "note": "No test generation for user programs; p4testgen runs only as a coverage gate on NDTwin's own pipeline.",
+      "source": "tools/test_workflow/p4_coverage_gate.sh:1; doc/2026-08-07_testing_tools_overview.md:547",
+      "locator": "p4_coverage_gate.sh header; testing tools overview item 3",
+      "accessed": "2026-10-08",
+      "scope": "internal test tool; gate cannot reach the sampling clone branch (85.2% statement coverage)"
+    },
+    "P7": {
+      "verdict": "builtin",
+      "note": "get_graph_data plus Web-GUI, Visualizer and NSR read a P4 fabric; live check on 10 bmv2 switches fed all consumers.",
+      "source": "doc/2026-08-14_cross-component-integration-matrix.md:16; doc/2026-08-14_cross-component-integration-matrix.md:17; doc/2026-08-14_cross-component-integration-matrix.md:18; Web-GUI@f63a55c:src/api/index.ts:36; doc/2026-01-02_ndt_api.md:472",
+      "locator": "integration matrix table (2026-08-14, P4 fabric); Web-GUI getGraphData",
+      "accessed": "2026-10-08",
+      "scope": "bmv2 under Mininet; your own pipeline appears only if its links and flows reach the kernel (see P4, P5)"
+    },
+    "P8": {
+      "verdict": "no",
+      "note": "Only bmv2 (v1model) is supported; no Tofino, Stratum or other hardware P4 target in code or docs.",
+      "source": "README.md:5; p4_proxy/p4_src/SPEC.md:1; NDTwin-Website@dcd59f5:content/en/docs/overview.md:16",
+      "locator": "README badges; p4_src SPEC; website Key Features (ICC technique 'requires a P4 hardware switch')",
+      "accessed": "2026-10-08",
+      "scope": "the website mentions a P4 hardware switch for a sampling technique; the repo contains no code for it (grep for tofino/stratum: no hits)"
+    },
+    "O1": {
+      "verdict": "builtin",
+      "note": "Kernel polls Ryu/proxy and sFlow to mirror topology, flows, load; needs NDTwin's own Ryu app and a declared topology file.",
+      "source": "intelligent_router.py:26; src/ndt_core/collection/TopologyAndFlowMonitor.cpp:2373; NDTwin-Website@dcd59f5:content/en/docs/overview.md:23; setting/StaticNetworkTopology_ipAlias4_10_HPE_Switches_all_1g_cable.json:2000",
+      "locator": "intelligent_router.py (2084 lines, installs all-pairs routes from the static file); updateSwitches; website claim; HPE topology model",
+      "accessed": "2026-10-08",
+      "scope": "Mininet OVS and bmv2: builtin, logged runs; physical: HPE5520/Brocade models in code, website claims tens of switches and hundreds of hosts, largest physical model in repo is 10 switches / 48 hosts, no hardware run log. Does not attach to an existing non-Ryu controller."
+    },
+    "O2": {
+      "verdict": "no",
+      "note": "No configuration model: no ACL, reachability or loop checks; only a switch count over observed paths.",
+      "source": "doc/2026-01-02_ndt_api.md:2817; src/ndt_core/http/HttpSession.cpp:327",
+      "locator": "api section 22 get_path_switch_count; route table (45 routes)",
+      "accessed": "2026-10-08",
+      "scope": "all modes; I found no ACL or reachability code in src/ or include/ (git grep)"
+    },
+    "O3": {
+      "verdict": "builtin",
+      "note": "Shipped simulator reroutes flows around powered-off switches and recomputes max-min rates; switches only, no link input.",
+      "source": "Energy-Saving-App@9facb78:src/sim/energy_saving_simulator.cpp:467; Energy-Saving-App@9facb78:src/sim/energy_saving_simulator.cpp:561; Energy-Saving-App@9facb78:src/sim/max_min_fairness.cpp:12; Energy-Saving-App@9facb78:src/sim/max_min_fairness.cpp:60",
+      "locator": "energy_saving_simulator main (power-off set, BFS reroute); max_min_fairness",
+      "accessed": "2026-10-08",
+      "scope": "flow-level model: flows under 10 Mbit/s are fixed demands, others greedy (TODO in code); needs Simulation-Platform-Manager, root, NFS; I found no comparison of its predictions with measured post-change traffic in the repo"
+    },
+    "O4": {
+      "verdict": "no",
+      "note": "No vendor NOS images; switches are OVS, bmv2, or real HPE/Brocade devices driven over OpenFlow.",
+      "source": "include/common_types/GraphTypes.hpp:142; src/ndt_core/routing_management/FlowRoutingManager.cpp:84",
+      "locator": "kAcceptedSwitchBrands; getStrategyForDpid",
+      "accessed": "2026-10-08",
+      "scope": "other brands can be modelled with an explicit switch_kind but get no power or health path (power_path: none)"
+    },
+    "O5": {
+      "verdict": "builtin",
+      "note": "Cut links via netem and power switches off in the Mininet fabric; physical mode only edits the twin graph.",
+      "source": "src/ndt_core/http/HttpSession.cpp:1098; doc/2026-01-02_ndt_api.md:1688; doc/KNOWN-ISSUES.md:1690; doc/KNOWN-ISSUES.md:45",
+      "locator": "handleInjectLinkFailure; api section 8 set_switches_power_state; KNOWN-ISSUES B-9, A-1",
+      "accessed": "2026-10-08",
+      "scope": "Mininet OVS and bmv2: builtin; OVS off-then-on silently cut every host under that switch while all twin checks stayed green (B-9, open); physical: declaration only. The 'copy' is a Mininet fabric you build from the topology file, not an automatic clone of production."
+    },
+    "O6": {
+      "verdict": "builtin",
+      "note": "Energy-Saving-App powers off low-load switches after a simulated check; Mininet power readings are synthetic, derived from dpid.",
+      "source": "NDTwin-Website@dcd59f5:content/en/docs/overview.md:20; Energy-Saving-App@9facb78:src/app/energy_saving_app.cpp:561; src/ndt_core/power_management/DeviceConfigurationAndPowerManager.cpp:1929; doc/2026-01-02_ndt_api.md:1437; doc/KNOWN-ISSUES.md:761",
+      "locator": "website Key Features; easy_disable_switch; syntheticPowerMilliwattsFor; api section 6; KNOWN-ISSUES A-9",
+      "accessed": "2026-10-08",
+      "scope": "OVS: runs, but first logged full-pipeline runs shut 0 switches (A-9 lock livelock) and off-then-on can cut hosts (B-9); bmv2: P4PowerStrategy kills one switch process; physical: SNMP/SSH power read and smart-plug control, unrun in repo"
+    },
+    "O7": {
+      "verdict": "builtin",
+      "note": "POST /ndt/intent_translator/text calls OpenAI (OPENAI_API_KEY); off by default (--no-ai), answers 503 when disabled.",
+      "source": "src/ndt_core/intent_translator/LLMAgent.cpp:27; src/ndt_core/intent_translator/LLMAgent.cpp:138; src/main.cpp:416; doc/2026-01-02_ndt_api.md:5054; doc/KNOWN-ISSUES.md:527",
+      "locator": "LLMAgent key lookup and https://api.openai.com call; main.cpp useToken; api section 41; KNOWN-ISSUES A-4g",
+      "accessed": "2026-10-08",
+      "scope": "external dependency: internet plus your own OpenAI API key (default model gpt-5-nano); the test stack always starts with --no-ai, so I found no run log; the BLOCK_HOST intent replies success even when nothing is installed (A-4g)"
+    },
+    "O8": {
+      "verdict": "builtin",
+      "note": "Network-State-Recorder polls graph and flow data (default every 5 s) into zip files; Web-GUI and Visualizer replay them.",
+      "source": "Network-State-Recorder@850f61d:README.md:3; Network-State-Recorder@850f61d:README.md:66; Network-State-Recorder@850f61d:network_state_recorder.py:21; doc/2026-08-14_cross-component-integration-matrix.md:17; doc/KNOWN-ISSUES.md:1252",
+      "locator": "NSR README features and recorder_setting; network_state_recorder.py URLs; integration matrix; KNOWN-ISSUES B-3",
+      "accessed": "2026-10-08",
+      "scope": "replays recorded kernel state, not a re-simulation; the kernel's own /ndt/historical_logging writes nothing under Mininet (B-3); NSR start/stop scripts always exit 0 (NDTwin-Website@7724114 commit subject)"
+    }
+  },
+  "maturity": {
+    "M1": {
+      "verdict": "info",
+      "note": "Apache License 2.0 in the kernel and in all seven sibling repos checked.",
+      "source": "LICENSE:1; README.md:152; Energy-Saving-App@9facb78:LICENSE:1",
+      "locator": "LICENSE file first lines",
+      "accessed": "2026-10-08",
+      "detail": "Sibling LICENSE files read: Energy-Saving-App, Simulation-Platform-Manager, Web-GUI, Network-State-Recorder, Traffic-Engineering-App, Network-Traffic-Visualizer, Network-Traffic-Generator; all Apache 2.0."
+    },
+    "M2": {
+      "verdict": "info",
+      "note": "Free (Apache 2.0); the optional LLM translator needs your own paid OpenAI key; no price list found.",
+      "source": "README.md:152; src/ndt_core/intent_translator/LLMAgent.cpp:27",
+      "locator": "License section; OPENAI_API_KEY lookup",
+      "accessed": "2026-10-08",
+      "detail": "No pricing page or commercial tier found in the repo or in the website pages read."
+    },
+    "M3": {
+      "verdict": "info",
+      "note": "Public kernel: v1.0.0, 2026-02-06. P4 trunk: unreleased snapshot, README says testing only. Different repos.",
+      "source": "README.md:9; README.md:147; NDTwin-Website@dcd59f5:content/en/docs/Download/_index.md:71; GitHub API releases (fetched 2026-10-07 17:57 UTC)",
+      "locator": "README CAUTION and Status; website Download table; GitHub releases endpoint",
+      "accessed": "2026-10-08",
+      "detail": "ndtwin-lab/NDTwin-Kernel has release/tag v1.0.0 (2026-02-06T00:13Z); website Download lists Kernel v1.0.0 and 'P4/BMv2 snapshot 936f8c6' (repo ndtwin-lab/NDTwin-Kernel-P4-public). The README describes NDTwin-Kernel-P4 (this trunk): 'Snapshot of an internal development branch, not a tagged release'; Adam010341/NDTwin-Kernel-P4 has no releases or tags. trunk 2ece656c is 2772 commits after tag v1.0.0 (399dd79c, 2026-02-03)."
+    },
+    "M4": {
+      "verdict": "info",
+      "note": "GitHub stars on 2026-10-07: ndtwin-lab/NDTwin-Kernel 0 (1 fork, 0 issues); Adam010341/NDTwin-Kernel-P4 5 (0 forks, 1 issue).",
+      "source": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel; https://api.github.com/repos/Adam010341/NDTwin-Kernel-P4",
+      "locator": "GitHub REST repos endpoint, unauthenticated, fetched 2026-10-07 17:57 UTC",
+      "accessed": "2026-10-08",
+      "detail": "Third repo named by the website, ndtwin-lab/NDTwin-Kernel-P4-public, was not fetched: the shared-IP unauthenticated GitHub rate limit (60/h) was already used up. The same API gave ndtwin-lab/NDTwin-Kernel-P4: 0 stars, 0 forks, 0 issues."
+    },
+    "M5": {
+      "verdict": "info",
+      "note": "GitHub contributors: kernel repo 2 (36 commits); P4 repo 3, with Adam010341 at 2,530 of 2,564.",
+      "source": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel/contributors; https://api.github.com/repos/Adam010341/NDTwin-Kernel-P4/contributors; git shortlog -sn 2ece656c; ndtwin-license-header.txt:15",
+      "locator": "GitHub contributors endpoint 2026-10-07; git shortlog",
+      "accessed": "2026-10-08",
+      "detail": "Kernel repo: xxxPatty 25, joemou 11. P4 repo: Adam010341 2530, xxxPatty 24, joemou 10. git shortlog on trunk 2ece656c (2805 commits): Adam010341 2767, patty 24, joemou 9, Adam Fan 3, JM 1, xxxPatty 1. License header lists 5 'core contributors' as of 2026-01-15."
+    },
+    "M6": {
+      "verdict": "info",
+      "note": "Packet-level emulation (Mininet with OVS or bmv2); twin state from sampled sFlow; shipped what-if is flow-level max-min.",
+      "source": "README.md:32; Energy-Saving-App@9facb78:src/sim/max_min_fairness.cpp:12; p4_proxy/proxy_agent/sflow_emitter.py:1",
+      "locator": "README Data planes; max_min_fairness; sflow_emitter",
+      "accessed": "2026-10-08",
+      "detail": "bmv2 stock build ceiling about 3.6 kpps (website install manual Step 6.7); flow-count and frame-size effects in KNOWN-ISSUES F-bmv2. No ML model and no packet-level simulator in the repos read."
+    },
+    "M7": {
+      "verdict": "info",
+      "note": "Largest shipped and measured: 10 switches, 128 hosts, 288 directed edges (OVS, bmv2); physical models max 10 switches, 48 hosts.",
+      "source": "setting/StaticNetworkTopologyMininet_10Switches.json; setting/StaticNetworkTopologyP4_10Switches_128Hosts.json; doc/2026-08-14_cross-component-integration-matrix.md:112; doc/2026-08-14_cross-component-integration-matrix.md:119; tools/make_topology.py:1",
+      "locator": "setting/ topology files (counted by script); integration matrix OVS round",
+      "accessed": "2026-10-08",
+      "detail": "39 concurrent flows seen live on the 128-host OVS fabric; the topology generator varies hosts only, switches stay 10 (make_topology.py). Website claims physical networks of 'tens of hardware switches and hundreds of hosts' (overview.md:23); no such model or log in the repo."
+    },
+    "M8": {
+      "verdict": "info",
+      "note": "VM images (.ova, 3.2 or 17.9 GB) or Ubuntu 24.04 source build: C++23, Boost 1.83+, Ryu on Python 3.8, sudo.",
+      "source": "NDTwin-Website@dcd59f5:content/en/docs/Download/_index.md:22; NDTwin-Website@dcd59f5:content/en/docs/Download/_index.md:23; NDTwin-Website@dcd59f5:content/en/docs/NDTwin Installation Manual/NDTwin Kernel/Operate an Emulated (Software) Network/Native-Linux Excution Environment.md:18",
+      "locator": "website Download table; install manual section 1 requirements",
+      "accessed": "2026-10-08",
+      "detail": "17.9 GB image needs VMware and has no P4; 3.2 GB P4/BMv2 image runs on VMware or VirtualBox. Source build needs conda Ryu env, Mininet, OVS, p4c and bmv2 built from source for P4; Energy app and Simulation Platform Manager need root and NFS. No distro package or kernel container image found; only Web-GUI ships a docker-compose."
+    },
+    "M9": {
+      "verdict": "info",
+      "note": "REST/JSON over HTTP, port 8000: 45 routes, no auth, no OpenAPI spec, no push; P4 proxy adds REST on 8081.",
+      "source": "src/ndt_core/http/HttpSession.cpp:327; src/ndt_core/event_handling/ControllerAndOtherEventHandler.cpp:100; src/ndt_core/http/HttpSession.cpp:305; NDTwin-Website@dcd59f5:content/en/docs/NDTwin Developer Manual/NDTwin Application/P4 Proxy API.md:15",
+      "locator": "buildResponse route table; acceptor bind (all IPv4 interfaces); CORS header; website P4 Proxy API",
+      "accessed": "2026-10-08",
+      "detail": "Apps in the sibling repos call it with hand-written HTTP clients; no SDK. Locks are advisory (api.md:3445). The OpenFlow-style group/meter routes return 501 on P4."
+    }
+  }
+}

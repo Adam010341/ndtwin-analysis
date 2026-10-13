@@ -1,0 +1,79 @@
+PAGE 22 FIGURE SPEC -- roadmap   (form: figure; evidence class: plan = INFERRED from problems.tsv)
+[Co-developed with claude code -- Adam]
+
+Title on canvas (= slide title): What we fix first, and what we disclose
+
+Data file: figures_spec/problems.tsv (rank, problem, hurts, fix, cost, fixable). The generator reads
+it and stops with a named reason if any rank 1-19 is missing from the figure or appears twice, or
+if a 'fixable=no' row is drawn in a fix lane.
+
+LAYOUT
+  Columns (horizon, no calendar dates -- no date commitments on the slide):
+      NOW (small, under ~1 week each)  |  NEXT (1-6 weeks each)  |  LATER (needs a design call
+      or resources we do not have)      + a fourth, narrow, grey column: DISCLOSE
+  Rows (swimlanes = what the developer gets back):
+      1 "Trust what the API says"      2 "See failures and load in time"
+      3 "Run it anywhere"              4 "Model more of the network"
+  Box = one fix; label = short fix name + rank tag (#N). Box fill = persona hurt most
+  (three colours from the 827 E2 palette, same colours as pages 3 and 5-7; shape as second
+  encoding: circle-corner = app dev, square = P4 dev, diamond-tab = operator).
+  Arrows only where one fix needs another (listed below). No other text.
+
+PLACEMENT (rank -> lane, column). Column = cost in problems.tsv against the rule above:
+NOW if every part is under ~1 week; NEXT if any part is ~1 week or more (up to 6 weeks);
+LATER if it needs a design decision first; DISCLOSE if fixable = no.
+  Lane 1 "Trust what the API says"
+    NOW   #2  honest write results (non-2xx + wait mode)          3-5 days
+    NOW   #5  power cycle keeps port numbers (+ energy app lease)  2-4 days
+    NOW   #6  fresh read-back, ghost filter on OVS                 2-4 days
+    NOW   #15 local-only bind + token                              1-2 days
+    NOW   #16 lock owner check                                     ~2 days
+    NEXT  #4  journal + cookie-checked replay; routing replay; boot_id   about 2-3 weeks
+  Lane 2 "See failures and load in time"
+    NOW   #3  null when telemetry is silent; window parameter      3-5 days
+    NOW   #7  recorder reconnects                                  1-2 days
+    NOW   #12 counter-based link rates under Mininet               2-3 days OVS + 2-3 days P4 emitter
+    NEXT  #13 event stream (SSE) + LLDP interval sweep             ~1 week + 1 lab night
+  Lane 3 "Run it anywhere"
+    NEXT  #1  user-level own-program command, install-time config, clean-VM CI   1-2 weeks
+    NEXT  #11 Ryu -> os-ken                                        ~1 week + live gates
+    NOW   #17 configurable LLM endpoint                            1-2 days
+  Lane 4 "Model more of the network"
+    NEXT  #8  OVS fabric from the model; undeclared switches; 64-switch run   ~1 week discovery
+    NEXT  #9  link-removal what-if + one prediction-vs-measured run           ~1 week NFS removal
+    NEXT  #10 ECMP selector (1-2 weeks), table size (1 day), missing proxy routes -- one box in NEXT
+    LATER #14 observer mode for an existing controller             needs a design decision
+  DISCLOSE (grey, no lane)
+    #18 physical switches: coded, no run on record (no testbed)
+    #19 no P4 hardware target; bmv2 ceiling in pps
+
+ARROW LEGEND (on canvas): needed by
+
+
+DEPENDENCY ARROWS (only these)
+  #2 -> #13  (rule-outcome events reuse the honest outcomes)
+  #1 -> #11  (port to os-ken after the clean-VM CI job exists, so it covers the port)
+  #8 -> #14  (observer mode needs undeclared vertices)
+  #3 -> #9   (validation needs telemetry that says when it is blind)
+
+ON THE CANVAS: title, column heads, lane names, box labels with #N, persona legend (3 entries), arrow
+legend "needed by" (from the ARROW LEGEND line). No arrow may share a line with another arrow, and every
+box stays inside its column.
+Costs, evidence and order inside a column live in the speaker notes and problems.tsv.
+
+WHY THIS ORDER (for the notes, not the canvas)
+  NOW holds every fix whose parts are each under about a week; most of them are the
+  trust-breaking problems ranked 2-7 (#2, #3, #5, #6, #7; #4 is in NEXT, see the 1014 note below). #1 is rank 1 but sits in NEXT
+  because it is 1-2 weeks of packaging plus a CI job; it is the first NEXT item. #14 is the only
+  LATER item because it needs a design decision (what the twin may and may not do to a network it
+  does not control). #18 and #19 are not fixable with what exists: no hardware testbed; the main
+  hardware P4 target is discontinued.
+  #12 (added 2026-10-08, Adam: new tier-C row) is in NOW: option A has two parts, each under a week
+  (kernel + OVS polling 2-3 days; P4 proxy counter samples 2-3 days). No arrow: it touches the same
+  collector as #3, but neither fix needs the other.
+  1014 (trunk 3a47bdb7, estimated 2026-10-12): #4 moved to NEXT. Re-estimated from trunk, where none of its fix
+  exists: a per-switch table_entry journal with replay gated by the pipeline cookie,
+  the routing-journal replay behind its opt-in, and the kernel reading boot_id -- about 2-3 weeks in all, so a
+  part is a week or more. #10 lost its ternary/range part (built at 3a47bdb7); it keeps the ECMP selector and
+  the table size and gains the missing proxy routes (meter, register, digest, packet-out, clone session); a live
+  run of the P4 health check scopes those routes first (notes).

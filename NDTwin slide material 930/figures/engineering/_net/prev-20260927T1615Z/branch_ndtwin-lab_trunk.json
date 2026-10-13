@@ -1,0 +1,108 @@
+{
+  "name": "trunk",
+  "commit": {
+    "sha": "fed37cff5d70209235f6f4458ed7294b4ef542b4",
+    "node_id": "C_kwDOT_VQO9oAKGZlZDM3Y2ZmNWQ3MDIwOTIzNWY2ZjQ0NThlZDcyOTRiNGVmNTQyYjQ",
+    "commit": {
+      "author": {
+        "name": "Adam010341",
+        "email": "adam010341@gmail.com",
+        "date": "2026-09-27T15:47:29Z"
+      },
+      "committer": {
+        "name": "Adam010341",
+        "email": "adam010341@gmail.com",
+        "date": "2026-09-27T15:47:29Z"
+      },
+      "message": "Merge fix/ndt-serve-claim-note-tmpdir-0927: claim-note test independent of TMPDIR length",
+      "tree": {
+        "sha": "e7e61a331eb926f72fb9c2d983b9c45293ad48e2",
+        "url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/git/trees/e7e61a331eb926f72fb9c2d983b9c45293ad48e2"
+      },
+      "url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/git/commits/fed37cff5d70209235f6f4458ed7294b4ef542b4",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/commits/fed37cff5d70209235f6f4458ed7294b4ef542b4",
+    "html_url": "https://github.com/ndtwin-lab/NDTwin-Kernel-P4/commit/fed37cff5d70209235f6f4458ed7294b4ef542b4",
+    "comments_url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/commits/fed37cff5d70209235f6f4458ed7294b4ef542b4/comments",
+    "author": {
+      "login": "Adam010341",
+      "id": 180733882,
+      "node_id": "U_kgDOCsXHug",
+      "avatar_url": "https://avatars.githubusercontent.com/u/180733882?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Adam010341",
+      "html_url": "https://github.com/Adam010341",
+      "followers_url": "https://api.github.com/users/Adam010341/followers",
+      "following_url": "https://api.github.com/users/Adam010341/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Adam010341/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Adam010341/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Adam010341/subscriptions",
+      "organizations_url": "https://api.github.com/users/Adam010341/orgs",
+      "repos_url": "https://api.github.com/users/Adam010341/repos",
+      "events_url": "https://api.github.com/users/Adam010341/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Adam010341/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Adam010341",
+      "id": 180733882,
+      "node_id": "U_kgDOCsXHug",
+      "avatar_url": "https://avatars.githubusercontent.com/u/180733882?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Adam010341",
+      "html_url": "https://github.com/Adam010341",
+      "followers_url": "https://api.github.com/users/Adam010341/followers",
+      "following_url": "https://api.github.com/users/Adam010341/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Adam010341/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Adam010341/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Adam010341/subscriptions",
+      "organizations_url": "https://api.github.com/users/Adam010341/orgs",
+      "repos_url": "https://api.github.com/users/Adam010341/repos",
+      "events_url": "https://api.github.com/users/Adam010341/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Adam010341/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "3d740be0964b36091c6f4299bd288fa52bcd258d",
+        "url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/commits/3d740be0964b36091c6f4299bd288fa52bcd258d",
+        "html_url": "https://github.com/ndtwin-lab/NDTwin-Kernel-P4/commit/3d740be0964b36091c6f4299bd288fa52bcd258d"
+      },
+      {
+        "sha": "c0411e166736ebbf5bc74b1a56b3352a96ecee78",
+        "url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/commits/c0411e166736ebbf5bc74b1a56b3352a96ecee78",
+        "html_url": "https://github.com/ndtwin-lab/NDTwin-Kernel-P4/commit/c0411e166736ebbf5bc74b1a56b3352a96ecee78"
+      }
+    ]
+  },
+  "_links": {
+    "self": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/branches/trunk",
+    "html": "https://github.com/ndtwin-lab/NDTwin-Kernel-P4/tree/trunk"
+  },
+  "protected": false,
+  "protection": {
+    "enabled": false,
+    "required_status_checks": {
+      "enforcement_level": "off",
+      "contexts": [
+
+      ],
+      "checks": [
+
+      ]
+    }
+  },
+  "protection_url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/branches/trunk/protection"
+}

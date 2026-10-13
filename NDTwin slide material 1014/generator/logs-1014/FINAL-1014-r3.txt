@@ -1,0 +1,14 @@
+# 1014 deck, round 3, final gates (2026-10-12 UTC) [Co-developed with claude code -- Adam]
+template NDTwin-slide-template-1014.md sha256 8c6c25f9c4222308
+pptx NDTwin_deck_1014.pptx sha256 937bb9e58b0fe4ac (22 pages; build-1014-r3.log)
+verify verify-deck-1014-20261012T062125Z.log: # 0 FAIL; template sha256 8c6c25f9c4222308; negative controls ALL FAILED AS REQUIRED: True
+redcheck redcheck-1014-20261012T062243Z.log: redcheck 2026-10-12T06:22:43Z; template NDTwin-slide-template-1014.md sha256 8c6c25f9c4222308; # 0 FAIL; 96 cases ok
+mutant redcheck-1014-mutant-p18-footer.log: # 17 FAIL (the 17 new P18 and footer cases), controls ok: 2/2
+private scan private-scan-1014-r3.log: term list: 11 terms, sha256 f24691e20abb5664e28c13fdd4d2bea0b44280c020354755b0912d1871254d3d (kept outside every repo tree); files scanned: 151; hits: 0
+figures, PNG sha256 (first 16 hex):
+  figures/arch/fig_p02_architecture.png e0720f043ed46abe
+  figures/handson/fig_p10_setup.png ce158e530dce5285
+  figures/handson/fig_p13_relief.png 89a80a38c05507bc
+  figures/landscape/fig_p04_map.png d038e9c64851e7e3
+  figures/next/fig_p22_roadmap.png 921c3d6ffd5bf740
+  figures/p4/fig_p18_health.png e3e8ecf44a5e5b05

@@ -1,0 +1,413 @@
+{
+  "total_count": 4,
+  "jobs": [
+    {
+      "id": 108648452025,
+      "run_id": 36329444138,
+      "workflow_name": "CI",
+      "head_branch": "trunk",
+      "run_url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/actions/runs/36329444138",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOT_VQO88AAAAZS_PPuQ",
+      "head_sha": "3d740be0964b36091c6f4299bd288fa52bcd258d",
+      "url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/actions/jobs/108648452025",
+      "html_url": "https://github.com/ndtwin-lab/NDTwin-Kernel-P4/actions/runs/36329444138/job/108648452025",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-09-27T15:24:41Z",
+      "started_at": "2026-09-27T15:24:43Z",
+      "completed_at": "2026-09-27T15:34:06Z",
+      "name": "TSan",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-09-27T15:24:44Z",
+          "completed_at": "2026-09-27T15:24:45Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-09-27T15:24:45Z",
+          "completed_at": "2026-09-27T15:24:47Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-09-27T15:24:47Z",
+          "completed_at": "2026-09-27T15:25:01Z"
+        },
+        {
+          "name": "Configure (tsan)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-09-27T15:25:01Z",
+          "completed_at": "2026-09-27T15:25:07Z"
+        },
+        {
+          "name": "Build (tsan)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-09-27T15:25:07Z",
+          "completed_at": "2026-09-27T15:33:55Z"
+        },
+        {
+          "name": "Unit tests under TSan",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 6,
+          "started_at": "2026-09-27T15:33:55Z",
+          "completed_at": "2026-09-27T15:34:04Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-09-27T15:34:04Z",
+          "completed_at": "2026-09-27T15:34:04Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-09-27T15:34:04Z",
+          "completed_at": "2026-09-27T15:34:04Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/check-runs/108648452025",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000001878,
+      "runner_name": "GitHub Actions 1000001878",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 108648452156,
+      "run_id": 36329444138,
+      "workflow_name": "CI",
+      "head_branch": "trunk",
+      "run_url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/actions/runs/36329444138",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOT_VQO88AAAAZS_PQPA",
+      "head_sha": "3d740be0964b36091c6f4299bd288fa52bcd258d",
+      "url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/actions/jobs/108648452156",
+      "html_url": "https://github.com/ndtwin-lab/NDTwin-Kernel-P4/actions/runs/36329444138/job/108648452156",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-09-27T15:24:41Z",
+      "started_at": "2026-09-27T15:24:43Z",
+      "completed_at": "2026-09-27T15:27:31Z",
+      "name": "clang can compile it",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-09-27T15:24:44Z",
+          "completed_at": "2026-09-27T15:24:45Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-09-27T15:24:45Z",
+          "completed_at": "2026-09-27T15:24:48Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-09-27T15:24:48Z",
+          "completed_at": "2026-09-27T15:25:04Z"
+        },
+        {
+          "name": "Configure with clang",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-09-27T15:25:04Z",
+          "completed_at": "2026-09-27T15:25:10Z"
+        },
+        {
+          "name": "Build with clang",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 5,
+          "started_at": "2026-09-27T15:25:10Z",
+          "completed_at": "2026-09-27T15:27:29Z"
+        },
+        {
+          "name": "Unit tests (clang build)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 6,
+          "started_at": "2026-09-27T15:27:29Z",
+          "completed_at": "2026-09-27T15:27:29Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-09-27T15:27:29Z",
+          "completed_at": "2026-09-27T15:27:29Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-09-27T15:27:29Z",
+          "completed_at": "2026-09-27T15:27:29Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/check-runs/108648452156",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000001880,
+      "runner_name": "GitHub Actions 1000001880",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 108648452194,
+      "run_id": 36329444138,
+      "workflow_name": "CI",
+      "head_branch": "trunk",
+      "run_url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/actions/runs/36329444138",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOT_VQO88AAAAZS_PQYg",
+      "head_sha": "3d740be0964b36091c6f4299bd288fa52bcd258d",
+      "url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/actions/jobs/108648452194",
+      "html_url": "https://github.com/ndtwin-lab/NDTwin-Kernel-P4/actions/runs/36329444138/job/108648452194",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-09-27T15:24:41Z",
+      "started_at": "2026-09-27T15:24:43Z",
+      "completed_at": "2026-09-27T15:43:36Z",
+      "name": "Build and unit tests (GCC)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-09-27T15:24:44Z",
+          "completed_at": "2026-09-27T15:24:45Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-09-27T15:24:45Z",
+          "completed_at": "2026-09-27T15:24:47Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-09-27T15:24:47Z",
+          "completed_at": "2026-09-27T15:25:03Z"
+        },
+        {
+          "name": "Configure",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-09-27T15:25:03Z",
+          "completed_at": "2026-09-27T15:25:08Z"
+        },
+        {
+          "name": "Build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-09-27T15:25:08Z",
+          "completed_at": "2026-09-27T15:33:29Z"
+        },
+        {
+          "name": "Unit tests (direct execution)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-09-27T15:33:29Z",
+          "completed_at": "2026-09-27T15:33:43Z"
+        },
+        {
+          "name": "Unit tests (ctest)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-09-27T15:33:43Z",
+          "completed_at": "2026-09-27T15:34:15Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-09-27T15:34:15Z",
+          "completed_at": "2026-09-27T15:34:15Z"
+        },
+        {
+          "name": "Install Python test dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-09-27T15:34:15Z",
+          "completed_at": "2026-09-27T15:34:24Z"
+        },
+        {
+          "name": "Python unit tests",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 10,
+          "started_at": "2026-09-27T15:34:24Z",
+          "completed_at": "2026-09-27T15:43:33Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 19,
+          "started_at": "2026-09-27T15:43:33Z",
+          "completed_at": "2026-09-27T15:43:33Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-09-27T15:43:33Z",
+          "completed_at": "2026-09-27T15:43:33Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-09-27T15:43:33Z",
+          "completed_at": "2026-09-27T15:43:33Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/check-runs/108648452194",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000001881,
+      "runner_name": "GitHub Actions 1000001881",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 108648452232,
+      "run_id": 36329444138,
+      "workflow_name": "CI",
+      "head_branch": "trunk",
+      "run_url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/actions/runs/36329444138",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOT_VQO88AAAAZS_PQiA",
+      "head_sha": "3d740be0964b36091c6f4299bd288fa52bcd258d",
+      "url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/actions/jobs/108648452232",
+      "html_url": "https://github.com/ndtwin-lab/NDTwin-Kernel-P4/actions/runs/36329444138/job/108648452232",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-09-27T15:24:41Z",
+      "started_at": "2026-09-27T15:24:43Z",
+      "completed_at": "2026-09-27T15:38:19Z",
+      "name": "ASan + UBSan",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-09-27T15:24:44Z",
+          "completed_at": "2026-09-27T15:24:45Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-09-27T15:24:45Z",
+          "completed_at": "2026-09-27T15:24:48Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-09-27T15:24:48Z",
+          "completed_at": "2026-09-27T15:25:02Z"
+        },
+        {
+          "name": "Configure (asan)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-09-27T15:25:02Z",
+          "completed_at": "2026-09-27T15:25:07Z"
+        },
+        {
+          "name": "Build (asan)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-09-27T15:25:07Z",
+          "completed_at": "2026-09-27T15:37:35Z"
+        },
+        {
+          "name": "Unit tests under ASan + UBSan",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-09-27T15:37:35Z",
+          "completed_at": "2026-09-27T15:38:17Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-09-27T15:38:17Z",
+          "completed_at": "2026-09-27T15:38:17Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-09-27T15:38:17Z",
+          "completed_at": "2026-09-27T15:38:17Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/check-runs/108648452232",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000001879,
+      "runner_name": "GitHub Actions 1000001879",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}

@@ -1,0 +1,925 @@
+{
+  "persona": "ops",
+  "accessed": "2026-10-08",
+  "tools": [
+    {
+      "tool": "Batfish",
+      "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repo)",
+      "cells": {
+        "O1": {
+          "verdict": "diy",
+          "note": "Model comes from config files you export, plus optional layer-1 and runtime data; no live flows or load.",
+          "source": "https://batfish.readthedocs.io/en/latest/formats.html",
+          "locator": "Snapshot layout; supplemental data",
+          "accessed": "2026-10-08",
+          "scope": "config snapshot only"
+        },
+        "O2": {
+          "verdict": "builtin",
+          "note": "Reachability, ACL/filter and differential-reachability questions run on parsed configs, before any change reaches devices.",
+          "source": "https://batfish.readthedocs.io/en/latest/questions.html",
+          "locator": "Packet Forwarding; Access-lists and Firewall Rules; Differential Questions",
+          "accessed": "2026-10-08"
+        },
+        "O3": {
+          "verdict": "no",
+          "note": "Failure forks report reachability/path differences only; snapshot format has no traffic or utilization input (inferred from absence).",
+          "source": "https://batfish.readthedocs.io/en/latest/notebooks/linked/analyzing-the-impact-of-failures-and-letting-loose-a-chaos-monkey.html",
+          "locator": "Notebook: Analyzing the Impact of Failures",
+          "accessed": "2026-10-08",
+          "scope": "reachability only"
+        },
+        "O4": {
+          "verdict": "no",
+          "note": "Analyses config text in its own model; it runs no router or switch OS images.",
+          "source": "https://github.com/batfish/batfish",
+          "locator": "README: description",
+          "accessed": "2026-10-08"
+        },
+        "O5": {
+          "verdict": "builtin",
+          "note": "fork_snapshot deactivates nodes/interfaces on a copy; differential reachability and a random-failure loop check effects.",
+          "source": "https://batfish.readthedocs.io/en/latest/notebooks/linked/analyzing-the-impact-of-failures-and-letting-loose-a-chaos-monkey.html",
+          "locator": "Notebook: snapshot forking; Chaos Monkey",
+          "accessed": "2026-10-08",
+          "scope": "config model, not running devices"
+        },
+        "O6": {
+          "verdict": "no",
+          "note": "No power or energy analysis in the question catalogue; scope is configuration and forwarding correctness.",
+          "source": "https://batfish.readthedocs.io/en/latest/questions.html",
+          "locator": "Question categories list",
+          "accessed": "2026-10-08"
+        },
+        "O7": {
+          "verdict": "no",
+          "note": "Interface is Python calls to named questions; no natural-language or intent-parsing feature in the docs.",
+          "source": "https://batfish.readthedocs.io/en/latest/notebooks/interacting.html",
+          "locator": "Running Questions",
+          "accessed": "2026-10-08"
+        },
+        "O8": {
+          "verdict": "diy",
+          "note": "A snapshot is one point in time; keep your own snapshot archive and compare pairs with differential questions.",
+          "source": "https://batfish.readthedocs.io/en/latest/notebooks/interacting.html",
+          "locator": "Network and Snapshot Management",
+          "accessed": "2026-10-08"
+        }
+      },
+      "maturity": {
+        "M1": {
+          "verdict": "info",
+          "note": "Apache-2.0",
+          "source": "https://github.com/batfish/batfish",
+          "locator": "License (GitHub sidebar/API spdx_id)",
+          "accessed": "2026-10-08"
+        },
+        "M2": {
+          "verdict": "info",
+          "note": "Free, open source; no paid tier found",
+          "source": "https://github.com/batfish/batfish",
+          "locator": "README",
+          "accessed": "2026-10-08"
+        },
+        "M3": {
+          "verdict": "info",
+          "note": "v2026.08.27, published 2026-08-27 (GitHub releases API); latest commit 2026-10-07; pybatfish docs 0.36.0",
+          "source": "https://api.github.com/repos/batfish/batfish/releases/latest",
+          "locator": "tag_name, published_at",
+          "accessed": "2026-10-08"
+        },
+        "M4": {
+          "verdict": "info",
+          "note": "1,495 stars (github.com page, 2026-10-08)",
+          "source": "https://github.com/batfish/batfish",
+          "locator": "stargazerCount",
+          "accessed": "2026-10-08"
+        },
+        "M5": {
+          "verdict": "info",
+          "note": "About 69 (contributors API list, 2026-10-08; count by summariser, approximate)",
+          "source": "https://api.github.com/repos/batfish/batfish/contributors?per_page=100",
+          "locator": "contributors list",
+          "accessed": "2026-10-08"
+        },
+        "M6": {
+          "verdict": "info",
+          "note": "Config model (control plane computed from configs, then data-plane analysis); not packets, not flows",
+          "source": "https://par.nsf.gov/servlets/purl/10534020",
+          "locator": "Abstract and Introduction (Brown et al., SIGCOMM 2023)",
+          "accessed": "2026-10-08"
+        },
+        "M7": {
+          "verdict": "info",
+          "note": "SIGCOMM 2023 paper benchmarks 11 real networks of 75 to 2735 nodes; analysis in minutes",
+          "source": "https://par.nsf.gov/servlets/purl/10534020",
+          "locator": "Section 6 evaluation (Brown et al., Lessons from the evolution of Batfish)",
+          "accessed": "2026-10-08"
+        },
+        "M8": {
+          "verdict": "info",
+          "note": "Docker image batfish/allinone or pybatfish via pip; min 8 GB RAM and dual core, 32 GB recommended",
+          "source": "https://github.com/batfish/batfish",
+          "locator": "README: Installation; prerequisites",
+          "accessed": "2026-10-08"
+        },
+        "M9": {
+          "verdict": "info",
+          "note": "Python API (pybatfish) to a Batfish service on ports 9996/9997; questions return Pandas frames",
+          "source": "https://batfish.readthedocs.io/en/latest/notebooks/interacting.html",
+          "locator": "Setting Up a Connection; Running Questions",
+          "accessed": "2026-10-08"
+        }
+      }
+    },
+    {
+      "tool": "GNS3",
+      "evidence_kind": "READ: vendor docs (open-source project docs + GitHub repos)",
+      "cells": {
+        "O1": {
+          "verdict": "diy",
+          "note": "No live-state import; script the REST API to build projects from inventory and load configs; flows and load not mirrored.",
+          "source": "https://gns3-server.readthedocs.io/en/latest/endpoints.html",
+          "locator": "Controller endpoints: Project, Node, Link",
+          "accessed": "2026-10-08",
+          "scope": "static lab"
+        },
+        "O2": {
+          "verdict": "diy",
+          "note": "Boot device copies in a project, push the candidate config, then test reachability and ACLs with your own scripts.",
+          "source": "https://gns3-server.readthedocs.io/en/latest/endpoints.html",
+          "locator": "Controller endpoints: Node, Link",
+          "accessed": "2026-10-08"
+        },
+        "O3": {
+          "verdict": "diy",
+          "note": "Rebuild the topology, suspend a link, drive your own traffic generators; congestion is read off emulated devices.",
+          "source": "https://docs.gns3.com/docs/using-gns3/beginners/link-control",
+          "locator": "Link Control: Suspend Links",
+          "accessed": "2026-10-08",
+          "scope": "emulated copy you build"
+        },
+        "O4": {
+          "verdict": "builtin",
+          "note": "Runs Cisco IOS (Dynamips), IOU/IOL, QEMU and Docker nodes; you must supply licensed vendor images yourself.",
+          "source": "https://docs.gns3.com/docs/troubleshooting-faq/where-do-i-get-ios-images",
+          "locator": "Where do I get IOS images",
+          "accessed": "2026-10-08",
+          "scope": "images not included"
+        },
+        "O5": {
+          "verdict": "builtin",
+          "note": "Suspend links, add latency, loss or corruption filters to running links, stop nodes, all inside a lab copy.",
+          "source": "https://docs.gns3.com/docs/using-gns3/beginners/link-control",
+          "locator": "Link Control: packet filters; suspend",
+          "accessed": "2026-10-08",
+          "scope": "lab you build; no auto-copy of production"
+        },
+        "O6": {
+          "verdict": "no",
+          "note": "No energy or power analysis in the documented feature set; it is an emulator manager.",
+          "source": "https://github.com/GNS3/gns3-server",
+          "locator": "README: description",
+          "accessed": "2026-10-08"
+        },
+        "O7": {
+          "verdict": "builtin",
+          "note": "GNS3 3.1 MCP service lets an external AI assistant create projects, nodes, links from plain-language requests; 3.1 is prerelease.",
+          "source": "https://docs.gns3.com/docs-3.1-en/ai-tools/use-mcp-service",
+          "locator": "How to Use the MCP Service",
+          "accessed": "2026-10-08",
+          "scope": "lab management only; needs external LLM client"
+        },
+        "O8": {
+          "verdict": "diy",
+          "note": "Project snapshots save and restore lab state; no history of network telemetry; capture and replay traffic with external tools.",
+          "source": "https://gns3-server.readthedocs.io/en/latest/endpoints.html",
+          "locator": "Controller endpoints: Snapshot; Link capture",
+          "accessed": "2026-10-08"
+        }
+      },
+      "maturity": {
+        "M1": {
+          "verdict": "info",
+          "note": "GPL-3.0 (gns3-server and gns3-gui)",
+          "source": "https://github.com/GNS3/gns3-server",
+          "locator": "License",
+          "accessed": "2026-10-08"
+        },
+        "M2": {
+          "verdict": "info",
+          "note": "Free; gns3.com account needed for installers; vendor images need separate licences",
+          "source": "https://docs.gns3.com/docs/getting-started/installation/windows",
+          "locator": "Installation steps: Download",
+          "accessed": "2026-10-08"
+        },
+        "M3": {
+          "verdict": "info",
+          "note": "Latest stable on GitHub v2.2.61 (2026-07-30); 3.1.0a6 pre-release 2026-09-27; PyPI shows 3.0.6 (2026-01-28)",
+          "source": "https://api.github.com/repos/GNS3/gns3-server/releases?per_page=6",
+          "locator": "tag_name, published_at, prerelease",
+          "accessed": "2026-10-08"
+        },
+        "M4": {
+          "verdict": "info",
+          "note": "gns3-server 1,030 stars (github.com page, 2026-10-08); gns3-gui 2,640 (API)",
+          "source": "https://github.com/GNS3/gns3-server",
+          "locator": "stargazerCount",
+          "accessed": "2026-10-08"
+        },
+        "M5": {
+          "verdict": "info",
+          "note": "About 75 for gns3-server (contributors API list, 2026-10-08; summariser count, approximate)",
+          "source": "https://api.github.com/repos/GNS3/gns3-server/contributors?per_page=100",
+          "locator": "contributors list",
+          "accessed": "2026-10-08"
+        },
+        "M6": {
+          "verdict": "info",
+          "note": "Packet-level emulation (real or virtualized OS images via Dynamips, QEMU, Docker)",
+          "source": "https://github.com/GNS3/gns3-server",
+          "locator": "README: description",
+          "accessed": "2026-10-08"
+        },
+        "M7": {
+          "verdict": "info",
+          "note": "Docs: no node limit, hardware-bound, multi-server supported; CENGN reports about 600-800 routers on one UCS C240 (third-party)",
+          "source": "https://docs.gns3.com/docs/using-gns3/administration/scale-gns3",
+          "locator": "Scale GNS3; cengn.ca/?p=7720 (from search result)",
+          "accessed": "2026-10-08"
+        },
+        "M8": {
+          "verdict": "info",
+          "note": "Windows/macOS installers (v3 server must run on Linux or GNS3 VM), Ubuntu PPA, pip; needs uBridge, Dynamips, QEMU; Python 3.9+",
+          "source": "https://pypi.org/project/gns3-server/",
+          "locator": "Dependencies; Availability",
+          "accessed": "2026-10-08"
+        },
+        "M9": {
+          "verdict": "info",
+          "note": "REST API (HTTP JSON, OpenAPI docs at /docs) with WebSocket notifications; MCP in 3.1",
+          "source": "https://gns3-server.readthedocs.io/en/latest/endpoints.html",
+          "locator": "Controller endpoint groups",
+          "accessed": "2026-10-08"
+        }
+      }
+    },
+    {
+      "tool": "Forward Networks (commercial, public docs only)",
+      "evidence_kind": "READ: vendor marketing (datasheets, press release, blog); one community page for collection",
+      "cells": {
+        "O1": {
+          "verdict": "builtin",
+          "note": "vendor claim: Collector logs into devices over SSH, gathers config and state into snapshots; no flow or load telemetry stated.",
+          "source": "https://community.forwardnetworks.com/snapshots-83/how-to-create-a-custom-snapshot-467",
+          "locator": "How snapshots are collected",
+          "accessed": "2026-10-08",
+          "scope": "config/state snapshots"
+        },
+        "O2": {
+          "verdict": "builtin",
+          "note": "vendor claim: tests routing, ACL, NAT and segmentation changes on the model and returns pass/fail before production.",
+          "source": "https://www.forwardnetworks.com/wp-content/uploads/2026/08/Enterprise-Datasheet-4-Pager-V04-1.pdf",
+          "locator": "p.1 Capabilities: Change Verification; p.2 Forward Predict",
+          "accessed": "2026-10-08"
+        },
+        "O3": {
+          "verdict": "unknown",
+          "note": "Public material shows reachability blast-radius and change impact; no traffic-aware congestion prediction described. Searched datasheets and community.",
+          "source": "https://www.forwardnetworks.com/wp-content/uploads/2026/08/Enterprise-Datasheet-4-Pager-V04-1.pdf",
+          "locator": "p.3 Security Posture & Blast Radius",
+          "accessed": "2026-10-08"
+        },
+        "O4": {
+          "verdict": "no",
+          "note": "vendor claim: model built from collected device state; it analyses existing devices and does not run vendor OS images.",
+          "source": "https://www.forwardnetworks.com/wp-content/uploads/2025/12/ProductDataSheet.pdf",
+          "locator": "What Forward Enterprise does: 1. Build a Digital Twin",
+          "accessed": "2026-10-08"
+        },
+        "O5": {
+          "verdict": "unknown",
+          "note": "Public material describes verifying proposed changes and blast radius; failure-injection drills on a copy are not described.",
+          "source": "https://www.forwardnetworks.com/wp-content/uploads/2026/08/Enterprise-Datasheet-4-Pager-V04-1.pdf",
+          "locator": "p.2 Verify before you deploy; p.3 Blast Radius",
+          "accessed": "2026-10-08"
+        },
+        "O6": {
+          "verdict": "unknown",
+          "note": "Not mentioned in datasheets, press release or API blog; no energy or power feature found.",
+          "source": "https://www.forwardnetworks.com/wp-content/uploads/2026/08/Enterprise-Datasheet-4-Pager-V04-1.pdf",
+          "locator": "Whole document (searched)",
+          "accessed": "2026-10-08"
+        },
+        "O7": {
+          "verdict": "builtin",
+          "note": "vendor claim: Forward AI answers natural-language questions and runs verified workflows against the model; GA planned April 2026.",
+          "source": "https://www.forwardnetworks.com/?p=5314",
+          "locator": "Press release 2026-01-29: Forward AI",
+          "accessed": "2026-10-08",
+          "scope": "uses MCP; vendor claim"
+        },
+        "O8": {
+          "verdict": "builtin",
+          "note": "vendor claim: continuous snapshots plus Behavior Diff between any two snapshots; API returns historical states; no event replay.",
+          "source": "https://www.forwardnetworks.com/wp-content/uploads/2026/08/Enterprise-Datasheet-4-Pager-V04-1.pdf",
+          "locator": "p.3 Rapid troubleshooting of unintended changes",
+          "accessed": "2026-10-08",
+          "scope": "snapshot history, not replay"
+        }
+      },
+      "maturity": {
+        "M1": {
+          "verdict": "info",
+          "note": "Proprietary commercial software",
+          "source": "https://www.forwardnetworks.com/wp-content/uploads/2026/08/Enterprise-Datasheet-4-Pager-V04-1.pdf",
+          "locator": "Copyright footer",
+          "accessed": "2026-10-08"
+        },
+        "M2": {
+          "verdict": "info",
+          "note": "Quote only; modular subscription priced per modelled device; free-trial and demo links on pricing page",
+          "source": "https://www.forwardnetworks.com/pricing/",
+          "locator": "Pricing",
+          "accessed": "2026-10-08"
+        },
+        "M3": {
+          "verdict": "info",
+          "note": "Latest public release note found: Forward Enterprise 25.6.0 (2025-06-17, community page); newer may exist",
+          "source": "https://community.forwardnetworks.com/product-updates/product-updates-for-25-6-0-575",
+          "locator": "Product updates 25.6.0",
+          "accessed": "2026-10-08"
+        },
+        "M4": {
+          "verdict": "info",
+          "note": "Closed source; not on GitHub",
+          "source": "https://www.forwardnetworks.com/wp-content/uploads/2026/08/Enterprise-Datasheet-4-Pager-V04-1.pdf",
+          "locator": "n/a",
+          "accessed": "2026-10-08"
+        },
+        "M5": {
+          "verdict": "info",
+          "note": "Closed source",
+          "source": "https://www.forwardnetworks.com/wp-content/uploads/2026/08/Enterprise-Datasheet-4-Pager-V04-1.pdf",
+          "locator": "n/a",
+          "accessed": "2026-10-08"
+        },
+        "M6": {
+          "verdict": "info",
+          "note": "Config and state model (header-space path computation); vendor claims no sampling or simulation",
+          "source": "https://www.forwardnetworks.com/wp-content/uploads/2025/12/ProductDataSheet.pdf",
+          "locator": "Why Forward Enterprise stands out",
+          "accessed": "2026-10-08"
+        },
+        "M7": {
+          "verdict": "info",
+          "note": "vendor claim: thousands of devices, billions of paths; no named customer scale published",
+          "source": "https://www.forwardnetworks.com/wp-content/uploads/2025/12/ProductDataSheet.pdf",
+          "locator": "Why Forward Enterprise stands out",
+          "accessed": "2026-10-08"
+        },
+        "M8": {
+          "verdict": "info",
+          "note": "SaaS or on-prem VM; Collector needs SSH reach to devices (OVA for KVM/ESXi per a 2021 datasheet)",
+          "source": "https://www.forwardnetworks.com/wp-content/uploads/2025/12/ProductDataSheet.pdf",
+          "locator": "Flexible deployment; Forward Collector (2021 datasheet for OVA)",
+          "accessed": "2026-10-08"
+        },
+        "M9": {
+          "verdict": "info",
+          "note": "REST API (token, OpenAPI at fwd.app/api-doc) and Network Query Engine; MCP support via Forward AI",
+          "source": "https://www.forwardnetworks.com/blog/2025/09/16/automate-network-intelligence-with-the-forward-networks-api",
+          "locator": "What the API exposes",
+          "accessed": "2026-10-08"
+        }
+      }
+    },
+    {
+      "tool": "Cisco Modeling Labs (commercial, public docs only)",
+      "evidence_kind": "READ: vendor docs (developer.cisco.com) and one Cisco blog",
+      "cells": {
+        "O1": {
+          "verdict": "diy",
+          "note": "NetBox-to-lab exporter (nrx) and YAML import can seed a topology; configs are yours to load; no live flows or load.",
+          "source": "https://blogs.cisco.com/learning/two-new-ways-to-bring-netbox-into-your-cml-networks",
+          "locator": "NetBox to CML",
+          "accessed": "2026-10-08",
+          "scope": "static lab"
+        },
+        "O2": {
+          "verdict": "diy",
+          "note": "Build a lab from candidate configs and test with pyATS or scripts via the API; checks are yours to write.",
+          "source": "https://developer.cisco.com/modeling-labs/",
+          "locator": "API & Automation: pyATS, Ansible, Terraform",
+          "accessed": "2026-10-08"
+        },
+        "O3": {
+          "verdict": "diy",
+          "note": "Rebuild topology, vary link bandwidth/latency/loss, drive your own traffic nodes; no built-in congestion predictor.",
+          "source": "https://developer.cisco.com/docs/modeling-labs/link-conditioning/",
+          "locator": "Link Conditioning",
+          "accessed": "2026-10-08",
+          "scope": "emulated copy you build"
+        },
+        "O4": {
+          "verdict": "builtin",
+          "note": "Runs real Cisco reference images (IOL, ASAv, XRd and more) plus third-party KVM and Docker nodes; some images are tier-limited.",
+          "source": "https://developer.cisco.com/docs/modeling-labs/software-version-history",
+          "locator": "CML 2.10.0 entry",
+          "accessed": "2026-10-08",
+          "scope": "image library depends on edition"
+        },
+        "O5": {
+          "verdict": "builtin",
+          "note": "Stop nodes and links, apply loss, latency, jitter or bandwidth limits in a lab; you build or import the copy.",
+          "source": "https://developer.cisco.com/docs/modeling-labs/link-conditioning/",
+          "locator": "Link Conditioning",
+          "accessed": "2026-10-08",
+          "scope": "lab you build; no auto-copy of production"
+        },
+        "O6": {
+          "verdict": "unknown",
+          "note": "No energy or power feature found on the product page, docs index or 2.10 version history.",
+          "source": "https://developer.cisco.com/modeling-labs/",
+          "locator": "Product overview (searched)",
+          "accessed": "2026-10-08"
+        },
+        "O7": {
+          "verdict": "diy",
+          "note": "2.10 lists MCP server integration; Cisco blog describes an open-source server plus your own LLM client, for building labs only.",
+          "source": "https://blogs.cisco.com/learning/speak-your-lab-into-existence-with-ai-driven-cisco-modeling-labs-and-mcp",
+          "locator": "Speak your lab into existence (2025-11-17)",
+          "accessed": "2026-10-08",
+          "scope": "lab building; not live-network actions"
+        },
+        "O8": {
+          "verdict": "unknown",
+          "note": "No state-history or replay feature found in product page, docs index or version history; packet capture exists.",
+          "source": "https://developer.cisco.com/docs/modeling-labs/software-version-history",
+          "locator": "CML 2.10.0 entry (searched)",
+          "accessed": "2026-10-08"
+        }
+      },
+      "maturity": {
+        "M1": {
+          "verdict": "info",
+          "note": "Proprietary commercial; CML-Free tier is licensed, not open source",
+          "source": "https://developer.cisco.com/docs/modeling-labs/cml-free/",
+          "locator": "CML-Free",
+          "accessed": "2026-10-08"
+        },
+        "M2": {
+          "verdict": "info",
+          "note": "Free tier 5 nodes; Personal $199 (20 nodes), Personal Plus $349 (40 nodes) on Cisco page; Enterprise quote only",
+          "source": "https://developer.cisco.com/modeling-labs/",
+          "locator": "Editions & pricing",
+          "accessed": "2026-10-08"
+        },
+        "M3": {
+          "verdict": "info",
+          "note": "CML 2.10.0, released 2026-03-02 (previous 2.9.0 on 2025-07-18)",
+          "source": "https://developer.cisco.com/docs/modeling-labs/software-version-history",
+          "locator": "Version table",
+          "accessed": "2026-10-08"
+        },
+        "M4": {
+          "verdict": "info",
+          "note": "Closed source; product not on GitHub",
+          "source": "https://developer.cisco.com/modeling-labs/",
+          "locator": "n/a",
+          "accessed": "2026-10-08"
+        },
+        "M5": {
+          "verdict": "info",
+          "note": "Closed source",
+          "source": "https://developer.cisco.com/modeling-labs/",
+          "locator": "n/a",
+          "accessed": "2026-10-08"
+        },
+        "M6": {
+          "verdict": "info",
+          "note": "Packet-level emulation (VM and container images)",
+          "source": "https://developer.cisco.com/modeling-labs/",
+          "locator": "Overview: real Cisco images",
+          "accessed": "2026-10-08"
+        },
+        "M7": {
+          "verdict": "info",
+          "note": "Licence up to 20 base plus 500 additional nodes; cluster limited to 8 compute hosts; 2.9 blog cites 520 running nodes",
+          "source": "https://developer.cisco.com/docs/modeling-labs/clustering",
+          "locator": "Cluster capacity limits",
+          "accessed": "2026-10-08"
+        },
+        "M8": {
+          "verdict": "info",
+          "note": "OVA on ESXi/Workstation/Fusion, bare metal, AWS/Azure; min 8 GB RAM, 4 Intel cores, 32 GB disk; Cisco.com account for Free",
+          "source": "https://developer.cisco.com/docs/modeling-labs/system-requirements/",
+          "locator": "System requirements",
+          "accessed": "2026-10-08"
+        },
+        "M9": {
+          "verdict": "info",
+          "note": "REST API with Python client library; pyATS, Ansible, Terraform integrations; MCP server",
+          "source": "https://developer.cisco.com/modeling-labs/",
+          "locator": "API & Automation",
+          "accessed": "2026-10-08"
+        }
+      }
+    },
+    {
+      "tool": "IP Fabric (commercial, public docs only)",
+      "evidence_kind": "READ: vendor docs (docs.ipfabric.io) and vendor marketing (ipfabric.io)",
+      "cells": {
+        "O1": {
+          "verdict": "builtin",
+          "note": "Discovers devices over SSH/Telnet or APIs into scheduled snapshots; builds topology from configs and state; no flow or load telemetry.",
+          "source": "https://docs.ipfabric.io/7.5/IP_Fabric_Settings/Discovery_and_Snapshots/snapshot_collection/",
+          "locator": "Discovery Methods; Scheduling",
+          "accessed": "2026-10-08",
+          "scope": "config/state snapshots"
+        },
+        "O2": {
+          "verdict": "builtin",
+          "note": "Intent verification rules check configs against policy; path lookup traces routing and ACL decisions per snapshot.",
+          "source": "https://docs.ipfabric.io/latest/",
+          "locator": "Key features: Intent Verification; Path Lookup",
+          "accessed": "2026-10-08"
+        },
+        "O3": {
+          "verdict": "no",
+          "note": "Docs say path lookup uses no traffic load; no congestion prediction feature found.",
+          "source": "https://docs.ipfabric.io/latest/IP_Fabric_API/Path_Lookup/",
+          "locator": "Path Lookup overview",
+          "accessed": "2026-10-08",
+          "scope": "reachability only"
+        },
+        "O4": {
+          "verdict": "no",
+          "note": "Read-only twin built from discovered devices; it does not run vendor OS images.",
+          "source": "https://ipfabric.io/",
+          "locator": "Overview: digital twin; read-only access",
+          "accessed": "2026-10-08"
+        },
+        "O5": {
+          "verdict": "unknown",
+          "note": "Docs show path-based single-point-of-failure highlighting; no failure-injection drill on a copy is documented.",
+          "source": "https://ipfabric.io/blog/tag/network-testing/",
+          "locator": "Network testing articles (from search result)",
+          "accessed": "2026-10-08"
+        },
+        "O6": {
+          "verdict": "unknown",
+          "note": "Not mentioned in docs index, release notes 8.1 or overview; no energy feature found.",
+          "source": "https://docs.ipfabric.io/latest/",
+          "locator": "Docs index (searched)",
+          "accessed": "2026-10-08"
+        },
+        "O7": {
+          "verdict": "builtin",
+          "note": "MCP server lets an external AI assistant query health, paths and API in plain language; read-only queries.",
+          "source": "https://docs.ipfabric.io/main/IP_Fabric_Settings/integration/mcp/",
+          "locator": "What it does; Exposed tools",
+          "accessed": "2026-10-08",
+          "scope": "queries only; needs external AI assistant"
+        },
+        "O8": {
+          "verdict": "builtin",
+          "note": "Scheduled snapshots with retention rules and snapshot comparison; no packet-level or event replay.",
+          "source": "https://docs.ipfabric.io/7.5/IP_Fabric_Settings/Discovery_and_Snapshots/snapshot_collection/",
+          "locator": "Snapshot limits; Retention policies",
+          "accessed": "2026-10-08",
+          "scope": "snapshot history, not replay"
+        }
+      },
+      "maturity": {
+        "M1": {
+          "verdict": "info",
+          "note": "Proprietary commercial software",
+          "source": "https://ipfabric.io/pricing/",
+          "locator": "Pricing",
+          "accessed": "2026-10-08"
+        },
+        "M2": {
+          "verdict": "info",
+          "note": "Quote only; subscription by active devices and cloud objects; free trial offered",
+          "source": "https://ipfabric.io/pricing/",
+          "locator": "Pricing",
+          "accessed": "2026-10-08"
+        },
+        "M3": {
+          "verdict": "info",
+          "note": "v8.1 current at docs /latest (8.1.4 released 2026-10-02 per 8.1 notes); /main shows 8.2 unreleased",
+          "source": "https://docs.ipfabric.io/latest/releases/release_notes/8.1/",
+          "locator": "Release summary",
+          "accessed": "2026-10-08"
+        },
+        "M4": {
+          "verdict": "info",
+          "note": "Closed source product; docs list a separate Python SDK",
+          "source": "https://docs.ipfabric.io/latest/",
+          "locator": "Integrations: Python SDK",
+          "accessed": "2026-10-08"
+        },
+        "M5": {
+          "verdict": "info",
+          "note": "Closed source",
+          "source": "https://docs.ipfabric.io/latest/",
+          "locator": "n/a",
+          "accessed": "2026-10-08"
+        },
+        "M6": {
+          "verdict": "info",
+          "note": "Config and state model from discovery; path lookup simulates hop-by-hop data-plane decisions",
+          "source": "https://docs.ipfabric.io/latest/IP_Fabric_API/Path_Lookup/",
+          "locator": "Path Lookup overview",
+          "accessed": "2026-10-08"
+        },
+        "M7": {
+          "verdict": "info",
+          "note": "Sizing tier up to 20,000 devices in 7.5 docs; vendor case study cites 10,000+ devices (HCLTech)",
+          "source": "https://docs.ipfabric.io/7.5/overview/",
+          "locator": "Hardware sizing; ipfabric.io/wp-content/uploads/2024/07/CS_HCL_2024-1.pdf",
+          "accessed": "2026-10-08"
+        },
+        "M8": {
+          "verdict": "info",
+          "note": "Single VM appliance (OVA for VMware primary, QCOW2 limited); min 8 CPU, 32 GB RAM; SSH/Telnet reach and read-only credentials",
+          "source": "https://docs.ipfabric.io/7.5/overview/",
+          "locator": "Supported virtualization; network prerequisites",
+          "accessed": "2026-10-08"
+        },
+        "M9": {
+          "verdict": "info",
+          "note": "REST API with Python SDK; MCP server; ServiceNow and Splunk integrations",
+          "source": "https://docs.ipfabric.io/latest/",
+          "locator": "Eight sections: API; Integrations",
+          "accessed": "2026-10-08"
+        }
+      }
+    },
+    {
+      "tool": "RouteNet-Fermi (academic, paper only)",
+      "evidence_kind": "READ: paper (arXiv v3, IEEE/ACM ToN 2023) and GitHub repo",
+      "cells": {
+        "O1": {
+          "verdict": "no",
+          "note": "Offline GNN trained on simulated or testbed datasets; it does not ingest or mirror a running network.",
+          "source": "https://arxiv.org/pdf/2212.12070",
+          "locator": "Introduction: training and generalization",
+          "accessed": "2026-10-08",
+          "scope": "model, not a mirror"
+        },
+        "O2": {
+          "verdict": "no",
+          "note": "Predicts delay, jitter and loss; no reachability, ACL or configuration-correctness reasoning.",
+          "source": "https://arxiv.org/abs/2212.12070",
+          "locator": "Abstract",
+          "accessed": "2026-10-08"
+        },
+        "O3": {
+          "verdict": "diy",
+          "note": "Predicts per-flow delay, jitter, loss from topology, routing, traffic; you supply post-removal topology, rerouting and matrix, and train.",
+          "source": "https://arxiv.org/pdf/2212.12070",
+          "locator": "Introduction; model inputs",
+          "accessed": "2026-10-08",
+          "scope": "paper's model; no tool or API"
+        },
+        "O4": {
+          "verdict": "no",
+          "note": "A neural performance model; it runs no network OS images.",
+          "source": "https://github.com/BNN-UPC/RouteNet-Fermi",
+          "locator": "README: contents",
+          "accessed": "2026-10-08"
+        },
+        "O5": {
+          "verdict": "no",
+          "note": "Not an environment; paper notes the model predicts only scenarios resembling training, so failures must come from a testbed dataset.",
+          "source": "https://arxiv.org/pdf/2212.12070",
+          "locator": "Introduction: training and generalization",
+          "accessed": "2026-10-08"
+        },
+        "O6": {
+          "verdict": "no",
+          "note": "Out of scope; outputs are delay, jitter and packet loss only.",
+          "source": "https://arxiv.org/abs/2212.12070",
+          "locator": "Abstract",
+          "accessed": "2026-10-08"
+        },
+        "O7": {
+          "verdict": "no",
+          "note": "No natural-language or intent interface; Python scripts for training and prediction.",
+          "source": "https://github.com/BNN-UPC/RouteNet-Fermi",
+          "locator": "README: files",
+          "accessed": "2026-10-08"
+        },
+        "O8": {
+          "verdict": "no",
+          "note": "No state history or replay feature; real traffic traces serve only as offline evaluation inputs.",
+          "source": "https://arxiv.org/pdf/2212.12070",
+          "locator": "Evaluation: real traffic",
+          "accessed": "2026-10-08"
+        }
+      },
+      "maturity": {
+        "M1": {
+          "verdict": "info",
+          "note": "Apache-2.0",
+          "source": "https://github.com/BNN-UPC/RouteNet-Fermi",
+          "locator": "License",
+          "accessed": "2026-10-08"
+        },
+        "M2": {
+          "verdict": "info",
+          "note": "Free (research code); training data and GPU time are the real cost",
+          "source": "https://github.com/BNN-UPC/RouteNet-Fermi",
+          "locator": "README",
+          "accessed": "2026-10-08"
+        },
+        "M3": {
+          "verdict": "info",
+          "note": "No GitHub releases; paper published IEEE/ACM ToN 2023, arXiv v3 dated 2023-09-20; repo has 8 commits",
+          "source": "https://github.com/BNN-UPC/RouteNet-Fermi",
+          "locator": "Commits; arXiv header",
+          "accessed": "2026-10-08"
+        },
+        "M4": {
+          "verdict": "info",
+          "note": "44 stars (github.com page, 2026-10-08)",
+          "source": "https://github.com/BNN-UPC/RouteNet-Fermi",
+          "locator": "stargazerCount",
+          "accessed": "2026-10-08"
+        },
+        "M5": {
+          "verdict": "info",
+          "note": "5 main contributors named in README; GitHub contributors API was rate-limited",
+          "source": "https://github.com/BNN-UPC/RouteNet-Fermi",
+          "locator": "Main Contributors",
+          "accessed": "2026-10-08"
+        },
+        "M6": {
+          "verdict": "info",
+          "note": "ML model (graph neural network over flows, links, queues)",
+          "source": "https://arxiv.org/abs/2212.12070",
+          "locator": "Abstract",
+          "accessed": "2026-10-08"
+        },
+        "M7": {
+          "verdict": "info",
+          "note": "Tested up to 300 nodes after training on 5 to 10 node networks; physical testbed of 8 routers, 2 switches",
+          "source": "https://arxiv.org/pdf/2212.12070",
+          "locator": "Generalization and Scalability; testbed section",
+          "accessed": "2026-10-08"
+        },
+        "M8": {
+          "verdict": "info",
+          "note": "git clone plus pip; requirements.txt pins tensorflow 2.6, networkx 2.6, pandas 1.1",
+          "source": "https://raw.githubusercontent.com/BNN-UPC/RouteNet-Fermi/main/requirements.txt",
+          "locator": "requirements.txt",
+          "accessed": "2026-10-08"
+        },
+        "M9": {
+          "verdict": "info",
+          "note": "Python scripts (main.py, predict.py) and datanetAPI.py dataset reader; no service API",
+          "source": "https://github.com/BNN-UPC/RouteNet-Fermi",
+          "locator": "Key files",
+          "accessed": "2026-10-08"
+        }
+      }
+    },
+    {
+      "tool": "IRTF NMRG network digital twin architecture draft (academic reference framework)",
+      "evidence_kind": "READ: IETF Internet-Draft text, rev -13 (reference architecture, not software)",
+      "cells": {
+        "O1": {
+          "verdict": "diy",
+          "note": "Framework requires a data repository fed with real-time operational data via SNMP, NETCONF, IPFIX, telemetry; no implementation exists.",
+          "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+          "locator": "Section 4 Data; Section 9.1",
+          "accessed": "2026-10-08",
+          "scope": "framework only"
+        },
+        "O2": {
+          "verdict": "diy",
+          "note": "Framework says config changes can be pre-verified in the twin; it specifies no checker, so you build one.",
+          "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+          "locator": "Section 5.1; Section 9.2",
+          "accessed": "2026-10-08",
+          "scope": "framework only"
+        },
+        "O3": {
+          "verdict": "diy",
+          "note": "Names what-if analysis and performance models such as bottleneck structures; gives no traffic-aware congestion method.",
+          "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+          "locator": "Section 9.2 Network Modeling",
+          "accessed": "2026-10-08",
+          "scope": "framework only"
+        },
+        "O4": {
+          "verdict": "no",
+          "note": "Document, not software; mentions GNS3 and EVE-NG only as example emulators for small networks.",
+          "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+          "locator": "Section 9.2 Network Modeling",
+          "accessed": "2026-10-08",
+          "scope": "not software"
+        },
+        "O5": {
+          "verdict": "diy",
+          "note": "Cites twin-based fuzzing and resilience (what-if) testing as use cases; defines no drill mechanism.",
+          "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+          "locator": "Abstract; Section 11.4 Network Fuzzing",
+          "accessed": "2026-10-08",
+          "scope": "framework only"
+        },
+        "O6": {
+          "verdict": "diy",
+          "note": "Only lists energy monitoring and optimization as a twinning-management topic; defines no device power-down analysis.",
+          "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+          "locator": "Section 9.5 Twinning Management",
+          "accessed": "2026-10-08",
+          "scope": "framework only"
+        },
+        "O7": {
+          "verdict": "diy",
+          "note": "Describes intent-based networking validated on the twin; abstract intents, no natural-language requirement.",
+          "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+          "locator": "Section 10 Interaction with IBN",
+          "accessed": "2026-10-08",
+          "scope": "framework only"
+        },
+        "O8": {
+          "verdict": "diy",
+          "note": "Requires historical and/or real-time data and reproducibility, meaning replay of event sequences; no mechanism defined.",
+          "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+          "locator": "Section 4 Characteristics: repeatability, reproducibility",
+          "accessed": "2026-10-08",
+          "scope": "framework only"
+        }
+      },
+      "maturity": {
+        "M1": {
+          "verdict": "info",
+          "note": "n/a: Internet-Draft text, not software",
+          "source": "https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch",
+          "locator": "Header",
+          "accessed": "2026-10-08"
+        },
+        "M2": {
+          "verdict": "info",
+          "note": "Free to read; nothing to buy or run",
+          "source": "https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch",
+          "locator": "Header",
+          "accessed": "2026-10-08"
+        },
+        "M3": {
+          "verdict": "info",
+          "note": "draft-irtf-nmrg-network-digital-twin-arch-13, dated 2026-07-01; Informational, IRTF stream, no RFC number; expires 2027-01-02",
+          "source": "https://datatracker.ietf.org/doc/draft-irtf-nmrg-network-digital-twin-arch/",
+          "locator": "Datatracker: state, intended status (page lists waiting for IRTF Chair approval)",
+          "accessed": "2026-10-08"
+        },
+        "M4": {
+          "verdict": "info",
+          "note": "Not on GitHub; hosted on IETF datatracker",
+          "source": "https://datatracker.ietf.org/doc/draft-irtf-nmrg-network-digital-twin-arch/",
+          "locator": "n/a",
+          "accessed": "2026-10-08"
+        },
+        "M5": {
+          "verdict": "info",
+          "note": "n/a: 8 authors and editors on the header (China Mobile, Telefonica, Huawei, Orange)",
+          "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+          "locator": "Front page author block",
+          "accessed": "2026-10-08"
+        },
+        "M6": {
+          "verdict": "info",
+          "note": "n/a: reference framework; leaves model type open (emulation, simulation, math models)",
+          "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+          "locator": "Section 9.2 Network Modeling",
+          "accessed": "2026-10-08"
+        },
+        "M7": {
+          "verdict": "info",
+          "note": "n/a: no implementation; text says emulators scale poorly and suggests mathematical models for large networks",
+          "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+          "locator": "Section 9.2 Network Modeling",
+          "accessed": "2026-10-08"
+        },
+        "M8": {
+          "verdict": "info",
+          "note": "n/a: read the draft; no install path",
+          "source": "https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch",
+          "locator": "Header",
+          "accessed": "2026-10-08"
+        },
+        "M9": {
+          "verdict": "info",
+          "note": "none concrete: names network-facing (SNMP, NETCONF), application-facing (RESTful) and internal interfaces",
+          "source": "https://www.ietf.org/archive/id/draft-irtf-nmrg-network-digital-twin-arch-13.txt",
+          "locator": "Section 9.4 Interfaces",
+          "accessed": "2026-10-08"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "name": "main",
+  "commit": {
+    "sha": "f186ce98c7643cf1e7a9e7e402e4193bd0d72805",
+    "node_id": "C_kwDOT_VQO9oAKGYxODZjZTk4Yzc2NDNjZjFlN2E5ZTdlNDAyZTQxOTNiZDBkNzI4MDU",
+    "commit": {
+      "author": {
+        "name": "Adam010341",
+        "email": "adam010341@gmail.com",
+        "date": "2026-09-27T12:35:38Z"
+      },
+      "committer": {
+        "name": "Adam010341",
+        "email": "adam010341@gmail.com",
+        "date": "2026-09-27T12:35:38Z"
+      },
+      "message": "Merge feat/ndt-serve-gui-0927 (opus judge MERGE on 8c3047c7, after MERGE AFTER FIXES on fcd4f69a): ndt serve serves its own page\n\nAdam's ruling H (2026-09-27): the GUI is a static page that ndt serve itself serves at /, /app.js and /app.css, same origin, no CORS. The token reaches the page through a one-time key in the URL fragment that serve prints at start (POST /session, Origin required to be this very origin, good once, --nonce-ttl s, 8 newest only); the page drops the fragment from the address bar as soon as it has read it. New reads GET /lab (plain status plus the claim, measuring and declared rows verbatim, claim_is_yours, measuring_is_nothing, busy) and GET /meta. dry_run is accepted only on writes that spawn, and returns the argv without running it. The confirmation strength per write is the server's confirm_policy; the page adds only the measuring rule. The job log is read every 2 s and stops when the job ends, when the view is closed, and while the page is hidden.\n\nJudge B1 (fcd4f69a): an app start/stop under somebody else's claim was refused only by the page -- ndt's apps verbs check no claim -- so w_app now reads the claim inside the slot (_require_own_claim, 409 claim for another owner, none, stale or a `yours-x` owner); the preview still needs no claim. G-N1, G-N7, G-N8, G-N17 and the REPORT's numbers are fixed in the same round.\n\nTest merge d09a4f17 (7746832e + 8c3047c7, tree aba2f7c7, this merge's): test_ndt_serve 74 OK, test_ndt_serve_cells 35 OK, test_ndt_serve_gui 40 OK, tests/browser/test_ndt_serve_page 5 OK under the guard and 5 skipped outside it, mutate_ndt_serve 150/0, mutate_ndt_serve_page 5/0, check_gate_anchors 122/122, check_process_by_name and check_test_tmpdirs clean, tripwire 0, tracked tree clean after the gates. Queued after this merge, on a branch of its own: test_claim_note_reaches_ndt_as_one_argv_element goes red under a TMPDIR longer than about 55 characters (a note built from two absolute temp paths against a 200-character cap).\n\n[Co-developed with claude code -- Adam]\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "tree": {
+        "sha": "aba2f7c712ac6afab5e5fd2beb050e4c8c4a5735",
+        "url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/git/trees/aba2f7c712ac6afab5e5fd2beb050e4c8c4a5735"
+      },
+      "url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/git/commits/f186ce98c7643cf1e7a9e7e402e4193bd0d72805",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/commits/f186ce98c7643cf1e7a9e7e402e4193bd0d72805",
+    "html_url": "https://github.com/ndtwin-lab/NDTwin-Kernel-P4/commit/f186ce98c7643cf1e7a9e7e402e4193bd0d72805",
+    "comments_url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/commits/f186ce98c7643cf1e7a9e7e402e4193bd0d72805/comments",
+    "author": {
+      "login": "Adam010341",
+      "id": 180733882,
+      "node_id": "U_kgDOCsXHug",
+      "avatar_url": "https://avatars.githubusercontent.com/u/180733882?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Adam010341",
+      "html_url": "https://github.com/Adam010341",
+      "followers_url": "https://api.github.com/users/Adam010341/followers",
+      "following_url": "https://api.github.com/users/Adam010341/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Adam010341/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Adam010341/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Adam010341/subscriptions",
+      "organizations_url": "https://api.github.com/users/Adam010341/orgs",
+      "repos_url": "https://api.github.com/users/Adam010341/repos",
+      "events_url": "https://api.github.com/users/Adam010341/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Adam010341/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Adam010341",
+      "id": 180733882,
+      "node_id": "U_kgDOCsXHug",
+      "avatar_url": "https://avatars.githubusercontent.com/u/180733882?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Adam010341",
+      "html_url": "https://github.com/Adam010341",
+      "followers_url": "https://api.github.com/users/Adam010341/followers",
+      "following_url": "https://api.github.com/users/Adam010341/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Adam010341/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Adam010341/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Adam010341/subscriptions",
+      "organizations_url": "https://api.github.com/users/Adam010341/orgs",
+      "repos_url": "https://api.github.com/users/Adam010341/repos",
+      "events_url": "https://api.github.com/users/Adam010341/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Adam010341/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "7746832ef7f54bb5538c39bb3fcb80024693a072",
+        "url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/commits/7746832ef7f54bb5538c39bb3fcb80024693a072",
+        "html_url": "https://github.com/ndtwin-lab/NDTwin-Kernel-P4/commit/7746832ef7f54bb5538c39bb3fcb80024693a072"
+      },
+      {
+        "sha": "8c3047c77c65508ccf9bf4383b0a933e29f83310",
+        "url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/commits/8c3047c77c65508ccf9bf4383b0a933e29f83310",
+        "html_url": "https://github.com/ndtwin-lab/NDTwin-Kernel-P4/commit/8c3047c77c65508ccf9bf4383b0a933e29f83310"
+      }
+    ]
+  },
+  "_links": {
+    "self": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/branches/main",
+    "html": "https://github.com/ndtwin-lab/NDTwin-Kernel-P4/tree/main"
+  },
+  "protected": false,
+  "protection": {
+    "enabled": false,
+    "required_status_checks": {
+      "enforcement_level": "off",
+      "contexts": [
+
+      ],
+      "checks": [
+
+      ]
+    }
+  },
+  "protection_url": "https://api.github.com/repos/ndtwin-lab/NDTwin-Kernel-P4/branches/main/protection"
+}

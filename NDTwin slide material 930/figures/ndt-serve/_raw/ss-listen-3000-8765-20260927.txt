@@ -1,0 +1,4 @@
+# 2026-09-27T23:52:11+08:00 ss -ltnH 'sport = :3000'  (no -p: a root-owned process is not named without sudo)
+LISTEN 0      4096   0.0.0.0:3000 0.0.0.0:*
+LISTEN 0      4096      [::]:3000    [::]:*
+# 2026-09-27T23:52:11+08:00 ss -ltnH 'sport = :8765'  (empty = nothing listening; ndt serve not running now)

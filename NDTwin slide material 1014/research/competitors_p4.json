@@ -1,0 +1,393 @@
+{
+  "persona": "p4",
+  "accessed": "2026-10-08",
+  "tools": [
+    {
+      "tool": "p4lang/tutorials VM",
+      "evidence_kind": "READ: official docs",
+      "cells": {
+        "P1": {
+          "verdict": "builtin",
+          "note": "make run compiles the exercise .p4 with p4c and starts bmv2 inside Mininet; edit the file and rerun.",
+          "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/utils/Makefile",
+          "locator": "targets run / build",
+          "accessed": "2026-10-08"
+        },
+        "P2": {
+          "verdict": "builtin",
+          "note": "Hosts, switches and links come from a per-exercise topology.json; run_exercise.py builds the Mininet network from it.",
+          "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/utils/run_exercise.py",
+          "locator": "ExerciseRunner / create_network()",
+          "accessed": "2026-10-08"
+        },
+        "P3": {
+          "verdict": "builtin",
+          "note": "Entries in sN-runtime.json load at startup via simple_switch_CLI or P4Runtime; a separate exercise covers a Python P4Runtime controller.",
+          "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/utils/run_exercise.py",
+          "locator": "program_switch_cli / program_switch_p4runtime",
+          "accessed": "2026-10-08",
+          "scope": "startup load is scripted; live changes need your own controller code"
+        },
+        "P4": {
+          "verdict": "no",
+          "note": "No discovery: exercises use static routes and manual ARP entries; the repo ships no LLDP or link-discovery component.",
+          "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/exercises/basic/README.md",
+          "locator": "Topology / topology.json",
+          "accessed": "2026-10-08"
+        },
+        "P5": {
+          "verdict": "diy",
+          "note": "MRI, link-monitor and ECN exercises are teaching programs to adapt; no ready per-flow collector or reporting tool.",
+          "source": "https://github.com/p4lang/tutorials",
+          "locator": "README exercise list",
+          "accessed": "2026-10-08"
+        },
+        "P6": {
+          "verdict": "diy",
+          "note": "Ping checks by hand; exercises carry hand-written PTF tests. P4Testgen (in p4c) is the usual generator add-on.",
+          "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/exercises/basic/README.md",
+          "locator": "Testing / ptf directory",
+          "accessed": "2026-10-08"
+        },
+        "P7": {
+          "verdict": "no",
+          "note": "No graph or GUI view; interaction is the Mininet CLI (pingall, host commands).",
+          "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/exercises/basic/README.md",
+          "locator": "Testing approach (ping tests)",
+          "accessed": "2026-10-08"
+        },
+        "P8": {
+          "verdict": "no",
+          "note": "Scripts target bmv2 only; the repo describes no route to Tofino or other hardware.",
+          "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/utils/run_exercise.py",
+          "locator": "supported targets (simple_switch, gRPC bmv2)",
+          "accessed": "2026-10-08"
+        }
+      },
+      "maturity": {
+        "M1": {
+          "verdict": "info",
+          "note": "Apache-2.0 (SPDX header in README); GitHub API reports NOASSERTION.",
+          "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/README.md",
+          "locator": "file header / license",
+          "accessed": "2026-10-08"
+        },
+        "M2": {
+          "verdict": "info",
+          "note": "Free and open source.",
+          "source": "https://github.com/p4lang/tutorials",
+          "locator": "README",
+          "accessed": "2026-10-08"
+        },
+        "M3": {
+          "verdict": "info",
+          "note": "No versioned releases beyond one 2018 event tag (p4d2-2018-spring, 2018-06-06); master last pushed 2026-10-06, active.",
+          "source": "https://github.com/p4lang/tutorials/releases",
+          "locator": "Releases; API pushed_at",
+          "accessed": "2026-10-08"
+        },
+        "M4": {
+          "verdict": "info",
+          "note": "1,598 stars as of 2026-10-08.",
+          "source": "https://api.github.com/repos/p4lang/tutorials",
+          "locator": "stargazers_count",
+          "accessed": "2026-10-08"
+        },
+        "M5": {
+          "verdict": "info",
+          "note": "About 62 contributors (contributors list on repo page, 2026-10-08).",
+          "source": "https://github.com/p4lang/tutorials/contributors_list",
+          "locator": "avatar list count",
+          "accessed": "2026-10-08"
+        },
+        "M6": {
+          "verdict": "info",
+          "note": "Packet-level emulation: Mininet with bmv2 software switches.",
+          "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/utils/run_exercise.py",
+          "locator": "create_network()",
+          "accessed": "2026-10-08"
+        },
+        "M7": {
+          "verdict": "info",
+          "note": "Not documented; the basic exercise topology has 4 hosts, 4 switches, 8 links.",
+          "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/exercises/basic/pod-topo/topology.json",
+          "locator": "topology.json",
+          "accessed": "2026-10-08"
+        },
+        "M8": {
+          "verdict": "info",
+          "note": "Prebuilt VirtualBox VM, build-your-own VM, or install on Ubuntu 22.04/24.04; needs enough RAM and disk.",
+          "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/README.md",
+          "locator": "Obtaining required software",
+          "accessed": "2026-10-08"
+        },
+        "M9": {
+          "verdict": "info",
+          "note": "CLI (make run, Mininet CLI); P4Runtime/Thrift for table entries; no REST.",
+          "source": "https://raw.githubusercontent.com/p4lang/tutorials/master/utils/run_exercise.py",
+          "locator": "program_switch_* functions",
+          "accessed": "2026-10-08"
+        }
+      }
+    },
+    {
+      "tool": "p4-utils (ETH Zurich nsg)",
+      "evidence_kind": "READ: official docs",
+      "cells": {
+        "P1": {
+          "verdict": "builtin",
+          "note": "p4run compiles the program with p4c and starts bmv2 nodes inside a Mininet network.",
+          "source": "https://github.com/nsg-ethz/p4-utils",
+          "locator": "README features / p4run",
+          "accessed": "2026-10-08"
+        },
+        "P2": {
+          "verdict": "builtin",
+          "note": "Describe switches, hosts and links in NetworkAPI Python or JSON; IP and MAC addresses are assigned by selectable strategies.",
+          "source": "https://nsg-ethz.github.io/p4-utils/usage.html",
+          "locator": "Network Setup / Automated Assignment Strategies",
+          "accessed": "2026-10-08"
+        },
+        "P3": {
+          "verdict": "builtin",
+          "note": "SimpleSwitchP4RuntimeAPI and SimpleSwitchThriftAPI expose table_add etc. to controller code; command files load entries at boot.",
+          "source": "https://nsg-ethz.github.io/p4-utils/advanced_usage.html",
+          "locator": "Control Plane Configuration",
+          "accessed": "2026-10-08"
+        },
+        "P4": {
+          "verdict": "no",
+          "note": "No discovery mechanism documented; topology.json is generated from your own network definition at startup.",
+          "source": "https://nsg-ethz.github.io/p4-utils/advanced_usage.html",
+          "locator": "Topology Database",
+          "accessed": "2026-10-08"
+        },
+        "P5": {
+          "verdict": "diy",
+          "note": "Nothing documented for flow telemetry; you write counters or INT in P4 and poll them through the runtime APIs.",
+          "source": "https://nsg-ethz.github.io/p4-utils/advanced_usage.html",
+          "locator": "Control Plane Configuration",
+          "accessed": "2026-10-08"
+        },
+        "P6": {
+          "verdict": "diy",
+          "note": "No test generation documented; Task Scheduler only runs commands and traffic. P4Testgen or PTF are separate add-ons.",
+          "source": "https://nsg-ethz.github.io/p4-utils/advanced_usage.html",
+          "locator": "Task Scheduler",
+          "accessed": "2026-10-08"
+        },
+        "P7": {
+          "verdict": "builtin",
+          "note": "NetworkGraph (networkx subclass) answers topology queries from topology.json; programmatic graph only, built from the definition, no GUI.",
+          "source": "https://nsg-ethz.github.io/p4-utils/p4utils.utils.topology.html",
+          "locator": "NetworkGraph class",
+          "accessed": "2026-10-08",
+          "scope": "graph API only; not a live or GUI view"
+        },
+        "P8": {
+          "verdict": "no",
+          "note": "Docs name only the behavioral-model software switch; no hardware target or Tofino path is described.",
+          "source": "https://nsg-ethz.github.io/p4-utils/introduction.html",
+          "locator": "Introduction",
+          "accessed": "2026-10-08"
+        }
+      },
+      "maturity": {
+        "M1": {
+          "verdict": "info",
+          "note": "GPL-2.0.",
+          "source": "https://api.github.com/repos/nsg-ethz/p4-utils",
+          "locator": "license",
+          "accessed": "2026-10-08"
+        },
+        "M2": {
+          "verdict": "info",
+          "note": "Free and open source.",
+          "source": "https://github.com/nsg-ethz/p4-utils",
+          "locator": "README",
+          "accessed": "2026-10-08"
+        },
+        "M3": {
+          "verdict": "info",
+          "note": "Only tagged release is v0.0 (2018-09-09, no Python 3); master last pushed 2024-07-09, nothing newer seen.",
+          "source": "https://github.com/nsg-ethz/p4-utils/releases",
+          "locator": "Releases; API pushed_at",
+          "accessed": "2026-10-08"
+        },
+        "M4": {
+          "verdict": "info",
+          "note": "209 stars as of 2026-10-08.",
+          "source": "https://api.github.com/repos/nsg-ethz/p4-utils",
+          "locator": "stargazers_count",
+          "accessed": "2026-10-08"
+        },
+        "M5": {
+          "verdict": "info",
+          "note": "About 9 contributors (contributors list on repo page, 2026-10-08).",
+          "source": "https://github.com/nsg-ethz/p4-utils/contributors_list",
+          "locator": "avatar list count",
+          "accessed": "2026-10-08"
+        },
+        "M6": {
+          "verdict": "info",
+          "note": "Packet-level emulation: Mininet with bmv2 software switches and optional FRRouting nodes.",
+          "source": "https://nsg-ethz.github.io/p4-utils/introduction.html",
+          "locator": "Introduction",
+          "accessed": "2026-10-08"
+        },
+        "M7": {
+          "verdict": "info",
+          "note": "Not documented in the pages read.",
+          "source": "https://nsg-ethz.github.io/p4-utils/index.html",
+          "locator": "documentation index",
+          "accessed": "2026-10-08"
+        },
+        "M8": {
+          "verdict": "info",
+          "note": "Install script or QEMU VM (Ubuntu 20); VirtualBox VM unavailable; tested on Ubuntu 20.04/22.04; needs PI, bmv2, p4c, Mininet.",
+          "source": "https://nsg-ethz.github.io/p4-utils/installation.html",
+          "locator": "Installation",
+          "accessed": "2026-10-08"
+        },
+        "M9": {
+          "verdict": "info",
+          "note": "Python API (NetworkAPI, switch runtime APIs), JSON config, p4run and Mininet-style CLI; no REST.",
+          "source": "https://nsg-ethz.github.io/p4-utils/usage.html",
+          "locator": "Network Setup / Control Plane",
+          "accessed": "2026-10-08"
+        }
+      }
+    },
+    {
+      "tool": "ONOS + Stratum",
+      "evidence_kind": "READ: official docs",
+      "cells": {
+        "P1": {
+          "verdict": "builtin",
+          "note": "Stratum lists bmv2 as a platform; the NG-SDN tutorial compiles P4 with p4c (make p4-build) and runs stratum_bmv2 in containers.",
+          "source": "https://raw.githubusercontent.com/stratum/stratum/main/README.md",
+          "locator": "Supported platforms / ngsdn-tutorial README",
+          "accessed": "2026-10-08",
+          "scope": "ONOS integration of a new program is under P4"
+        },
+        "P2": {
+          "verdict": "diy",
+          "note": "Mininet hosts come free, but you write the topology script; the tutorial ships a leaf-spine stratum_bmv2 example to copy.",
+          "source": "https://raw.githubusercontent.com/opennetworkinglab/ngsdn-tutorial/advanced/EXERCISE-1.md",
+          "locator": "Topology Construction (mininet/topo-v6.py)",
+          "accessed": "2026-10-08"
+        },
+        "P3": {
+          "verdict": "builtin",
+          "note": "ONOS translates flow rules to P4Runtime writes through a pipeconf; p4runtime-sh also inserts entries directly on Stratum.",
+          "source": "https://raw.githubusercontent.com/opennetworkinglab/ngsdn-tutorial/advanced/EXERCISE-1.md",
+          "locator": "Writing table entries via P4Runtime shell",
+          "accessed": "2026-10-08"
+        },
+        "P4": {
+          "verdict": "diy",
+          "note": "ONOS finds links by LLDP; your P4 must clone packets to the controller; you write a Java pipeconf and interpreter.",
+          "source": "https://raw.githubusercontent.com/opennetworkinglab/ngsdn-tutorial/advanced/EXERCISE-3.md",
+          "locator": "Developer must implement (pipeconf, interpreter, packet-in/out)",
+          "accessed": "2026-10-08"
+        },
+        "P5": {
+          "verdict": "diy",
+          "note": "INT ships only in fabric-tna profiles (fabric-int); your own program needs its own INT code; no collector described.",
+          "source": "https://github.com/stratum/fabric-tna",
+          "locator": "Profiles / INT support",
+          "accessed": "2026-10-08"
+        },
+        "P6": {
+          "verdict": "diy",
+          "note": "Tutorial runs hand-written PTF tests (make p4-test). P4Testgen is the usual generator add-on.",
+          "source": "https://raw.githubusercontent.com/opennetworkinglab/ngsdn-tutorial/advanced/README.md",
+          "locator": "Tools used / P4 compilation and tests",
+          "accessed": "2026-10-08"
+        },
+        "P7": {
+          "verdict": "builtin",
+          "note": "ONOS web GUI draws devices and links; it shows P4 devices and their pipeconf once link discovery works.",
+          "source": "https://github.com/opennetworkinglab/onos",
+          "locator": "README features (GUI at /onos/ui)",
+          "accessed": "2026-10-08",
+          "scope": "depends on P4 link discovery working"
+        },
+        "P8": {
+          "verdict": "builtin",
+          "note": "Stratum runs on Tofino and Tomahawk switches via P4Runtime; the program must be retargeted from v1model to TNA.",
+          "source": "https://raw.githubusercontent.com/stratum/stratum/main/README.md",
+          "locator": "Supported platforms",
+          "accessed": "2026-10-08",
+          "scope": "Tofino discontinued by Intel (PCN Aug 2024); Stratum last release 2022-06-30; Intel BSP requests closed 2026-01-01"
+        }
+      },
+      "maturity": {
+        "M1": {
+          "verdict": "info",
+          "note": "Apache-2.0 (ONOS and Stratum).",
+          "source": "https://api.github.com/repos/opennetworkinglab/onos",
+          "locator": "license",
+          "accessed": "2026-10-08"
+        },
+        "M2": {
+          "verdict": "info",
+          "note": "Free and open source.",
+          "source": "https://github.com/opennetworkinglab/onos",
+          "locator": "README",
+          "accessed": "2026-10-08"
+        },
+        "M3": {
+          "verdict": "info",
+          "note": "ONOS 2.7.0 LTS (tag 2021-12-21), last 2.x line; Stratum latest release 2022-06-30; both repos last pushed mid-2024.",
+          "source": "https://opennetworking.org/news-and-events/blog/onos-v2-7-0-lts-release-adds-features-and-optimization-enhancements/",
+          "locator": "Release summary; Stratum releases page; GitHub API pushed_at",
+          "accessed": "2026-10-08",
+          "scope": "ONOS 2.5.9 patch 2022-07-29, 2.7.0 announced 2022-01-17; ONF dissolved 2024, projects moved to Linux Foundation; Stratum pushed 2024-07-09, ONOS 2024-06-18"
+        },
+        "M4": {
+          "verdict": "info",
+          "note": "ONOS 1,290 stars; Stratum 420 stars (as of 2026-10-08).",
+          "source": "https://api.github.com/repos/opennetworkinglab/onos",
+          "locator": "stargazers_count (ONOS); stratum/stratum same endpoint",
+          "accessed": "2026-10-08"
+        },
+        "M5": {
+          "verdict": "info",
+          "note": "ONOS at least 100 (list capped at 100); Stratum about 47 (2026-10-08).",
+          "source": "https://github.com/stratum/stratum/contributors_list",
+          "locator": "avatar list count",
+          "accessed": "2026-10-08"
+        },
+        "M6": {
+          "verdict": "info",
+          "note": "Packet-level emulation with bmv2 via Mininet; real hardware switches also supported.",
+          "source": "https://raw.githubusercontent.com/stratum/stratum/main/README.md",
+          "locator": "Supported platforms",
+          "accessed": "2026-10-08"
+        },
+        "M7": {
+          "verdict": "info",
+          "note": "Tutorial: 4 switches, 6 hosts. ONOS Blackbird (2015) press report: 2M flow ops/s, clusters up to 7 nodes.",
+          "source": "https://www.lightwaveonline.com/network-automation/article/16651629/onos-blackbird-release-improves-sdn-control-plane-performance-and-scale",
+          "locator": "ngsdn-tutorial topology; press report on Blackbird",
+          "accessed": "2026-10-08"
+        },
+        "M8": {
+          "verdict": "info",
+          "note": "ONOS builds with Bazel from Gerrit; tutorial needs Docker 1.13+, make, Python 3, or a 4GB VirtualBox VM.",
+          "source": "https://raw.githubusercontent.com/opennetworkinglab/ngsdn-tutorial/advanced/README.md",
+          "locator": "System requirements",
+          "accessed": "2026-10-08"
+        },
+        "M9": {
+          "verdict": "info",
+          "note": "ONOS REST, Karaf CLI, GUI and Java app API; gRPC (P4Runtime, gNMI) to Stratum.",
+          "source": "https://raw.githubusercontent.com/opennetworkinglab/onos/master/README.md",
+          "locator": "Features / CLI",
+          "accessed": "2026-10-08"
+        }
+      }
+    }
+  ]
+}

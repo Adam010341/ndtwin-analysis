@@ -1,0 +1,21 @@
+# mutant 2026-10-12T06:24:53Z: make_p18_health.py with every S.die made a silent no-op, figstyle_1014.py with the provenance stop off; every P18 and footer case must FAIL, the two P18 controls stay ok
+ok    control P18 unbroken: rc=0
+ok    control P18 unbroken_from_cells_file: rc=0
+FAIL  P18 cell_dropped_from_spec: rc=0; wanted reason 'differ from CELLS in the code'; got: [out] fig_p18_health: 56 cells over 22 dimensions (READ, checked against tools/p4_health/cells/table.py@3a47bdb7); 6 offline rows (RAN offline)
+FAIL  P18 code_gained_a_cell: rc=0; wanted reason 'differ from CELLS in the code'; got: [out] fig_p18_health: 57 cells over 22 dimensions (READ, checked against tools/p4_health/cells/table.py@3a47bdb7); 6 offline rows (RAN offline)
+FAIL  P18 title_not_offline: rc=0; wanted reason 'does not say offline'; got: [out] fig_p18_health: 57 cells over 22 dimensions (READ, checked against tools/p4_health/cells/table.py@3a47bdb7); 6 offline rows (RAN offline)
+FAIL  P18 title_count_wrong: rc=0; wanted reason 'title says 58 cells'; got: [out] fig_p18_health: 57 cells over 22 dimensions (READ, checked against tools/p4_health/cells/table.py@3a47bdb7); 6 offline rows (RAN offline)
+FAIL  P18 live_lab_words_missing: rc=0; wanted reason 'not yet run against a live lab'; got: [out] fig_p18_health: 57 cells over 22 dimensions (READ, checked against tools/p4_health/cells/table.py@3a47bdb7); 6 offline rows (RAN offline)
+FAIL  P18 prediction_row: rc=0; wanted reason 'names a prediction'; got: [out] fig_p18_health: 57 cells over 22 dimensions (READ, checked against tools/p4_health/cells/table.py@3a47bdb7); 7 offline rows (RAN offline)
+FAIL  P18 unknown_row_kind: rc=0; wanted reason 'is not `dim` or `off`'; got: [out] fig_p18_health: 57 cells over 22 dimensions (READ, checked against tools/p4_health/cells/table.py@3a47bdb7); 6 offline rows (RAN offline)
+FAIL  P18 writer_result_not_a_count: rc=0; wanted reason "is not '<n> disagree'"; got: [out] fig_p18_health: 57 cells over 22 dimensions (READ, checked against tools/p4_health/cells/table.py@3a47bdb7); 6 offline rows (RAN offline)
+FAIL  P18 offline_row_not_a_cell: rc=0; wanted reason 'neither S0, the writer comparison nor a cell'; got: [out] fig_p18_health: 57 cells over 22 dimensions (READ, checked against tools/p4_health/cells/table.py@3a47bdb7); 6 offline rows (RAN offline)
+FAIL  P18 offline_result_not_a_run_result: rc=0; wanted reason 'is not a run result'; got: [out] fig_p18_health: 57 cells over 22 dimensions (READ, checked against tools/p4_health/cells/table.py@3a47bdb7); 6 offline rows (RAN offline)
+FAIL  P18 offline_target_is_the_lab: rc=0; wanted reason 'is not throwaway stock / fast bmv2'; got: [out] fig_p18_health: 57 cells over 22 dimensions (READ, checked against tools/p4_health/cells/table.py@3a47bdb7); 6 offline rows (RAN offline)
+FAIL  P18 footer_on_canvas: rc=0; wanted reason 'provenance text on the canvas'; got: [out] fig_p18_health: 57 cells over 22 dimensions (READ, checked against tools/p4_health/cells/table.py@3a47bdb7); 6 offline rows (RAN offline)
+FAIL  figstyle footer_refused_0 'source: results.tsv': rc=0; wanted reason 'provenance text on the canvas'; got: 
+FAIL  figstyle footer_refused_1 'trunk 3a47bdb7': rc=0; wanted reason 'provenance text on the canvas'; got: 
+FAIL  figstyle footer_refused_2 '2026-10-08': rc=0; wanted reason 'provenance text on the canvas'; got: 
+FAIL  figstyle footer_refused_3 'make_p13_relief.py': rc=0; wanted reason 'provenance text on the canvas'; got: 
+FAIL  figstyle footer_refused_4 'intelligent_router.py:617': rc=0; wanted reason 'provenance text on the canvas'; got: 
+# 17 FAIL (a FAIL here means a generator did not stop with its own named reason, or a control did not run)

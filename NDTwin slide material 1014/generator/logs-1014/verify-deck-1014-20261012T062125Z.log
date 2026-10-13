@@ -1,0 +1,108 @@
+# verify NDTwin_deck_1014.pptx 2026-10-12T06:21:24+00:00; sha256 937bb9e58b0fe4ac; template sha256 8c6c25f9c4222308; the parts checked (section 1 page table + section 2) sha256 7cdbca55b19135ae; notes mode speaker
+ok    22 slides; template section 1 lists 22 pages; want 22
+ok    no <a:pPr> after a run inside any paragraph (schema order): 0 found
+ok    section-1 form counts title/figure/table = 1/6/15
+ok    p01 P01 title          notes = section 2 P01 (295 chars in section 2, 296 in the notes slide)
+ok    p01 P01 title          title page text ['Why would a developer use NDTwin?', 'Adam'] (want ['Why would a developer use NDTwin?', 'Adam'])
+ok    p02 P02 figure         notes = section 2 P02 (1474 chars in section 2, 1475 in the notes slide)
+ok    p02 P02 figure         one picture = arch/_hires/fig_p02_architecture.png (bytes identical; placed a/r 1.740 vs png 1.740)
+ok    p02 P02 figure         no text on the page but the page number: ['2']
+ok    p03 P03 table          notes = section 2 P03 (341 chars in section 2, 342 in the notes slide)
+ok    p03 P03 table          table = section 2 P03 verbatim (4 rows x 4 cols)
+ok    p03 P03 table          other text = title 'Three developers, three jobs' (28 chars) + page number only: ['Three developers, three jobs', '3']
+ok    p04 P04 figure         notes = section 2 P04 (1225 chars in section 2, 1226 in the notes slide)
+ok    p04 P04 figure         one picture = landscape/_hires/fig_p04_map.png (bytes identical; placed a/r 1.853 vs png 1.853)
+ok    p04 P04 figure         no text on the page but the page number: ['4']
+ok    p05 P05 table          notes = section 2 P05 (1716 chars in section 2, 1717 in the notes slide)
+ok    p05 P05 table          table = section 2 P05 verbatim (9 rows x 7 cols)
+ok    p05 P05 table          other text = title 'Control-app developer: who does what' (36 chars) + page number only: ['Control-app developer: who does what', '5']
+ok    p06 P06 table          notes = section 2 P06 (2570 chars in section 2, 2571 in the notes slide)
+ok    p06 P06 table          table = section 2 P06 verbatim (9 rows x 5 cols)
+ok    p06 P06 table          other text = title 'P4-program developer: who does what' (35 chars) + page number only: ['P4-program developer: who does what', '6']
+ok    p07 P07 table          notes = section 2 P07 (1693 chars in section 2, 1694 in the notes slide)
+ok    p07 P07 table          table = section 2 P07 verbatim (9 rows x 9 cols)
+ok    p07 P07 table          other text = title 'Network operator: who does what' (31 chars) + page number only: ['Network operator: who does what', '7']
+ok    p08 P08 table          notes = section 2 P08 (903 chars in section 2, 904 in the notes slide)
+ok    p08 P08 table          table = section 2 P08 verbatim (11 rows x 7 cols)
+ok    p08 P08 table          other text = title 'Self-hosted tools: license, scale, interface' (44 chars) + page number only: ['Self-hosted tools: license, scale, interface', '8']
+ok    p09 P09 table          notes = section 2 P09 (480 chars in section 2, 481 in the notes slide)
+ok    p09 P09 table          table = section 2 P09 verbatim (5 rows x 7 cols)
+ok    p09 P09 table          other text = title 'Commercial and academic: public material only' (45 chars) + page number only: ['Commercial and academic: public material only', '9']
+ok    p10 P10 figure         notes = section 2 P10 (1565 chars in section 2, 1567 in the notes slide)
+ok    p10 P10 figure         one picture = handson/_hires/fig_p10_setup.png (bytes identical; placed a/r 2.020 vs png 2.020)
+ok    p10 P10 figure         no text on the page but the page number: ['10']
+ok    p11 P11 table          notes = section 2 P11 (2501 chars in section 2, 2503 in the notes slide)
+ok    p11 P11 table          table = section 2 P11 verbatim (11 rows x 3 cols)
+ok    p11 P11 table          other text = title 'What each side had to build' (27 chars) + page number only: ['What each side had to build', '11']
+ok    p12 P12 table          notes = section 2 P12 (1695 chars in section 2, 1697 in the notes slide)
+ok    p12 P12 table          table = section 2 P12 verbatim (5 rows x 4 cols)
+ok    p12 P12 table          other text = title 'Effort, measured' (16 chars) + page number only: ['Effort, measured', '12']
+ok    p13 P13 figure         notes = section 2 P13 (797 chars in section 2, 799 in the notes slide)
+ok    p13 P13 figure         one picture = handson/_hires/fig_p13_relief.png (bytes identical; placed a/r 2.339 vs png 2.339)
+ok    p13 P13 figure         no text on the page but the page number: ['13']
+ok    p14 P14 table          notes = section 2 P14 (622 chars in section 2, 624 in the notes slide)
+ok    p14 P14 table          table = section 2 P14 verbatim (8 rows x 3 cols)
+ok    p14 P14 table          other text = title 'The same app, unchanged, on bmv2' (32 chars) + page number only: ['The same app, unchanged, on bmv2', '14']
+ok    p15 P15 table          notes = section 2 P15 (1209 chars in section 2, 1211 in the notes slide)
+ok    p15 P15 table          table = section 2 P15 verbatim (6 rows x 4 cols)
+ok    p15 P15 table          other text = title 'When NDTwin is the right pick' (29 chars) + page number only: ['When NDTwin is the right pick', '15']
+ok    p16 P16 table          notes = section 2 P16 (800 chars in section 2, 802 in the notes slide)
+ok    p16 P16 table          table = section 2 P16 verbatim (9 rows x 4 cols)
+ok    p16 P16 table          other text = title 'When NDTwin is the wrong pick' (29 chars) + page number only: ['When NDTwin is the wrong pick', '16']
+ok    p17 P17 table          notes = section 2 P17 (880 chars in section 2, 882 in the notes slide)
+ok    p17 P17 table          table = section 2 P17 verbatim (4 rows x 2 cols)
+ok    p17 P17 table          other text = title 'P4 support since 9/30: new features' (35 chars) + page number only: ['P4 support since 9/30: new features', '17']
+ok    p18 P18 figure         notes = section 2 P18 (1048 chars in section 2, 1050 in the notes slide)
+ok    p18 P18 figure         one picture = p4/_hires/fig_p18_health.png (bytes identical; placed a/r 1.864 vs png 1.864)
+ok    p18 P18 figure         no text on the page but the page number: ['18']
+ok    p19 P19 table          notes = section 2 P19 (1172 chars in section 2, 1174 in the notes slide)
+ok    p19 P19 table          table = section 2 P19 verbatim (6 rows x 6 cols)
+ok    p19 P19 table          other text = title 'Real problems, ranked: 1-6' (26 chars) + page number only: ['Real problems, ranked: 1-6', '19']
+ok    p20 P20 table          notes = section 2 P20 (1003 chars in section 2, 1005 in the notes slide)
+ok    p20 P20 table          table = section 2 P20 verbatim (6 rows x 6 cols)
+ok    p20 P20 table          other text = title 'Real problems, ranked: 7-12' (27 chars) + page number only: ['Real problems, ranked: 7-12', '20']
+ok    p21 P21 table          notes = section 2 P21 (1665 chars in section 2, 1667 in the notes slide)
+ok    p21 P21 table          table = section 2 P21 verbatim (7 rows x 6 cols)
+ok    p21 P21 table          other text = title 'Real problems, ranked: 13-19' (28 chars) + page number only: ['Real problems, ranked: 13-19', '21']
+ok    p22 P22 figure         notes = section 2 P22 (959 chars in section 2, 961 in the notes slide)
+ok    p22 P22 figure         one picture = next/_hires/fig_p22_roadmap.png (bytes identical; placed a/r 1.530 vs png 1.530)
+ok    p22 P22 figure         no text on the page but the page number: ['22']
+ok    notes matched on 22 of 22 pages
+# 0 FAIL
+# table pages: font size and estimated bottom (in); page number at 6.92 in; limit 6.85 in; min font 12 pt
+# estimator: Liberation Sans metrics via PIL, 1.2 x font line height, cell margins as in the pptx; upper bound (Liberation Sans is wider than Calibri)
+fit  P03 Three developers, three jobs                 font 18 pt  top 1.40  est. bottom 5.37  
+fit  P05 Control-app developer: who does what         font 13/14 pt  top 1.20  est. bottom 6.63  
+fit  P06 P4-program developer: who does what          font 14/15 pt  top 1.25  est. bottom 6.62  
+fit  P07 Network operator: who does what              font 12/13 pt  top 1.20  est. bottom 6.67  
+fit  P08 Self-hosted tools: license, scale, interface font 12 pt  top 1.12  est. bottom 6.36  
+fit  P09 Commercial and academic: public material onl font 15/16 pt  top 1.35  est. bottom 6.04  
+fit  P11 What each side had to build                  font 13/14 pt  top 1.15  est. bottom 5.68  
+fit  P12 Effort, measured                             font 16/17 pt  top 1.35  est. bottom 5.08  
+fit  P14 The same app, unchanged, on bmv2             font 16 pt  top 1.30  est. bottom 6.21  
+fit  P15 When NDTwin is the right pick                font 16/17 pt  top 1.30  est. bottom 5.92  
+fit  P16 When NDTwin is the wrong pick                font 15 pt  top 1.20  est. bottom 6.35  
+fit  P17 P4 support since 9/30: new features          font 16/18 pt  top 1.40  est. bottom 4.54  
+fit  P19 Real problems, ranked: 1-6                   font 15/17 pt  top 1.20  est. bottom 6.22  
+fit  P20 Real problems, ranked: 7-12                  font 15/17 pt  top 1.20  est. bottom 6.50  
+fit  P21 Real problems, ranked: 13-19                 font 15/16 pt  top 1.15  est. bottom 6.30  
+# tables that do not fit at >= 12 pt: none
+# negative controls (copies of the pptx, one thing broken in each; every one must report FAIL)
+-- negative control one_cell_P05: 1 FAIL
+   FAIL  p05 P05 table          table = section 2 P05 verbatim (9 rows x 7 cols)
+-- negative control one_note_P01: 2 FAIL
+   FAIL  p01 P01 title          notes = section 2 P01 (295 chars in section 2, 296 in the notes slide)
+   FAIL  notes matched on 21 of 22 pages
+-- negative control one_picture_P02: 1 FAIL
+   FAIL  p02 P02 figure         one picture = arch/_hires/fig_p02_architecture.png (bytes DIFFER; placed a/r 1.740 vs png 1.740)
+-- negative control order_swap_P05_P06: 7 FAIL
+   FAIL  p05 P05 table          notes = section 2 P05 (1716 chars in section 2, 2571 in the notes slide)
+   FAIL  p05 P05 table          table = section 2 P05 verbatim (9 rows x 5 cols)
+   FAIL  p05 P05 table          other text = title 'Control-app developer: who does what' (36 chars) + page number only: ['P4-program developer: who does what', '6']
+   FAIL  p06 P06 table          notes = section 2 P06 (2570 chars in section 2, 1717 in the notes slide)
+   FAIL  p06 P06 table          table = section 2 P06 verbatim (9 rows x 7 cols)
+   FAIL  p06 P06 table          other text = title 'P4-program developer: who does what' (35 chars) + page number only: ['Control-app developer: who does what', '5']
+   FAIL  notes matched on 20 of 22 pages
+-- negative control stray_text_P04: 1 FAIL
+   FAIL  p04 P04 figure         no text on the page but the page number: ['4', 'caption']
+# negative controls: one_cell_P05=1 FAIL, one_note_P01=2 FAIL, one_picture_P02=1 FAIL, order_swap_P05_P06=7 FAIL, stray_text_P04=1 FAIL; ALL FAILED AS REQUIRED
