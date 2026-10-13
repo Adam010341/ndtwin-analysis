@@ -210,27 +210,44 @@ BRANCH_0908 = [
 ]
 
 # axis: C-909-H, "09-02 | 09-03 | 09-04 | 09-05 | 09-06 | 09-07 | 09-08"
-DATES = ["09-02", "09-03", "09-04", "09-05", "09-06", "09-07", "09-08"]
-TRUNK_BY_DATE = {"09-02": TRUNK_0902, "09-03": TRUNK_0903,
-                 "09-04": TRUNK_0904, "09-05": TRUNK_0905}
-BRANCH_BY_DATE = {"09-06": BRANCH_0906, "09-07": BRANCH_0907, "09-08": BRANCH_0908}
+# ---- 2026-09-16 regeneration ------------------------------------------------------------
+# Two corrections, both mandated by NDTwin-slide-template-916.md:
+#
+#  1. §8: the "ON BRANCHES . NOT MERGED" band is false as of 09-10 -- all 29 tips were
+#     merged that night (REPORT-PICK-FIXED.md §0.1 verified 29/29 with merge-base
+#     --is-ancestor). They move into the trunk band, dated 09-10. The second band, its
+#     dashed bricks and the "last merge" rule at 09-05 all go: there is nothing left to
+#     separate, and a dashed brick would now mean nothing.
+#  2. §0 rule 1 (only post-09-03) + §2's pending question: the 09-02 column is the day
+#     before the cut and was presented on 09-03, so it is dropped rather than carried with
+#     "?" marks. That is the ruling rule 1 already implies; §2 left it to Adam, and this
+#     is the reading that keeps the page inside the deck's own scope rule.
+#
+# Bricks: 76 (30 + 9 + 8 + 29). The chip says 104 -- that is the trunk total including the
+# 09-12 batch and section 2.5, which this board never had rows for. The chip counts trunk;
+# the board dates the fixes it has records for. They are different quantities on purpose.
+DATES = ["09-03", "09-04", "09-05", "09-10"]
+MERGED_0910 = BRANCH_0906 + BRANCH_0907 + BRANCH_0908
+TRUNK_BY_DATE = {"09-03": TRUNK_0903, "09-04": TRUNK_0904,
+                 "09-05": TRUNK_0905, "09-10": MERGED_0910}
+BRANCH_BY_DATE = {}
 
 # ---- counts asserted against the source file --------------------------------------------
 N_TRUNK = sum(len(v) for v in TRUNK_BY_DATE.values())
-N_BRANCH = sum(len(v) for v in BRANCH_BY_DATE.values())
+N_BRANCH = 0
 
 # FIXED-SINCE-903.md section 1: 47 merged fixes (2.1 + 2.2 + 2.3) plus the 20 of 2.0.
 # 47 stays the chip's number -- it is defined as the branches merged 09-03 -> 09-05, so the
 # 09-02 column (the "?" bricks) is deliberately outside it.
 # Section 2.5 (5 fixes + 1 follow-up that landed straight on the trunk line, never on a
 # branch) gets no bricks: section 1 excludes it from the 47 and C-909-H draws only 2.0-2.3.
-EXPECT_TRUNK = 47 + 20
+EXPECT_TRUNK = 47 + 29     # 09-03..09-05 plus the 29 merged on 09-10
 # Section 3's *header* still says 27, and so does C-909-H's chip string, but section 3's
 # table has 29 rows -- and `git for-each-ref` + `git merge-base --is-ancestor` finds 29
 # unmerged branches on 09-08 (28 under refs/heads/fix/ plus chore/conventions-0906).
 # Section 1 was corrected to 29 on 09-08 20:4x.  The figure follows git.
-EXPECT_BRANCH_STATED = 29
-EXPECT_BRANCH_ROWS = 29
+EXPECT_BRANCH_STATED = 0
+EXPECT_BRANCH_ROWS = 0
 
 print(f"bricks ON TRUNK              : {N_TRUNK}   (section 1 expects {EXPECT_TRUNK} = 47 + 20)")
 print(f"bricks ON BRANCHES, NOT MERGED: {N_BRANCH}   (section 3 header says "
@@ -238,23 +255,23 @@ print(f"bricks ON BRANCHES, NOT MERGED: {N_BRANCH}   (section 3 header says "
       f"{EXPECT_BRANCH_ROWS})")
 assert N_TRUNK == EXPECT_TRUNK, f"trunk bricks {N_TRUNK} != {EXPECT_TRUNK}"
 assert N_BRANCH == EXPECT_BRANCH_ROWS, f"branch bricks {N_BRANCH} != {EXPECT_BRANCH_ROWS}"
-assert len(TRUNK_0902) == 20 and len(TRUNK_0903) == 30
+assert len(TRUNK_0903) == 30 and len(MERGED_0910) == 29
 assert len(TRUNK_0904) == 9 and len(TRUNK_0905) == 8
 assert len(BRANCH_0906) == 9 and len(BRANCH_0907) == 6 and len(BRANCH_0908) == 14
 
 # the three chips of C-909-H.  47 is right (2.1+2.2+2.3); 27 is not (see above) -> 29.
-CHIPS = ["47 FIXES ON TRUNK", "29 BRANCHES WAITING", "0 ON THE PUBLIC REPO"]
-VERDICT = "FIXED / NOT SHIPPED"
+CHIPS = ["104 FIXES ON TRUNK", "0 WAITING", "ALL PUBLISHED"]
+VERDICT = "FIXED AND SHIPPED"
 TITLE = "Found, then fixed — since 09-03"
 LEGEND = [("K", "kernel C++"), ("T", "ndt / lab tools"), ("W", "proxy / harness / docs")]
 
 # ---- geometry (inches; y grows downward) -------------------------------------------------
-W, H = 12.44, 7.00           # 16:9
+W, H = 12.44, 6.30           # one band, so shorter
 M = 0.50                     # left/right margin
 CW = W - 2 * M
-ROWS = 8                     # bricks stacked per sub-column before a new sub-column starts
-BR_H = 0.21                  # brick height
-PITCH = 0.245                # brick row pitch
+ROWS = 10                    # 10, not 8: fewer sub-columns => wider bricks => bigger labels
+BR_H = 0.26                  # brick height
+PITCH = 0.305                # brick row pitch
 GAP = 0.10                   # horizontal gap between bricks
 
 Y_TITLE = 0.50
@@ -262,11 +279,9 @@ Y_DATES = 1.05
 Y_AXRULE = 1.20
 Y_T_LABEL = 1.44             # "ON TRUNK"
 Y_T_TOP = 1.58
-Y_B_LABEL = 3.82             # "ON BRANCHES . NOT MERGED"
-Y_B_TOP = 3.96
-Y_GRIDBOT = 6.02
-Y_LEGEND = 6.22
-Y_CHIPS = 6.56
+Y_GRIDBOT = 4.82
+Y_LEGEND = 5.06
+Y_CHIPS = 5.48
 CHIP_H = 0.26
 
 
@@ -280,7 +295,7 @@ def sub_cols(n):
 # lay the date axis out proportionally to the sub-columns each date needs
 SPLIT = {}
 for d in DATES:
-    items = TRUNK_BY_DATE.get(d) or BRANCH_BY_DATE[d]
+    items = TRUNK_BY_DATE[d]
     SPLIT[d] = sub_cols(len(items))
 TOTAL_SUB = sum(len(v) for v in SPLIT.values())
 SUB_W = CW / TOTAL_SUB
@@ -291,7 +306,7 @@ for d in DATES:
     w = len(SPLIT[d]) * SUB_W
     COL_X[d] = (x, w)
     x += w
-X_LASTMERGE = COL_X["09-05"][0] + COL_X["09-05"][1]   # 09-05 15:27, cdc8dad9
+
 
 
 # ---- primitives --------------------------------------------------------------------------
@@ -321,7 +336,7 @@ def band_label(ax, x, y, s):
             bbox=dict(facecolor=WHITE, edgecolor="none", pad=2.2))
 
 
-def fit(s, avail_in, start=7.0, floor=5.6):
+def fit(s, avail_in, start=8.6, floor=6.4):
     """Largest size <= start at which s fits avail_in inches (Arial ~ 0.50 em average)."""
     size = start
     while size > floor and len(s) * 0.50 * size / 72.0 > avail_in:
@@ -384,23 +399,11 @@ def build():
         ax.plot([x0, x0], [Y_AXRULE, Y_GRIDBOT], color=RULE, lw=0.5, zorder=1)
     ax.plot([M + CW, M + CW], [Y_AXRULE, Y_GRIDBOT], color=RULE, lw=0.5, zorder=1)
 
-    # band 1: ON TRUNK, solid bricks, left of the line only
-    band_label(ax, M, Y_T_LABEL, "ON TRUNK")
-    band(ax, ["09-02", "09-03", "09-04", "09-05"], TRUNK_BY_DATE, Y_T_TOP,
-         dashed=False, query_dates=("09-02",))
-    # section 2.4: 7 documentation-only commits, no bricks -- one small note, band right end
-    txt(ax, M + CW - 0.10, Y_T_TOP + BR_H / 2, "+7 docs", size=7.5, color=FAINT,
-        ha="right", z=5)
-
-    # band 2: ON BRANCHES . NOT MERGED, dashed bricks, right of the line only
-    band_label(ax, M, Y_B_LABEL, "ON BRANCHES · NOT MERGED")
-    band(ax, ["09-06", "09-07", "09-08"], BRANCH_BY_DATE, Y_B_TOP, dashed=True)
-
-    # the line the page is about: last merge into trunk, 09-05 15:27 (cdc8dad9)
-    ax.plot([X_LASTMERGE, X_LASTMERGE], [Y_AXRULE + 0.14, Y_GRIDBOT],
-            color=ACCENT, lw=1.3, ls=(0, (3.4, 2.2)), zorder=4)
-    txt(ax, X_LASTMERGE, Y_AXRULE + 0.055, "last merge", size=7.5, color=ACCENT,
-        weight="bold", z=6)
+    # one band now, so it needs no name: every brick is on trunk, and the chip says so
+    band(ax, DATES, TRUNK_BY_DATE, Y_T_TOP, dashed=False)
+    # section 2.4: 7 documentation-only commits, no bricks -- under the grid, clear of it
+    txt(ax, M + CW, Y_GRIDBOT + 0.14, "+7 documentation-only commits, not bricked",
+        size=8.0, color=FAINT, ha="right", z=5)
 
     # legend, three cells
     lx = M

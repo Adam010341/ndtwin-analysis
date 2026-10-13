@@ -1,5 +1,12 @@
 # 903 → 909：修掉了什麼（Found, then fixed — delta）
 
+> 🔴 **2026-09-15 勘誤（先讀）**：本檔的**兩個結論已作廢**，逐條事實仍然有效。
+> ① §3 那 **29 支「分支上未併」已於 09-10 全數併入 trunk**（29/29 逐顆 `--is-ancestor` 驗過）⇒ 現在是 0 支。
+> ② §0 第四點與 §1「推到公開 ref 的＝0」、§5 的三句講稿**反過來了**：09-12 兩個 P4 本體轉公開，
+> **兩個公開 repo 的預設分支 `main` 都含全部 baseline 修法**（未認證 GitHub compare `behind_by: 0`）。
+> ⚠️ 查公開狀態**不要只打一次 `git ls-remote`**——09-15 那次回的是過期的 `f11868f6`。
+> **現行的挑選正本＝同目錄 `REPORT-PICK-FIXED.md` v2**（依嚴重度排序、含 09-11 的新缺陷與 P4 tutorial 的缺口）。
+
 **auditor 起草 2026-09-08 18:xx；Adam 定稿。** 這是 909 那一頁「Found, then fixed」的**資料正本**；
 圖 `figures/fixed-since-903/fig_h1_fixed_since_903`（規格在模板 §C-909-H）只畫代號，數字與證據都在這裡。
 

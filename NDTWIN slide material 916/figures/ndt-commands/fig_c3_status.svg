@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="895.68pt" height="456.48pt" viewBox="0 0 895.68 456.48" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-16T12:02:26.277547</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 456.48 
+L 895.68 456.48 
+L 895.68 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="line2d_1">
+    <path d="M 41.76 74.88 
+L 853.92 74.88 
+" clip-path="url(#p6a404d0396)" style="fill: none; stroke: #1a1a1a; stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="patch_2">
+    <path d="M 45.36 226.08 
+L 434.88 226.08 
+Q 438.48 226.08 438.48 229.68 
+L 438.48 278.64 
+Q 438.48 282.24 434.88 282.24 
+L 45.36 282.24 
+Q 41.76 282.24 41.76 278.64 
+L 41.76 229.68 
+Q 41.76 226.08 45.36 226.08 
+z
+" clip-path="url(#p6a404d0396)" style="fill: #eef3f6; stroke: #065a82; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 460.8 226.08 
+L 850.32 226.08 
+Q 853.92 226.08 853.92 229.68 
+L 853.92 278.64 
+Q 853.92 282.24 850.32 282.24 
+L 460.8 282.24 
+Q 457.2 282.24 457.2 278.64 
+L 457.2 229.68 
+Q 457.2 226.08 460.8 226.08 
+z
+" clip-path="url(#p6a404d0396)" style="fill: #fbf2f0; stroke: #9c3b2e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 45.36 292.32 
+L 434.88 292.32 
+Q 438.48 292.32 438.48 295.92 
+L 438.48 344.88 
+Q 438.48 348.48 434.88 348.48 
+L 45.36 348.48 
+Q 41.76 348.48 41.76 344.88 
+L 41.76 295.92 
+Q 41.76 292.32 45.36 292.32 
+z
+" clip-path="url(#p6a404d0396)" style="fill: #f7f8f9; stroke: #4f4f4f; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 45.36 374.4 
+L 850.32 374.4 
+Q 853.92 374.4 853.92 378 
+L 853.92 428.4 
+Q 853.92 432 850.32 432 
+L 45.36 432 
+Q 41.76 432 41.76 428.4 
+L 41.76 378 
+Q 41.76 374.4 45.36 374.4 
+z
+" clip-path="url(#p6a404d0396)" style="fill: #fbf2f0; stroke: #9c3b2e; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 27px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #1a1a1a" x="41.76" y="51.601992" transform="rotate(-0 41.76 51.601992)">ndt status</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 13px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2e2e2e" x="853.92" y="48.004258" transform="rotate(-0 853.92 48.004258)">what is running, and who has the lab</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #6e6e6e" x="41.76" y="105.634668" transform="rotate(-0 41.76 105.634668)">HOW YOU CALL IT</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #1a1a1a" x="51.84" y="132.694219" transform="rotate(-0 51.84 132.694219)">ndt status</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="331.2" y="132.576074" transform="rotate(-0 331.2 132.576074)">what is on the machine right now</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #1a1a1a" x="51.84" y="162.934219" transform="rotate(-0 51.84 162.934219)">ndt status --check</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="331.2" y="162.816074" transform="rotate(-0 331.2 162.816074)">compare it against the baseline this lab was brought up with</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #6e6e6e" x="41.76" y="203.554668" transform="rotate(-0 41.76 203.554668)">WHAT ITS EXIT CODE MEANS</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #065a82" x="72" y="258.529258" transform="rotate(-0 72 258.529258)">0</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="109.44" y="257.136074" transform="rotate(-0 109.44 257.136074)">every compared field matches</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #9c3b2e" x="487.44" y="258.432773" transform="rotate(-0 487.44 258.432773)">1</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="524.88" y="257.136074" transform="rotate(-0 524.88 257.136074)">one of them does not</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #4f4f4f" x="72" y="324.769258" transform="rotate(-0 72 324.769258)">3</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="109.44" y="323.376074" transform="rotate(-0 109.44 323.376074)">there was no baseline to compare against</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #9c3b2e" x="67.68" y="405.154668" transform="rotate(-0 67.68 405.154668)">THE SHARP EDGE</text>
+   </g>
+   <g id="text_16">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="195.84" y="406.305469" transform="rotate(-0 195.84 406.305469)">with no baseline on disk the whole report is rc 3, not rc 0</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p6a404d0396">
+   <rect x="0" y="0" width="895.68" height="456.48"/>
+  </clipPath>
+ </defs>
+</svg>

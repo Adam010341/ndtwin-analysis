@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="895.68pt" height="370.08pt" viewBox="0 0 895.68 370.08" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-16T13:51:34.507071</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 370.08 
+L 895.68 370.08 
+L 895.68 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 48.24 80.64 
+L 226.44 80.64 
+Q 230.04 80.64 230.04 84.24 
+L 230.04 193.68 
+Q 230.04 197.28 226.44 197.28 
+L 48.24 197.28 
+Q 44.64 197.28 44.64 193.68 
+L 44.64 84.24 
+Q 44.64 80.64 48.24 80.64 
+z
+" clip-path="url(#pdf063f8f8b)" style="fill: #ffffff; stroke: #1a1a1a; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 255.24 80.64 
+L 433.44 80.64 
+Q 437.04 80.64 437.04 84.24 
+L 437.04 193.68 
+Q 437.04 197.28 433.44 197.28 
+L 255.24 197.28 
+Q 251.64 197.28 251.64 193.68 
+L 251.64 84.24 
+Q 251.64 80.64 255.24 80.64 
+z
+" clip-path="url(#pdf063f8f8b)" style="fill: #ffffff; stroke: #1a1a1a; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 462.24 80.64 
+L 640.44 80.64 
+Q 644.04 80.64 644.04 84.24 
+L 644.04 193.68 
+Q 644.04 197.28 640.44 197.28 
+L 462.24 197.28 
+Q 458.64 197.28 458.64 193.68 
+L 458.64 84.24 
+Q 458.64 80.64 462.24 80.64 
+z
+" clip-path="url(#pdf063f8f8b)" style="fill: #ffffff; stroke: #1a1a1a; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 669.24 80.64 
+L 847.44 80.64 
+Q 851.04 80.64 851.04 84.24 
+L 851.04 193.68 
+Q 851.04 197.28 847.44 197.28 
+L 669.24 197.28 
+Q 665.64 197.28 665.64 193.68 
+L 665.64 84.24 
+Q 665.64 80.64 669.24 80.64 
+z
+" clip-path="url(#pdf063f8f8b)" style="fill: #fbf2f0; stroke: #9c3b2e; stroke-width: 1.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 45.36 218.88 
+L 850.32 218.88 
+Q 853.92 218.88 853.92 222.48 
+L 853.92 272.88 
+Q 853.92 276.48 850.32 276.48 
+L 45.36 276.48 
+Q 41.76 276.48 41.76 272.88 
+L 41.76 222.48 
+Q 41.76 218.88 45.36 218.88 
+z
+" clip-path="url(#pdf063f8f8b)" style="fill: #fbf2f0; stroke: #9c3b2e; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 45.36 286.56 
+L 850.32 286.56 
+Q 853.92 286.56 853.92 290.16 
+L 853.92 340.56 
+Q 853.92 344.16 850.32 344.16 
+L 45.36 344.16 
+Q 41.76 344.16 41.76 340.56 
+L 41.76 290.16 
+Q 41.76 286.56 45.36 286.56 
+z
+" clip-path="url(#pdf063f8f8b)" style="fill: #eef3f6; stroke: #065a82; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 232.2 138.96 
+Q 240.84 138.96 248.398335 138.96 
+" style="fill: none; stroke: #1a1a1a; stroke-width: 1.2; stroke-linejoin: miter; stroke-linecap: round"/>
+    <path d="M 246.238335 137.52 
+L 248.398335 138.96 
+L 246.238335 140.4 
+z
+" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.2; stroke-linejoin: miter; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 439.2 138.96 
+Q 447.84 138.96 455.398335 138.96 
+" style="fill: none; stroke: #1a1a1a; stroke-width: 1.2; stroke-linejoin: miter; stroke-linecap: round"/>
+    <path d="M 453.238335 137.52 
+L 455.398335 138.96 
+L 453.238335 140.4 
+z
+" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.2; stroke-linejoin: miter; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 646.2 138.96 
+Q 654.84 138.96 662.398335 138.96 
+" style="fill: none; stroke: #1a1a1a; stroke-width: 1.2; stroke-linejoin: miter; stroke-linecap: round"/>
+    <path d="M 660.238335 137.52 
+L 662.398335 138.96 
+L 660.238335 140.4 
+z
+" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.2; stroke-linejoin: miter; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="447.84" y="40.903447" transform="rotate(-0 447.84 40.903447)">Deleted, it said. The group was still there.</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #6e6e6e" x="41.76" y="38.191738" transform="rotate(-0 41.76 38.191738)">RANK 8  ·  #1 / A-10</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 8px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #6e6e6e" x="137.34" y="106.919062" transform="rotate(-0 137.34 106.919062)">THE KERNEL</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 9.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #2e2e2e" transform="translate(87.178516 151.368696)">forwards the delete with</text>
+    <text style="font-size: 9.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #2e2e2e" transform="translate(72.539609 161.708296)">the caller's install-shaped body</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 8px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #6e6e6e" x="344.34" y="106.919062" transform="rotate(-0 344.34 106.919062)">RYU</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 9.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #2e2e2e" transform="translate(317.409727 151.368696)">answers 200</text>
+    <text style="font-size: 9.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #2e2e2e" transform="translate(316.356562 161.708296)">straight away</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 8px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #6e6e6e" x="551.34" y="106.959688" transform="rotate(-0 551.34 106.959688)">OVS</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 9.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #2e2e2e" transform="translate(487.717461 151.368696)">rejects it later, asynchronously</text>
+    <text style="font-size: 9.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #2e2e2e" transform="translate(486.765977 161.708296)">OFPGMFC_INVALID_GROUP</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 8px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #9c3b2e" x="758.34" y="106.919062" transform="rotate(-0 758.34 106.919062)">THE KERNEL</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #9c3b2e" transform="translate(715.307969 151.368696)">has already replied</text>
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #9c3b2e" transform="translate(732.468086 161.708296)">200 deleted</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #9c3b2e" x="67.68" y="249.634668" transform="rotate(-0 67.68 249.634668)">READ IT BACK</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="207.36" y="250.776914" transform="rotate(-0 207.36 250.776914)">the group is still there, and its id stays unusable until the switch restarts</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #065a82" x="67.68" y="317.271504" transform="rotate(-0 67.68 317.271504)">THE FIX</text>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="207.36" y="318.465469" transform="rotate(-0 207.36 318.465469)">deleted is claimed only after a read-back finds the entry absent</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pdf063f8f8b">
+   <rect x="0" y="0" width="895.68" height="370.08"/>
+  </clipPath>
+ </defs>
+</svg>

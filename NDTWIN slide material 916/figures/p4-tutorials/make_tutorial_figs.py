@@ -34,7 +34,10 @@ from matplotlib.patches import Rectangle
 # 0. 路徑與常數
 # ----------------------------------------------------------------------------
 
-SRC_DIR = Path("/home/adam/Desktop/NDTwin-Kernel/doc/audit/2026-09-04_p4-tutorial-exercise-prep")
+# The repo root differs between Adam's machine and the cowork sandbox, so it is
+# resolvable by env var. Default unchanged, so nothing about how Adam runs it moves.
+REPO = Path(os.environ.get("NDTWIN_REPO", "/home/adam/Desktop/NDTwin-Kernel"))
+SRC_DIR = REPO / "doc/audit/2026-09-04_p4-tutorial-exercise-prep"
 GAP1 = SRC_DIR / "GAP-1-exercise-requirements.md"
 GAP2 = SRC_DIR / "GAP-2-ndtwin-p4-capabilities.md"
 GAPA = SRC_DIR / "GAP-ANALYSIS.md"
@@ -484,11 +487,11 @@ def draw(req, cap, order, stage_of):
     y_bottom = y_ndt + 0.5
     n_x = len(DIMS)
 
-    fig_w, fig_h = 9.2, 6.6
+    fig_w, fig_h = 13.3, 6.6
     fig = plt.figure(figsize=(fig_w, fig_h), dpi=300)
     fig.patch.set_facecolor("white")
 
-    ax_l, ax_b, ax_w, ax_h = 0.158, 0.163, 0.835, 0.672
+    ax_l, ax_b, ax_w, ax_h = 0.112, 0.200, 0.876, 0.638
     ax = fig.add_axes([ax_l, ax_b, ax_w, ax_h])
     ax.set_xlim(-0.5, n_x - 0.5)
     ax.set_ylim(y_bottom, -0.5)
@@ -514,18 +517,18 @@ def draw(req, cap, order, stage_of):
 
     ax.set_xticks(range(n_x))
     ax.set_xticklabels(DIMS, rotation=45, ha="right", va="top",
-                       fontsize=8.6, color=INK)
+                       fontsize=11.8, color=INK)
     ax.xaxis.set_ticks_position("bottom")
 
     yt = [ys[e] for e in order] + [y_ndt]
     ax.set_yticks(yt)
-    ax.set_yticklabels(order + ["NDTwin today"], fontsize=8.8, color=INK)
+    ax.set_yticklabels(order + ["NDTwin today"], fontsize=13.2, color=INK)
     for lbl in ax.get_yticklabels()[-1:]:
         lbl.set_fontweight("bold")
         lbl.set_color(INK)
 
     # 標題
-    fig.text(ax_l, 0.962, TITLE, fontsize=15.5, fontweight="bold",
+    fig.text(ax_l, 0.962, TITLE, fontsize=21.0, fontweight="bold",
              color=INK, ha="left", va="top")
 
     # 圖例：兩組各三格
@@ -536,9 +539,9 @@ def draw(req, cap, order, stage_of):
         [handle(c) for c in (REQ_CRITICAL, REQ_USED, REQ_NONE)],
         [LEGEND_LABEL[c] for c in (REQ_CRITICAL, REQ_USED, REQ_NONE)],
         title="EXERCISE NEEDS", loc="lower left", bbox_to_anchor=(0.0, 1.012),
-        ncol=3, frameon=False, fontsize=8.8, handlelength=1.15, handleheight=1.05,
+        ncol=3, frameon=False, fontsize=13.0, handlelength=1.15, handleheight=1.05,
         handletextpad=0.5, columnspacing=1.25, borderpad=0.0, borderaxespad=0.0)
-    leg1.get_title().set_fontsize(8.4)
+    leg1.get_title().set_fontsize(12.2)
     leg1.get_title().set_fontweight("bold")
     leg1.get_title().set_color(FAINT)
     leg1._legend_box.align = "left"
@@ -550,9 +553,9 @@ def draw(req, cap, order, stage_of):
         [handle(c) for c in (CAP_YES, CAP_PARTIAL, CAP_NO)],
         [LEGEND_LABEL[c] for c in (CAP_YES, CAP_PARTIAL, CAP_NO)],
         title="NDTWIN TODAY", loc="lower left", bbox_to_anchor=(0.475, 1.012),
-        ncol=3, frameon=False, fontsize=8.8, handlelength=1.15, handleheight=1.05,
+        ncol=3, frameon=False, fontsize=13.0, handlelength=1.15, handleheight=1.05,
         handletextpad=0.5, columnspacing=1.25, borderpad=0.0, borderaxespad=0.0)
-    leg2.get_title().set_fontsize(8.4)
+    leg2.get_title().set_fontsize(12.2)
     leg2.get_title().set_fontweight("bold")
     leg2.get_title().set_color(FAINT)
     leg2._legend_box.align = "left"

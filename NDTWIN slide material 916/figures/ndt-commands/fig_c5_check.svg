@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="895.68pt" height="292.32pt" viewBox="0 0 895.68 292.32" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-16T12:02:27.582247</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 292.32 
+L 895.68 292.32 
+L 895.68 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="line2d_1">
+    <path d="M 41.76 74.88 
+L 853.92 74.88 
+" clip-path="url(#p77e71f72de)" style="fill: none; stroke: #1a1a1a; stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="patch_2">
+    <path d="M 45.36 128.16 
+L 434.88 128.16 
+Q 438.48 128.16 438.48 131.76 
+L 438.48 180.72 
+Q 438.48 184.32 434.88 184.32 
+L 45.36 184.32 
+Q 41.76 184.32 41.76 180.72 
+L 41.76 131.76 
+Q 41.76 128.16 45.36 128.16 
+z
+" clip-path="url(#p77e71f72de)" style="fill: #eef3f6; stroke: #065a82; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 460.8 128.16 
+L 850.32 128.16 
+Q 853.92 128.16 853.92 131.76 
+L 853.92 180.72 
+Q 853.92 184.32 850.32 184.32 
+L 460.8 184.32 
+Q 457.2 184.32 457.2 180.72 
+L 457.2 131.76 
+Q 457.2 128.16 460.8 128.16 
+z
+" clip-path="url(#p77e71f72de)" style="fill: #fbf2f0; stroke: #9c3b2e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 45.36 210.24 
+L 850.32 210.24 
+Q 853.92 210.24 853.92 213.84 
+L 853.92 264.24 
+Q 853.92 267.84 850.32 267.84 
+L 45.36 267.84 
+Q 41.76 267.84 41.76 264.24 
+L 41.76 213.84 
+Q 41.76 210.24 45.36 210.24 
+z
+" clip-path="url(#p77e71f72de)" style="fill: #fbf2f0; stroke: #9c3b2e; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 27px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #1a1a1a" x="41.76" y="51.601992" transform="rotate(-0 41.76 51.601992)">ndt check</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 13px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2e2e2e" x="853.92" y="48.004258" transform="rotate(-0 853.92 48.004258)">the telemetry double-count tripwire</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #6e6e6e" x="41.76" y="105.634668" transform="rotate(-0 41.76 105.634668)">WHAT ITS EXIT CODE MEANS</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #065a82" x="72" y="160.609258" transform="rotate(-0 72 160.609258)">0</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="109.44" y="159.216074" transform="rotate(-0 109.44 159.216074)">the ratio is inside the band, or nothing was compared</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #9c3b2e" x="487.44" y="160.512773" transform="rotate(-0 487.44 160.512773)">4</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="524.88" y="159.216074" transform="rotate(-0 524.88 159.216074)">double-counting — the tripwire fired</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #9c3b2e" x="67.68" y="240.994668" transform="rotate(-0 67.68 240.994668)">THE SHARP EDGE</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="195.84" y="242.136914" transform="rotate(-0 195.84 242.136914)">rc 0 also means nothing was compared — the quiet answer and the healthy answer are the same number</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p77e71f72de">
+   <rect x="0" y="0" width="895.68" height="292.32"/>
+  </clipPath>
+ </defs>
+</svg>

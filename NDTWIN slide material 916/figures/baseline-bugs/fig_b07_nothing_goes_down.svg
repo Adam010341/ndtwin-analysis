@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="895.68pt" height="404.64pt" viewBox="0 0 895.68 404.64" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-16T13:51:33.833153</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 404.64 
+L 895.68 404.64 
+L 895.68 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 401.04 90.72 
+L 494.64 90.72 
+Q 498.24 90.72 498.24 94.32 
+L 498.24 153.36 
+Q 498.24 156.96 494.64 156.96 
+L 401.04 156.96 
+Q 397.44 156.96 397.44 153.36 
+L 397.44 94.32 
+Q 397.44 90.72 401.04 90.72 
+z
+" clip-path="url(#paf1d80b51f)" style="fill: #fbf2f0; stroke: #9c3b2e; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 45.36 182.88 
+L 850.32 182.88 
+Q 853.92 182.88 853.92 186.48 
+L 853.92 219.6 
+Q 853.92 223.2 850.32 223.2 
+L 45.36 223.2 
+Q 41.76 223.2 41.76 219.6 
+L 41.76 186.48 
+Q 41.76 182.88 45.36 182.88 
+z
+" clip-path="url(#paf1d80b51f)" style="fill: #f7f8f9; stroke: #d0d0d0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 45.36 230.4 
+L 850.32 230.4 
+Q 853.92 230.4 853.92 234 
+L 853.92 267.12 
+Q 853.92 270.72 850.32 270.72 
+L 45.36 270.72 
+Q 41.76 270.72 41.76 267.12 
+L 41.76 234 
+Q 41.76 230.4 45.36 230.4 
+z
+" clip-path="url(#paf1d80b51f)" style="fill: #fbf2f0; stroke: #9c3b2e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 45.36 277.92 
+L 850.32 277.92 
+Q 853.92 277.92 853.92 281.52 
+L 853.92 314.64 
+Q 853.92 318.24 850.32 318.24 
+L 45.36 318.24 
+Q 41.76 318.24 41.76 314.64 
+L 41.76 281.52 
+Q 41.76 277.92 45.36 277.92 
+z
+" clip-path="url(#paf1d80b51f)" style="fill: #fbf2f0; stroke: #9c3b2e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 45.36 325.44 
+L 850.32 325.44 
+Q 853.92 325.44 853.92 329.04 
+L 853.92 362.16 
+Q 853.92 365.76 850.32 365.76 
+L 45.36 365.76 
+Q 41.76 365.76 41.76 362.16 
+L 41.76 329.04 
+Q 41.76 325.44 45.36 325.44 
+z
+" clip-path="url(#paf1d80b51f)" style="fill: #fbf2f0; stroke: #9c3b2e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="447.84" y="40.903447" transform="rotate(-0 447.84 40.903447)">A switch died. Almost nothing died with it.</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #6e6e6e" x="41.76" y="38.191738" transform="rotate(-0 41.76 38.191738)">RANK 7  ·  F-14 / F-16 / F-4</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 8px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #9c3b2e" x="447.84" y="114.159688" transform="rotate(-0 447.84 114.159688)">SWITCH</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #9c3b2e" x="447.84" y="141.604258" transform="rotate(-0 447.84 141.604258)">dead</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="72" y="206.016074" transform="rotate(-0 72 206.016074)">the edges to other switches</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #4f4f4f" x="823.68" y="206.274863" transform="rotate(-0 823.68 206.274863)">marked down</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="72" y="253.536074" transform="rotate(-0 72 253.536074)">the edges facing its hosts</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #9c3b2e" x="823.68" y="253.794863" transform="rotate(-0 823.68 253.794863)">still up</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="72" y="301.056074" transform="rotate(-0 72 301.056074)">the hosts themselves</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #9c3b2e" x="823.68" y="301.314863" transform="rotate(-0 823.68 301.314863)">still up</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="72" y="348.576074" transform="rotate(-0 72 348.576074)">a dead link, next poll</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #9c3b2e" x="823.68" y="348.825952" transform="rotate(-0 823.68 348.825952)">brought back up</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 10.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #6e6e6e" x="41.76" y="387.197285" transform="rotate(-0 41.76 387.197285)">one switch, four questions, and only the first was answered honestly</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="paf1d80b51f">
+   <rect x="0" y="0" width="895.68" height="404.64"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="895.68pt" height="375.84pt" viewBox="0 0 895.68 375.84" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-16T11:18:46.376859</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 375.84 
+L 895.68 375.84 
+L 895.68 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 46.8 164.16 
+L 277.2 164.16 
+Q 280.8 164.16 280.8 167.76 
+L 280.8 232.56 
+Q 280.8 236.16 277.2 236.16 
+L 46.8 236.16 
+Q 43.2 236.16 43.2 232.56 
+L 43.2 167.76 
+Q 43.2 164.16 46.8 164.16 
+z
+" clip-path="url(#pb3d4bf59eb)" style="fill: #f7f8f9; stroke: #1a1a1a; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 385.2 90.72 
+L 848.88 90.72 
+Q 852.48 90.72 852.48 94.32 
+L 852.48 195.12 
+Q 852.48 198.72 848.88 198.72 
+L 385.2 198.72 
+Q 381.6 198.72 381.6 195.12 
+L 381.6 94.32 
+Q 381.6 90.72 385.2 90.72 
+z
+" clip-path="url(#pb3d4bf59eb)" style="fill: #fbf2f0; stroke: #9c3b2e; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 385.2 231.84 
+L 848.88 231.84 
+Q 852.48 231.84 852.48 235.44 
+L 852.48 336.24 
+Q 852.48 339.84 848.88 339.84 
+L 385.2 339.84 
+Q 381.6 339.84 381.6 336.24 
+L 381.6 235.44 
+Q 381.6 231.84 385.2 231.84 
+z
+" clip-path="url(#pb3d4bf59eb)" style="fill: #eef3f6; stroke: #065a82; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 46.08 289.44 
+L 110.88 289.44 
+Q 113.76 289.44 113.76 292.32 
+L 113.76 324 
+Q 113.76 326.88 110.88 326.88 
+L 46.08 326.88 
+Q 43.2 326.88 43.2 324 
+L 43.2 292.32 
+Q 43.2 289.44 46.08 289.44 
+z
+" clip-path="url(#pb3d4bf59eb)" style="fill: #ffffff; stroke: #d0d0d0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 126.72 289.44 
+L 191.52 289.44 
+Q 194.4 289.44 194.4 292.32 
+L 194.4 324 
+Q 194.4 326.88 191.52 326.88 
+L 126.72 326.88 
+Q 123.84 326.88 123.84 324 
+L 123.84 292.32 
+Q 123.84 289.44 126.72 289.44 
+z
+" clip-path="url(#pb3d4bf59eb)" style="fill: #ffffff; stroke: #d0d0d0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 207.36 289.44 
+L 272.16 289.44 
+Q 275.04 289.44 275.04 292.32 
+L 275.04 324 
+Q 275.04 326.88 272.16 326.88 
+L 207.36 326.88 
+Q 204.48 326.88 204.48 324 
+L 204.48 292.32 
+Q 204.48 289.44 207.36 289.44 
+z
+" clip-path="url(#pb3d4bf59eb)" style="fill: #ffffff; stroke: #d0d0d0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 288 188.64 
+Q 331.2 166.68 373.275059 145.291845 
+" style="fill: none; stroke: #9c3b2e; stroke-width: 1.4; stroke-linejoin: miter; stroke-linecap: round"/>
+    <path d="M 370.697026 144.986974 
+L 373.275059 145.291845 
+L 372.002088 147.55431 
+z
+" style="fill: #9c3b2e; stroke: #9c3b2e; stroke-width: 1.4; stroke-linejoin: miter; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 288 213.12 
+Q 331.2 249.48 373.434517 285.027385 
+" style="fill: none; stroke: #065a82; stroke-width: 1.4; stroke-linejoin: miter; stroke-linecap: round"/>
+    <path d="M 372.709225 282.534766 
+L 373.434517 285.027385 
+L 370.854679 284.738186 
+z
+" style="fill: #065a82; stroke: #065a82; stroke-width: 1.4; stroke-linejoin: miter; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="447.84" y="40.916992" transform="rotate(-0 447.84 40.916992)">One field. Two doors. Opposite answers.</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #6e6e6e" x="43.2" y="37.954668" transform="rotate(-0 43.2 37.954668)">FOUND BY  THE GRAD STUDENT</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #6e6e6e" x="162" y="187.714668" transform="rotate(-0 162 187.714668)">THE SAME FIELD</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #1a1a1a" x="162" y="216.569414" transform="rotate(-0 162 216.569414)">vertex_type: 2</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #9c3b2e" x="406.08" y="118.594668" transform="rotate(-0 406.08 118.594668)">THROUGH THE TOPOLOGY FILE</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #9c3b2e" x="406.08" y="153.900625" transform="rotate(-0 406.08 153.900625)">accepted</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="406.08" y="179.96668" transform="rotate(-0 406.08 179.96668)">no diagnostic · enters the graph</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #065a82" x="406.08" y="259.714668" transform="rotate(-0 406.08 259.714668)">THROUGH THE API</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #065a82" x="406.08" y="294.559375" transform="rotate(-0 406.08 294.559375)">400</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 11px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="406.08" y="321.08668" transform="rotate(-0 406.08 321.08668)">refused</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #6e6e6e" x="43.2" y="275.791738" transform="rotate(-0 43.2 275.791738)">the same door also took</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #4f4f4f" x="78.48" y="310.633711" transform="rotate(-0 78.48 310.633711)">-1</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #4f4f4f" x="159.12" y="310.68957" transform="rotate(-0 159.12 310.68957)">99</text>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #4f4f4f" x="239.76" y="310.998945" transform="rotate(-0 239.76 310.998945)">["10.1"]</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #9c3b2e" x="43.2" y="352.500762" transform="rotate(-0 43.2 352.500762)">and ["10.1"] gave two hosts one address</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pb3d4bf59eb">
+   <rect x="0" y="0" width="895.68" height="375.84"/>
+  </clipPath>
+ </defs>
+</svg>

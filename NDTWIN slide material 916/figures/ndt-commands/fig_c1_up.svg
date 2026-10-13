@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="895.68pt" height="516.96pt" viewBox="0 0 895.68 516.96" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-16T12:02:24.687849</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 516.96 
+L 895.68 516.96 
+L 895.68 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="line2d_1">
+    <path d="M 41.76 74.88 
+L 853.92 74.88 
+" clip-path="url(#pba83e7ae52)" style="fill: none; stroke: #1a1a1a; stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="patch_2">
+    <path d="M 45.36 286.56 
+L 434.88 286.56 
+Q 438.48 286.56 438.48 290.16 
+L 438.48 339.12 
+Q 438.48 342.72 434.88 342.72 
+L 45.36 342.72 
+Q 41.76 342.72 41.76 339.12 
+L 41.76 290.16 
+Q 41.76 286.56 45.36 286.56 
+z
+" clip-path="url(#pba83e7ae52)" style="fill: #eef3f6; stroke: #065a82; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 460.8 286.56 
+L 850.32 286.56 
+Q 853.92 286.56 853.92 290.16 
+L 853.92 339.12 
+Q 853.92 342.72 850.32 342.72 
+L 460.8 342.72 
+Q 457.2 342.72 457.2 339.12 
+L 457.2 290.16 
+Q 457.2 286.56 460.8 286.56 
+z
+" clip-path="url(#pba83e7ae52)" style="fill: #fbf2f0; stroke: #9c3b2e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 45.36 352.8 
+L 434.88 352.8 
+Q 438.48 352.8 438.48 356.4 
+L 438.48 405.36 
+Q 438.48 408.96 434.88 408.96 
+L 45.36 408.96 
+Q 41.76 408.96 41.76 405.36 
+L 41.76 356.4 
+Q 41.76 352.8 45.36 352.8 
+z
+" clip-path="url(#pba83e7ae52)" style="fill: #fbf2f0; stroke: #9c3b2e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 460.8 352.8 
+L 850.32 352.8 
+Q 853.92 352.8 853.92 356.4 
+L 853.92 405.36 
+Q 853.92 408.96 850.32 408.96 
+L 460.8 408.96 
+Q 457.2 408.96 457.2 405.36 
+L 457.2 356.4 
+Q 457.2 352.8 460.8 352.8 
+z
+" clip-path="url(#pba83e7ae52)" style="fill: #f7f8f9; stroke: #4f4f4f; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 45.36 434.88 
+L 850.32 434.88 
+Q 853.92 434.88 853.92 438.48 
+L 853.92 488.88 
+Q 853.92 492.48 850.32 492.48 
+L 45.36 492.48 
+Q 41.76 492.48 41.76 488.88 
+L 41.76 438.48 
+Q 41.76 434.88 45.36 434.88 
+z
+" clip-path="url(#pba83e7ae52)" style="fill: #fbf2f0; stroke: #9c3b2e; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 27px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #1a1a1a" x="41.76" y="51.601992" transform="rotate(-0 41.76 51.601992)">ndt up</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 13px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #2e2e2e" x="853.92" y="48.004258" transform="rotate(-0 853.92 48.004258)">bring the whole lab up, and verify it</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #6e6e6e" x="41.76" y="105.634668" transform="rotate(-0 41.76 105.634668)">HOW YOU CALL IT</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #1a1a1a" x="51.84" y="132.694219" transform="rotate(-0 51.84 132.694219)">ndt up</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="331.2" y="132.576074" transform="rotate(-0 331.2 132.576074)">Ryu and OVS, 128 hosts — OVS is the default plane</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #1a1a1a" x="51.84" y="162.934219" transform="rotate(-0 51.84 162.934219)">ndt up 4</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="331.2" y="162.816074" transform="rotate(-0 331.2 162.816074)">the same, on the P4 test bed's 4-host layout</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #1a1a1a" x="51.84" y="193.174219" transform="rotate(-0 51.84 193.174219)">ndt up p4 4</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="331.2" y="193.056074" transform="rotate(-0 331.2 193.056074)">the P4 plane at 4 hosts</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #1a1a1a" x="51.84" y="223.414219" transform="rotate(-0 51.84 223.414219)">ndt up p4 128</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="331.2" y="223.296074" transform="rotate(-0 331.2 223.296074)">the P4 plane at 128 hosts</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #6e6e6e" x="41.76" y="264.034668" transform="rotate(-0 41.76 264.034668)">WHAT ITS EXIT CODE MEANS</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #065a82" x="72" y="319.009258" transform="rotate(-0 72 319.009258)">0</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="109.44" y="317.616074" transform="rotate(-0 109.44 317.616074)">it came up and it verified</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #9c3b2e" x="487.44" y="318.912773" transform="rotate(-0 487.44 318.912773)">1</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="524.88" y="317.616074" transform="rotate(-0 524.88 317.616074)">it measured the machine and did not like it</text>
+   </g>
+   <g id="text_17">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #9c3b2e" x="72" y="385.152773" transform="rotate(-0 72 385.152773)">5</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="109.44" y="383.856074" transform="rotate(-0 109.44 383.856074)">a guard refused — nothing was built</text>
+   </g>
+   <g id="text_19">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #4f4f4f" x="487.44" y="385.249258" transform="rotate(-0 487.44 385.249258)">2</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="524.88" y="383.856074" transform="rotate(-0 524.88 383.856074)">you called it wrong</text>
+   </g>
+   <g id="text_21">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #9c3b2e" x="67.68" y="465.634668" transform="rotate(-0 67.68 465.634668)">THE SHARP EDGE</text>
+   </g>
+   <g id="text_22">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="195.84" y="466.785469" transform="rotate(-0 195.84 466.785469)">1 and 5 are different questions: 1 looked and disliked what it saw, 5 never looked</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pba83e7ae52">
+   <rect x="0" y="0" width="895.68" height="516.96"/>
+  </clipPath>
+ </defs>
+</svg>

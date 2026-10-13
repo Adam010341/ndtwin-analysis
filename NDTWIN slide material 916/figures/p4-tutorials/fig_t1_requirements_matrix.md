@@ -10,11 +10,11 @@
 
 | 用途 | 檔 | 章節 |
 |---|---|---|
-| 需求矩陣 13×16 | `/home/adam/Desktop/NDTwin-Kernel/doc/audit/2026-09-04_p4-tutorial-exercise-prep/GAP-1-exercise-requirements.md` | §2a 資料面／§2b 控制面／§2c 拓樸與驗證 |
-| `meters`／`digest` 兩欄（§2 沒有這兩欄） | `/home/adam/Desktop/NDTwin-Kernel/doc/audit/2026-09-04_p4-tutorial-exercise-prep/GAP-1-exercise-requirements.md` | §4b「只有少數支要的」的 `meters`／`digest` ＝ **0 支** |
-| 對帳斷言（幾支要） | `/home/adam/Desktop/NDTwin-Kernel/doc/audit/2026-09-04_p4-tutorial-exercise-prep/GAP-1-exercise-requirements.md` | §4a、§4b |
-| NDTwin today 那一列 1×16 | `/home/adam/Desktop/NDTwin-Kernel/doc/audit/2026-09-04_p4-tutorial-exercise-prep/GAP-2-ndtwin-p4-capabilities.md` | §1 能力矩陣＋文末「計數：做得到 1、部分 9、做不到 6」 |
-| 列序（上→下） | `/home/adam/Desktop/NDTwin-Kernel/doc/audit/2026-09-04_p4-tutorial-exercise-prep/GAP-ANALYSIS.md` | §6 三階段（定序）、§4 逐支可行性表（同序，做交叉驗證） |
+| 需求矩陣 13×16 | `/sessions/hopeful-sharp-hopper/mnt/NDTwin-Kernel/doc/audit/2026-09-04_p4-tutorial-exercise-prep/GAP-1-exercise-requirements.md` | §2a 資料面／§2b 控制面／§2c 拓樸與驗證 |
+| `meters`／`digest` 兩欄（§2 沒有這兩欄） | `/sessions/hopeful-sharp-hopper/mnt/NDTwin-Kernel/doc/audit/2026-09-04_p4-tutorial-exercise-prep/GAP-1-exercise-requirements.md` | §4b「只有少數支要的」的 `meters`／`digest` ＝ **0 支** |
+| 對帳斷言（幾支要） | `/sessions/hopeful-sharp-hopper/mnt/NDTwin-Kernel/doc/audit/2026-09-04_p4-tutorial-exercise-prep/GAP-1-exercise-requirements.md` | §4a、§4b |
+| NDTwin today 那一列 1×16 | `/sessions/hopeful-sharp-hopper/mnt/NDTwin-Kernel/doc/audit/2026-09-04_p4-tutorial-exercise-prep/GAP-2-ndtwin-p4-capabilities.md` | §1 能力矩陣＋文末「計數：做得到 1、部分 9、做不到 6」 |
+| 列序（上→下） | `/sessions/hopeful-sharp-hopper/mnt/NDTwin-Kernel/doc/audit/2026-09-04_p4-tutorial-exercise-prep/GAP-ANALYSIS.md` | §6 三階段（定序）、§4 逐支可行性表（同序，做交叉驗證） |
 | 色票 | `/home/adam/Desktop/NDTwin slide material/NDTwin slide material 827/NDTwin-slide-template-827.md` | §E2 色票與字體 |
 
 ## 可信度
@@ -413,9 +413,9 @@ cd "/home/adam/Desktop/NDTwin slide material/NDTWIN slide material 916/figures/p
 產出：
 
 - `fig_t1_requirements_matrix.pdf`
-- `fig_t1_requirements_matrix.png`（300 dpi，2760×1980 px）
+- `fig_t1_requirements_matrix.png`（300 dpi，3990×1980 px）
 - `fig_t1_requirements_matrix.svg`
 - `_hires/fig_t1_requirements_matrix.png`（500 dpi）
 - `fig_t1_requirements_matrix.md`（本檔，同一支腳本產出，因此**不會與圖脫節**）
 
-最後產出：2026-09-08 17:42；matplotlib 3.11.1；Python 3.13.13。
+最後產出：2026-09-16 12:26；matplotlib 3.10.9；Python 3.10.12。

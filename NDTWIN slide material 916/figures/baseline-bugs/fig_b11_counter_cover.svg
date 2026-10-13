@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="895.68pt" height="434.88pt" viewBox="0 0 895.68 434.88" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-16T13:51:36.694918</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 434.88 
+L 895.68 434.88 
+L 895.68 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 45.36 82.08 
+L 432 82.08 
+Q 435.6 82.08 435.6 85.68 
+L 435.6 226.8 
+Q 435.6 230.4 432 230.4 
+L 45.36 230.4 
+Q 41.76 230.4 41.76 226.8 
+L 41.76 85.68 
+Q 41.76 82.08 45.36 82.08 
+z
+" clip-path="url(#p2294193086)" style="fill: #fbf2f0; stroke: #9c3b2e; stroke-width: 1.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 463.68 82.08 
+L 850.32 82.08 
+Q 853.92 82.08 853.92 85.68 
+L 853.92 226.8 
+Q 853.92 230.4 850.32 230.4 
+L 463.68 230.4 
+Q 460.08 230.4 460.08 226.8 
+L 460.08 85.68 
+Q 460.08 82.08 463.68 82.08 
+z
+" clip-path="url(#p2294193086)" style="fill: #eef3f6; stroke: #065a82; stroke-width: 1.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 45.36 249.12 
+L 850.32 249.12 
+Q 853.92 249.12 853.92 252.72 
+L 853.92 303.12 
+Q 853.92 306.72 850.32 306.72 
+L 45.36 306.72 
+Q 41.76 306.72 41.76 303.12 
+L 41.76 252.72 
+Q 41.76 249.12 45.36 249.12 
+z
+" clip-path="url(#p2294193086)" style="fill: #f7f8f9; stroke: #d0d0d0; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 45.36 312.48 
+L 850.32 312.48 
+Q 853.92 312.48 853.92 316.08 
+L 853.92 366.48 
+Q 853.92 370.08 850.32 370.08 
+L 45.36 370.08 
+Q 41.76 370.08 41.76 366.48 
+L 41.76 316.08 
+Q 41.76 312.48 45.36 312.48 
+z
+" clip-path="url(#p2294193086)" style="fill: #fbf2f0; stroke: #9c3b2e; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="447.84" y="40.916992" transform="rotate(-0 447.84 40.916992)">A count that now says what it counts</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #6e6e6e" x="41.76" y="37.911504" transform="rotate(-0 41.76 37.911504)">RANK 11  ·  A-7</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #9c3b2e" x="238.68" y="109.954668" transform="rotate(-0 238.68 109.954668)">BEFORE</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #9c3b2e" x="238.68" y="149.307773" transform="rotate(-0 238.68 149.307773)">succeeded: N</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #2e2e2e" transform="translate(174.432734 181.037896)">a queued write that failed</text>
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #2e2e2e" transform="translate(179.546641 193.554253)">appears in no API at all</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #065a82" x="657" y="109.911504" transform="rotate(-0 657 109.911504)">AFTER</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #065a82" x="484.56" y="142.372266" transform="rotate(-0 484.56 142.372266)">dispatcher_running: true</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 10.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #065a82" x="484.56" y="166.875234" transform="rotate(-0 484.56 166.875234)">counters_cover: the four dispatch routes</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 10.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #065a82" x="484.56" y="191.355234" transform="rotate(-0 484.56 191.355234)">includes_boot_time_programming: false</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 10.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #065a82" x="484.56" y="215.935107" transform="rotate(-0 484.56 215.935107)">includes_intent_translator: false</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #6e6e6e" x="67.68" y="279.874668" transform="rotate(-0 67.68 279.874668)">WHAT THAT BUYS</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="207.36" y="281.016914" transform="rotate(-0 207.36 281.016914)">running true with zero drops is health; running false with zero drops is delivery already over</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #9c3b2e" x="67.68" y="343.234668" transform="rotate(-0 67.68 343.234668)">AND WHAT WAS REFUSED</text>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="207.36" y="344.385469" transform="rotate(-0 207.36 344.385469)">counters for the boot-time installs — they would have been pinned at zero forever</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="41.76" y="407.745469" transform="rotate(-0 41.76 407.745469)">a counter that can never move is worse than no counter</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p2294193086">
+   <rect x="0" y="0" width="895.68" height="434.88"/>
+  </clipPath>
+ </defs>
+</svg>

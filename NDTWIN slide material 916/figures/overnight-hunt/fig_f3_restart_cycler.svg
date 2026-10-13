@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="895.68pt" height="289.44pt" viewBox="0 0 895.68 289.44" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-16T13:16:43.716111</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 289.44 
+L 895.68 289.44 
+L 895.68 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 45.36 80.64 
+L 225 80.64 
+Q 228.6 80.64 228.6 84.24 
+L 228.6 193.68 
+Q 228.6 197.28 225 197.28 
+L 45.36 197.28 
+Q 41.76 197.28 41.76 193.68 
+L 41.76 84.24 
+Q 41.76 80.64 45.36 80.64 
+z
+" clip-path="url(#p6cebc3b35d)" style="fill: #ffffff; stroke: #1a1a1a; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 253.8 80.64 
+L 433.44 80.64 
+Q 437.04 80.64 437.04 84.24 
+L 437.04 193.68 
+Q 437.04 197.28 433.44 197.28 
+L 253.8 197.28 
+Q 250.2 197.28 250.2 193.68 
+L 250.2 84.24 
+Q 250.2 80.64 253.8 80.64 
+z
+" clip-path="url(#p6cebc3b35d)" style="fill: #ffffff; stroke: #1a1a1a; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 462.24 80.64 
+L 641.88 80.64 
+Q 645.48 80.64 645.48 84.24 
+L 645.48 193.68 
+Q 645.48 197.28 641.88 197.28 
+L 462.24 197.28 
+Q 458.64 197.28 458.64 193.68 
+L 458.64 84.24 
+Q 458.64 80.64 462.24 80.64 
+z
+" clip-path="url(#p6cebc3b35d)" style="fill: #ffffff; stroke: #1a1a1a; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 670.68 80.64 
+L 850.32 80.64 
+Q 853.92 80.64 853.92 84.24 
+L 853.92 193.68 
+Q 853.92 197.28 850.32 197.28 
+L 670.68 197.28 
+Q 667.08 197.28 667.08 193.68 
+L 667.08 84.24 
+Q 667.08 80.64 670.68 80.64 
+z
+" clip-path="url(#p6cebc3b35d)" style="fill: #eef3f6; stroke: #065a82; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 45.36 226.08 
+L 850.32 226.08 
+Q 853.92 226.08 853.92 229.68 
+L 853.92 270 
+Q 853.92 273.6 850.32 273.6 
+L 45.36 273.6 
+Q 41.76 273.6 41.76 270 
+L 41.76 229.68 
+Q 41.76 226.08 45.36 226.08 
+z
+" clip-path="url(#p6cebc3b35d)" style="fill: #f7f8f9; stroke: #d0d0d0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 230.76 138.96 
+Q 239.4 138.96 246.958335 138.96 
+" style="fill: none; stroke: #1a1a1a; stroke-width: 1.2; stroke-linejoin: miter; stroke-linecap: round"/>
+    <path d="M 244.798335 137.52 
+L 246.958335 138.96 
+L 244.798335 140.4 
+z
+" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.2; stroke-linejoin: miter; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 439.2 138.96 
+Q 447.84 138.96 455.398335 138.96 
+" style="fill: none; stroke: #1a1a1a; stroke-width: 1.2; stroke-linejoin: miter; stroke-linecap: round"/>
+    <path d="M 453.238335 137.52 
+L 455.398335 138.96 
+L 453.238335 140.4 
+z
+" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.2; stroke-linejoin: miter; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 647.64 138.96 
+Q 656.28 138.96 663.838335 138.96 
+" style="fill: none; stroke: #1a1a1a; stroke-width: 1.2; stroke-linejoin: miter; stroke-linecap: round"/>
+    <path d="M 661.678335 137.52 
+L 663.838335 138.96 
+L 661.678335 140.4 
+z
+" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 1.2; stroke-linejoin: miter; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="447.84" y="39.476992" transform="rotate(-0 447.84 39.476992)">The restart cycler</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #1a1a1a" x="41.76" y="36.744629" transform="rotate(-0 41.76 36.744629)">ROLE-2  ·  ROLE-9</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #065a82" x="853.92" y="37.018496" transform="rotate(-0 853.92 37.018496)">time × state</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #2e2e2e" x="135.18" y="142.065469" transform="rotate(-0 135.18 142.065469)">Bring it up</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #2e2e2e" x="343.62" y="128.385469" transform="rotate(-0 343.62 128.385469)">Tear it down</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #2e2e2e" x="343.62" y="155.745469" transform="rotate(-0 343.62 155.745469)">and do not clean</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #2e2e2e" x="552.06" y="128.385469" transform="rotate(-0 552.06 128.385469)">Repeat</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #2e2e2e" x="552.06" y="155.745469" transform="rotate(-0 552.06 155.745469)">ten to twelve times</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="760.5" y="128.385469" transform="rotate(-0 760.5 128.385469)">Sample every round</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="760.5" y="155.745469" transform="rotate(-0 760.5 155.745469)">and overlap two on purpose</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="447.84" y="252.945469" transform="rotate(-0 447.84 252.945469)">ROLE-9 switched between 4 and 128 hosts on every cycle — 128 ran for the first time</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p6cebc3b35d">
+   <rect x="0" y="0" width="895.68" height="289.44"/>
+  </clipPath>
+ </defs>
+</svg>

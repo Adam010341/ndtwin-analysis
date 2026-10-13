@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="895.68pt" height="385.92pt" viewBox="0 0 895.68 385.92" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-16T13:51:33.160266</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 385.92 
+L 895.68 385.92 
+L 895.68 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 55.44 79.2 
+L 343.44 79.2 
+Q 347.04 79.2 347.04 82.8 
+L 347.04 160.56 
+Q 347.04 164.16 343.44 164.16 
+L 55.44 164.16 
+Q 51.84 164.16 51.84 160.56 
+L 51.84 82.8 
+Q 51.84 79.2 55.44 79.2 
+z
+" clip-path="url(#pc31f6c82d4)" style="fill: #f7f8f9; stroke: #d0d0d0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 399.6 79.2 
+L 840.24 79.2 
+Q 843.84 79.2 843.84 82.8 
+L 843.84 160.56 
+Q 843.84 164.16 840.24 164.16 
+L 399.6 164.16 
+Q 396 164.16 396 160.56 
+L 396 82.8 
+Q 396 79.2 399.6 79.2 
+z
+" clip-path="url(#pc31f6c82d4)" style="fill: #fbf2f0; stroke: #9c3b2e; stroke-width: 1.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 45.36 246.24 
+L 850.32 246.24 
+Q 853.92 246.24 853.92 249.84 
+L 853.92 300.24 
+Q 853.92 303.84 850.32 303.84 
+L 45.36 303.84 
+Q 41.76 303.84 41.76 300.24 
+L 41.76 249.84 
+Q 41.76 246.24 45.36 246.24 
+z
+" clip-path="url(#pc31f6c82d4)" style="fill: #fbf2f0; stroke: #9c3b2e; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 45.36 313.92 
+L 850.32 313.92 
+Q 853.92 313.92 853.92 317.52 
+L 853.92 367.92 
+Q 853.92 371.52 850.32 371.52 
+L 45.36 371.52 
+Q 41.76 371.52 41.76 367.92 
+L 41.76 317.52 
+Q 41.76 313.92 45.36 313.92 
+z
+" clip-path="url(#pc31f6c82d4)" style="fill: #f7f8f9; stroke: #d0d0d0; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 93.6 195.84 
+L 823.68 195.84 
+" clip-path="url(#pc31f6c82d4)" style="fill: none; stroke: #1a1a1a; stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 352.8 121.68 
+Q 371.52 121.68 388.978057 121.68 
+" style="fill: none; stroke: #9c3b2e; stroke-width: 1.4; stroke-linejoin: miter; stroke-linecap: round"/>
+    <path d="M 386.818057 120.24 
+L 388.978057 121.68 
+L 386.818057 123.12 
+z
+" style="fill: #9c3b2e; stroke: #9c3b2e; stroke-width: 1.4; stroke-linejoin: miter; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 93.6 188.64 
+L 93.6 203.04 
+" clip-path="url(#pc31f6c82d4)" style="fill: none; stroke: #1a1a1a; stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 312.624 188.64 
+L 312.624 203.04 
+" clip-path="url(#pc31f6c82d4)" style="fill: none; stroke: #1a1a1a; stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 823.68 188.64 
+L 823.68 203.04 
+" clip-path="url(#pc31f6c82d4)" style="fill: none; stroke: #1a1a1a; stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="447.84" y="40.916992" transform="rotate(-0 447.84 40.916992)">You switched it off. The poll switched it back.</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #6e6e6e" x="41.76" y="38.191738" transform="rotate(-0 41.76 38.191738)">RANK 4  ·  #46 / #36</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 10px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f4f4f" x="93.6" y="224.347891" transform="rotate(-0 93.6 224.347891)">you command it off</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 10px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f4f4f" x="312.624" y="224.347891" transform="rotate(-0 312.624 224.347891)">3.08 s later</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 10px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f4f4f" x="823.68" y="224.347891" transform="rotate(-0 823.68 224.347891)">the 30 s poll keeps running</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #6e6e6e" x="199.44" y="105.634668" transform="rotate(-0 199.44 105.634668)">THE SWITCH</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 13px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #2e2e2e" x="199.44" y="138.724258" transform="rotate(-0 199.44 138.724258)">off, and it stays off</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: middle; fill: #9c3b2e" x="619.92" y="105.634668" transform="rotate(-0 619.92 105.634668)">WHAT THE TWIN SAYS</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #9c3b2e" x="619.92" y="139.241836" transform="rotate(-0 619.92 139.241836)">up</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #9c3b2e" x="67.68" y="276.994668" transform="rotate(-0 67.68 276.994668)">HOW OFTEN</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="207.36" y="278.145469" transform="rotate(-0 207.36 278.145469)">2 runs out of 9 — the poll wrote is_up back to true</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #6e6e6e" x="67.68" y="344.674668" transform="rotate(-0 67.68 344.674668)">WHY IT MATTERS</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e2e2e" x="207.36" y="345.816914" transform="rotate(-0 207.36 345.816914)">the power command is the only way back, and it reads the flag the poll just overwrote</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pc31f6c82d4">
+   <rect x="0" y="0" width="895.68" height="385.92"/>
+  </clipPath>
+ </defs>
+</svg>
