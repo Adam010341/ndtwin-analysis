@@ -1,0 +1,5 @@
+# redcheck 20261027T045625Z; target /tmp/claude-1000/-home-adam-Desktop-NDTwin-Kernel/81a66108-3c82-46ed-8b6c-0e2f38c2eb53/scratchpad/seeded-cjk-1028; NDTwin_deck_1028.pptx sha256 1c56daaab925d091
+FAIL  commit-like token: notes 1: '12e5c080'
+FAIL  PR reference: script line 21: 'PR#41'
+FAIL  PR reference: script line 21: '#41'
+# content scan of /tmp/claude-1000/-home-adam-Desktop-NDTwin-Kernel/81a66108-3c82-46ed-8b6c-0e2f38c2eb53/scratchpad/seeded-cjk-1028: 3 hit(s) -> RED

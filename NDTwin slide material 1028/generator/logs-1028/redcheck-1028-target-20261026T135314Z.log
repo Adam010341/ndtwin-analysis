@@ -1,0 +1,7 @@
+# redcheck 20261026T135314Z; target /tmp/claude-1000/-home-adam-Desktop-NDTwin-Kernel/81a66108-3c82-46ed-8b6c-0e2f38c2eb53/scratchpad/seeded-bad-1028; NDTwin_deck_1028.pptx sha256 764cd21a4180bc4a
+FAIL  commit-like token: notes 1: 'a9d8925f'
+FAIL  rule-5 fix item: write replies that used to say 200 on failure: slide 2: 'honest write'
+FAIL  PR reference: script line 21: 'PR #42'
+FAIL  date stamp on a figure: figure figures/next/fig_p09_next.svg: '2026-10-26'
+FAIL  provenance on a figure (a date): figure figures/next/fig_p09_next.svg: '2026-10-26'
+# content scan of /tmp/claude-1000/-home-adam-Desktop-NDTwin-Kernel/81a66108-3c82-46ed-8b6c-0e2f38c2eb53/scratchpad/seeded-bad-1028: 5 hit(s) -> RED

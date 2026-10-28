@@ -1,0 +1,42 @@
+PAGE 9 FIGURE SPEC -- what comes next   (form: figure; evidence class: INFERRED, a plan)
+[Co-developed with claude code -- Adam]
+
+Title on canvas (= slide title): What comes next
+
+Column rule: NOW = being fixed now, or a document change; NEXT = needs a design decision or app work.
+No dates on the canvas. One box per step; the generator stops if ANY next step of P07 or P08 (template §2) is
+not drawn here.
+
+COLUMNS (id | label)
+  NOW  | NOW
+  NEXT | NEXT
+
+LANES (id | label)
+  fresh  | Fresh machine
+  docs   | API doc
+  decide | Decide
+  apps   | Apps
+
+BOXES (id | lane | column | label | from). The indented line under a box says where the step is stated.
+  B1 | fresh  | NOW  | Traffic-generator path | P07 row 1
+    P07 row 1 next step "fix, with tests" (Adam's brief: "(1) and (2) are being fixed with tests").
+  B2 | fresh  | NOW  | Log directory owner | P07 row 2
+    P07 row 2 next step "fix, with tests" (Adam's brief).
+  B3 | docs   | NOW  | Re-adopt needs a restarted switch | P07 row 3
+    P07 row 3 next step "API doc: needs a restarted switch" (Adam's brief: "(3) is a doc fix").
+  B4 | docs   | NOW  | Register and counter routes, limits | P08 row 1
+    P08 row 1 next step "add them, with limits, to the API doc" (proposal, template §3 item 3).
+  B5 | docs   | NOW  | /24 against a host's /32 | P08 row 2
+    P08 row 2 next step "say so in the API doc" (proposal, template §3 item 3).
+  B6 | decide | NEXT | Kernel pre-check of prefix forms | P08 row 3
+    P08 row 3 next step "decide: kernel pre-check refuses these forms" (proposal, template §3 item 3).
+  B7 | decide | NEXT | Flag a stale 0 at proxy start | P08 row 4
+    P08 row 4 next step "decide: flag it at proxy start" (proposal, template §3 item 3).
+  B8 | apps   | NEXT | An app that resends on the notice | P08 row 5
+    P08 row 5 next step "an app that resends on it" (proposal, template §3 item 3).
+
+The "optimised-build job" box of the first draft is dropped (review decision: CI process, rule 6/7). The two
+Live lab boxes (register and counter reads; int-v1 and ONTAS) are dropped: the second lab run ran them live, and
+P08 no longer lists them.
+
+Nothing else on the canvas: no legend, no arrows (no step needs another first), no date.

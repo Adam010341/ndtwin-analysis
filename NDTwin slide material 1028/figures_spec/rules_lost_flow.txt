@@ -1,0 +1,48 @@
+PAGE 4 FIGURE SPEC -- the rule-loss notice   (form: figure; evidence class: READ, code and docs at W 5ab1c66a)
+[Co-developed with claude code -- Adam]
+
+Title on canvas (= slide title): How the rule-loss notice reaches the app
+
+W = K/scratch/overnight-2026-09-05/wt-merge-head (the PR tree). Lines at W 5ab1c66a.
+
+LANES (top to bottom; id | label on canvas)
+  app    | App
+  kernel | NDTwin kernel
+  proxy  | P4 proxy
+  switch | bmv2 switch
+
+STEPS (id | lane | column | title | second line [| dashed]). Each step's evidence is the indented line(s) under it.
+A step is drawn dashed when its row ends in "| dashed": NDTwin does not do it, or no shipped app does it yet.
+  S1 | proxy  | 1 | Pipeline push | proxy restart, or re-adopt
+    W/doc/2026-01-02_ndt_api.md:660-662 (a proxy restart and POST /p4/readopt/{dpid} push the pipeline);
+    W/doc/KNOWN-ISSUES.md:338 (A-4c: every push the proxy makes itself: at start, and readopt). Re-adopt
+    follows a switch restart: W/p4_proxy/proxy_agent/api_routes.py:900.
+  S2 | switch | 2 | Every table emptied | Ryu-path rules gone
+    W/doc/2026-01-02_ndt_api.md:661-664 (the push empties every table; rules installed through the
+    Ryu-compatible routes are not put back).
+  S3 | proxy  | 3 | Lost rules recorded | per switch: ryu_rules_lost
+    W/p4_proxy/proxy_agent/topology_manager.py:1462 (record per dpid), :2349 (served in GET /p4/switch_state);
+    W/doc/2026-01-02_ndt_api.md:666-667, :688-698 (key table; replayed always false).
+  S4 | kernel | 4 | Copied to its graph node | in get_graph_data
+    W/src/ndt_core/power_management/P4RulesLost.cpp:117 (node["ryu_rules_lost"] = the proxy's object),
+    :99-101 (ERROR line "They were NOT replayed"); ndt_api.md:667-668 (copied verbatim, same 1 Hz request).
+  S5 | app    | 5 | Reads it, resends its rules | no app does this yet | dashed
+    W/doc/2026-01-02_ndt_api.md:666 ("so whoever installed the rules can resend them"), :690 ("Act once per
+    id"); W/doc/KNOWN-ISSUES.md:350-352 (apps poll get_graph_data and resend their own rules). Dashed: no shipped
+    app reads ryu_rules_lost (git grep at HEAD of the seven sibling repos is empty; template P08 row 5 sources).
+  S6 | switch | 5 | Rules back | only if the app resends | dashed
+    W/doc/2026-01-02_ndt_api.md:698 (replayed: always false); W/doc/KNOWN-ISSUES.md:372 (the rules stay gone
+    after a restart; this only makes it visible). Drawn DASHED: it is not done by NDTwin.
+
+ARROWS (from -> to | annotation or -; dashed if marked)
+  S1 -> S2 | -
+  S2 -> S3 | -
+  S3 -> S4 | polled at 1 Hz
+  S4 -> S5 | - | dashed
+  S5 -> S6 | resend | dashed
+
+Annotation evidence: "polled at 1 Hz" = ndt_api.md:667-668 (the kernel's 1 Hz GET /p4/switch_state request);
+"resend" = S5 above.
+
+Nothing else on the canvas: no legend (each dashed box's second line says why it is dashed),
+no source line, no date.

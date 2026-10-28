@@ -1,0 +1,3 @@
+# redcheck 20261027T144308Z; target /tmp/claude-1000/-home-adam-Desktop-NDTwin-Kernel/81a66108-3c82-46ed-8b6c-0e2f38c2eb53/scratchpad/seeded-verbatim-1028; NDTwin_deck_1028.pptx sha256 e30a6d5162689d62
+FAIL  commit-like token: verbatim line 17: 'a9d8925f'
+# content scan of /tmp/claude-1000/-home-adam-Desktop-NDTwin-Kernel/81a66108-3c82-46ed-8b6c-0e2f38c2eb53/scratchpad/seeded-verbatim-1028: 1 hit(s) -> RED

@@ -1,0 +1,60 @@
+# redcheck 20261026T135151Z; target .; NDTwin_deck_1028.pptx sha256 3ba13ed0872d188f
+# part A on the real deck
+# content scan of /home/adam/Desktop/NDTwin slide material/NDTwin slide material 1028: 0 hit(s) -> GREEN
+# part B.1: seeded copies of the deck (one bad thing each); the content scan must go RED with that rule
+ok    control: unseeded copy -> GREEN
+ok    seeded hash_in_slide (slide: 'a9d8925f'): wanted RED with 'commit-like token'; got RED ['commit-like token']
+ok    seeded hash_in_note (note: 'proxy 在 12e5c080 之後'): wanted RED with 'commit-like token'; got RED ['commit-like token']
+ok    seeded hash_in_script (script: '這是 commit 5ab1c66a 的結果。'): wanted RED with 'commit-like token'; got RED ['commit-like token']
+ok    seeded hash_on_figure (figure: 'cd3bd43b'): wanted RED with 'commit-like token'; got RED ['commit-like token', 'provenance on a figure (a commit sha or hash)']
+ok    seeded pr_ref_in_note (note: '見 PR #42'): wanted RED with 'PR reference'; got RED ['PR reference']
+ok    seeded pr_hash4x_in_script (script: '這在 #41 裡合併。'): wanted RED with 'PR reference'; got RED ['PR reference']
+ok    seeded date_on_figure (figure: '2026-10-26'): wanted RED with 'date stamp on a figure'; got RED ['date stamp on a figure', 'provenance on a figure (a date)']
+ok    seeded short_date_on_figure (figure: '10/26'): wanted RED with 'date stamp on a figure'; got RED ['date stamp on a figure']
+ok    seeded time_on_figure (figure: '12:05Z'): wanted RED with 'time stamp on a figure'; got RED ['provenance on a figure (a time stamp)', 'time stamp on a figure']
+ok    seeded generator_name_on_figure (figure: 'make_p04_rules_lost.py'): wanted RED with 'provenance on a figure'; got RED ['provenance on a figure (a file or generator name)']
+ok    seeded citation_in_note (note: '出處 api_routes.py:1604'): wanted RED with 'source citation'; got RED ['source citation']
+ok    seeded fix_502_in_script (script: '寫入失敗以前 used to say 200，現在 502。'): wanted RED with 'write replies that used to say 200'; got RED ['rule-5 fix item: write replies that used to say 200 on failure']
+ok    seeded fix_honest_write_in_slide (slide: 'honest write replies'): wanted RED with 'write replies that used to say 200'; got RED ['rule-5 fix item: write replies that used to say 200 on failure']
+ok    seeded fix_priority_check_in_note (note: 'priority validation 0 to 65535'): wanted RED with 'priority / dpid validation'; got RED ['rule-5 fix item: priority / dpid validation']
+ok    seeded fix_release_warning_in_script (script: '修掉 maybe-uninitialized 警告'): wanted RED with 'Release-build warnings'; got RED ['rule-5 fix item: Release-build warnings']
+ok    seeded fix_in_port_in_note (note: 'in_port is masked to its width'): wanted RED with 'in_port masking'; got RED ['rule-5 fix item: in_port masking']
+ok    seeded fix_localhost_in_slide (slide: 'bmv2 listens on 127.0.0.1'): wanted RED with 'binding bmv2/proxy to 127.0.0.1'; got RED ['rule-5 fix item: binding bmv2/proxy to 127.0.0.1']
+ok    seeded fix_journal_replay_in_script (script: 'table_entry journal replay after a proxy restart'): wanted RED with 'table-entry journal replay'; got RED ['rule-5 fix item: table-entry journal replay after a proxy restart']
+ok    seeded fix_modify_priority_in_note (note: "a modify lands at the slot's priority"): wanted RED with 'modify-priority landing'; got RED ['rule-5 fix item: modify-priority landing fix']
+ok    seeded repeat_ternary_in_slide (slide: 'ternary entries'): wanted RED with 'ternary/range/optional'; got RED ['rule-6 repeat of 10/14: ternary/range/optional writes']
+ok    seeded repeat_p4rt_error_in_note (note: 'p4rt_error in the 502'): wanted RED with 'P4Runtime error codes'; got RED ['rule-6 repeat of 10/14: P4Runtime error codes in a 502']
+ok    seeded repeat_detect_only_in_script (script: '外部控制器下只偵測斷線'): wanted RED with 'detect-only link down'; got RED ['rule-6 repeat of 10/14: detect-only link down']
+ok    seeded repeat_health_check_in_note (note: 'P4 health check'): wanted RED with 'the P4 health check'; got RED ['rule-6 repeat of 10/14: the P4 health check']
+ok    seeded title_over_45 (title: 'What a fresh machine exposed on the very first day of it'): wanted RED with 'slide title over 45'; got RED ['slide title over 45 chars']
+ok    seeded script_qna_section_dropped (script_drop: '## 被問到時不要這樣說'): wanted RED with '被問到時不要這樣說'; got RED ["script has no '被問到時不要這樣說' section"]
+# part B.2: generators on broken inputs must stop with their own named reason
+ok    control make_p04_rules_lost unbroken: rc=0
+ok    control make_p05_read_path unbroken: rc=0
+ok    control make_p09_next unbroken: rc=0
+ok    make_p04_rules_lost title_differs: rc=1; wanted reason 'canvas title is'; got: make_p04_rules_lost: rules_lost_flow.txt canvas title is 'How the notice reaches the app', the figure draws 'How the rule-loss notice reaches the app'
+ok    make_p04_rules_lost step_missing: rc=1; wanted reason 'STEPS are'; got: make_p04_rules_lost: STEPS are ['S1', 'S2', 'S3', 'S4', 'S5', 'S7'], the figure draws ['S1', 'S2', 'S3', 'S4', 'S5', 'S6']
+ok    make_p04_rules_lost unknown_lane: rc=1; wanted reason 'which LANES does not list'; got: make_p04_rules_lost: step S2 names lane 'fabric', which LANES does not list
+ok    make_p04_rules_lost no_evidence: rc=1; wanted reason 'has no evidence line'; got: make_p04_rules_lost: step S2 has no evidence line
+ok    make_p04_rules_lost arrow_to_undrawn: rc=1; wanted reason 'not a drawn step'; got: make_p04_rules_lost: arrow S4 -> S9 names S9, which is not a drawn step
+FAIL  make_p04_rules_lost label_too_long_for_box: rc=1; wanted reason 'sticks out of its box'; got: make_p04_rules_lost: step S3 label line 'Lost rules recorded, per pushed sw' is empty or longer than 30 chars
+ok    make_p04_rules_lost date_annotation: rc=1; wanted reason 'provenance text on the canvas'; got: fig_p04_rules_lost: provenance text on the canvas (it belongs in the notes, not on the figure): 'polled at 1 Hz (2026-10-26)' looks like a date
+ok    make_p05_read_path element_missing: rc=1; wanted reason 'no entry for element CHK2'; got: make_p05_read_path: read_path.txt has no entry for element CHK2
+ok    make_p05_read_path arrow_not_drawn: rc=1; wanted reason 'does not list'; got: make_p05_read_path: the figure draws arrow CHK1 -> CHK2, which read_path.txt does not list
+FAIL  make_p05_read_path label_too_long_for_box: rc=0; wanted reason 'sticks out of its box'; got: make_p05_read_path: wrote fig_p05_read_path (13 elements, 8 arrows)
+ok    make_p05_read_path commit_on_canvas: rc=1; wanted reason 'provenance text on the canvas'; got: fig_p05_read_path: provenance text on the canvas (it belongs in the notes, not on the figure): 'REST :8081 at a9d8925f' looks like a commit sha or hash
+ok    make_p09_next p07_step_not_drawn: rc=1; wanted reason 'P07 row 3 names next step'; got: make_p09_next: P07 row 3 names next step 'API doc: needs a restarted switch', but no box comes from it
+ok    make_p09_next box_in_unknown_lane: rc=1; wanted reason 'which LANES does not list'; got: make_p09_next: box B8 names lane 'build', which LANES does not list
+ok    make_p09_next bad_from: rc=1; wanted reason "is not 'P07 row N'"; got: make_p09_next: box B8 from 'someday' is not 'P07 row N', 'P08 row N' or 'brief'
+# part B.3: the deck build on broken copies of the template
+ok    control build unbroken: rc=0
+ok    build page_row_dropped: rc=1; wanted reason 'lists 8 pages'; got: Error: template section 1 lists 8 pages, want 9
+ok    build chars_wrong: rc=1; wanted reason 'chars column says 27'; got: Error: P07 chars column says 27, title is 28
+ok    build form_counts: rc=1; wanted reason 'form counts'; got: throw new Error("form counts are title/figure/table " + [count("title"), count("figure"), count("table")] +
+ok    build figure_file_missing: rc=1; wanted reason 'missing figure file'; got: if (!fs.existsSync(F + f)) throw new Error(pg.id + ": missing figure file " + f);
+ok    build figure_title_differs: rc=1; wanted reason 'canvas title is'; got: throw new Error(pg.id + ": figure " + stem + " canvas title is '" + head.replace(/^# \S+ -- /, "") + "', section 1 says '" + pg.title + "'");
+ok    build notes_block_missing: rc=1; wanted reason 'no block for P06'; got: Error: template section 2 has no block for P06
+ok    build table_row_extra_cell: rc=1; wanted reason 'table row'; got: cells.forEach((r, i) => { if (i !== 1 && r.length !== n) throw new Error(id + " table row " + i + " has " + r.length + " cells, header has " + n); });
+ok    build hash_in_note: rc=1; wanted reason 'commit-like token'; got: if (h) throw new Error(id + " " + what + " carries a commit-like token '" + h[0] + "'");
+ok    build pr_in_cell: rc=1; wanted reason 'PR reference'; got: if (p) throw new Error(id + " " + what + " carries a PR reference '" + p[0] + "'");
+# 2 FAIL (a FAIL here means a seeded copy stayed GREEN, a generator did not stop with its own reason, a control did not pass, or the real deck is not GREEN)

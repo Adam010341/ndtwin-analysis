@@ -1,0 +1,6 @@
+# seeded copy: /tmp/claude-1000/-home-adam-Desktop-NDTwin-Kernel/81a66108-3c82-46ed-8b6c-0e2f38c2eb53/scratchpad/seeded-cjk-1028 (note: 在12e5c080之後; script: 這在PR#41裡合併；這在#41裡合併)
+# BEFORE the fix (re.I only): 0 commit/PR hit(s) on the seeded copy -> GREEN (the gap)
+FAIL  commit-like token notes 1 '12e5c080'
+FAIL  PR reference script line 21 'PR#41'
+FAIL  PR reference script line 21 '#41'
+# AFTER the fix (re.I | re.A): 3 commit/PR hit(s) on the seeded copy -> RED
